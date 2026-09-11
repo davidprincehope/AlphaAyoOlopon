@@ -1,13 +1,12 @@
-"""Initial tests for the Ayo Olopon OpenSpiel game."""
+"""Tests for the Oware OpenSpiel game."""
 
 import pyspiel
 
-from Model import oware  # noqa: F401  Ensures registration occurs.
+from Model.oware import oware  # noqa: F401 Ensures registration occurs.
 
 
 def _state_with_position(board, current_player=0, captured=None):
-    """Create a state from a compact board position for rule tests."""
-    game = pyspiel.load_game("ayo_olopon")
+    game = pyspiel.load_game("oware")
     state = game.new_initial_state()
     state.board = list(board)
     state.captured = list(captured or [0, 0])
@@ -17,12 +16,12 @@ def _state_with_position(board, current_player=0, captured=None):
     return state
 
 
-def test_ayo_game_is_registered():
-    assert "ayo_olopon" in pyspiel.registered_names()
+def test_oware_game_is_registered():
+    assert "oware" in pyspiel.registered_names()
 
 
 def test_initial_board():
-    game = pyspiel.load_game("ayo_olopon")
+    game = pyspiel.load_game("oware")
     state = game.new_initial_state()
 
     assert state.current_player() == 0
@@ -64,8 +63,6 @@ def test_grand_slam_sows_but_does_not_capture():
 
 
 def test_empty_opponent_row_requires_a_feeding_move():
-    state = _state_with_position(
-        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    )
+    state = _state_with_position([1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 
     assert state.legal_actions() == []

@@ -2,7 +2,7 @@
 
 import pyspiel
 
-from Model import oware  # noqa: F401  Ensures registration occurs.
+from Model.ayo_olopon import ayo_olopon  # noqa: F401
 
 
 def _state_with_position(board, current_player=0, captured=None):

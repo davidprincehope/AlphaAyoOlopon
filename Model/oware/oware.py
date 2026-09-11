@@ -1,9 +1,4 @@
-"""Python implementation of the OpenSpiel Oware game.
-
-The rule implementation mirrors ``open_spiel/games/oware`` in the C++
-version. The names ``AyoGame`` and ``AyoState`` are retained so existing
-project code can continue to load ``ayo_olopon``.
-"""
+"""Python implementation of the OpenSpiel Oware game."""
 
 import numpy as np
 import pyspiel
@@ -18,8 +13,8 @@ _MAX_GAME_LENGTH = 1000
 
 
 _GAME_TYPE = pyspiel.GameType(
-    short_name="ayo_olopon",
-    long_name="Ayo Olopon (Oware rules)",
+    short_name="oware",
+    long_name="Oware",
     dynamics=pyspiel.GameType.Dynamics.SEQUENTIAL,
     chance_mode=pyspiel.GameType.ChanceMode.DETERMINISTIC,
     information=pyspiel.GameType.Information.PERFECT_INFORMATION,
@@ -55,21 +50,34 @@ class AyoGame(pyspiel.Game):
     """Game-level configuration shared by all Ayo/Oware states."""
 
     def __init__(self, params=None):
-        """Create a game using the supplied board-size parameters."""
-        super().__init__(_GAME_TYPE, _GAME_INFO, params or {})
+        """Create a game using the supplied board-size parameters.
+
+        Returns: None.
+        """
+        # Example input: {"num_houses_per_player": 6, "num_seeds_per_house": 4}
+        params = params or {}
+        super().__init__(_GAME_TYPE, _GAME_INFO, params)
         self.num_houses_per_player = int(
-            self.params.get("num_houses_per_player", _DEFAULT_HOUSES_PER_PLAYER)
+            params.get("num_houses_per_player", _DEFAULT_HOUSES_PER_PLAYER)
         )
         self.num_seeds_per_house = int(
-            self.params.get("num_seeds_per_house", _DEFAULT_SEEDS_PER_HOUSE)
+            params.get("num_seeds_per_house", _DEFAULT_SEEDS_PER_HOUSE)
         )
 
     def new_initial_state(self):
-        """Return a new game state in the starting position."""
+        """Return a new game state in the starting position.
+
+        Returns: A new AyoState object.
+        """
+        # Example input: no arguments (call as game.new_initial_state())
         return AyoState(self)
 
     def make_py_observer(self, iig_obs_type=None, params=None):
-        """Create the observer used to convert states into RL inputs."""
+        """Create the observer used to convert states into RL inputs.
+
+        Returns: A new AyoObserver object.
+        """
+        # Example input: iig_obs_type=None, params=None
         return AyoObserver(
             iig_obs_type or pyspiel.IIGObservationType(perfect_recall=False),
             params or {},
@@ -90,7 +98,11 @@ class AyoState(pyspiel.State):
     """
 
     def __init__(self, game):
-        """Initialize the board, scores, turn, and repetition tracking."""
+        """Initialize the board, scores, turn, and repetition tracking.
+
+        Returns: None.
+        """
+        # Example input: game = AyoGame()
         super().__init__(game)
         self.num_houses_per_player = game.num_houses_per_player
         self.num_houses = _NUM_PLAYERS * self.num_houses_per_player
@@ -107,46 +119,86 @@ class AyoState(pyspiel.State):
         self._positions_since_capture = {self._position_key()}
 
     def _position_key(self):
-        """Return a hashable representation of the current game position."""
+        """Return a hashable representation of the current game position.
+
+        Returns: A tuple containing the player, scores, and board.
+        """
+        # Example input: no arguments (call as state._position_key())
         return (self._current_player, tuple(self.captured), tuple(self.board))
 
     def current_player(self):
-        """Return the current player, or TERMINAL after the game ends."""
+        """Return the current player, or TERMINAL after the game ends.
+
+        Returns: The current player number or pyspiel.PlayerId.TERMINAL.
+        """
+        # Example input: no arguments (call as state.current_player())
         return pyspiel.PlayerId.TERMINAL if self._game_over else self._current_player
 
     def _player_lower_house(self, player):
-        """Return the first board index belonging to a player."""
+        """Return the first board index belonging to a player.
+
+        Returns: An integer board index.
+        """
+        # Example input: player=1
         return player * self.num_houses_per_player
 
     def _player_upper_house(self, player):
-        """Return the last board index belonging to a player."""
+        """Return the last board index belonging to a player.
+
+        Returns: An integer board index.
+        """
+        # Example input: player=1
         return self._player_lower_house(player) + self.num_houses_per_player - 1
 
     def _lower_house(self, house):
-        """Return the first index in the row containing a house."""
+        """Return the first index in the row containing a house.
+
+        Returns: An integer board index.
+        """
+        # Example input: house=8
         return (house // self.num_houses_per_player) * self.num_houses_per_player
 
     def _upper_house(self, house):
-        """Return the last index in the row containing a house."""
+        """Return the last index in the row containing a house.
+
+        Returns: An integer board index.
+        """
+        # Example input: house=8
         return self._lower_house(house) + self.num_houses_per_player - 1
 
     def _action_to_house(self, player, action):
-        """Convert a player's local action into a board index."""
+        """Convert a player's local action into a board index.
+
+        Returns: An integer board index.
+        """
+        # Example input: player=1, action=2
         return player * self.num_houses_per_player + action
 
     def _house_to_action(self, house):
-        """Convert a board index into its local action number."""
+        """Convert a board index into its local action number.
+
+        Returns: An integer action number.
+        """
+        # Example input: house=8
         return house % self.num_houses_per_player
 
     def _opponent_seeds(self):
-        """Return the number of seeds currently in the opponent's row."""
+        """Return the number of seeds currently in the opponent's row.
+
+        Returns: The opponent's seed count as an integer.
+        """
+        # Example input: no arguments (call as state._opponent_seeds())
         opponent = 1 - self._current_player
         lower = self._player_lower_house(opponent)
         upper = self._player_upper_house(opponent)
         return sum(self.board[lower : upper + 1])
 
     def _legal_actions(self, player):
-        """Return the actions the specified player may currently choose."""
+        """Return the actions the specified player may currently choose.
+
+        Returns: A list of legal action numbers.
+        """
+        # Example input: player=0
         if self._game_over or player not in (0, 1):
             return []
 
@@ -168,7 +220,11 @@ class AyoState(pyspiel.State):
         ]
 
     def _distribute_seeds(self, house):
-        """Sow one seed at a time, skipping the source house."""
+        """Sow one seed at a time, skipping the source house.
+
+        Returns: The index of the house receiving the final seed.
+        """
+        # Example input: house=2
         to_distribute = self.board[house]
         if to_distribute == 0:
             raise ValueError("Cannot sow from an empty house")
@@ -182,20 +238,35 @@ class AyoState(pyspiel.State):
         return index
 
     def _in_opponent_row(self, house):
-        """Return whether a house belongs to the opponent's row."""
+        """Return whether a house belongs to the opponent's row.
+
+        Returns: True if the house is in the opponent's row; otherwise False.
+        """
+        # Example input: house=8
         return house // self.num_houses_per_player != self._current_player
 
     @staticmethod
     def _should_capture(seeds):
-        """Return whether a house with this seed count can be captured."""
+        """Return whether a house with this seed count can be captured.
+
+        Returns: True if the seed count is capturable; otherwise False.
+        """
+        # Example input: seeds=2
+        # Capture rules in this variant arent the same as oware 
         return _MIN_CAPTURE <= seeds <= _MAX_CAPTURE
 
     def _is_grand_slam(self, house):
-        """Return whether capturing from ``house`` empties the opponent row."""
+        """Return whether capturing from ``house`` empties the opponent row.
+
+        Returns: True if the capture empties the opponent's row; otherwise False.
+        """
+        # Example input: house=8
         for index in range(self._upper_house(house), house, -1):
             if self.board[index] > 0:
                 return False
         lower = self._lower_house(house)
+
+        # For the variant i am considering the grand slam rule is applied but backwards capture rule isnt applied 
         return all(
             self.board[index] > 0
             and self._should_capture(self.board[index])
@@ -203,7 +274,12 @@ class AyoState(pyspiel.State):
         )
 
     def _capture_from(self, house):
-        """Capture consecutive 2- or 3-seed opponent houses backwards."""
+        """Capture consecutive 2- or 3-seed opponent houses backwards.
+
+        Returns: The number of seeds captured.
+        """
+        # Example input: house=8
+        #Also this capture function will be modified for the ayo olopon variant 
         captured = 0
         lower = self._lower_house(house)
         for index in range(house, lower - 1, -1):
@@ -215,7 +291,11 @@ class AyoState(pyspiel.State):
         return captured
 
     def _score_terminal(self):
-        """Return whether the captured-seed scores meet a terminal condition."""
+        """Return whether the captured-seed scores meet a terminal condition.
+
+        Returns: True if a score-based terminal condition is met; otherwise False.
+        """
+        # Example input: no arguments (call as state._score_terminal())
         limit = self.total_seeds // 2
         return (
             self.captured[0] > limit
@@ -224,7 +304,11 @@ class AyoState(pyspiel.State):
         )
 
     def _set_score_returns_and_end(self):
-        """Mark the game finished and assign returns from the final scores."""
+        """Mark the game finished and assign returns from the final scores.
+
+        Returns: None.
+        """
+        # Example input: no arguments (call as state._set_score_returns_and_end())
         self._game_over = True
         if self.captured[0] > self.captured[1]:
             self._returns = [1.0, -1.0]
@@ -234,7 +318,11 @@ class AyoState(pyspiel.State):
             self._returns = [0.0, 0.0]
 
     def _collect_and_terminate(self):
-        """Award remaining seeds to the owners of their rows."""
+        """Award remaining seeds to the owners of their rows.
+
+        Returns: None.
+        """
+        # Example input: no arguments (call as state._collect_and_terminate())
         for house, seeds in enumerate(self.board):
             owner = house // self.num_houses_per_player
             self.captured[owner] += seeds
@@ -242,7 +330,11 @@ class AyoState(pyspiel.State):
         self._set_score_returns_and_end()
 
     def _apply_action(self, action):
-        """Apply an action, including sowing, captures, and end checks."""
+        """Apply an action, including sowing, captures, and end checks.
+
+        Returns: None.
+        """
+        # Example input: action=2
         if action not in self._legal_actions(self._current_player):
             raise ValueError(f"Illegal action: {action}")
 
@@ -272,19 +364,35 @@ class AyoState(pyspiel.State):
             self._collect_and_terminate()
 
     def is_terminal(self):
-        """Return whether the game has reached a terminal state."""
+        """Return whether the game has reached a terminal state.
+
+        Returns: True if the game is over; otherwise False.
+        """
+        # Example input: no arguments (call as state.is_terminal())
         return self._game_over
 
     def returns(self):
-        """Return final payoffs, or zero payoffs while play continues."""
+        """Return final payoffs, or zero payoffs while play continues.
+
+        Returns: A list containing the two players' payoffs.
+        """
+        # Example input: no arguments (call as state.returns())
         return list(self._returns) if self._game_over else [0.0, 0.0]
 
     def _action_to_string(self, player, action):
-        """Return the display label for a player's action."""
+        """Return the display label for a player's action.
+
+        Returns: A string action label such as ``A2`` or ``a2``.
+        """
+        # Example input: player=0, action=2
         return f"{'A' if player == 0 else 'a'}{action}"
 
     def __str__(self):
-        """Return a readable summary of the board and game status."""
+        """Return a readable summary of the board and game status.
+
+        Returns: A string containing the board, scores, player, and status.
+        """
+        # Example input: no arguments (call as str(state))
         return (
             f"Board: {self.board}\n"
             f"Captured: {self.captured}\n"
@@ -297,7 +405,11 @@ class AyoObserver:
     """Flat normalized observation: houses followed by both scores."""
 
     def __init__(self, iig_obs_type, params, game):
-        """Create storage for a normalized observation tensor."""
+        """Create storage for a normalized observation tensor.
+
+        Returns: None.
+        """
+        # Example input: iig_obs_type=None, params={}, game=AyoGame()
         del iig_obs_type
         if params:
             raise ValueError(f"Observation parameters are not supported: {params}")
@@ -306,13 +418,21 @@ class AyoObserver:
         self.dict = {"observation": self.tensor}
 
     def set_from(self, state, player):
-        """Copy a game state into the observer's normalized tensor."""
+        """Copy a game state into the observer's normalized tensor.
+
+        Returns: None.
+        """
+        # Example input: state=game.new_initial_state(), player=0
         del player
         self.tensor[: state.num_houses] = np.asarray(state.board) / state.total_seeds
         self.tensor[state.num_houses :] = np.asarray(state.captured) / state.total_seeds
 
     def string_from(self, state, player):
-        """Return a string representation of the observed state."""
+        """Return a string representation of the observed state.
+
+        Returns: A string representation of the state.
+        """
+        # Example input: state=game.new_initial_state(), player=0
         del player
         return str(state)
 
