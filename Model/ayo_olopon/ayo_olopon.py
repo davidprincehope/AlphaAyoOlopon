@@ -1,9 +1,4 @@
-"""Python implementation of the OpenSpiel Oware game.
-
-The rule implementation mirrors ``open_spiel/games/oware`` in the C++
-version. The names ``AyoGame`` and ``AyoState`` are retained so existing
-project code can continue to load ``ayo_olopon``.
-"""
+"""Python implementation of the OpenSpiel Ayo Olopon game."""
 
 import numpy as np
 import pyspiel
@@ -12,14 +7,12 @@ import pyspiel
 _NUM_PLAYERS = 2
 _DEFAULT_HOUSES_PER_PLAYER = 6
 _DEFAULT_SEEDS_PER_HOUSE = 4
-_MIN_CAPTURE = 2
-_MAX_CAPTURE = 3
 _MAX_GAME_LENGTH = 1000
 
 
 _GAME_TYPE = pyspiel.GameType(
     short_name="ayo_olopon",
-    long_name="Ayo Olopon (Oware rules)",
+    long_name="Ayo Olopon",
     dynamics=pyspiel.GameType.Dynamics.SEQUENTIAL,
     chance_mode=pyspiel.GameType.ChanceMode.DETERMINISTIC,
     information=pyspiel.GameType.Information.PERFECT_INFORMATION,
@@ -91,7 +84,7 @@ class AyoGame(pyspiel.Game):
 
 
 class AyoState(pyspiel.State):
-    """One mutable position in an Oware game.
+    """One mutable position in an Ayo Olopon game.
 
     ``board`` is laid out in sowing order:
 
@@ -250,50 +243,31 @@ class AyoState(pyspiel.State):
         # Example input: house=8
         return house // self.num_houses_per_player != self._current_player
 
-    @staticmethod
-    def _should_capture(seeds):
-        """Return whether a house with this seed count can be captured.
+    def _sow_relay(self, house):
+        """Sow successive laps until the Ayo move-ending rule is reached.
 
-        Returns: True if the seed count is capturable; otherwise False.
+        The last seed of each lap is inspected immediately. A landing pit
+        containing four seeds is captured and ends the move. A landing pit
+        containing one seed was empty before that seed was dropped, so it
+        ends the move without a capture. Any other landing count means the
+        pit was non-empty before the last seed; all of its seeds are picked
+        up and become the source for the next lap.
+
+        Returns: True if the move captured four seeds, otherwise False.
         """
-        # Example input: seeds=2
-        # Capture rules in this variant arent the same as oware 
-        return _MIN_CAPTURE <= seeds <= _MAX_CAPTURE
+        while True:
+            last_house = self._distribute_seeds(house)
+            landing_seeds = self.board[last_house]
 
-    def _is_grand_slam(self, house):
-        """Return whether capturing from ``house`` empties the opponent row.
+            if landing_seeds == 4:
+                self.board[last_house] = 0
+                self.captured[self._current_player] += 4
+                return True
 
-        Returns: True if the capture empties the opponent's row; otherwise False.
-        """
-        # Example input: house=8
-        for index in range(self._upper_house(house), house, -1):
-            if self.board[index] > 0:
+            if landing_seeds == 1:
                 return False
-        lower = self._lower_house(house)
 
-        # For the variant i am considering the grand slam rule is applied but backwards capture rule isnt applied 
-        return all(
-            self.board[index] > 0
-            and self._should_capture(self.board[index])
-            for index in range(house, lower - 1, -1)
-        )
-
-    def _capture_from(self, house):
-        """Capture consecutive 2- or 3-seed opponent houses backwards.
-
-        Returns: The number of seeds captured.
-        """
-        # Example input: house=8
-        #Also this capture function will be modified for the ayo olopon variant 
-        captured = 0
-        lower = self._lower_house(house)
-        for index in range(house, lower - 1, -1):
-            if not self._should_capture(self.board[index]):
-                break
-            captured += self.board[index]
-            self.board[index] = 0
-        self.captured[self._current_player] += captured
-        return captured
+            house = last_house
 
     def _score_terminal(self):
         """Return whether the captured-seed scores meet a terminal condition.
@@ -344,15 +318,10 @@ class AyoState(pyspiel.State):
             raise ValueError(f"Illegal action: {action}")
 
         house = self._action_to_house(self._current_player, action)
-        last_house = self._distribute_seeds(house)
-
-        if self._in_opponent_row(last_house) and not self._is_grand_slam(
-            last_house
-        ):
-            if self._capture_from(last_house) > 0:
-                # Captured seeds cannot return to the board, so earlier
-                # positions cannot recur after a capture.
-                self._positions_since_capture.clear()
+        if self._sow_relay(house):
+            # Captured seeds cannot return to the board, so earlier positions
+            # cannot recur after a capture.
+            self._positions_since_capture.clear()
 
         self._current_player = 1 - self._current_player
 
