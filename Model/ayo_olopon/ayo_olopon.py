@@ -8,6 +8,7 @@ _NUM_PLAYERS = 2
 _DEFAULT_HOUSES_PER_PLAYER = 6
 _DEFAULT_SEEDS_PER_HOUSE = 4
 _MAX_GAME_LENGTH = 1000
+_MAX_RELAY_LAPS = 10_000
 
 
 _GAME_TYPE = pyspiel.GameType(
@@ -29,6 +30,7 @@ _GAME_TYPE = pyspiel.GameType(
     parameter_specification={
         "num_houses_per_player": _DEFAULT_HOUSES_PER_PLAYER,
         "num_seeds_per_house": _DEFAULT_SEEDS_PER_HOUSE,
+        "enable_cycle_reporting": False,
     },
 )
 
@@ -61,6 +63,7 @@ class AyoGame(pyspiel.Game):
         self.num_seeds_per_house = int(
             params.get("num_seeds_per_house", _DEFAULT_SEEDS_PER_HOUSE)
         )
+        self.enable_cycle_reporting = bool(params.get("enable_cycle_reporting", False))
 
     def new_initial_state(self):
         """Return a new game state in the starting position.
@@ -115,6 +118,8 @@ class AyoState(pyspiel.State):
         self._game_over = False
         self._returns = [0.0, 0.0]
         self._positions_since_capture = {self._position_key()}
+        self._last_relay_report = None
+        self._enable_cycle_reporting = game.enable_cycle_reporting
 
     def _position_key(self):
         """Return a hashable representation of the current game position.
@@ -131,6 +136,14 @@ class AyoState(pyspiel.State):
         """
         # Example input: no arguments (call as state.current_player())
         return pyspiel.PlayerId.TERMINAL if self._game_over else self._current_player
+
+    @property
+    def last_relay_report(self):
+        """Return the cycle report produced by the most recent action, if any.
+
+        Returns: A serializable relay-cycle report or None.
+        """
+        return self._last_relay_report
 
     def _player_lower_house(self, player):
         """Return the first board index belonging to a player.
@@ -217,24 +230,6 @@ class AyoState(pyspiel.State):
             if self.board[house] > 0
         ]
 
-    def _distribute_seeds(self, house):
-        """Sow one seed at a time, skipping the source house.
-
-        Returns: The index of the house receiving the final seed.
-        """
-        # Example input: house=2
-        to_distribute = self.board[house]
-        if to_distribute == 0:
-            raise ValueError("Cannot sow from an empty house")
-        self.board[house] = 0
-        index = house
-        while to_distribute > 0:
-            index = (index + 1) % self.num_houses
-            if index != house:
-                self.board[index] += 1
-                to_distribute -= 1
-        return index
-
     def _in_opponent_row(self, house):
         """Return whether a house belongs to the opponent's row.
 
@@ -243,31 +238,145 @@ class AyoState(pyspiel.State):
         # Example input: house=8
         return house // self.num_houses_per_player != self._current_player
 
-    def _sow_relay(self, house):
-        """Sow successive laps until the Ayo move-ending rule is reached.
+    def _sow_relay(self, house, action):
+        """Sow seed-by-seed, including captures and relay sowing.
 
-        The last seed of each lap is inspected immediately. A landing pit
-        containing four seeds is captured and ends the move. A landing pit
-        containing one seed was empty before that seed was dropped, so it
-        ends the move without a capture. Any other landing count means the
-        pit was non-empty before the last seed; all of its seeds are picked
-        up and become the source for the next lap.
+        A pit that reaches four while seeds remain in hand is captured by the
+        owner of that row and sowing continues. If the final seed creates
+        four, the current player captures it and the move ends. Otherwise, a
+        final seed in an occupied pit starts the next relay lap.
 
-        Returns: True if the move captured four seeds, otherwise False.
+        Returns: None.
         """
-        while True:
-            last_house = self._distribute_seeds(house)
-            landing_seeds = self.board[last_house]
+        original_house = house
+        self._last_relay_report = None
+        relay_trace = [] if self._enable_cycle_reporting else None
+        seen = {}
 
-            if landing_seeds == 4:
-                self.board[last_house] = 0
-                self.captured[self._current_player] += 4
+        for relay_number in range(_MAX_RELAY_LAPS):
+            signature = (
+                tuple(self.board),
+                tuple(self.captured),
+                house,
+            )
+
+            if signature in seen:
+                if not self._enable_cycle_reporting:
+                    self._collect_and_terminate()
+                    return True
+                cycle_start = seen[signature]
+                report = {
+                    "reason": "repeated_relay_state",
+                    "player": self._current_player,
+                    "action": int(action),
+                    "source_house": original_house,
+                    "cycle_start_relay": cycle_start,
+                    "cycle_end_relay": relay_number,
+                    "cycle_length": relay_number - cycle_start,
+                    "board": list(self.board),
+                    "captured": list(self.captured),
+                    "active_house": house,
+                    "relay_trace": relay_trace,
+                }
+                report["board_before_resolution"] = list(self.board)
+                report["captured_before_resolution"] = list(self.captured)
+                self._collect_and_terminate()
+                report["resolution"] = "collect_remaining_seeds_by_row"
+                report["board_after_resolution"] = list(self.board)
+                report["captured_after_resolution"] = list(self.captured)
+                report["winner"] = (
+                    0
+                    if self.captured[0] > self.captured[1]
+                    else 1
+                    if self.captured[1] > self.captured[0]
+                    else None
+                )
+                self._last_relay_report = report
                 return True
 
+            seen[signature] = relay_number
+            board_before = list(self.board) if self._enable_cycle_reporting else None
+            captured_before = list(self.captured) if self._enable_cycle_reporting else None
+            to_distribute = self.board[house]
+            if to_distribute == 0:
+                raise ValueError("Cannot sow from an empty house")
+            self.board[house] = 0
+            last_house = house
+            seed_path = [] if self._enable_cycle_reporting else None
+
+            while to_distribute > 0:
+                last_house = (last_house + 1) % self.num_houses
+                if last_house == house:
+                    continue
+
+                self.board[last_house] += 1
+                to_distribute -= 1
+                if self._enable_cycle_reporting:
+                    seed_path.append(last_house)
+
+                if self.board[last_house] == 4:
+                    # If sowing continues, the row owner receives the
+                    # capture. A four made by the final seed belongs to the
+                    # player who played the move.
+                    capturer = (
+                        self._current_player
+                        if to_distribute == 0
+                        else last_house // self.num_houses_per_player
+                    )
+                    self.board[last_house] = 0
+                    self.captured[capturer] += 4
+                    if to_distribute == 0:
+                        return True
+
+            landing_seeds = self.board[last_house]
+            if self._enable_cycle_reporting:
+                relay_trace.append({
+                    "relay": relay_number + 1,
+                    "source_house": house,
+                    "hand_seeds": board_before[house],
+                    "seed_path": seed_path,
+                    "landing_house": last_house,
+                    "landing_seeds": landing_seeds,
+                    "board_before": board_before,
+                    "board_after": list(self.board),
+                    "captured_before": captured_before,
+                    "captured_after": list(self.captured),
+                })
             if landing_seeds == 1:
                 return False
 
             house = last_house
+
+        if not self._enable_cycle_reporting:
+            self._collect_and_terminate()
+            return True
+
+        report = {
+            "reason": "relay_lap_limit_exceeded",
+            "player": self._current_player,
+            "action": int(action),
+            "source_house": original_house,
+            "relay_lap_limit": _MAX_RELAY_LAPS,
+            "board": list(self.board),
+            "captured": list(self.captured),
+            "active_house": house,
+            "relay_trace": relay_trace,
+        }
+        report["board_before_resolution"] = list(self.board)
+        report["captured_before_resolution"] = list(self.captured)
+        self._collect_and_terminate()
+        report["resolution"] = "collect_remaining_seeds_by_row"
+        report["board_after_resolution"] = list(self.board)
+        report["captured_after_resolution"] = list(self.captured)
+        report["winner"] = (
+            0
+            if self.captured[0] > self.captured[1]
+            else 1
+            if self.captured[1] > self.captured[0]
+            else None
+        )
+        self._last_relay_report = report
+        return True
 
     def _score_terminal(self):
         """Return whether the captured-seed scores meet a terminal condition.
@@ -318,7 +427,7 @@ class AyoState(pyspiel.State):
             raise ValueError(f"Illegal action: {action}")
 
         house = self._action_to_house(self._current_player, action)
-        if self._sow_relay(house):
+        if self._sow_relay(house, action):
             # Captured seeds cannot return to the board, so earlier positions
             # cannot recur after a capture.
             self._positions_since_capture.clear()
