@@ -8,7 +8,7 @@ from Model.ayo_olopon import ayo_olopon  # noqa: F401
 
 def _state_with_position(board, current_player=0, captured=None):
     """Create a state from a compact board position for rule tests."""
-    game = pyspiel.load_game("ayo_olopon")
+    game = pyspiel.load_game("ayo_olopon", {"enable_cycle_reporting": True})
     state = game.new_initial_state()
     state.board = list(board)
     state.captured = list(captured or [0, 0])
@@ -98,6 +98,21 @@ def test_landing_on_four_captures_and_ends_move():
     assert state.current_player() == 1
 
 
+def test_intermediate_four_is_captured_by_row_owner_and_sowing_continues():
+    state = _state_with_position(
+        [0, 0, 0, 0, 0, 5, 3, 0, 0, 0, 0, 0]
+    )
+
+    state.apply_action(5)
+
+    # The first seed lands in opponent pit 6, changing 3 to 4 while four
+    # seeds remain in hand. Player 1 owns that row and receives the capture;
+    # the remaining seeds continue to pits 7 through 10.
+    assert state.board == [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0]
+    assert state.captured == [0, 4]
+    assert state.current_player() == 1
+
+
 def test_non_terminal_landing_pit_is_picked_up_for_relay_sowing():
     state = _state_with_position(
         [2, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0]
@@ -122,6 +137,31 @@ def test_relay_continues_across_multiple_laps_until_landing_on_four():
     assert state.board == [0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0]
     assert state.captured == [4, 0]
     assert state.current_player() == 1
+
+
+def test_relay_cycle_resolves_by_collecting_remaining_seeds():
+    state = _state_with_position(
+        [2, 1, 0, 2, 1, 0, 1, 0, 1, 3, 1, 0],
+        current_player=1,
+        captured=[16, 20],
+    )
+
+    state.apply_action(3)
+
+    report = state.last_relay_report
+    assert report["reason"] == "repeated_relay_state"
+    assert report["player"] == 1
+    assert report["action"] == 3
+    assert report["source_house"] == 9
+    assert report["cycle_length"] == 60
+    assert len(report["relay_trace"]) == 60
+    assert report["resolution"] == "collect_remaining_seeds_by_row"
+    assert report["board_after_resolution"] == [0] * 12
+    assert report["captured_after_resolution"] == [22, 26]
+    assert report["winner"] == 1
+    assert state.board == [0] * 12
+    assert state.captured == [22, 26]
+    assert state.is_terminal()
 
 
 def test_empty_opponent_row_requires_a_feeding_move():
