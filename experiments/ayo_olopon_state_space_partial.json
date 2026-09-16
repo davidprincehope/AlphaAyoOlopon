@@ -1,0 +1,43 @@
+{
+  "search_method": "Frontier-Based BFS",
+  "state_representation": "(board, captured, current_player)",
+  "initial_state": {
+    "board": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "captured": [
+      0,
+      0
+    ],
+    "current_player": 0
+  },
+  "unique_reachable_states": 1000,
+  "terminal_states": 1,
+  "states_by_bfs_depth": {
+    "0": 1,
+    "1": 6,
+    "2": 32,
+    "3": 140,
+    "4": 624,
+    "5": 197
+  },
+  "maximum_bfs_depth": 5,
+  "maximum_frontier_size": 624,
+  "peak_visited_set_size": 1000,
+  "duplicate_transposition_attempts": 17,
+  "total_transitions_generated": 1016,
+  "runtime_seconds": 0.46444179999980406,
+  "peak_tracemalloc_bytes": 1465828,
+  "enumeration_complete": false
+}

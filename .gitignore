@@ -1,4 +1,50 @@
 .github
+
+# Local development and build outputs
+.vscode/
+.pytest_cache/
+.venv/
+build/
+cmake-build-*/
+
+# Python generated files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Test, coverage, and runtime logs
+.coverage
+htmlcov/
+coverage.xml
+*.log
+
+# Vendored OpenSpiel: retain its C++ build graph, ignore non-C++ components
+/open_spiel-master/.github/
+/open_spiel-master/docs/
+/open_spiel-master/open_spiel/colabs/
+/open_spiel-master/open_spiel/data/
+/open_spiel-master/open_spiel/julia/
+/open_spiel-master/open_spiel/python/
+/open_spiel-master/open_spiel/rust/
+/open_spiel-master/*.md
+/open_spiel-master/*.yml
+/open_spiel-master/*.yaml
+/open_spiel-master/*.toml
+/open_spiel-master/Dockerfile*
+/open_spiel-master/install.sh
+/open_spiel-master/requirements.txt
+/open_spiel-master/MANIFEST.in
+/open_spiel-master/__init__.py
+
+# Non-C++ OpenSpiel files inside otherwise-needed C++ directories
+/open_spiel-master/open_spiel/**/*.py
+/open_spiel-master/open_spiel/**/*.pyi
+/open_spiel-master/open_spiel/**/*.ipynb
+/open_spiel-master/open_spiel/**/*.jl
+/open_spiel-master/open_spiel/**/*.rs
+/open_spiel-master/open_spiel/**/*.sh
+/open_spiel-master/open_spiel/**/*.md
+
 Model\ayo_olopon\__pycache__
 Model/ayo_olopon/__pycache__/
 tests/ayo_olopon/__pycache__/
