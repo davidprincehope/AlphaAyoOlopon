@@ -20,6 +20,9 @@ if(DEFINED CMAKE_BUILD_TYPE)
 endif()
 
 # This is the CMake entry point in the bundled OpenSpiel clone.
+# The enumerator embeds its own game and needs only OpenSpiel's core. Avoid
+# configuring the bundled project's unrelated games, examples, and tests.
+set(OPEN_SPIEL_MINIMAL_BUILD ON)
 add_subdirectory(${OPEN_SPIEL_ROOT} ${CMAKE_BINARY_DIR}/open_spiel)
 
 set(REPOSITORY_ROOT ${CMAKE_CURRENT_LIST_DIR}/../..)
