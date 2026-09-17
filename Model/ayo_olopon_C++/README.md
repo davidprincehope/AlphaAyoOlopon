@@ -29,6 +29,18 @@ cmake --build build/ayo_olopon_cpp --target ayo_state_space_enumerator
 ./build/ayo_olopon_cpp/ayo_state_space_enumerator ayo_state_space_results.json
 ```
 
+The run is checkpointed after every completed level. To resume an interrupted
+run, use the same output path and `--resume`:
+
+```bash
+./build/ayo_olopon_cpp/ayo_state_space_enumerator \
+  ayo_state_space_results.json --resume
+```
+
+The checkpoint consists of `ayo_state_space_results.json.checkpoint.bin`,
+`ayo_state_space_results.json.visited.bin`, and the matching frontier file.
+Do not delete or rename these files between runs.
+
 For a bounded smoke test, provide a maximum depth, for example:
 
 ```bash

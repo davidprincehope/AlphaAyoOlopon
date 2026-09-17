@@ -7,6 +7,7 @@
 #include <cstdio>
 #include <cstdint>
 #include <fstream>
+#include <filesystem>
 #include <iomanip>
 #include <iostream>
 #include <memory>
@@ -134,6 +135,74 @@ void ReplaceFile(const std::string& temporary, const std::string& target) {
     throw std::runtime_error("Unable to replace frontier file");
 }
 
+struct Checkpoint {
+  uint64_t depth = 0;
+  uint64_t visited_bytes = 0;
+  Metrics metrics;
+};
+
+void WriteCheckpoint(const std::string& path, const Checkpoint& checkpoint) {
+  const std::string temporary = path + ".tmp";
+  std::ofstream out(temporary, std::ios::binary | std::ios::trunc);
+  if (!out) throw std::runtime_error("Cannot create checkpoint");
+  const uint64_t magic = 0x41594f434b505431ULL;  // AYOCKPT1.
+  const uint64_t count = checkpoint.metrics.states_by_depth.size();
+  out.write(reinterpret_cast<const char*>(&magic), sizeof(magic));
+  out.write(reinterpret_cast<const char*>(&checkpoint.depth), sizeof(checkpoint.depth));
+  out.write(reinterpret_cast<const char*>(&checkpoint.visited_bytes), sizeof(checkpoint.visited_bytes));
+  out.write(reinterpret_cast<const char*>(&checkpoint.metrics.terminal_states), sizeof(uint64_t));
+  out.write(reinterpret_cast<const char*>(&checkpoint.metrics.duplicate_attempts), sizeof(uint64_t));
+  out.write(reinterpret_cast<const char*>(&checkpoint.metrics.transitions), sizeof(uint64_t));
+  out.write(reinterpret_cast<const char*>(&checkpoint.metrics.peak_frontier), sizeof(uint64_t));
+  out.write(reinterpret_cast<const char*>(&count), sizeof(count));
+  for (uint64_t value : checkpoint.metrics.states_by_depth)
+    out.write(reinterpret_cast<const char*>(&value), sizeof(value));
+  out.close();
+  if (!out) throw std::runtime_error("Failed writing checkpoint");
+  ReplaceFile(temporary, path);
+}
+
+Checkpoint ReadCheckpoint(const std::string& path) {
+  std::ifstream in(path, std::ios::binary);
+  if (!in) throw std::runtime_error("Cannot open checkpoint");
+  uint64_t magic = 0;
+  Checkpoint checkpoint;
+  uint64_t count = 0;
+  in.read(reinterpret_cast<char*>(&magic), sizeof(magic));
+  in.read(reinterpret_cast<char*>(&checkpoint.depth), sizeof(checkpoint.depth));
+  in.read(reinterpret_cast<char*>(&checkpoint.visited_bytes), sizeof(checkpoint.visited_bytes));
+  in.read(reinterpret_cast<char*>(&checkpoint.metrics.terminal_states), sizeof(uint64_t));
+  in.read(reinterpret_cast<char*>(&checkpoint.metrics.duplicate_attempts), sizeof(uint64_t));
+  in.read(reinterpret_cast<char*>(&checkpoint.metrics.transitions), sizeof(uint64_t));
+  in.read(reinterpret_cast<char*>(&checkpoint.metrics.peak_frontier), sizeof(uint64_t));
+  in.read(reinterpret_cast<char*>(&count), sizeof(count));
+  if (!in || magic != 0x41594f434b505431ULL || count > 1000000)
+    throw std::runtime_error("Invalid checkpoint");
+  checkpoint.metrics.states_by_depth.resize(static_cast<size_t>(count));
+  for (uint64_t& value : checkpoint.metrics.states_by_depth)
+    in.read(reinterpret_cast<char*>(&value), sizeof(value));
+  if (!in) throw std::runtime_error("Truncated checkpoint");
+  return checkpoint;
+}
+
+void LoadVisited(const std::string& path, uint64_t bytes,
+                 absl::flat_hash_set<StateKey, StateKeyHash>* visited) {
+  if (bytes % sizeof(StateKey) != 0) throw std::runtime_error("Invalid visited offset");
+  std::fstream log(path, std::ios::in | std::ios::out | std::ios::binary);
+  if (!log) throw std::runtime_error("Cannot open visited log");
+  log.seekp(0, std::ios::end);
+  const auto actual = static_cast<uint64_t>(log.tellp());
+  if (actual < bytes) throw std::runtime_error("Visited log is truncated");
+  if (actual > bytes) {
+    log.close();
+    std::filesystem::resize_file(path, bytes);
+  }
+  std::ifstream input(path, std::ios::binary);
+  StateKey key;
+  while (input.read(reinterpret_cast<char*>(&key), sizeof(key))) visited->insert(key);
+  if (!input.eof()) throw std::runtime_error("Failed reading visited log");
+}
+
 void WriteJson(const std::string& path, const Metrics& m, uint64_t elapsed_ms,
                uint64_t peak_rss) {
   std::ofstream out(path);
@@ -160,11 +229,22 @@ void WriteJson(const std::string& path, const Metrics& m, uint64_t elapsed_ms,
 }
 
 int Run(int argc, char** argv) {
-  if (argc > 3)
+  if (argc > 4)
     throw std::runtime_error(
-        "Usage: enumerate_state_space [output.json] [max_depth]");
-  const std::string output = argc >= 2 ? argv[1] : "ayo_state_space_results.json";
-  const int max_depth = argc == 3 ? std::stoi(argv[2]) : -1;
+        "Usage: enumerate_state_space [output.json] [max_depth] [--resume]");
+  const std::string output = argc >= 2 && std::string(argv[1]) != "--resume"
+                                 ? argv[1]
+                                 : "ayo_state_space_results.json";
+  bool resume = false;
+  int max_depth = -1;
+  for (int i = 1; i < argc; ++i) {
+    const std::string argument = argv[i];
+    if (argument == "--resume") {
+      resume = true;
+    } else if (i > 1 || argument != output) {
+      max_depth = std::stoi(argument);
+    }
+  }
   if (max_depth < -1) throw std::runtime_error("max_depth must be non-negative");
   const auto start = std::chrono::steady_clock::now();
   const std::shared_ptr<const Game> game = open_spiel::LoadGame("ayo_olopon");
@@ -172,25 +252,48 @@ int Run(int argc, char** argv) {
   visited.reserve(50'000'000);
   visited.max_load_factor(0.80);
   Metrics m;
-  const std::string frontier_path = output + ".frontier.bin";
-  const std::string next_path = output + ".next_frontier.bin";
-  {
+  const std::string visited_path = output + ".visited.bin";
+  const std::string checkpoint_path = output + ".checkpoint.bin";
+  uint64_t depth = 0;
+  std::string frontier_path;
+  if (resume) {
+    const Checkpoint checkpoint = ReadCheckpoint(checkpoint_path);
+    depth = checkpoint.depth;
+    m = checkpoint.metrics;
+    LoadVisited(visited_path, checkpoint.visited_bytes, &visited);
+    frontier_path = output + ".frontier." + std::to_string(depth) + ".bin";
+    if (!std::filesystem::exists(frontier_path))
+      throw std::runtime_error("Checkpoint frontier is missing");
+    std::cout << "Resuming at BFS depth " << depth << ", visited="
+              << visited.size() << "\n";
+  } else {
+    frontier_path = output + ".frontier.0.bin";
     std::ofstream initial(frontier_path, std::ios::binary | std::ios::trunc);
-    if (!initial) throw std::runtime_error("Cannot create frontier file");
+    std::ofstream visited_log(visited_path, std::ios::binary | std::ios::trunc);
+    if (!initial || !visited_log)
+      throw std::runtime_error("Cannot create initial checkpoint files");
     std::unique_ptr<State> state = game->NewInitialState();
     CheckInvariant(*state, 0, -1);
-    visited.insert(CanonicalState(*state));
+    const StateKey key = CanonicalState(*state);
+    visited.insert(key);
+    visited_log.write(reinterpret_cast<const char*>(&key), sizeof(key));
     WriteRecord(initial, state->Serialize());
+    m.states_by_depth.push_back(1);
+    m.peak_frontier = 1;
+    WriteCheckpoint(checkpoint_path, {0, sizeof(StateKey), m});
   }
-  m.states_by_depth.push_back(1);
-  m.peak_frontier = 1;
 
-  for (int depth = 0;; ++depth) {
+  bool exhausted = false;
+  for (;;) {
     if (max_depth >= 0 && depth >= max_depth) break;
     std::ifstream current(frontier_path, std::ios::binary);
     if (!current) throw std::runtime_error("Cannot open frontier file");
-    std::ofstream next(next_path, std::ios::binary | std::ios::trunc);
-    if (!next) throw std::runtime_error("Cannot create next frontier file");
+    const std::string temporary = output + ".frontier." +
+                                  std::to_string(depth + 1) + ".tmp";
+    std::ofstream next(temporary, std::ios::binary | std::ios::trunc);
+    std::ofstream visited_log(visited_path, std::ios::binary | std::ios::app);
+    if (!next || !visited_log)
+      throw std::runtime_error("Cannot create checkpoint output");
     uint64_t next_count = 0;
     std::string serialized;
     while (ReadRecord(current, &serialized)) {
@@ -202,10 +305,12 @@ int Run(int argc, char** argv) {
       for (Action action : state->LegalActions()) {
         ++m.transitions;
         std::unique_ptr<State> child = state->Child(action);
-        CheckInvariant(*child, depth + 1, action);
-        if (!visited.insert(CanonicalState(*child)).second) {
+        CheckInvariant(*child, static_cast<int>(depth + 1), action);
+        const StateKey key = CanonicalState(*child);
+        if (!visited.insert(key).second) {
           ++m.duplicate_attempts;
         } else {
+          visited_log.write(reinterpret_cast<const char*>(&key), sizeof(key));
           WriteRecord(next, child->Serialize());
           ++next_count;
         }
@@ -213,26 +318,39 @@ int Run(int argc, char** argv) {
     }
     current.close();
     next.close();
-    if (next_count == 0) break;
+    visited_log.flush();
+    visited_log.close();
+    if (next_count == 0) {
+      exhausted = true;
+      break;
+    }
     m.states_by_depth.push_back(next_count);
     m.peak_frontier = std::max<uint64_t>(m.peak_frontier, next_count);
     std::cout << "BFS depth " << depth + 1 << ": frontier=" << next_count
               << ", visited=" << visited.size() << "\n" << std::flush;
-    ReplaceFile(next_path, frontier_path);
+    const std::string committed = output + ".frontier." +
+                                  std::to_string(depth + 1) + ".bin";
+    ReplaceFile(temporary, committed);
+    std::ifstream visited_size(visited_path, std::ios::binary | std::ios::ate);
+    const uint64_t committed_bytes = static_cast<uint64_t>(visited_size.tellg());
+    WriteCheckpoint(checkpoint_path, {depth + 1, committed_bytes, m});
+    if (frontier_path != committed) std::remove(frontier_path.c_str());
+    frontier_path = committed;
+    ++depth;
     const auto progress_elapsed =
         std::chrono::duration_cast<std::chrono::milliseconds>(
             std::chrono::steady_clock::now() - start);
     WriteJson(output, m, progress_elapsed.count(), PeakResidentBytes());
   }
 
-  m.complete = true;
+  m.complete = exhausted;
   const auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(
       std::chrono::steady_clock::now() - start);
   const uint64_t peak_rss = PeakResidentBytes();
   WriteJson(output, m, elapsed.count(), peak_rss);
   uint64_t total = 0;
   for (uint64_t n : m.states_by_depth) total += n;
-  std::cout << "Enumeration complete: YES\n"
+  std::cout << "Enumeration complete: " << (m.complete ? "YES" : "NO") << "\n"
             << "Total unique positional states: " << total << "\n"
             << "Maximum BFS depth: " << m.states_by_depth.size() - 1 << "\n"
             << "Terminal states: " << m.terminal_states << "\n"
