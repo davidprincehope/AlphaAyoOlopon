@@ -29,6 +29,11 @@ cmake --build build/ayo_olopon_cpp --target ayo_state_space_enumerator
 ./build/ayo_olopon_cpp/ayo_state_space_enumerator ayo_state_space_results.json
 ```
 
+A prebuilt Windows/MSYS2 UCRT64 executable is also provided at
+`artifacts/ayo_state_space_enumerator-win64-ucrt64.exe`. It requires the
+MSYS2 UCRT64 runtime DLLs (`libstdc++-6.dll`, `libgcc_s_seh-1.dll`, and
+`libwinpthread-1.dll`) to be available on `PATH`.
+
 For a bounded smoke test, provide a maximum depth, for example:
 
 ```bash
