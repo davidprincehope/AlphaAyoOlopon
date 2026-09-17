@@ -4,6 +4,7 @@
 
 #include <algorithm>
 #include <chrono>
+#include <cstdio>
 #include <cstdint>
 #include <fstream>
 #include <iomanip>
@@ -110,6 +111,29 @@ struct Metrics {
   bool complete = false;
 };
 
+void WriteRecord(std::ofstream& out, const std::string& record) {
+  const uint64_t size = record.size();
+  out.write(reinterpret_cast<const char*>(&size), sizeof(size));
+  out.write(record.data(), static_cast<std::streamsize>(size));
+  if (!out) throw std::runtime_error("Failed writing frontier record");
+}
+
+bool ReadRecord(std::ifstream& in, std::string* record) {
+  uint64_t size = 0;
+  if (!in.read(reinterpret_cast<char*>(&size), sizeof(size))) return false;
+  if (size > (1ULL << 32)) throw std::runtime_error("Corrupt frontier record");
+  record->resize(static_cast<size_t>(size));
+  if (!in.read(record->data(), static_cast<std::streamsize>(size)))
+    throw std::runtime_error("Truncated frontier record");
+  return true;
+}
+
+void ReplaceFile(const std::string& temporary, const std::string& target) {
+  std::remove(target.c_str());
+  if (std::rename(temporary.c_str(), target.c_str()) != 0)
+    throw std::runtime_error("Unable to replace frontier file");
+}
+
 void WriteJson(const std::string& path, const Metrics& m, uint64_t elapsed_ms,
                uint64_t peak_rss) {
   std::ofstream out(path);
@@ -136,23 +160,41 @@ void WriteJson(const std::string& path, const Metrics& m, uint64_t elapsed_ms,
 }
 
 int Run(int argc, char** argv) {
-  if (argc > 2) throw std::runtime_error("Usage: enumerate_state_space [output.json]");
-  const std::string output = argc == 2 ? argv[1] : "ayo_state_space_results.json";
+  if (argc > 3)
+    throw std::runtime_error(
+        "Usage: enumerate_state_space [output.json] [max_depth]");
+  const std::string output = argc >= 2 ? argv[1] : "ayo_state_space_results.json";
+  const int max_depth = argc == 3 ? std::stoi(argv[2]) : -1;
+  if (max_depth < -1) throw std::runtime_error("max_depth must be non-negative");
   const auto start = std::chrono::steady_clock::now();
   const std::shared_ptr<const Game> game = open_spiel::LoadGame("ayo_olopon");
-  std::vector<std::unique_ptr<State>> frontier;
-  frontier.push_back(game->NewInitialState());
-
   absl::flat_hash_set<StateKey, StateKeyHash> visited;
+  visited.reserve(50'000'000);
+  visited.max_load_factor(0.80);
   Metrics m;
-  CheckInvariant(*frontier.front(), 0, -1);
-  visited.insert(CanonicalState(*frontier.front()));
+  const std::string frontier_path = output + ".frontier.bin";
+  const std::string next_path = output + ".next_frontier.bin";
+  {
+    std::ofstream initial(frontier_path, std::ios::binary | std::ios::trunc);
+    if (!initial) throw std::runtime_error("Cannot create frontier file");
+    std::unique_ptr<State> state = game->NewInitialState();
+    CheckInvariant(*state, 0, -1);
+    visited.insert(CanonicalState(*state));
+    WriteRecord(initial, state->Serialize());
+  }
   m.states_by_depth.push_back(1);
   m.peak_frontier = 1;
 
-  for (int depth = 0; !frontier.empty(); ++depth) {
-    std::vector<std::unique_ptr<State>> next;
-    for (const auto& state : frontier) {
+  for (int depth = 0;; ++depth) {
+    if (max_depth >= 0 && depth >= max_depth) break;
+    std::ifstream current(frontier_path, std::ios::binary);
+    if (!current) throw std::runtime_error("Cannot open frontier file");
+    std::ofstream next(next_path, std::ios::binary | std::ios::trunc);
+    if (!next) throw std::runtime_error("Cannot create next frontier file");
+    uint64_t next_count = 0;
+    std::string serialized;
+    while (ReadRecord(current, &serialized)) {
+      std::unique_ptr<State> state = game->DeserializeState(serialized);
       if (state->IsTerminal()) {
         ++m.terminal_states;
         continue;
@@ -164,16 +206,23 @@ int Run(int argc, char** argv) {
         if (!visited.insert(CanonicalState(*child)).second) {
           ++m.duplicate_attempts;
         } else {
-          next.push_back(std::move(child));
+          WriteRecord(next, child->Serialize());
+          ++next_count;
         }
       }
     }
-    if (next.empty()) break;
-    m.states_by_depth.push_back(next.size());
-    m.peak_frontier = std::max<uint64_t>(m.peak_frontier, next.size());
-    std::cout << "BFS depth " << depth + 1 << ": frontier=" << next.size()
+    current.close();
+    next.close();
+    if (next_count == 0) break;
+    m.states_by_depth.push_back(next_count);
+    m.peak_frontier = std::max<uint64_t>(m.peak_frontier, next_count);
+    std::cout << "BFS depth " << depth + 1 << ": frontier=" << next_count
               << ", visited=" << visited.size() << "\n" << std::flush;
-    frontier = std::move(next);
+    ReplaceFile(next_path, frontier_path);
+    const auto progress_elapsed =
+        std::chrono::duration_cast<std::chrono::milliseconds>(
+            std::chrono::steady_clock::now() - start);
+    WriteJson(output, m, progress_elapsed.count(), PeakResidentBytes());
   }
 
   m.complete = true;

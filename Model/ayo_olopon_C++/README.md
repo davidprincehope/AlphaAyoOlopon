@@ -29,6 +29,12 @@ cmake --build build/ayo_olopon_cpp --target ayo_state_space_enumerator
 ./build/ayo_olopon_cpp/ayo_state_space_enumerator ayo_state_space_results.json
 ```
 
+For a bounded smoke test, provide a maximum depth, for example:
+
+```bash
+./build/ayo_olopon_cpp/ayo_state_space_enumerator smoke.json 3
+```
+
 Run these commands from the MSYS2 UCRT64 terminal so `g++`, `mingw32-make`,
 and their runtime libraries are on `PATH`. The enumerator stops only when the
 frontier is empty and reports `Enumeration complete: YES`; its output JSON
