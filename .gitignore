@@ -25,3 +25,14 @@ Model/ayo_olopon/__pycache__/ayo_olopon.cpython-314.pyc
 tests/ayo_olopon/episode_cycle_game_5.json
 
 build/
+
+experiments/heuristic/transfer_features
+experiments/heuristic/raw_results
+experiments/heuristic/openings
+experiments/heuristic/__pycache__
+experiments/heuristic/configs
+experiments/heuristic/raw_results_corrected
+
+Algorithms/__pycache__
+
+tests/ayo_olopon/test_ayo_transfer_features.py
