@@ -1,0 +1,137 @@
+{
+  "experiment": "handcrafted_vs_eoh_ayo",
+  "status": "completed",
+  "opening_file_sha256": "971dba4079f260d733418fed6f008130b56778fd947584f8292669b2c92b2735",
+  "split_used": "development_only",
+  "selection_and_verification_positions_opened": false,
+  "handcrafted_policy": "H_CTM weights capture=4, tactical=2, mobility=0.5; terminal=+/-10",
+  "eoh_policy": "H_star_ayo.py; candidate g2-m2-05",
+  "depths": {
+    "1": "greedy immediate successor",
+    "2": "one opponent reply; max root action of min reply evaluator"
+  },
+  "tie_break": "first action in OpenSpiel legal-action order",
+  "game_length_limit": 300,
+  "action_limit_score": "captured-seed differential; equal differential is draw",
+  "randomness": "none; both policies and all tie breaks are deterministic",
+  "games": 280,
+  "match_log": "experiments\\handcrafted_vs_eoh\\matches.jsonl",
+  "summary": {
+    "1": {
+      "label": "greedy_successor",
+      "games": 140,
+      "termination_reasons": {
+        "terminal_win": 94,
+        "terminal_draw": 46,
+        "repetition": 0,
+        "action_limit": 0
+      },
+      "policies": {
+        "handcrafted": {
+          "wins": 30,
+          "draws": 46,
+          "losses": 64,
+          "score_sum": 53.0,
+          "games": 140,
+          "decision_count": 1850,
+          "policy_seconds": 3.3111841019126587,
+          "score_rate": 0.37857142857142856
+        },
+        "eoh": {
+          "wins": 64,
+          "draws": 46,
+          "losses": 30,
+          "score_sum": 87.0,
+          "games": 140,
+          "decision_count": 1836,
+          "policy_seconds": 1.0688132003415376,
+          "score_rate": 0.6214285714285714
+        }
+      },
+      "by_policy_seat": {
+        "handcrafted": {
+          "0": {
+            "wins": 13,
+            "draws": 21,
+            "losses": 36
+          },
+          "1": {
+            "wins": 17,
+            "draws": 25,
+            "losses": 28
+          }
+        },
+        "eoh": {
+          "0": {
+            "wins": 28,
+            "draws": 25,
+            "losses": 17
+          },
+          "1": {
+            "wins": 36,
+            "draws": 21,
+            "losses": 13
+          }
+        }
+      }
+    },
+    "2": {
+      "label": "one_opponent_reply",
+      "games": 140,
+      "termination_reasons": {
+        "terminal_win": 108,
+        "terminal_draw": 32,
+        "repetition": 0,
+        "action_limit": 0
+      },
+      "policies": {
+        "handcrafted": {
+          "wins": 55,
+          "draws": 32,
+          "losses": 53,
+          "score_sum": 71.0,
+          "games": 140,
+          "decision_count": 2880,
+          "policy_seconds": 35.42453749862034,
+          "score_rate": 0.5071428571428571
+        },
+        "eoh": {
+          "wins": 53,
+          "draws": 32,
+          "losses": 55,
+          "score_sum": 69.0,
+          "games": 140,
+          "decision_count": 2902,
+          "policy_seconds": 12.36943120037904,
+          "score_rate": 0.4928571428571429
+        }
+      },
+      "by_policy_seat": {
+        "handcrafted": {
+          "0": {
+            "wins": 22,
+            "draws": 14,
+            "losses": 34
+          },
+          "1": {
+            "wins": 33,
+            "draws": 18,
+            "losses": 19
+          }
+        },
+        "eoh": {
+          "0": {
+            "wins": 19,
+            "draws": 18,
+            "losses": 33
+          },
+          "1": {
+            "wins": 34,
+            "draws": 14,
+            "losses": 22
+          }
+        }
+      }
+    }
+  }
+}

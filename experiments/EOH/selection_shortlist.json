@@ -1,0 +1,297 @@
+{
+  "candidates": [
+    {
+      "candidate_id": "g3-m1-01",
+      "generation": 3,
+      "operator": "M1",
+      "parents": [
+        "g1-m2-01"
+      ],
+      "model": "gpt-6-luna",
+      "thought": "Keep the parent\u2019s captured lead, side-seed balance, and pit mobility signals; raise the captured lead slightly and normalize the seed signal by the total seeds.",
+      "source": "def evaluate_state(state_view, player_id):\n    start = player_id * 6\n    other = (1 - player_id) * 6\n    board = state_view.board\n    own = board[start:start + 6]\n    opp = board[other:other + 6]\n    store_lead = state_view.captured[player_id] - state_view.captured[1 - player_id]\n    side_lead = sum(own) - sum(opp)\n    total = sum(own) + sum(opp)\n    mobility = (1 if own[0] > 0 else 0) + (1 if own[1] > 0 else 0) + (1 if own[2] > 0 else 0) + (1 if own[3] > 0 else 0) + (1 if own[4] > 0 else 0) + (1 if own[5] > 0 else 0)\n    other_mobility = (1 if opp[0] > 0 else 0) + (1 if opp[1] > 0 else 0) + (1 if opp[2] > 0 else 0) + (1 if opp[3] > 0 else 0) + (1 if opp[4] > 0 else 0) + (1 if opp[5] > 0 else 0)\n    score = 2.8 * store_lead + 0.18 * side_lead / (1 + total) + 0.22 * (mobility - other_mobility)\n    return max(-10.0, min(10.0, score / 3.0))",
+      "source_sha256": "bb714428ac9a65a0645489329f256053896dd8c09afa73121ef22ecaa917e8bc",
+      "validation": {
+        "ok": true,
+        "reason": "passed",
+        "scores": [
+          -7.059999999999999,
+          7.059999999999999,
+          -7.38,
+          7.38,
+          -7.22,
+          7.22,
+          -3.9039999999999995,
+          3.9039999999999995,
+          -3.9039999999999995,
+          3.9039999999999995,
+          -3.733333333333333,
+          3.733333333333333,
+          7.293333333333333,
+          -7.293333333333333,
+          10.0,
+          -10.0,
+          3.733333333333333,
+          -3.733333333333333,
+          3.9039999999999995,
+          -3.9039999999999995
+        ]
+      },
+      "fitness": 0.39749999999999996,
+      "score_rate": 0.6025,
+      "fitness_details": {
+        "anchor-1": {
+          "wins": 62,
+          "draws": 48,
+          "losses": 30,
+          "truncations": 0,
+          "games": 140,
+          "score_sum": 86.0,
+          "seconds": 2.3825925994315185,
+          "plies": 3547
+        },
+        "anchor-2": {
+          "wins": 56,
+          "draws": 30,
+          "losses": 54,
+          "truncations": 0,
+          "games": 140,
+          "score_sum": 71.0,
+          "seconds": 3.138428299978841,
+          "plies": 4003
+        },
+        "anchor-3": {
+          "wins": 64,
+          "draws": 37,
+          "losses": 39,
+          "truncations": 0,
+          "games": 140,
+          "score_sum": 82.5,
+          "seconds": 2.6302395001403056,
+          "plies": 3830
+        },
+        "anchor-4": {
+          "wins": 67,
+          "draws": 45,
+          "losses": 28,
+          "truncations": 0,
+          "games": 140,
+          "score_sum": 89.5,
+          "seconds": 2.3056468995055184,
+          "plies": 3595
+        },
+        "anchor-5": {
+          "wins": 62,
+          "draws": 48,
+          "losses": 30,
+          "truncations": 0,
+          "games": 140,
+          "score_sum": 86.0,
+          "seconds": 2.440674799727276,
+          "plies": 3547
+        },
+        "RND": {
+          "wins": 86,
+          "draws": 21,
+          "losses": 33,
+          "truncations": 0,
+          "games": 140,
+          "score_sum": 96.5,
+          "seconds": 2.0816782999318093,
+          "plies": 4345
+        }
+      },
+      "objective": 0.3975
+    },
+    {
+      "parent": "g1-m1-04",
+      "thought": "Tune g1-m1-04 by strengthening captured lead and mobility while slightly reducing normalized seed balance.",
+      "source": "def evaluate_state(state_view, player_id):\n    board = state_view.board\n    captured = state_view.captured\n    other = 1 - player_id\n    own = board[player_id * 6:player_id * 6 + 6]\n    opp = board[other * 6:other * 6 + 6]\n    seed_diff = sum(own) - sum(opp)\n    total = sum(own) + sum(opp)\n    mobility_diff = (own[0] > 0) + (own[1] > 0) + (own[2] > 0) + (own[3] > 0) + (own[4] > 0) + (own[5] > 0) - (opp[0] > 0) - (opp[1] > 0) - (opp[2] > 0) - (opp[3] > 0) - (opp[4] > 0) - (opp[5] > 0)\n    return max(-10.0, min(10.0, 0.80 * (captured[player_id] - captured[other]) + 0.18 * seed_diff / (1 + total) + 0.30 * mobility_diff))",
+      "id": "g2-m2-05",
+      "generation": 2,
+      "operator": "M2",
+      "model": "gpt-6-luna",
+      "source_sha256": "1be272704c60811ba53ffe28e47c90ea21d50e04e8e3371ab0e01fd291bd2880",
+      "candidate_id": "g2-m2-05",
+      "parents": [
+        "g1-m1-04"
+      ],
+      "validation": {
+        "ok": true,
+        "reason": "passed",
+        "scores": [
+          4.78,
+          6.0600000000000005,
+          5.42,
+          3.8720000000000003,
+          3.8720000000000003,
+          3.2,
+          5.720000000000001,
+          8.928000000000003,
+          -3.2,
+          -3.8720000000000003
+        ]
+      },
+      "fitness": 0.3978571428571428,
+      "score_rate": 0.6021428571428572,
+      "fitness_details": {
+        "anchor-1": {
+          "wins": 62,
+          "draws": 48,
+          "losses": 30,
+          "truncations": 0,
+          "games": 140,
+          "score_sum": 86.0,
+          "seconds": 2.283516699972097,
+          "plies": 3548
+        },
+        "anchor-2": {
+          "wins": 56,
+          "draws": 30,
+          "losses": 54,
+          "truncations": 0,
+          "games": 140,
+          "score_sum": 71.0,
+          "seconds": 3.1383745994535275,
+          "plies": 4004
+        },
+        "anchor-3": {
+          "wins": 64,
+          "draws": 37,
+          "losses": 39,
+          "truncations": 0,
+          "games": 140,
+          "score_sum": 82.5,
+          "seconds": 2.5828876001178287,
+          "plies": 3829
+        },
+        "anchor-4": {
+          "wins": 67,
+          "draws": 45,
+          "losses": 28,
+          "truncations": 0,
+          "games": 140,
+          "score_sum": 89.5,
+          "seconds": 2.306404999748338,
+          "plies": 3591
+        },
+        "anchor-5": {
+          "wins": 62,
+          "draws": 48,
+          "losses": 30,
+          "truncations": 0,
+          "games": 140,
+          "score_sum": 86.0,
+          "seconds": 2.321988799783867,
+          "plies": 3548
+        },
+        "RND": {
+          "wins": 86,
+          "draws": 20,
+          "losses": 34,
+          "truncations": 0,
+          "games": 140,
+          "score_sum": 96.0,
+          "seconds": 2.0484892002423294,
+          "plies": 4306
+        }
+      },
+      "objective": 0.39786
+    },
+    {
+      "parent": "g1-m1-04",
+      "thought": "Tune g1-m1-04 by raising the captured-lead weight and reducing the normalized seed-balance and mobility weights.",
+      "source": "def evaluate_state(state_view, player_id):\n    board = state_view.board\n    captured = state_view.captured\n    other = 1 - player_id\n    own = board[player_id * 6:player_id * 6 + 6]\n    opp = board[other * 6:other * 6 + 6]\n    seed_diff = sum(own) - sum(opp)\n    total = sum(own) + sum(opp)\n    mobility_diff = (own[0] > 0) + (own[1] > 0) + (own[2] > 0) + (own[3] > 0) + (own[4] > 0) + (own[5] > 0) - (opp[0] > 0) - (opp[1] > 0) - (opp[2] > 0) - (opp[3] > 0) - (opp[4] > 0) - (opp[5] > 0)\n    return max(-10.0, min(10.0, 0.85 * (captured[player_id] - captured[other]) + 0.20 * seed_diff / (1 + total) + 0.10 * mobility_diff))",
+      "id": "g2-m2-01",
+      "generation": 2,
+      "operator": "M2",
+      "model": "gpt-6-luna",
+      "source_sha256": "f1de8d4c404bdb68d33f1344eec21642b80912b3deb844238b96b76e14509aa9",
+      "candidate_id": "g2-m2-01",
+      "parents": [
+        "g1-m1-04"
+      ],
+      "validation": {
+        "ok": true,
+        "reason": "passed",
+        "scores": [
+          6.166666666666666,
+          6.655555555555556,
+          6.411111111111111,
+          3.68,
+          3.68,
+          3.4,
+          6.511111111111111,
+          9.92,
+          -3.4,
+          -3.68
+        ]
+      },
+      "fitness": 0.401,
+      "score_rate": 0.599,
+      "fitness_details": {
+        "anchor-1": {
+          "wins": 62,
+          "draws": 47,
+          "losses": 31,
+          "truncations": 0,
+          "games": 140,
+          "score_sum": 85.5,
+          "seconds": 2.3039095997228287,
+          "plies": 3492
+        },
+        "anchor-2": {
+          "wins": 56,
+          "draws": 29,
+          "losses": 55,
+          "truncations": 0,
+          "games": 140,
+          "score_sum": 70.5,
+          "seconds": 3.0553623001324013,
+          "plies": 3998
+        },
+        "anchor-3": {
+          "wins": 63,
+          "draws": 37,
+          "losses": 40,
+          "truncations": 0,
+          "games": 140,
+          "score_sum": 81.5,
+          "seconds": 2.6304103998700157,
+          "plies": 3829
+        },
+        "anchor-4": {
+          "wins": 67,
+          "draws": 44,
+          "losses": 29,
+          "truncations": 0,
+          "games": 140,
+          "score_sum": 89.0,
+          "seconds": 2.231820900051389,
+          "plies": 3556
+        },
+        "anchor-5": {
+          "wins": 62,
+          "draws": 47,
+          "losses": 31,
+          "truncations": 0,
+          "games": 140,
+          "score_sum": 85.5,
+          "seconds": 2.276114400010556,
+          "plies": 3492
+        },
+        "RND": {
+          "wins": 86,
+          "draws": 22,
+          "losses": 32,
+          "truncations": 0,
+          "games": 140,
+          "score_sum": 97.0,
+          "seconds": 1.9824561997083947,
+          "plies": 4373
+        }
+      },
+      "objective": 0.401
+    }
+  ]
+}

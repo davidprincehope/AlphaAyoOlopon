@@ -1,0 +1,207 @@
+{
+  "experiment": "handcrafted_vs_eoh_400_openings",
+  "status": "pilot",
+  "opening_file": "C:\\Users\\user\\Documents\\AlphaAyoOlopon\\experiments\\handcrafted_vs_eoh_400\\opening_set_400.json",
+  "opening_file_sha256": "64242aed816452f59e3e84d4ae84278d98100bf06f7fc4fed586d965e8df3f38",
+  "opening_count": 400,
+  "reused_existing_count": 0,
+  "newly_generated_count": 400,
+  "generation_seed": 20260924,
+  "plies_sampled_inclusive": [
+    4,
+    32
+  ],
+  "handcrafted_policy": "H_CTM weights capture=4, tactical=2, mobility=0.5; terminal=+/-10",
+  "eoh_policy": "H_star_ayo.py; candidate g2-m2-05",
+  "depth_definition": "individual actions; maximize on root-policy turns, minimize on opponent turns, evaluate heuristic at depth cutoff",
+  "depths_plies": [
+    1,
+    2,
+    3
+  ],
+  "seat_swaps_per_opening_depth": 1,
+  "games": 4,
+  "game_length_limit": 300,
+  "action_limit_score": "captured-seed differential; equal differential is draw",
+  "randomness_during_games": "none; policies and legal-action-order tie breaks are deterministic",
+  "match_log": "matches_400.jsonl",
+  "summary": {
+    "1": {
+      "games": 4,
+      "termination_reasons": {
+        "terminal_win": 2,
+        "terminal_draw": 2,
+        "repetition": 0,
+        "action_limit": 0
+      },
+      "policies": {
+        "handcrafted": {
+          "games": 4,
+          "wins": 0,
+          "draws": 2,
+          "losses": 2,
+          "score_rate": 0.25,
+          "decision_count": 52,
+          "policy_seconds": 0.07159270020201802
+        },
+        "eoh": {
+          "games": 4,
+          "wins": 2,
+          "draws": 2,
+          "losses": 0,
+          "score_rate": 0.75,
+          "decision_count": 51,
+          "policy_seconds": 0.026341300050262362
+        }
+      },
+      "by_policy_seat": {
+        "handcrafted": {
+          "0": {
+            "games": 2,
+            "wins": 0,
+            "draws": 1,
+            "losses": 1
+          },
+          "1": {
+            "games": 2,
+            "wins": 0,
+            "draws": 1,
+            "losses": 1
+          }
+        },
+        "eoh": {
+          "0": {
+            "games": 2,
+            "wins": 1,
+            "draws": 1,
+            "losses": 0
+          },
+          "1": {
+            "games": 2,
+            "wins": 1,
+            "draws": 1,
+            "losses": 0
+          }
+        }
+      }
+    },
+    "2": {
+      "games": 0,
+      "termination_reasons": {
+        "terminal_win": 0,
+        "terminal_draw": 0,
+        "repetition": 0,
+        "action_limit": 0
+      },
+      "policies": {
+        "handcrafted": {
+          "games": 0,
+          "wins": 0,
+          "draws": 0,
+          "losses": 0,
+          "score_rate": null,
+          "decision_count": 0,
+          "policy_seconds": 0
+        },
+        "eoh": {
+          "games": 0,
+          "wins": 0,
+          "draws": 0,
+          "losses": 0,
+          "score_rate": null,
+          "decision_count": 0,
+          "policy_seconds": 0
+        }
+      },
+      "by_policy_seat": {
+        "handcrafted": {
+          "0": {
+            "games": 0,
+            "wins": 0,
+            "draws": 0,
+            "losses": 0
+          },
+          "1": {
+            "games": 0,
+            "wins": 0,
+            "draws": 0,
+            "losses": 0
+          }
+        },
+        "eoh": {
+          "0": {
+            "games": 0,
+            "wins": 0,
+            "draws": 0,
+            "losses": 0
+          },
+          "1": {
+            "games": 0,
+            "wins": 0,
+            "draws": 0,
+            "losses": 0
+          }
+        }
+      }
+    },
+    "3": {
+      "games": 0,
+      "termination_reasons": {
+        "terminal_win": 0,
+        "terminal_draw": 0,
+        "repetition": 0,
+        "action_limit": 0
+      },
+      "policies": {
+        "handcrafted": {
+          "games": 0,
+          "wins": 0,
+          "draws": 0,
+          "losses": 0,
+          "score_rate": null,
+          "decision_count": 0,
+          "policy_seconds": 0
+        },
+        "eoh": {
+          "games": 0,
+          "wins": 0,
+          "draws": 0,
+          "losses": 0,
+          "score_rate": null,
+          "decision_count": 0,
+          "policy_seconds": 0
+        }
+      },
+      "by_policy_seat": {
+        "handcrafted": {
+          "0": {
+            "games": 0,
+            "wins": 0,
+            "draws": 0,
+            "losses": 0
+          },
+          "1": {
+            "games": 0,
+            "wins": 0,
+            "draws": 0,
+            "losses": 0
+          }
+        },
+        "eoh": {
+          "0": {
+            "games": 0,
+            "wins": 0,
+            "draws": 0,
+            "losses": 0
+          },
+          "1": {
+            "games": 0,
+            "wins": 0,
+            "draws": 0,
+            "losses": 0
+          }
+        }
+      }
+    }
+  }
+}

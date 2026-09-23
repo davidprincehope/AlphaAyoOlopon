@@ -1,0 +1,213 @@
+{
+  "H_star": "g2-m2-05",
+  "development": {
+    "games": 840,
+    "WDL": {
+      "wins": 397,
+      "draws": 228,
+      "losses": 215
+    },
+    "score_rate": 0.6083333333333333,
+    "truncations": 0,
+    "termination_reasons": {
+      "terminal_draw": 228,
+      "terminal_win": 612
+    },
+    "median_game_length": 21.0,
+    "elapsed_game_seconds": 14.681661899317987,
+    "seat_split": {
+      "0": {
+        "draw": 135,
+        "loss": 113,
+        "win": 172
+      },
+      "1": {
+        "draw": 93,
+        "win": 225,
+        "loss": 102
+      }
+    },
+    "by_opponent": {
+      "RND": {
+        "games": 140,
+        "WDL": {
+          "draw": 20,
+          "win": 86,
+          "loss": 34
+        },
+        "score_rate": 0.6857142857142857
+      },
+      "anchor-1": {
+        "games": 140,
+        "WDL": {
+          "draw": 48,
+          "win": 62,
+          "loss": 30
+        },
+        "score_rate": 0.6142857142857143
+      },
+      "anchor-2": {
+        "games": 140,
+        "WDL": {
+          "loss": 54,
+          "win": 56,
+          "draw": 30
+        },
+        "score_rate": 0.5071428571428571
+      },
+      "anchor-3": {
+        "games": 140,
+        "WDL": {
+          "draw": 37,
+          "win": 64,
+          "loss": 39
+        },
+        "score_rate": 0.5892857142857143
+      },
+      "anchor-4": {
+        "games": 140,
+        "WDL": {
+          "draw": 45,
+          "win": 67,
+          "loss": 28
+        },
+        "score_rate": 0.6392857142857142
+      },
+      "anchor-5": {
+        "games": 140,
+        "WDL": {
+          "draw": 48,
+          "win": 62,
+          "loss": 30
+        },
+        "score_rate": 0.6142857142857143
+      }
+    }
+  },
+  "selection": {
+    "games": 360,
+    "WDL": {
+      "wins": 147,
+      "draws": 110,
+      "losses": 103
+    },
+    "score_rate": 0.5611111111111111,
+    "truncations": 0,
+    "termination_reasons": {
+      "terminal_win": 250,
+      "terminal_draw": 110
+    },
+    "median_game_length": 28.0,
+    "elapsed_game_seconds": 8.168661000323482,
+    "seat_split": {
+      "0": {
+        "win": 70,
+        "loss": 57,
+        "draw": 53
+      },
+      "1": {
+        "draw": 57,
+        "loss": 46,
+        "win": 77
+      }
+    },
+    "by_opponent": {
+      "RND": {
+        "games": 60,
+        "WDL": {
+          "win": 40,
+          "loss": 12,
+          "draw": 8
+        },
+        "score_rate": 0.7333333333333333
+      },
+      "anchor-1": {
+        "games": 60,
+        "WDL": {
+          "win": 21,
+          "draw": 23,
+          "loss": 16
+        },
+        "score_rate": 0.5416666666666666
+      },
+      "anchor-2": {
+        "games": 60,
+        "WDL": {
+          "win": 22,
+          "loss": 22,
+          "draw": 16
+        },
+        "score_rate": 0.5
+      },
+      "anchor-3": {
+        "games": 60,
+        "WDL": {
+          "win": 20,
+          "draw": 20,
+          "loss": 20
+        },
+        "score_rate": 0.5
+      },
+      "anchor-4": {
+        "games": 60,
+        "WDL": {
+          "win": 23,
+          "draw": 20,
+          "loss": 17
+        },
+        "score_rate": 0.55
+      },
+      "anchor-5": {
+        "games": 60,
+        "WDL": {
+          "win": 21,
+          "draw": 23,
+          "loss": 16
+        },
+        "score_rate": 0.5416666666666666
+      }
+    }
+  },
+  "generation_curve": [
+    {
+      "generation": 0,
+      "candidates": 10,
+      "best_fitness": 0.4049285714285714,
+      "best_candidates": [
+        "c0002",
+        "c0006"
+      ]
+    },
+    {
+      "generation": 1,
+      "candidates": 25,
+      "best_fitness": 0.4017142857142857,
+      "best_candidates": [
+        "g1-m1-04",
+        "g1-m2-03"
+      ]
+    },
+    {
+      "generation": 2,
+      "candidates": 25,
+      "best_fitness": 0.3978571428571428,
+      "best_candidates": [
+        "g2-m2-05"
+      ]
+    },
+    {
+      "generation": 3,
+      "candidates": 25,
+      "best_fitness": 0.39749999999999996,
+      "best_candidates": [
+        "g3-m1-01",
+        "g3-m2-01"
+      ]
+    }
+  ],
+  "total_evolution_games": 71400,
+  "total_selection_games": 1080,
+  "total_games": 72480,
+  "all_matches_errors": 0,
+  "candidate_slots": 85
+}

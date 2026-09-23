@@ -1,0 +1,323 @@
+{
+  "pilot": "local_fixture_not_llm_generated",
+  "opening_file_sha256": "971dba4079f260d733418fed6f008130b56778fd947584f8292669b2c92b2735",
+  "opening_count": 100,
+  "development_count": 70,
+  "selection_count": 30,
+  "candidate_validation": {
+    "ok": true,
+    "reason": "passed",
+    "scores": [
+      -7.4,
+      7.4,
+      -7.8,
+      7.8,
+      -7.6,
+      7.6
+    ]
+  },
+  "eval_calls": 600,
+  "eval_seconds": 0.001444099994841963,
+  "eval_calls_per_second": 415483.6937491034,
+  "worked_example": {
+    "opening_id": 0,
+    "actor": 1,
+    "chosen_action": 3,
+    "successors": [
+      {
+        "action": 2,
+        "successor_board": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "successor_captured": [
+          16,
+          24
+        ],
+        "successor_current_player": 0,
+        "capture_lead_for_actor": 8,
+        "row_seed_delta_for_actor": -6,
+        "score": 0.10416666666666666,
+        "terminal": false
+      },
+      {
+        "action": 3,
+        "successor_board": [
+          0,
+          0,
+          1,
+          1,
+          1,
+          2,
+          0,
+          0,
+          1,
+          0,
+          1,
+          1
+        ],
+        "successor_captured": [
+          16,
+          24
+        ],
+        "successor_current_player": 0,
+        "capture_lead_for_actor": 8,
+        "row_seed_delta_for_actor": -2,
+        "score": 0.14583333333333331,
+        "terminal": false
+      },
+      {
+        "action": 5,
+        "successor_board": [
+          1,
+          0,
+          1,
+          1,
+          1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        "successor_captured": [
+          16,
+          24
+        ],
+        "successor_current_player": 0,
+        "capture_lead_for_actor": 8,
+        "row_seed_delta_for_actor": -4,
+        "score": 0.125,
+        "terminal": false
+      }
+    ]
+  },
+  "paired_games": [
+    {
+      "opening_id": 0,
+      "opening_hash": "4d5c3ad63b769ad5f4adfc7fbc6a778094cac0a19b21f39dfc8a0f0bb531efa3",
+      "candidate_seat": 0,
+      "seed": 20260922,
+      "outcome": "draw",
+      "termination_reason": "terminal",
+      "actions": [
+        {
+          "player": 1,
+          "action": 5
+        },
+        {
+          "player": 0,
+          "action": 0
+        },
+        {
+          "player": 1,
+          "action": 3
+        },
+        {
+          "player": 0,
+          "action": 1
+        },
+        {
+          "player": 1,
+          "action": 0
+        },
+        {
+          "player": 0,
+          "action": 3
+        },
+        {
+          "player": 1,
+          "action": 4
+        },
+        {
+          "player": 0,
+          "action": 4
+        },
+        {
+          "player": 1,
+          "action": 1
+        },
+        {
+          "player": 0,
+          "action": 5
+        },
+        {
+          "player": 1,
+          "action": 5
+        },
+        {
+          "player": 0,
+          "action": 0
+        },
+        {
+          "player": 1,
+          "action": 4
+        },
+        {
+          "player": 0,
+          "action": 1
+        },
+        {
+          "player": 1,
+          "action": 5
+        },
+        {
+          "player": 0,
+          "action": 0
+        },
+        {
+          "player": 1,
+          "action": 0
+        },
+        {
+          "player": 0,
+          "action": 1
+        },
+        {
+          "player": 1,
+          "action": 1
+        },
+        {
+          "player": 0,
+          "action": 4
+        },
+        {
+          "player": 1,
+          "action": 3
+        },
+        {
+          "player": 0,
+          "action": 3
+        },
+        {
+          "player": 1,
+          "action": 4
+        },
+        {
+          "player": 0,
+          "action": 5
+        },
+        {
+          "player": 1,
+          "action": 5
+        },
+        {
+          "player": 0,
+          "action": 0
+        },
+        {
+          "player": 1,
+          "action": 0
+        },
+        {
+          "player": 0,
+          "action": 1
+        },
+        {
+          "player": 1,
+          "action": 1
+        },
+        {
+          "player": 0,
+          "action": 2
+        },
+        {
+          "player": 1,
+          "action": 3
+        },
+        {
+          "player": 0,
+          "action": 0
+        },
+        {
+          "player": 1,
+          "action": 5
+        }
+      ],
+      "seconds": 0.013901699974667281
+    },
+    {
+      "opening_id": 0,
+      "opening_hash": "4d5c3ad63b769ad5f4adfc7fbc6a778094cac0a19b21f39dfc8a0f0bb531efa3",
+      "candidate_seat": 1,
+      "seed": 20260923,
+      "outcome": "win",
+      "termination_reason": "terminal",
+      "actions": [
+        {
+          "player": 1,
+          "action": 3
+        },
+        {
+          "player": 0,
+          "action": 4
+        },
+        {
+          "player": 1,
+          "action": 1
+        },
+        {
+          "player": 0,
+          "action": 0
+        },
+        {
+          "player": 1,
+          "action": 0
+        },
+        {
+          "player": 0,
+          "action": 2
+        },
+        {
+          "player": 1,
+          "action": 1
+        },
+        {
+          "player": 0,
+          "action": 4
+        },
+        {
+          "player": 1,
+          "action": 1
+        },
+        {
+          "player": 0,
+          "action": 1
+        },
+        {
+          "player": 1,
+          "action": 0
+        },
+        {
+          "player": 0,
+          "action": 2
+        },
+        {
+          "player": 1,
+          "action": 1
+        },
+        {
+          "player": 0,
+          "action": 3
+        },
+        {
+          "player": 1,
+          "action": 3
+        }
+      ],
+      "seconds": 0.010022800008300692
+    }
+  ]
+}

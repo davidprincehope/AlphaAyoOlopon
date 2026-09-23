@@ -1,0 +1,247 @@
+{
+  "seed": 2026092203,
+  "population": [
+    {
+      "candidate_id": "g2-m2-05",
+      "objective": 0.39786,
+      "thought": "Tune g1-m1-04 by strengthening captured lead and mobility while slightly reducing normalized seed balance.",
+      "source": "def evaluate_state(state_view, player_id):\n    board = state_view.board\n    captured = state_view.captured\n    other = 1 - player_id\n    own = board[player_id * 6:player_id * 6 + 6]\n    opp = board[other * 6:other * 6 + 6]\n    seed_diff = sum(own) - sum(opp)\n    total = sum(own) + sum(opp)\n    mobility_diff = (own[0] > 0) + (own[1] > 0) + (own[2] > 0) + (own[3] > 0) + (own[4] > 0) + (own[5] > 0) - (opp[0] > 0) - (opp[1] > 0) - (opp[2] > 0) - (opp[3] > 0) - (opp[4] > 0) - (opp[5] > 0)\n    return max(-10.0, min(10.0, 0.80 * (captured[player_id] - captured[other]) + 0.18 * seed_diff / (1 + total) + 0.30 * mobility_diff))"
+    },
+    {
+      "candidate_id": "g2-m2-01",
+      "objective": 0.401,
+      "thought": "Tune g1-m1-04 by raising the captured-lead weight and reducing the normalized seed-balance and mobility weights.",
+      "source": "def evaluate_state(state_view, player_id):\n    board = state_view.board\n    captured = state_view.captured\n    other = 1 - player_id\n    own = board[player_id * 6:player_id * 6 + 6]\n    opp = board[other * 6:other * 6 + 6]\n    seed_diff = sum(own) - sum(opp)\n    total = sum(own) + sum(opp)\n    mobility_diff = (own[0] > 0) + (own[1] > 0) + (own[2] > 0) + (own[3] > 0) + (own[4] > 0) + (own[5] > 0) - (opp[0] > 0) - (opp[1] > 0) - (opp[2] > 0) - (opp[3] > 0) - (opp[4] > 0) - (opp[5] > 0)\n    return max(-10.0, min(10.0, 0.85 * (captured[player_id] - captured[other]) + 0.20 * seed_diff / (1 + total) + 0.10 * mobility_diff))"
+    },
+    {
+      "candidate_id": "g1-m1-04",
+      "objective": 0.40171,
+      "thought": "For c0002, use a normalized side seed balance and a bounded mobility bonus alongside the captured lead.",
+      "source": "def evaluate_state(state_view, player_id):\n    board = state_view.board\n    captured = state_view.captured\n    other = 1 - player_id\n    own = board[player_id * 6:player_id * 6 + 6]\n    opp = board[other * 6:other * 6 + 6]\n    seed_diff = sum(own) - sum(opp)\n    total = sum(own) + sum(opp)\n    mobility_diff = (own[0] > 0) + (own[1] > 0) + (own[2] > 0) + (own[3] > 0) + (own[4] > 0) + (own[5] > 0) - (opp[0] > 0) - (opp[1] > 0) - (opp[2] > 0) - (opp[3] > 0) - (opp[4] > 0) - (opp[5] > 0)\n    return max(-10.0, min(10.0, 0.65 * (captured[player_id] - captured[other]) + 0.28 * seed_diff / (1 + total) + 0.16 * mobility_diff))"
+    },
+    {
+      "candidate_id": "g1-m2-01",
+      "objective": 0.40193,
+      "thought": "Tune c0002 toward stronger captured-seed lead and lower mobility influence while keeping its seed-count signal.",
+      "source": "def evaluate_state(state_view, player_id):\n    start = player_id * 6\n    other = (1 - player_id) * 6\n    board = state_view.board\n    mobility = (1 if board[start] > 0 else 0) + (1 if board[start + 1] > 0 else 0) + (1 if board[start + 2] > 0 else 0) + (1 if board[start + 3] > 0 else 0) + (1 if board[start + 4] > 0 else 0) + (1 if board[start + 5] > 0 else 0)\n    other_mobility = (1 if board[other] > 0 else 0) + (1 if board[other + 1] > 0 else 0) + (1 if board[other + 2] > 0 else 0) + (1 if board[other + 3] > 0 else 0) + (1 if board[other + 4] > 0 else 0) + (1 if board[other + 5] > 0 else 0)\n    store_lead = state_view.captured[player_id] - state_view.captured[1 - player_id]\n    side_lead = sum(board[start:start + 6]) - sum(board[other:other + 6])\n    score = 2.5 * store_lead + 0.2 * side_lead + 0.25 * (mobility - other_mobility)\n    return max(-10.0, min(10.0, score / 3.0))\n"
+    },
+    {
+      "candidate_id": "g2-m2-02",
+      "objective": 0.40229,
+      "thought": "Tune c0002 by emphasizing captured lead, modestly increasing side-seed influence, and keeping mobility as a secondary signal.",
+      "source": "def evaluate_state(state_view, player_id):\n    start = player_id * 6\n    other = (1 - player_id) * 6\n    board = state_view.board\n    mobility = (1 if board[start] > 0 else 0) + (1 if board[start + 1] > 0 else 0) + (1 if board[start + 2] > 0 else 0) + (1 if board[start + 3] > 0 else 0) + (1 if board[start + 4] > 0 else 0) + (1 if board[start + 5] > 0 else 0)\n    other_mobility = (1 if board[other] > 0 else 0) + (1 if board[other + 1] > 0 else 0) + (1 if board[other + 2] > 0 else 0) + (1 if board[other + 3] > 0 else 0) + (1 if board[other + 4] > 0 else 0) + (1 if board[other + 5] > 0 else 0)\n    store_lead = state_view.captured[player_id] - state_view.captured[1 - player_id]\n    side_lead = sum(board[start:start + 6]) - sum(board[other:other + 6])\n    score = 2.4 * store_lead + 0.28 * side_lead + 0.4 * (mobility - other_mobility)\n    return max(-10.0, min(10.0, score / 3.0))"
+    }
+  ],
+  "offspring": [
+    {
+      "candidate_id": "g3-e1-01",
+      "generation": 3,
+      "operator": "E1",
+      "parents": [
+        "g2-m2-05",
+        "g1-m1-04"
+      ]
+    },
+    {
+      "candidate_id": "g3-e1-02",
+      "generation": 3,
+      "operator": "E1",
+      "parents": [
+        "g2-m2-01",
+        "g1-m2-01"
+      ]
+    },
+    {
+      "candidate_id": "g3-e1-03",
+      "generation": 3,
+      "operator": "E1",
+      "parents": [
+        "g2-m2-05",
+        "g1-m1-04"
+      ]
+    },
+    {
+      "candidate_id": "g3-e1-04",
+      "generation": 3,
+      "operator": "E1",
+      "parents": [
+        "g2-m2-02",
+        "g1-m1-04"
+      ]
+    },
+    {
+      "candidate_id": "g3-e1-05",
+      "generation": 3,
+      "operator": "E1",
+      "parents": [
+        "g1-m1-04",
+        "g2-m2-01"
+      ]
+    },
+    {
+      "candidate_id": "g3-e2-01",
+      "generation": 3,
+      "operator": "E2",
+      "parents": [
+        "g2-m2-01",
+        "g2-m2-02"
+      ]
+    },
+    {
+      "candidate_id": "g3-e2-02",
+      "generation": 3,
+      "operator": "E2",
+      "parents": [
+        "g1-m1-04",
+        "g2-m2-01"
+      ]
+    },
+    {
+      "candidate_id": "g3-e2-03",
+      "generation": 3,
+      "operator": "E2",
+      "parents": [
+        "g2-m2-05",
+        "g2-m2-01"
+      ]
+    },
+    {
+      "candidate_id": "g3-e2-04",
+      "generation": 3,
+      "operator": "E2",
+      "parents": [
+        "g2-m2-05",
+        "g1-m1-04"
+      ]
+    },
+    {
+      "candidate_id": "g3-e2-05",
+      "generation": 3,
+      "operator": "E2",
+      "parents": [
+        "g1-m1-04",
+        "g1-m2-01"
+      ]
+    },
+    {
+      "candidate_id": "g3-m1-01",
+      "generation": 3,
+      "operator": "M1",
+      "parents": [
+        "g1-m2-01"
+      ]
+    },
+    {
+      "candidate_id": "g3-m1-02",
+      "generation": 3,
+      "operator": "M1",
+      "parents": [
+        "g1-m2-01"
+      ]
+    },
+    {
+      "candidate_id": "g3-m1-03",
+      "generation": 3,
+      "operator": "M1",
+      "parents": [
+        "g2-m2-01"
+      ]
+    },
+    {
+      "candidate_id": "g3-m1-04",
+      "generation": 3,
+      "operator": "M1",
+      "parents": [
+        "g1-m1-04"
+      ]
+    },
+    {
+      "candidate_id": "g3-m1-05",
+      "generation": 3,
+      "operator": "M1",
+      "parents": [
+        "g2-m2-02"
+      ]
+    },
+    {
+      "candidate_id": "g3-m2-01",
+      "generation": 3,
+      "operator": "M2",
+      "parents": [
+        "g2-m2-05"
+      ]
+    },
+    {
+      "candidate_id": "g3-m2-02",
+      "generation": 3,
+      "operator": "M2",
+      "parents": [
+        "g2-m2-02"
+      ]
+    },
+    {
+      "candidate_id": "g3-m2-03",
+      "generation": 3,
+      "operator": "M2",
+      "parents": [
+        "g1-m1-04"
+      ]
+    },
+    {
+      "candidate_id": "g3-m2-04",
+      "generation": 3,
+      "operator": "M2",
+      "parents": [
+        "g1-m2-01"
+      ]
+    },
+    {
+      "candidate_id": "g3-m2-05",
+      "generation": 3,
+      "operator": "M2",
+      "parents": [
+        "g2-m2-01"
+      ]
+    },
+    {
+      "candidate_id": "g3-m3-01",
+      "generation": 3,
+      "operator": "M3",
+      "parents": [
+        "g1-m1-04"
+      ]
+    },
+    {
+      "candidate_id": "g3-m3-02",
+      "generation": 3,
+      "operator": "M3",
+      "parents": [
+        "g2-m2-05"
+      ]
+    },
+    {
+      "candidate_id": "g3-m3-03",
+      "generation": 3,
+      "operator": "M3",
+      "parents": [
+        "g1-m2-01"
+      ]
+    },
+    {
+      "candidate_id": "g3-m3-04",
+      "generation": 3,
+      "operator": "M3",
+      "parents": [
+        "g2-m2-05"
+      ]
+    },
+    {
+      "candidate_id": "g3-m3-05",
+      "generation": 3,
+      "operator": "M3",
+      "parents": [
+        "g2-m2-05"
+      ]
+    }
+  ]
+}

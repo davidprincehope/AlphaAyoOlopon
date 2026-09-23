@@ -1,0 +1,237 @@
+{
+  "seed": 2026092201,
+  "population": [
+    {
+      "candidate_id": "c0002",
+      "objective": 0.40493
+    },
+    {
+      "candidate_id": "c0003",
+      "objective": 0.46436
+    },
+    {
+      "candidate_id": "c0008",
+      "objective": 0.49593
+    },
+    {
+      "candidate_id": "c0009",
+      "objective": 0.51593
+    },
+    {
+      "candidate_id": "c0001",
+      "objective": 0.51721
+    }
+  ],
+  "offspring": [
+    {
+      "candidate_id": "g1-e1-01",
+      "generation": 1,
+      "operator": "E1",
+      "parents": [
+        "c0002",
+        "c0003"
+      ]
+    },
+    {
+      "candidate_id": "g1-e1-02",
+      "generation": 1,
+      "operator": "E1",
+      "parents": [
+        "c0001",
+        "c0002"
+      ]
+    },
+    {
+      "candidate_id": "g1-e1-03",
+      "generation": 1,
+      "operator": "E1",
+      "parents": [
+        "c0003",
+        "c0003"
+      ]
+    },
+    {
+      "candidate_id": "g1-e1-04",
+      "generation": 1,
+      "operator": "E1",
+      "parents": [
+        "c0001",
+        "c0008"
+      ]
+    },
+    {
+      "candidate_id": "g1-e1-05",
+      "generation": 1,
+      "operator": "E1",
+      "parents": [
+        "c0009",
+        "c0001"
+      ]
+    },
+    {
+      "candidate_id": "g1-e2-01",
+      "generation": 1,
+      "operator": "E2",
+      "parents": [
+        "c0009",
+        "c0009"
+      ]
+    },
+    {
+      "candidate_id": "g1-e2-02",
+      "generation": 1,
+      "operator": "E2",
+      "parents": [
+        "c0001",
+        "c0002"
+      ]
+    },
+    {
+      "candidate_id": "g1-e2-03",
+      "generation": 1,
+      "operator": "E2",
+      "parents": [
+        "c0002",
+        "c0009"
+      ]
+    },
+    {
+      "candidate_id": "g1-e2-04",
+      "generation": 1,
+      "operator": "E2",
+      "parents": [
+        "c0001",
+        "c0002"
+      ]
+    },
+    {
+      "candidate_id": "g1-e2-05",
+      "generation": 1,
+      "operator": "E2",
+      "parents": [
+        "c0002",
+        "c0003"
+      ]
+    },
+    {
+      "candidate_id": "g1-m1-01",
+      "generation": 1,
+      "operator": "M1",
+      "parents": [
+        "c0002"
+      ]
+    },
+    {
+      "candidate_id": "g1-m1-02",
+      "generation": 1,
+      "operator": "M1",
+      "parents": [
+        "c0002"
+      ]
+    },
+    {
+      "candidate_id": "g1-m1-03",
+      "generation": 1,
+      "operator": "M1",
+      "parents": [
+        "c0003"
+      ]
+    },
+    {
+      "candidate_id": "g1-m1-04",
+      "generation": 1,
+      "operator": "M1",
+      "parents": [
+        "c0002"
+      ]
+    },
+    {
+      "candidate_id": "g1-m1-05",
+      "generation": 1,
+      "operator": "M1",
+      "parents": [
+        "c0003"
+      ]
+    },
+    {
+      "candidate_id": "g1-m2-01",
+      "generation": 1,
+      "operator": "M2",
+      "parents": [
+        "c0002"
+      ]
+    },
+    {
+      "candidate_id": "g1-m2-02",
+      "generation": 1,
+      "operator": "M2",
+      "parents": [
+        "c0002"
+      ]
+    },
+    {
+      "candidate_id": "g1-m2-03",
+      "generation": 1,
+      "operator": "M2",
+      "parents": [
+        "c0002"
+      ]
+    },
+    {
+      "candidate_id": "g1-m2-04",
+      "generation": 1,
+      "operator": "M2",
+      "parents": [
+        "c0001"
+      ]
+    },
+    {
+      "candidate_id": "g1-m2-05",
+      "generation": 1,
+      "operator": "M2",
+      "parents": [
+        "c0003"
+      ]
+    },
+    {
+      "candidate_id": "g1-m3-01",
+      "generation": 1,
+      "operator": "M3",
+      "parents": [
+        "c0003"
+      ]
+    },
+    {
+      "candidate_id": "g1-m3-02",
+      "generation": 1,
+      "operator": "M3",
+      "parents": [
+        "c0002"
+      ]
+    },
+    {
+      "candidate_id": "g1-m3-03",
+      "generation": 1,
+      "operator": "M3",
+      "parents": [
+        "c0001"
+      ]
+    },
+    {
+      "candidate_id": "g1-m3-04",
+      "generation": 1,
+      "operator": "M3",
+      "parents": [
+        "c0008"
+      ]
+    },
+    {
+      "candidate_id": "g1-m3-05",
+      "generation": 1,
+      "operator": "M3",
+      "parents": [
+        "c0003"
+      ]
+    }
+  ]
+}
