@@ -1,0 +1,80 @@
+{
+  "rule": "first five valid source-distinct initial candidates with distinct 24-value behavior vectors on development opening IDs 0-11, evaluated from both player perspectives; no fitness outcomes used",
+  "anchors": [
+    {
+      "candidate_id": "c0001",
+      "generation": 0,
+      "operator": "i1",
+      "parents": [],
+      "model": "gpt-6-luna",
+      "context_mode": "stateless_chat_agent",
+      "prompt_id": "ayo-eoh-initial-v2",
+      "thought": "Weight the captured-seed lead most heavily, then use the difference in seeds remaining on each side as a smaller positional signal.",
+      "source": "def evaluate_state(state_view, player_id):\n    start = player_id * 6\n    other = (1 - player_id) * 6\n    store_lead = state_view.captured[player_id] - state_view.captured[1 - player_id]\n    side_lead = sum(state_view.board[start:start + 6]) - sum(state_view.board[other:other + 6])\n    return max(-10.0, min(10.0, (2.0 * store_lead + 0.25 * side_lead) / 3.0))\n",
+      "source_sha256": "a73e9a6931e886ea404755a94ebe3aa6f48bc6abdb433e3e90c6a27fb89aa9cc",
+      "fitness": null,
+      "selected": false,
+      "anchor_id": "anchor-1"
+    },
+    {
+      "candidate_id": "c0002",
+      "generation": 0,
+      "operator": "i1",
+      "parents": [],
+      "model": "gpt-6-luna",
+      "context_mode": "stateless_chat_agent",
+      "prompt_id": "ayo-eoh-initial-v2",
+      "thought": "Reward having more nonempty pits than the opponent as a mobility proxy, alongside captured lead and a modest seed-count difference.",
+      "source": "def evaluate_state(state_view, player_id):\n    start = player_id * 6\n    other = (1 - player_id) * 6\n    board = state_view.board\n    mobility = (1 if board[start] > 0 else 0) + (1 if board[start + 1] > 0 else 0) + (1 if board[start + 2] > 0 else 0) + (1 if board[start + 3] > 0 else 0) + (1 if board[start + 4] > 0 else 0) + (1 if board[start + 5] > 0 else 0)\n    other_mobility = (1 if board[other] > 0 else 0) + (1 if board[other + 1] > 0 else 0) + (1 if board[other + 2] > 0 else 0) + (1 if board[other + 3] > 0 else 0) + (1 if board[other + 4] > 0 else 0) + (1 if board[other + 5] > 0 else 0)\n    store_lead = state_view.captured[player_id] - state_view.captured[1 - player_id]\n    side_lead = sum(board[start:start + 6]) - sum(board[other:other + 6])\n    score = 2.0 * store_lead + 0.2 * side_lead + 0.5 * (mobility - other_mobility)\n    return max(-10.0, min(10.0, score / 3.0))\n",
+      "source_sha256": "852418294d56c2f0c05eb7e15c1bdd17c4718b20542c74f7fe8404cc4c711a6c",
+      "fitness": null,
+      "selected": false,
+      "anchor_id": "anchor-2"
+    },
+    {
+      "candidate_id": "c0003",
+      "generation": 0,
+      "operator": "i1",
+      "parents": [],
+      "model": "gpt-6-luna",
+      "context_mode": "stateless_chat_agent",
+      "prompt_id": "ayo-eoh-initial-v2",
+      "thought": "Give a small positional bonus to seeds toward the far end of each row, while retaining captured lead as the main objective.",
+      "source": "def evaluate_state(state_view, player_id):\n    start = player_id * 6\n    other = (1 - player_id) * 6\n    board = state_view.board\n    weighted = board[start] + 1.2 * board[start + 1] + 1.4 * board[start + 2] + 1.6 * board[start + 3] + 1.8 * board[start + 4] + 2.0 * board[start + 5]\n    other_weighted = board[other] + 1.2 * board[other + 1] + 1.4 * board[other + 2] + 1.6 * board[other + 3] + 1.8 * board[other + 4] + 2.0 * board[other + 5]\n    score = 2.0 * (state_view.captured[player_id] - state_view.captured[1 - player_id]) + 0.16 * (weighted - other_weighted)\n    return max(-10.0, min(10.0, score / 3.0))\n",
+      "source_sha256": "371351a3ace952f69003fa1bdd92e880825d3f4d02443f315bebab9e3658c2fa",
+      "fitness": null,
+      "selected": false,
+      "anchor_id": "anchor-3"
+    },
+    {
+      "candidate_id": "c0004",
+      "generation": 0,
+      "operator": "i1",
+      "parents": [],
+      "model": "gpt-6-luna",
+      "context_mode": "stateless_chat_agent",
+      "prompt_id": "ayo-eoh-initial-v2",
+      "thought": "Estimate current majority directly from captured seeds plus seeds still on each player's side.",
+      "source": "def evaluate_state(state_view, player_id):\n    start = player_id * 6\n    other = (1 - player_id) * 6\n    my_total = state_view.captured[player_id] + sum(state_view.board[start:start + 6])\n    their_total = state_view.captured[1 - player_id] + sum(state_view.board[other:other + 6])\n    return max(-10.0, min(10.0, (my_total - their_total) / 2.4))\n",
+      "source_sha256": "1417a163ef7c598ab4fe2391fcbb2e9dc61ea04d13695d985cd11b21fb451da2",
+      "fitness": null,
+      "selected": false,
+      "anchor_id": "anchor-4"
+    },
+    {
+      "candidate_id": "c0005",
+      "generation": 0,
+      "operator": "i1",
+      "parents": [],
+      "model": "gpt-6-luna",
+      "context_mode": "stateless_chat_agent",
+      "prompt_id": "ayo-eoh-initial-v2",
+      "thought": "Combine store lead with flexible seed distribution, rewarding capped pit counts to avoid overvaluing seeds concentrated in one pit.",
+      "source": "def evaluate_state(state_view, player_id):\n    start = player_id * 6\n    other = (1 - player_id) * 6\n    board = state_view.board\n    my_spread = min(board[start], 4) + min(board[start + 1], 4) + min(board[start + 2], 4) + min(board[start + 3], 4) + min(board[start + 4], 4) + min(board[start + 5], 4)\n    their_spread = min(board[other], 4) + min(board[other + 1], 4) + min(board[other + 2], 4) + min(board[other + 3], 4) + min(board[other + 4], 4) + min(board[other + 5], 4)\n    score = 2.2 * (state_view.captured[player_id] - state_view.captured[1 - player_id]) + 0.18 * (sum(board[start:start + 6]) - sum(board[other:other + 6])) + 0.2 * (my_spread - their_spread)\n    return max(-10.0, min(10.0, score / 3.0))\n",
+      "source_sha256": "bf8c5fb57f982aa166b386c466b49f8488f096b880010812dc2c48fa9a7ea3d2",
+      "fitness": null,
+      "selected": false,
+      "anchor_id": "anchor-5"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+[
+  {
+    "candidate_id": "g3-m1-01",
+    "source_sha256": "bb714428ac9a65a0645489329f256053896dd8c09afa73121ef22ecaa917e8bc",
+    "selection_score_rate": 0.5473333333333333,
+    "ast_node_count": 322,
+    "median_fixture_call_ns": 2000.0,
+    "source": "def evaluate_state(state_view, player_id):\n    start = player_id * 6\n    other = (1 - player_id) * 6\n    board = state_view.board\n    own = board[start:start + 6]\n    opp = board[other:other + 6]\n    store_lead = state_view.captured[player_id] - state_view.captured[1 - player_id]\n    side_lead = sum(own) - sum(opp)\n    total = sum(own) + sum(opp)\n    mobility = (1 if own[0] > 0 else 0) + (1 if own[1] > 0 else 0) + (1 if own[2] > 0 else 0) + (1 if own[3] > 0 else 0) + (1 if own[4] > 0 else 0) + (1 if own[5] > 0 else 0)\n    other_mobility = (1 if opp[0] > 0 else 0) + (1 if opp[1] > 0 else 0) + (1 if opp[2] > 0 else 0) + (1 if opp[3] > 0 else 0) + (1 if opp[4] > 0 else 0) + (1 if opp[5] > 0 else 0)\n    score = 2.8 * store_lead + 0.18 * side_lead / (1 + total) + 0.22 * (mobility - other_mobility)\n    return max(-10.0, min(10.0, score / 3.0))",
+    "thought": "Keep the parent\u2019s captured lead, side-seed balance, and pit mobility signals; raise the captured lead slightly and normalize the seed signal by the total seeds."
+  },
+  {
+    "candidate_id": "g2-m2-05",
+    "source_sha256": "1be272704c60811ba53ffe28e47c90ea21d50e04e8e3371ab0e01fd291bd2880",
+    "selection_score_rate": 0.5473333333333333,
+    "ast_node_count": 269,
+    "median_fixture_call_ns": 2000.0,
+    "source": "def evaluate_state(state_view, player_id):\n    board = state_view.board\n    captured = state_view.captured\n    other = 1 - player_id\n    own = board[player_id * 6:player_id * 6 + 6]\n    opp = board[other * 6:other * 6 + 6]\n    seed_diff = sum(own) - sum(opp)\n    total = sum(own) + sum(opp)\n    mobility_diff = (own[0] > 0) + (own[1] > 0) + (own[2] > 0) + (own[3] > 0) + (own[4] > 0) + (own[5] > 0) - (opp[0] > 0) - (opp[1] > 0) - (opp[2] > 0) - (opp[3] > 0) - (opp[4] > 0) - (opp[5] > 0)\n    return max(-10.0, min(10.0, 0.80 * (captured[player_id] - captured[other]) + 0.18 * seed_diff / (1 + total) + 0.30 * mobility_diff))",
+    "thought": "Tune g1-m1-04 by strengthening captured lead and mobility while slightly reducing normalized seed balance."
+  },
+  {
+    "candidate_id": "g2-m2-01",
+    "source_sha256": "f1de8d4c404bdb68d33f1344eec21642b80912b3deb844238b96b76e14509aa9",
+    "selection_score_rate": 0.5473333333333333,
+    "ast_node_count": 269,
+    "median_fixture_call_ns": 2000.0,
+    "source": "def evaluate_state(state_view, player_id):\n    board = state_view.board\n    captured = state_view.captured\n    other = 1 - player_id\n    own = board[player_id * 6:player_id * 6 + 6]\n    opp = board[other * 6:other * 6 + 6]\n    seed_diff = sum(own) - sum(opp)\n    total = sum(own) + sum(opp)\n    mobility_diff = (own[0] > 0) + (own[1] > 0) + (own[2] > 0) + (own[3] > 0) + (own[4] > 0) + (own[5] > 0) - (opp[0] > 0) - (opp[1] > 0) - (opp[2] > 0) - (opp[3] > 0) - (opp[4] > 0) - (opp[5] > 0)\n    return max(-10.0, min(10.0, 0.85 * (captured[player_id] - captured[other]) + 0.20 * seed_diff / (1 + total) + 0.10 * mobility_diff))",
+    "thought": "Tune g1-m1-04 by raising the captured-lead weight and reducing the normalized seed-balance and mobility weights."
+  }
+]

@@ -1,0 +1,71 @@
+status: completed_development_and_selection; independent_test_unopened
+dates:
+  run: 2026-09-22
+  selection_protocol_frozen: 2026-09-22T23:45:18+01:00
+game:
+  name: ayo_olopon
+  source: Model/ayo_olopon/ayo_olopon.py
+  repository_commit: 4f03171f34956fbc971a2f1ffc644e52e8efa279
+  openspiel_submodule_commit: 48401890ee9857e611678302371378175a8e4c6b
+  returns: [1, 0, -1]
+  candidate_nonterminal_range: [-10, 10]
+  terminal_policy_values: [-11, 0, 11]
+frozen_suite:
+  path: experiments/heuristic/openings/opening_positions.json
+  sha256: 971dba4079f260d733418fed6f008130b56778fd947584f8292669b2c92b2735
+  development_count: 70
+  reused_selection_count: 30
+  independent_test_opened: false
+  game_seed: 20260922
+  max_actions: 300
+upstream_eoh:
+  repository: https://github.com/FeiLiu36/EoH
+  commit: 472545785c936dcfc863d2bc0d6109cf23c7ce62
+  checkout: experiments/EOH/vendor/EoH
+  package_version: 0.2
+  verified_operators: [i1, E1, E2, M1, M2, M3]
+  objective_direction: lower_is_better
+  official_functions_used: [parent_selection, population_management]
+  details: pinned upstream source audit recorded in implementation_log.md
+evolution:
+  population: 5
+  generations: 3
+  initialization_candidates_scored: 10
+  offspring_per_generation: 25
+  operator_schedule_each_generation: {E1: 5, E2: 5, M1: 5, M2: 5, M3: 5}
+  evaluated_candidate_count: 85
+  games_per_candidate: 840
+  development_matches: 71400
+  shortlist_size: 3
+  selection_matches: 1080
+  total_matches: 72480
+  panel: five_frozen_generated_anchors_plus_seeded_random
+  weights: {each_anchor: 0.18, random: 0.10}
+  minimax_used: false
+llm:
+  model: GPT-6 Luna
+  interface: stateless chat agents; no API requests or API key
+  proposal_batch_interactions_counted: 23
+  raw_source_proposals_estimated: 103
+  validated_and_scored_candidates: 85
+  actual_billable_cost_usd: null
+  cost_reason: chat billing and token usage unavailable to this experiment workspace; API proxy rates are not actual chat cost
+runtime:
+  observed_wall_window: "about 47m47s from first accepted candidate catalog timestamp through H_star artifact creation; initial prompt may predate this window"
+  summed_per_game_timers: "about 19m34s across development and selection"
+selection:
+  candidate: g2-m2-05
+  source_sha256: 1be272704c60811ba53ffe28e47c90ea21d50e04e8e3371ab0e01fd291bd2880
+  development_fitness: 0.3978571428571428
+  development_weighted_score: 0.6021428571428572
+  selection_weighted_score: 0.5473333333333333
+  selection_protocol_frozen_before_results: true
+  independent_test_run: false
+artifacts:
+  final_heuristic: Algorithms/H_star_ayo.py
+  result: experiments/EOH/H_star.json
+  development_matches: experiments/EOH/matches.jsonl
+  selection_matches: experiments/EOH/selection_matches.jsonl
+  candidates: experiments/EOH/candidate_catalog.jsonl
+  aggregate: experiments/EOH/final_results_summary.json
+  worked_example: experiments/EOH/H_star_worked_example.json

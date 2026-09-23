@@ -1,0 +1,211 @@
+{
+  "experiment": "handcrafted_vs_eoh_400_openings",
+  "status": "completed",
+  "opening_file": "C:\\Users\\user\\Documents\\AlphaAyoOlopon\\experiments\\handcrafted_vs_eoh_400\\opening_set_400.json",
+  "opening_file_sha256": "64242aed816452f59e3e84d4ae84278d98100bf06f7fc4fed586d965e8df3f38",
+  "opening_count": 400,
+  "reused_existing_count": 0,
+  "newly_generated_count": 400,
+  "generation_seed": 20260924,
+  "plies_sampled_inclusive": [
+    4,
+    32
+  ],
+  "opening_profile": {
+    "early_4_to_12_plies": 151,
+    "middle_13_to_32_plies": 249
+  },
+  "handcrafted_policy": "H_CTM weights capture=4, tactical=2, mobility=0.5; terminal=+/-10",
+  "eoh_policy": "H_star_ayo.py; candidate g2-m2-05",
+  "depth_definition": "individual actions; maximize on root-policy turns, minimize on opponent turns, evaluate heuristic at depth cutoff",
+  "depths_plies": [
+    1,
+    2,
+    3
+  ],
+  "seat_swaps_per_opening_depth": 1,
+  "games": 2400,
+  "game_length_limit": 300,
+  "action_limit_score": "captured-seed differential; equal differential is draw",
+  "randomness_during_games": "none; policies and legal-action-order tie breaks are deterministic",
+  "match_log": "matches_400.jsonl",
+  "summary": {
+    "1": {
+      "games": 800,
+      "termination_reasons": {
+        "terminal_win": 549,
+        "terminal_draw": 251,
+        "repetition": 0,
+        "action_limit": 0
+      },
+      "policies": {
+        "handcrafted": {
+          "games": 800,
+          "wins": 191,
+          "draws": 251,
+          "losses": 358,
+          "score_rate": 0.395625,
+          "decision_count": 11938,
+          "policy_seconds": 38.77665910311043
+        },
+        "eoh": {
+          "games": 800,
+          "wins": 358,
+          "draws": 251,
+          "losses": 191,
+          "score_rate": 0.604375,
+          "decision_count": 11824,
+          "policy_seconds": 12.18549659952987
+        }
+      },
+      "by_policy_seat": {
+        "handcrafted": {
+          "0": {
+            "games": 400,
+            "wins": 89,
+            "draws": 125,
+            "losses": 186
+          },
+          "1": {
+            "games": 400,
+            "wins": 102,
+            "draws": 126,
+            "losses": 172
+          }
+        },
+        "eoh": {
+          "0": {
+            "games": 400,
+            "wins": 172,
+            "draws": 126,
+            "losses": 102
+          },
+          "1": {
+            "games": 400,
+            "wins": 186,
+            "draws": 125,
+            "losses": 89
+          }
+        }
+      }
+    },
+    "2": {
+      "games": 800,
+      "termination_reasons": {
+        "terminal_win": 650,
+        "terminal_draw": 150,
+        "repetition": 0,
+        "action_limit": 0
+      },
+      "policies": {
+        "handcrafted": {
+          "games": 800,
+          "wins": 330,
+          "draws": 150,
+          "losses": 320,
+          "score_rate": 0.50625,
+          "decision_count": 17368,
+          "policy_seconds": 171.21797050139867
+        },
+        "eoh": {
+          "games": 800,
+          "wins": 320,
+          "draws": 150,
+          "losses": 330,
+          "score_rate": 0.49375,
+          "decision_count": 17498,
+          "policy_seconds": 61.665011295408476
+        }
+      },
+      "by_policy_seat": {
+        "handcrafted": {
+          "0": {
+            "games": 400,
+            "wins": 156,
+            "draws": 68,
+            "losses": 176
+          },
+          "1": {
+            "games": 400,
+            "wins": 174,
+            "draws": 82,
+            "losses": 144
+          }
+        },
+        "eoh": {
+          "0": {
+            "games": 400,
+            "wins": 144,
+            "draws": 82,
+            "losses": 174
+          },
+          "1": {
+            "games": 400,
+            "wins": 176,
+            "draws": 68,
+            "losses": 156
+          }
+        }
+      }
+    },
+    "3": {
+      "games": 800,
+      "termination_reasons": {
+        "terminal_win": 698,
+        "terminal_draw": 102,
+        "repetition": 0,
+        "action_limit": 0
+      },
+      "policies": {
+        "handcrafted": {
+          "games": 800,
+          "wins": 310,
+          "draws": 102,
+          "losses": 388,
+          "score_rate": 0.45125,
+          "decision_count": 17288,
+          "policy_seconds": 310.3159048015368
+        },
+        "eoh": {
+          "games": 800,
+          "wins": 388,
+          "draws": 102,
+          "losses": 310,
+          "score_rate": 0.54875,
+          "decision_count": 17286,
+          "policy_seconds": 132.64415589836426
+        }
+      },
+      "by_policy_seat": {
+        "handcrafted": {
+          "0": {
+            "games": 400,
+            "wins": 134,
+            "draws": 59,
+            "losses": 207
+          },
+          "1": {
+            "games": 400,
+            "wins": 176,
+            "draws": 43,
+            "losses": 181
+          }
+        },
+        "eoh": {
+          "0": {
+            "games": 400,
+            "wins": 181,
+            "draws": 43,
+            "losses": 176
+          },
+          "1": {
+            "games": 400,
+            "wins": 207,
+            "draws": 59,
+            "losses": 134
+          }
+        }
+      }
+    }
+  }
+}
