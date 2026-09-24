@@ -46,6 +46,16 @@ AyoState::AyoState(std::shared_ptr<const Game> game, const AyoBoard& board)
   positions_since_capture_.insert(board_);
 }
 
+AyoState::AyoState(const AyoState& other)
+    : State(other),
+      num_houses_per_player_(other.num_houses_per_player_),
+      total_seeds_(other.total_seeds_),
+      board_(other.board_),
+      game_over_(other.game_over_),
+      returns_(other.returns_),
+      positions_since_capture_(other.positions_since_capture_),
+      last_relay_report_(other.last_relay_report_) {}
+
 Player AyoState::CurrentPlayer() const {
   return game_over_ ? kTerminalPlayerId : board_.current_player;
 }
@@ -184,21 +194,31 @@ void AyoState::DoApplyAction(Action action) {
   const auto actions = LegalActionsForCurrentPlayer();
   SPIEL_CHECK_TRUE(std::find(actions.begin(), actions.end(), action) !=
                    actions.end());
+  UndoFrame undo_frame{board_, game_over_, returns_, last_relay_report_};
   last_relay_report_.reset();
   const int house = ActionToHouse(board_.current_player, action);
-  if (SowRelay(house, action)) positions_since_capture_.clear();
+  if (SowRelay(house, action)) {
+    undo_frame.cleared_positions = true;
+    undo_frame.previous_positions = std::move(positions_since_capture_);
+    positions_since_capture_.clear();
+  }
   board_.current_player = 1 - board_.current_player;
 
   if (ScoreTerminal()) {
     SetScoreReturnsAndEnd();
+    undo_stack_.push_back(std::move(undo_frame));
     return;
   }
   if (positions_since_capture_.find(board_) != positions_since_capture_.end()) {
     CollectAndTerminate();
+    undo_stack_.push_back(std::move(undo_frame));
     return;
   }
   positions_since_capture_.insert(board_);
+  undo_frame.inserted_position = true;
+  undo_frame.inserted_board = board_;
   if (LegalActionsForCurrentPlayer().empty()) CollectAndTerminate();
+  undo_stack_.push_back(std::move(undo_frame));
 }
 
 std::vector<double> AyoState::Returns() const {
@@ -207,6 +227,30 @@ std::vector<double> AyoState::Returns() const {
 
 std::unique_ptr<State> AyoState::Clone() const {
   return std::unique_ptr<State>(new AyoState(*this));
+}
+
+void AyoState::UndoAction(Player player, Action action) {
+  SPIEL_CHECK_FALSE(undo_stack_.empty());
+  SPIEL_CHECK_FALSE(history_.empty());
+  SPIEL_CHECK_EQ(history_.back().player, player);
+  SPIEL_CHECK_EQ(history_.back().action, action);
+  SPIEL_CHECK_FALSE(move_number_ <= 0);
+
+  UndoFrame undo_frame = std::move(undo_stack_.back());
+  undo_stack_.pop_back();
+  if (undo_frame.inserted_position) {
+    SPIEL_CHECK_TRUE(undo_frame.inserted_board.has_value());
+    positions_since_capture_.erase(*undo_frame.inserted_board);
+  }
+  if (undo_frame.cleared_positions) {
+    positions_since_capture_ = std::move(undo_frame.previous_positions);
+  }
+  board_ = std::move(undo_frame.board);
+  game_over_ = undo_frame.game_over;
+  returns_ = std::move(undo_frame.returns);
+  last_relay_report_ = std::move(undo_frame.last_relay_report);
+  history_.pop_back();
+  --move_number_;
 }
 
 std::string AyoState::ActionToString(Player player, Action action) const {

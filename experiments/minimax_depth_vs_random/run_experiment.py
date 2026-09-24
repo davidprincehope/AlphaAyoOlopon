@@ -144,7 +144,7 @@ def summarize(records: list[dict]) -> dict:
 
 
 def run_depth(game, depth: int, games: int, seed: int, max_actions: int,
-              output_dir: Path) -> dict:
+              output_dir: Path, resume: bool = False) -> dict:
   bot = ayo_minimax.make_bot(
       game, maximum_depth=depth, value_function=H_star_ayo.evaluate_state
   )
@@ -154,8 +154,32 @@ def run_depth(game, depth: int, games: int, seed: int, max_actions: int,
                  (POLICY_RANDOM, POLICY_MINIMAX))
   records = []
 
-  with log_path.open("w", encoding="utf-8", newline="\n") as stream:
-    for game_id in range(games):
+  if resume and log_path.exists():
+    with log_path.open("r", encoding="utf-8") as stream:
+      for line_number, line in enumerate(stream, start=1):
+        if not line.strip():
+          continue
+        record = json.loads(line)
+        expected_game_id = len(records)
+        if record.get("depth") != depth or record.get("game_id") != expected_game_id:
+          raise ValueError(
+              f"Cannot resume {log_path}: line {line_number} is not the "
+              f"expected depth-{depth} record for game {expected_game_id}."
+          )
+        records.append(record)
+    if len(records) > games:
+      raise ValueError(
+          f"Cannot resume {log_path}: it already contains {len(records)} "
+          f"games, but target is {games}."
+      )
+    file_mode = "a"
+    start_game_id = len(records)
+  else:
+    file_mode = "w"
+    start_game_id = 0
+
+  with log_path.open(file_mode, encoding="utf-8", newline="\n") as stream:
+    for game_id in range(start_game_id, games):
       pair_id = game_id // 2
       assignment = assignments[game_id % 2]
       game_seed = seed + pair_id
@@ -198,6 +222,10 @@ def main() -> None:
   parser.add_argument("--seed", type=int, default=DEFAULT_SEED)
   parser.add_argument("--max-actions", type=int, default=DEFAULT_MAX_ACTIONS)
   parser.add_argument(
+      "--resume", action="store_true",
+      help="Resume existing per-depth JSONL logs and append missing games.",
+  )
+  parser.add_argument(
       "--output-dir", type=Path,
       default=ROOT / "experiments" / "minimax_depth_vs_random" / "results",
   )
@@ -219,7 +247,8 @@ def main() -> None:
     print(f"Starting depth {depth}: {args.games} games; seed {args.seed}",
           flush=True)
     result = run_depth(
-        game, depth, args.games, args.seed, args.max_actions, output_dir
+        game, depth, args.games, args.seed, args.max_actions, output_dir,
+        resume=args.resume,
     )
     results.append(result)
     print(json.dumps({"depth": depth, **result["summary"]}, sort_keys=True),
