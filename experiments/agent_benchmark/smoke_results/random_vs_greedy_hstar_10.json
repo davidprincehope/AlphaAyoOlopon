@@ -1,0 +1,60 @@
+{
+  "experiment": "random_vs_greedy_hstar",
+  "status": "completed",
+  "created_at_utc": "2026-09-23T12:26:35.284562+00:00",
+  "games": 10,
+  "master_seed": 20260923,
+  "max_actions": 300,
+  "starting_position": "standard_initial_state",
+  "seat_balance": {
+    "GREEDY_HSTAR": 5,
+    "RAND": 5
+  },
+  "greedy_policy": "one-ply max successor value using Algorithms/H_star_ayo.py",
+  "tie_break": "first action in OpenSpiel legal-action order",
+  "action_limit_score": "captured-seed differential; reported as action_limit, not natural_draw",
+  "log_file": "experiments\\agent_benchmark\\smoke_results\\random_vs_greedy_hstar_10.jsonl",
+  "log_sha256": "4c7be1044c3586c1dd4d69b18a7cc2a97db491489b806a209d29f506774378ef",
+  "summary": {
+    "games": 10,
+    "termination_reasons": {
+      "terminal_win": 10
+    },
+    "policies": {
+      "GREEDY_HSTAR": {
+        "games": 10,
+        "wins": 8,
+        "draws": 0,
+        "losses": 2,
+        "score_sum": 8.0,
+        "natural_draws": 0,
+        "repetitions": 0,
+        "action_limits": 0,
+        "seats": {
+          "0": 5,
+          "1": 5
+        },
+        "score_rate": 0.8,
+        "win_rate": 0.8,
+        "average_game_length": 27.9
+      },
+      "RAND": {
+        "games": 10,
+        "wins": 2,
+        "draws": 0,
+        "losses": 8,
+        "score_sum": 2.0,
+        "natural_draws": 0,
+        "repetitions": 0,
+        "action_limits": 0,
+        "seats": {
+          "0": 5,
+          "1": 5
+        },
+        "score_rate": 0.2,
+        "win_rate": 0.2,
+        "average_game_length": 27.9
+      }
+    }
+  }
+}

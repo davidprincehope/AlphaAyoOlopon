@@ -5,10 +5,17 @@ from absl.testing import absltest
 import pyspiel
 
 from Model.ayo_olopon import ayo_olopon  # pylint: disable=unused-import
+from Algorithms import H_star_ayo
 from Algorithms import ayo_minimax
 
 
 class AyoMinimaxTest(absltest.TestCase):
+
+  def test_minimax_defaults_to_h_star_evaluator(self):
+    game = pyspiel.load_game("ayo_olopon")
+    bot = ayo_minimax.make_bot(game)
+
+    self.assertIs(bot.value_function, H_star_ayo.evaluate_state)
 
   def test_minimax_bot_can_choose_an_initial_action(self):
     game = pyspiel.load_game("ayo_olopon")
