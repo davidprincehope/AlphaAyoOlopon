@@ -38,3 +38,5 @@ Algorithms/__pycache__
 tests/ayo_olopon/test_ayo_transfer_features.py
 experiments/handcrafted_vs_eoh/__pycache__/
 experiments/EOH/__pycache__/
+experiments/minimax_depth_vs_random/results
+experiments/agent_benchmark/__pycache__/

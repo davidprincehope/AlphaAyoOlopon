@@ -1,28 +1,11 @@
 """Depth-limited alpha-beta minimax for the Ayo Olopon game."""
 
 from open_spiel.python.algorithms import minimax
+from Algorithms import H_star_ayo
 
 
-def evaluate_state(state, maximizing_player):
-  """Returns a simple Ayo evaluation from ``maximizing_player``'s view.
 
-  Captured seeds are weighted most strongly because they determine the final
-  result. Remaining seeds on each player's row provide a small positional
-  signal during depth-limited searches.
-  """
-  opponent = 1 - maximizing_player
-  total_seeds = float(state.total_seeds)
-  own_row = sum(state.board[
-      maximizing_player * state.num_houses_per_player:
-      (maximizing_player + 1) * state.num_houses_per_player
-  ])
-  opponent_row = sum(state.board[
-      opponent * state.num_houses_per_player:
-      (opponent + 1) * state.num_houses_per_player
-  ])
-  captured_difference = state.captured[maximizing_player] - state.captured[opponent]
-  row_difference = own_row - opponent_row
-  return captured_difference / total_seeds + 0.25 * row_difference / total_seeds
+evaluate_state = H_star_ayo.evaluate_state
 
 
 class AyoMinimaxBot:

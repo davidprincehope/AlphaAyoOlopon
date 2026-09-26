@@ -33,7 +33,7 @@ class AyoState : public State {
   AyoState(std::shared_ptr<const Game> game, int num_houses_per_player,
            int num_seeds_per_house);
   AyoState(std::shared_ptr<const Game> game, const AyoBoard& board);
-  AyoState(const AyoState&) = default;
+  AyoState(const AyoState& other);
 
   Player CurrentPlayer() const override;
   std::vector<Action> LegalActions() const override;
@@ -43,6 +43,7 @@ class AyoState : public State {
   std::vector<double> Returns() const override;
   std::vector<double> Rewards() const override { return {0.0, 0.0}; }
   std::unique_ptr<State> Clone() const override;
+  void UndoAction(Player player, Action action) override;
   void ObservationTensor(Player player, absl::Span<float> values) const override;
   std::string ObservationString(Player player) const override;
 
@@ -66,6 +67,17 @@ class AyoState : public State {
     std::size_t operator()(const AyoBoard& board) const {
       return board.HashValue();
     }
+  };
+
+  struct UndoFrame {
+    AyoBoard board;
+    bool game_over;
+    std::vector<double> returns;
+    std::optional<RelayReport> last_relay_report;
+    bool cleared_positions = false;
+    std::unordered_set<AyoBoard, BoardHash> previous_positions;
+    bool inserted_position = false;
+    std::optional<AyoBoard> inserted_board;
   };
   struct RelayKeyHash {
     std::size_t operator()(const RelayKey& key) const {
@@ -94,6 +106,7 @@ class AyoState : public State {
   std::vector<double> returns_{0.0, 0.0};
   std::unordered_set<AyoBoard, BoardHash> positions_since_capture_;
   std::optional<RelayReport> last_relay_report_;
+  std::vector<UndoFrame> undo_stack_;
 };
 
 class AyoGame : public Game {
