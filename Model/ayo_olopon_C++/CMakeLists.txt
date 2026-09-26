@@ -78,6 +78,31 @@ target_link_libraries(ayo_minimax_native PRIVATE
   absl::time
 )
 
+add_executable(ayo_mcts_native
+  ${REPOSITORY_ROOT}/Algorithms/ayo_mcts_cpp.cc
+  ${CMAKE_CURRENT_LIST_DIR}/ayo_olopon.cc
+  ${CMAKE_CURRENT_LIST_DIR}/ayo_olopon_board.cc
+  ${REPOSITORY_ROOT}/experiments/mcts_vs_random/run_native.cpp
+  ${OPEN_SPIEL_ROOT}/algorithms/mcts.cc
+  $<TARGET_OBJECTS:open_spiel_core>
+)
+target_include_directories(ayo_mcts_native PRIVATE
+  ${REPOSITORY_ROOT}
+  ${OPEN_SPIEL_ROOT}/..
+  ${OPEN_SPIEL_ROOT}/abseil-cpp
+  ${OPEN_SPIEL_ROOT}/json/include
+)
+target_link_libraries(ayo_mcts_native PRIVATE
+  absl::algorithm
+  absl::flat_hash_map
+  absl::optional
+  absl::random_distributions
+  absl::random_random
+  absl::str_format
+  absl::strings
+  absl::time
+)
+
 add_executable(ayo_state_space_enumerator
   ${CMAKE_CURRENT_LIST_DIR}/ayo_olopon.cc
   ${CMAKE_CURRENT_LIST_DIR}/ayo_olopon_board.cc
