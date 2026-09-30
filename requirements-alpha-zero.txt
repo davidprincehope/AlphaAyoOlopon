@@ -1,0 +1,13 @@
+﻿# Direct versions verified with CPython 3.14.3 on Windows CPU.
+# The local OpenSpiel Python source is selected by runtime.py; the wheel supplies pyspiel.
+# For GPU, follow JAX's platform installation guide and re-run the smoke test.
+open_spiel==2.0.2
+numpy==2.5.3
+jax==0.11.2
+jaxlib==0.11.2
+flax==0.12.10
+optax==0.2.8
+chex==0.1.92
+orbax-checkpoint==0.12.6
+absl-py==2.5.0
+pytest==9.1.1

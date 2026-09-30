@@ -101,3 +101,14 @@ python -m pytest
 ## License
 
 This project does not currently declare a license file in the repository. If you plan to share or distribute it publicly, add an appropriate license before publication.
+
+## AlphaZero training
+
+The OpenSpiel JAX/Flax AlphaZero scaffold, smoke/starter configurations,
+checkpoint evaluation commands, and rule/hyperparameter decisions are documented
+in [experiments/alpha_zero/README.md](experiments/alpha_zero/README.md).
+
+```powershell
+.venv/Scripts/python.exe -m experiments.alpha_zero.train --dry-run
+.venv/Scripts/python.exe -m experiments.alpha_zero.train --config experiments/alpha_zero/configs/smoke.json
+```

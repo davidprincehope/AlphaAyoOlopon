@@ -40,3 +40,8 @@ experiments/handcrafted_vs_eoh/__pycache__/
 experiments/EOH/__pycache__/
 experiments/minimax_depth_vs_random/results
 experiments/agent_benchmark/__pycache__/
+# AlphaZero JAX experiment artifacts
+/runs/alpha_zero/
+Algorithms/alpha_zero/__pycache__/
+experiments/alpha_zero/__pycache__/
+tests/alpha_zero/__pycache__/

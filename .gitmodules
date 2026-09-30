@@ -1,0 +1,4 @@
+[submodule "open_spiel"]
+	path = open_spiel
+	url = https://github.com/davidprincehope/open_spiel.git
+	branch = alpha-ayo-jax

@@ -35,6 +35,21 @@ def test_initial_board():
     assert state.rewards() == [0, 0]
     assert state.returns() == [0, 0]
 
+
+def test_configured_game_limit_collects_seeds_and_awards_max_utility():
+    game = pyspiel.load_game("ayo_olopon", {"max_game_length": 1})
+    state = game.new_initial_state()
+
+    assert game.max_game_length() == 1
+    state.apply_action(0)
+
+    assert state.is_terminal()
+    assert state.board == [0] * 12
+    assert sum(state.captured) == 48
+    winner = int(state.captured[1] > state.captured[0])
+    assert state.returns() == ([-1, 1] if winner == 1 else [1, -1])
+    assert max(state.returns()) == game.max_utility()
+
 def test_player_0_first_action():
     game = pyspiel.load_game("ayo_olopon")
     state = game.new_initial_state()
