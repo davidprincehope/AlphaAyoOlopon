@@ -114,8 +114,10 @@ def test_landing_on_four_captures_and_ends_move():
 
 
 def test_intermediate_four_is_captured_by_row_owner_and_sowing_continues():
+    # Keep all 48 seeds accounted for and leave Player 1 a legal next move,
+    # so the post-move feeding rule does not collect the board.
     state = _state_with_position(
-        [0, 0, 0, 0, 0, 5, 3, 0, 0, 0, 0, 0]
+        [8, 8, 8, 8, 7, 5, 3, 0, 0, 0, 0, 1]
     )
 
     state.apply_action(5)
@@ -123,9 +125,11 @@ def test_intermediate_four_is_captured_by_row_owner_and_sowing_continues():
     # The first seed lands in opponent pit 6, changing 3 to 4 while four
     # seeds remain in hand. Player 1 owns that row and receives the capture;
     # the remaining seeds continue to pits 7 through 10.
-    assert state.board == [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0]
+    assert state.board == [8, 8, 8, 8, 7, 0, 0, 1, 1, 1, 1, 1]
     assert state.captured == [0, 4]
     assert state.current_player() == 1
+    assert not state.is_terminal()
+    assert sum(state.board) + sum(state.captured) == 48
 
 
 def test_non_terminal_landing_pit_is_picked_up_for_relay_sowing():

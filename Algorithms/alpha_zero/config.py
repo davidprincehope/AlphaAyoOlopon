@@ -1,6 +1,6 @@
 """Validated experiment settings, independent of the optional training packages."""
 
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
 import json
 import math
 from pathlib import Path
@@ -18,12 +18,16 @@ class Settings:
     replay_buffer_reuse: int = 4
     max_steps: int = 100
     checkpoint_freq: int = 10
+    resume_checkpoint_freq: int = 10
     actors: int = 2
-    evaluators: int = 1
+    evaluators: int = 0
+    evaluation_games: int = 100
+    evaluation_opponent: dict = field(default_factory=lambda: {"name": "RAND", "params": {}})
+    evaluation_seed: int = 0
     evaluation_window: int = 50
     eval_levels: int = 3
     uct_c: float = 1.5
-    max_simulations: int = 100
+    max_simulations: int = 64
     policy_alpha: float = 1.0
     policy_epsilon: float = 0.25
     temperature: float = 1.0
@@ -36,9 +40,17 @@ class Settings:
     quiet: bool = True
 
     def __post_init__(self):
+        self._integer("evaluation_games", 2)
+        self._integer("evaluation_seed", 0)
+        if self.evaluation_games % 2:
+            raise ValueError("evaluation_games must be even for balanced seats")
+        if (not isinstance(self.evaluation_opponent, dict)
+                or not isinstance(self.evaluation_opponent.get("name"), str)
+                or not isinstance(self.evaluation_opponent.get("params", {}), dict)):
+            raise ValueError("evaluation_opponent requires a name and a params object")
         for name in (
             "max_moves", "train_batch_size", "replay_buffer_size",
-            "replay_buffer_reuse", "checkpoint_freq", "actors",
+            "replay_buffer_reuse", "checkpoint_freq", "resume_checkpoint_freq", "actors",
             "evaluation_window", "nn_width", "nn_depth",
         ):
             self._integer(name, 1)

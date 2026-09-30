@@ -34,7 +34,7 @@ def make_bot(
   Returns:
     An OpenSpiel ``mcts.MCTSBot``.
   """
-  if game.get_type().short_name != "ayo_olopon":
+  if game.get_type().short_name not in ("ayo_olopon", "ayo_olopon_alpha_zero"):
     raise ValueError(
         "make_bot expects the ayo_olopon game, got "
         f"{game.get_type().short_name!r}"

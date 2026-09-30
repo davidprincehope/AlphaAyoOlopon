@@ -7,6 +7,7 @@
   "nn_depth": 3,
   "actors": 1,
   "evaluators": 0,
+  "evaluation_games": 2,
   "eval_levels": 2,
   "max_simulations": 4,
   "train_batch_size": 4,
