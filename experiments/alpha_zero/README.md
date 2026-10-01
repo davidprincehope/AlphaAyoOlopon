@@ -127,8 +127,11 @@ directories from earlier versions cannot resume the learner.
 ```
 
 `--max-steps` is the total target learner step, not the additional number of
-rounds. `0` means unlimited. The saved configuration is restored; only the target
-step may change. An explicitly supplied `--config` must otherwise match. A target
+rounds. `0` means unlimited. The saved configuration is restored; the target
+step and per-round evaluation game count may change via CLI overrides.
+`--evaluation-games 0` skips future per-round matches while continuing to export
+each trained model for offline evaluation. An explicitly supplied `--config` must
+otherwise match the saved settings. A target
 already reached is rejected before workers start. Architecture, game, observation,
 and snapshot format compatibility are checked. `--dry-run` also validates resume
 selection without starting workers or modifying run files.
@@ -138,6 +141,12 @@ before generating a game. Resume skips checkpoint 0 and starts at the saved
 completed step plus one. Ctrl+C requests a graceful stop after the current round,
 with a final complete snapshot; an abrupt kill loses work since the last complete
 snapshot.
+
+To stop RAND matches in an ongoing run, press Ctrl+C once and wait for the current
+round (including its evaluation) to finish and publish a complete snapshot. Pull
+the updated code, then resume with
+`--resume runs/alpha_zero/starter --max-steps 200 --evaluation-games 0`.
+This does not change self-play, replay, optimizer updates, or the total target.
 
 `learner.jsonl` remains the canonical training history. Each invocation records a
 session ID, source snapshot, target step, and settings in `sessions/`. During
@@ -167,7 +176,7 @@ These are **untuned starting values**, not an Ayo optimum.
 | `replay_buffer_reuse` | 4 | Collect at least `buffer_size // reuse` new positions per learner round, then take `len(buffer) // batch_size` updates. This is not a boolean despite the upstream annotation. |
 | `max_steps` | 100 | Learner rounds, not games or individual gradient updates. Zero runs until interrupted. |
 | `actors`, `evaluators` | 2, 0 | Self-play workers and optional legacy asynchronous rollout-MCTS diagnostic workers. Per-round evaluation runs independently of `evaluators`. |
-| `evaluation_games`, `evaluation_seed` | 100, 0 | Per-round matches; games must be positive and even. Smoke/sanity use 2 games. |
+| `evaluation_games`, `evaluation_seed` | 100, 0 | Per-round matches; games must be even. Zero skips matches while retaining per-round model exports. Smoke/sanity use 2 games. |
 | `evaluation_opponent` | `{"name":"RAND","params":{}}` | Existing Ayo baseline and its constructor parameters. |
 | `checkpoint_freq` | 10 | Retain numbered checkpoints every 10 rounds. |
 | `resume_checkpoint_freq` | 10 | Save complete learner snapshots every 10 rounds, and at the final/graceful-stop round. |
@@ -234,7 +243,7 @@ References: [upstream Python AlphaZero](https://github.com/google-deepmind/open_
 
 ## Per-round and retrospective evaluation
 
-Every completed learner round evaluates its resulting parameters through
+With a positive `evaluation_games`, every completed learner round evaluates its resulting parameters through
 `experiments.agent_benchmark.random_vs_greedy_hstar.run_matches`. The same runner
 is used by the offline command. The default is 100 matches against RAND, with
 50 games in each player seat. Both seats in a pair share a seed. Neural MCTS uses

@@ -189,3 +189,13 @@ def test_process_restart_continues_learner_and_preserves_history(tmp_path):
     assert launch("--resume", str(run), "--resume-step", "2", "--max-steps", "5").returncode != 0
     assert launch("--resume", str(run), "--max-steps", "5", "--config",
                   str(ROOT / "experiments/alpha_zero/configs/starter.json")).returncode != 0
+    result = launch("--resume", str(run), "--max-steps", "5", "--evaluation-games", "0")
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert "next step 5" in result.stdout
+    evaluations = [json.loads(line) for line in (run / "evaluation.jsonl").read_text().splitlines()]
+    assert [row["training_step"] for row in evaluations] == [1, 2, 3, 4, 5]
+    assert evaluations[-1]["status"] == "skipped" and evaluations[-1]["games"] == 0
+    assert (run / "inference-checkpoints/step-000005.npz").is_file()
+    metadata, learner = cp.validate_snapshot(cp.find_snapshot(run))
+    assert learner["completed_step"] == 5
+    assert metadata["manifest"]["settings"]["evaluation_games"] == 0

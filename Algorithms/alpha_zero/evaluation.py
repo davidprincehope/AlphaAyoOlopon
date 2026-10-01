@@ -67,7 +67,13 @@ def evaluate_round(config, game, model, step):
         settings = Settings(**values)
         manifest["settings"] = values
         export_round(run, step, model._state.params, manifest)
-        report = evaluate_model(game, InferenceModel(model._state.params), settings, step)
+        if settings.evaluation_games == 0:
+            report = {"checkpoint_id": step, "training_step": step,
+                      "opponent": settings.evaluation_opponent,
+                      "games": 0, "status": "skipped",
+                      "reason": "evaluation_games=0"}
+        else:
+            report = evaluate_model(game, InferenceModel(model._state.params), settings, step)
     except Exception as exc:
         report = {"training_step": step, "checkpoint_id": step, "status": "error", "error": repr(exc)}
         warnings.warn(f"Round {step} evaluation failed (training continues): {exc}")

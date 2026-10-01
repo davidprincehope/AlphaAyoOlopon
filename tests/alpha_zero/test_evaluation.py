@@ -97,6 +97,12 @@ def test_inference_exports_and_legacy_load_without_optimizer(tmp_path, monkeypat
     assert model._state is before
     assert int(model._state.step) == 0
     assert available_steps(tmp_path) == [1, 2]
+    config.evaluation_games = 0
+    skipped = evaluate_round(config, game, model, 3)
+    assert skipped["status"] == "skipped"
+    assert skipped["games"] == 0
+    assert model._state is before
+    assert available_steps(tmp_path) == [1, 2, 3]
 
 
 def test_evaluation_failure_does_not_fail_training_hook(tmp_path):

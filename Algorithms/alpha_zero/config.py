@@ -40,10 +40,10 @@ class Settings:
     quiet: bool = True
 
     def __post_init__(self):
-        self._integer("evaluation_games", 2)
+        self._integer("evaluation_games", 0)
         self._integer("evaluation_seed", 0)
         if self.evaluation_games % 2:
-            raise ValueError("evaluation_games must be even for balanced seats")
+            raise ValueError("evaluation_games must be zero or even for balanced seats")
         if (not isinstance(self.evaluation_opponent, dict)
                 or not isinstance(self.evaluation_opponent.get("name"), str)
                 or not isinstance(self.evaluation_opponent.get("params", {}), dict)):
