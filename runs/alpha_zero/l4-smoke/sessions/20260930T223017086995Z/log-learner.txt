@@ -1,0 +1,12 @@
+[2026-09-30 22:30:18.525] learner started
+[2026-09-30 22:30:19.306] Initializing model
+[2026-09-30 22:30:24.493] Model type: ayo_mlp(256, 3)
+[2026-09-30 22:30:24.493] Model size: 185863 variables
+[2026-09-30 22:30:24.620] Collecting trajectories
+[2026-09-30 22:30:43.753] Step: 1
+[2026-09-30 22:30:43.753] Collected   188 states from   1 games, 2.4 states/s. 2.4 states/(s*actor), game length: 188.0
+[2026-09-30 22:30:43.754] Buffer size: 64. States seen: 188
+[2026-09-30 22:30:54.684] Losses(total: 1.776, policy: 0.635, value: 1.049, l2: 0.092)
+[2026-09-30 22:30:54.687] Checkpoint saved: 1
+[2026-09-30 22:30:56.401]
+[2026-09-30 22:30:56.451] learner exiting

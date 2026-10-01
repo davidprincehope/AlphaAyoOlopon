@@ -1,0 +1,1 @@
+Checkpoint commit was successful to /teamspace/studios/this_studio/AlphaAyoOlopon/runs/alpha_zero/l4-smoke/checkpoint-0

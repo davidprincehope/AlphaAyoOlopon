@@ -1,0 +1,54 @@
+[2026-09-30 22:41:29.763] learner started
+[2026-09-30 22:41:30.541] Initializing model
+[2026-09-30 22:41:36.217] Model type: ayo_mlp(256, 3)
+[2026-09-30 22:41:36.218] Model size: 185863 variables
+[2026-09-30 22:41:36.372] Collecting trajectories
+[2026-09-30 23:36:51.689] Step: 1
+[2026-09-30 23:36:51.689] Collected  4100 states from  85 games, 1.2 states/s. 0.6 states/(s*actor), game length: 48.2
+[2026-09-30 23:36:51.694] Buffer size: 4100. States seen: 4100
+[2026-09-30 23:37:15.739] Losses(total: 1.709, policy: 1.015, value: 0.613, l2: 0.082)
+[2026-09-30 23:37:15.742] Checkpoint saved: -1
+[2026-10-01 00:04:21.705]
+[2026-10-01 00:04:21.705] Collecting trajectories
+[2026-10-01 00:37:09.056] Step: 2
+[2026-10-01 00:37:09.056] Collected  4103 states from 102 games, 1.1 states/s. 0.6 states/(s*actor), game length: 40.2
+[2026-10-01 00:37:09.057] Buffer size: 8203. States seen: 8203
+[2026-10-01 00:37:09.365] Losses(total: 1.497, policy: 1.046, value: 0.393, l2: 0.058)
+[2026-10-01 00:37:09.368] Checkpoint saved: -1
+[2026-10-01 01:07:33.622]
+[2026-10-01 01:07:33.623] Collecting trajectories
+[2026-10-01 01:37:38.404] Step: 3
+[2026-10-01 01:37:38.404] Collected  4105 states from 122 games, 1.1 states/s. 0.6 states/(s*actor), game length: 33.6
+[2026-10-01 01:37:38.405] Buffer size: 12308. States seen: 12308
+[2026-10-01 01:37:38.794] Losses(total: 1.468, policy: 1.048, value: 0.375, l2: 0.045)
+[2026-10-01 01:37:38.796] Checkpoint saved: -1
+[2026-10-01 02:02:41.818]
+[2026-10-01 02:02:41.818] Collecting trajectories
+[2026-10-01 02:39:02.111] Step: 4
+[2026-10-01 02:39:02.111] Collected  4099 states from 103 games, 1.1 states/s. 0.6 states/(s*actor), game length: 39.8
+[2026-10-01 02:39:02.112] Buffer size: 16384. States seen: 16407
+[2026-10-01 02:39:02.564] Losses(total: 1.433, policy: 1.051, value: 0.342, l2: 0.040)
+[2026-10-01 02:39:02.568] Checkpoint saved: -1
+[2026-10-01 03:20:51.858]
+[2026-10-01 03:20:51.858] Collecting trajectories
+[2026-10-01 03:42:53.212] Step: 5
+[2026-10-01 03:42:53.212] Collected  4122 states from  96 games, 1.1 states/s. 0.5 states/(s*actor), game length: 42.9
+[2026-10-01 03:42:53.213] Buffer size: 16384. States seen: 20529
+[2026-10-01 03:42:53.670] Losses(total: 1.439, policy: 1.065, value: 0.337, l2: 0.037)
+[2026-10-01 03:42:53.673] Checkpoint saved: -1
+[2026-10-01 04:56:54.444]
+[2026-10-01 04:56:54.445] Collecting trajectories
+[2026-10-01 04:57:03.606] Step: 6
+[2026-10-01 04:57:03.607] Collected  4115 states from  95 games, 0.9 states/s. 0.5 states/(s*actor), game length: 43.3
+[2026-10-01 04:57:03.607] Buffer size: 16384. States seen: 24644
+[2026-10-01 04:57:04.077] Losses(total: 1.408, policy: 1.055, value: 0.316, l2: 0.036)
+[2026-10-01 04:57:04.080] Checkpoint saved: -1
+[2026-10-01 05:38:15.340]
+[2026-10-01 05:38:15.340] Collecting trajectories
+[2026-10-01 05:52:15.443] Step: 7
+[2026-10-01 05:52:15.444] Collected  4138 states from 110 games, 1.2 states/s. 0.6 states/(s*actor), game length: 37.6
+[2026-10-01 05:52:15.445] Buffer size: 16384. States seen: 28782
+[2026-10-01 05:52:15.902] Losses(total: 1.379, policy: 1.046, value: 0.297, l2: 0.036)
+[2026-10-01 05:52:15.909] Checkpoint saved: -1
+[2026-10-01 06:25:35.534]
+[2026-10-01 06:25:35.730] learner exiting
