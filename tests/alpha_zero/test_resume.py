@@ -199,3 +199,17 @@ def test_process_restart_continues_learner_and_preserves_history(tmp_path):
     metadata, learner = cp.validate_snapshot(cp.find_snapshot(run))
     assert learner["completed_step"] == 5
     assert metadata["manifest"]["settings"]["evaluation_games"] == 0
+    assert launch("--resume", str(run), "--max-steps", "6", "--actors", "0",
+                  "--dry-run").returncode != 0
+    result = launch("--resume", str(run), "--max-steps", "6", "--actors", "3",
+                    "--evaluation-games", "0")
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert "next step 6" in result.stdout
+    rows = [json.loads(line) for line in (run / "learner.jsonl").read_text().splitlines()]
+    assert [row["step"] for row in rows] == [1, 2, 3, 4, 5, 6]
+    session = max((run / "sessions").iterdir())
+    assert json.loads((session / "session.json").read_text())["settings"]["actors"] == 3
+    assert len(list(session.glob("log-actor-*.txt"))) == 3
+    metadata, learner = cp.validate_snapshot(cp.find_snapshot(run))
+    assert learner["completed_step"] == 6
+    assert metadata["manifest"]["settings"]["actors"] == 3

@@ -27,6 +27,7 @@ def main():
     parser.add_argument("--resume-step", type=int, help="Select a saved learner step; older snapshots require a new --output")
     parser.add_argument("--max-steps", type=int, help="Total target learner step, not additional rounds; 0 means unlimited")
     parser.add_argument("--evaluation-games", type=int, help="Per-round games; 0 skips matches but keeps inference exports")
+    parser.add_argument("--actors", type=int, help="Self-play processes for this session, including on resume")
     parser.add_argument("--dry-run", action="store_true", help="Validate settings/game without importing JAX or training")
     args = parser.parse_args()
     if args.resume_step is not None and not args.resume:
@@ -55,6 +56,11 @@ def main():
     if args.evaluation_games is not None:
         try:
             settings = replace(settings, evaluation_games=args.evaluation_games)
+        except ValueError as exc:
+            parser.error(str(exc))
+    if args.actors is not None:
+        try:
+            settings = replace(settings, actors=args.actors)
         except ValueError as exc:
             parser.error(str(exc))
     if snapshot and settings.max_steps != 0 and settings.max_steps <= completed_step:

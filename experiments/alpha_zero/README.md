@@ -124,11 +124,18 @@ directories from earlier versions cannot resume the learner.
 
 # Branch from an older complete snapshot into a new run directory.
 .venv/Scripts/python.exe -m experiments.alpha_zero.train --resume runs/alpha_zero/starter --resume-step 100 --output runs/alpha_zero/branch --max-steps 200
+
+# Restart fresh self-play workers with three actors at the next learner round.
+.venv/Scripts/python.exe -m experiments.alpha_zero.train --resume runs/alpha_zero/starter --actors 3 --max-steps 200
 ```
 
 `--max-steps` is the total target learner step, not the additional number of
 rounds. `0` means unlimited. The saved configuration is restored; the target
-step and per-round evaluation game count may change via CLI overrides.
+step, per-round evaluation game count, and self-play actor count may change via
+CLI overrides. `--actors` changes only the number of fresh worker processes;
+the model, replay, optimizer, and completed learner step still come from the
+snapshot. The effective count is recorded in the new session and subsequent
+snapshots. The run-level `manifest.json` retains the initial session settings.
 `--evaluation-games 0` skips future per-round matches while continuing to export
 each trained model for offline evaluation. An explicitly supplied `--config` must
 otherwise match the saved settings. A target
