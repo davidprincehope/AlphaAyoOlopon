@@ -1,0 +1,4 @@
+[2026-10-01 21:12:33.562] actor-2 started
+[2026-10-01 21:12:33.562] Initializing model
+[2026-10-01 21:12:40.137] Initializing bots
+[2026-10-01 21:12:40.266] Initial checkpoint loaded {'snapshot': '/teamspace/studios/this_studio/AlphaAyoOlopon/runs/alpha_zero/l4-full-64/training-checkpoints/step-000025'}

@@ -1,0 +1,6 @@
+[2026-10-01 21:12:31.891] learner started
+[2026-10-01 21:12:31.891] Initializing model
+[2026-10-01 21:12:31.891] Model type: ayo_mlp(256, 3)
+[2026-10-01 21:12:31.891] Model size: 185863 variables
+[2026-10-01 21:12:31.894] Resumed learner after step 25 with replay positions 16384
+[2026-10-01 21:12:31.894] Collecting trajectories
