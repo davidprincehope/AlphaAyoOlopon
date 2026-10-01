@@ -4,3 +4,10 @@
 [2026-10-01 21:12:31.891] Model size: 185863 variables
 [2026-10-01 21:12:31.894] Resumed learner after step 25 with replay positions 16384
 [2026-10-01 21:12:31.894] Collecting trajectories
+[2026-10-01 21:55:36.417] Step: 26
+[2026-10-01 21:55:36.417] Collected  4127 states from 113 games, 1.6 states/s. 0.5 states/(s*actor), game length: 36.5
+[2026-10-01 21:55:36.418] Buffer size: 16384. States seen: 107020
+[2026-10-01 21:56:01.550] Losses(total: 1.271, policy: 0.908, value: 0.329, l2: 0.034)
+[2026-10-01 21:56:01.553] Checkpoint saved: -1
+[2026-10-01 21:56:01.659]
+[2026-10-01 21:56:01.659] Collecting trajectories
