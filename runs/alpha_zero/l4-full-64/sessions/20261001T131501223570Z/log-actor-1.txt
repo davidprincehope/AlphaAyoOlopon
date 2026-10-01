@@ -1,0 +1,84 @@
+[2026-10-01 13:15:10.033] actor-1 started
+[2026-10-01 13:15:10.033] Initializing model
+[2026-10-01 13:15:16.312] Initializing bots
+[2026-10-01 13:15:16.429] Initial checkpoint loaded {'snapshot': '/teamspace/studios/this_studio/AlphaAyoOlopon/runs/alpha_zero/l4-full-64/training-checkpoints/step-000014'}
+[2026-10-01 13:17:47.997] Game 1: Returns: -1.0 1.0; Actions: A0 a3 A1 a0 A0 a1 A0 a0 A5 a0 A2 a3 A5 a2 A0 a1 A1 a4 A2 a5 A2 a3 A0 a4 A5 a0 A4 a2 A2 a5 A3 a1 A4 a0 A1 a4 A0 a5 A2 a1 A1 a5 A2 a0 A0 a4 A5 a0 A1 a5 A0 a1 A2 a0 A4 a5 A2 a2 A5 a4 A2 a5 A5 a3 A4 a1
+[2026-10-01 13:19:26.860] Game 2: Returns: 0.0 0.0; Actions: A2 a5 A1 a1 A5 a0 A3 a4 A0 a3 A5 a0 A5 a4 A0 a1 A1 a2 A3 a0 A5 a0 A0 a2 A2 a4 A3 a5 A1 a1 A0 a3 A3 a0 A1 a4 A2 a2 A3 a5 A0 a4 A1 a5 A2 a3 A3 a5 A2 a4 A1 a5
+[2026-10-01 13:20:15.561] Game 3: Returns: -1.0 1.0; Actions: A0 a1 A2 a4 A5 a5 A0 a4 A4 a3 A3 a1 A4 a1 A3 a0 A4 a1 A5 a4 A2 a2
+[2026-10-01 13:21:08.792] Game 4: Returns: -1.0 1.0; Actions: A3 a4 A2 a0 A2 a4 A4 a2 A2 a3 A3 a3 A4 a4 A0 a4 A2 a0 A3 a4 A0 a2
+[2026-10-01 13:21:29.766] Game 5: Returns: -1.0 1.0; Actions: A3 a4 A1 a0 A0 a2 A3 a5 A0 a0
+[2026-10-01 13:25:54.871] Game 6: Returns: -1.0 1.0; Actions: A0 a1 A3 a0 A1 a2 A5 a1 A1 a0 A0 a5 A0 a1 A5 a0 A4 a0 A2 a2 A3 a1 A0 a2 A4 a1 A3 a2 A3 a4 A4 a0 A0 a2 A4 a1 A1 a5 A5 a2 A4 a0 A5 a1 A3 a5 A4 a2 A0 a1 A2 a0 A0 a5 A2 a4 A0 a2 A4 a1 A5 a0 A2 a3 A4 a1 A5 a5 A0 a5 A3 a0 A4 a5 A0 a3 A3 a0 A0 a5 A3 a2 A5 a2 A3 a5 A0 a1 A5 a1 A1 a5 A2 a0 A1 a1 A4 a3 A0 a0 A2 a5 A3 a4 A2 a1 A3 a2 A1 a0 A2 a1 A4 a5 A0 a3 A1 a4 A2 a2 A5 a0 A3
+[2026-10-01 13:28:10.558] Game 7: Returns: 1.0 -1.0; Actions: A3 a4 A5 a3 A1 a1 A5 a0 A2 a2 A1 a1 A0 a2 A5 a2 A0 a0 A5 a4 A0 a0 A4 a3 A3 a2 A4 a0 A0 a2 A3 a1 A2 a2 A4 a5 A3 a0 A0 a4 A0 a1 A1 a5 A3 a0 A4 a1 A0 a3 A1 a5 A5 a0 A1 a1 A3 a0 A2 a1 A3 a4 A5 a3 A4 a0 A5 a5 A0 a4 A1 a5 A2 a1 A3
+[2026-10-01 13:29:04.793] Game 8: Returns: -1.0 1.0; Actions: A3 a4 A5 a2 A2 a1 A1 a2 A4 a5 A4 a5 A3 a1 A4 a4 A0 a0 A5 a1 A3 a0 A4 a1 A2 a2
+[2026-10-01 13:30:13.164] Game 9: Returns: 1.0 -1.0; Actions: A3 a4 A5 a3 A1 a2 A0 a2 A1 a3 A0 a0 A1 a1 A3 a4 A4 a5 A0 a3 A1 a4 A5 a0 A2 a1 A1 a2 A0 a3 A1 a4 A3 a5 A4 a0 A5 a0 A0 a1 A1 a3 A2 a5 A3 a4 A2 a5
+[2026-10-01 13:31:06.608] Game 10: Returns: 0.0 0.0; Actions: A1 a2 A0 a0 A3 a2 A2 a2 A3 a3 A4 a5 A0 a1 A0 a3 A4 a0 A1 a3 A2 a4 A1 a2 A0 a3 A3 a4 A2 a5
+[2026-10-01 13:31:33.609] Game 11: Returns: -1.0 1.0; Actions: A5 a3 A5 a3 A5 a0 A2 a0 A3 a1 A4 a2
+[2026-10-01 13:35:51.862] Game 12: Returns: -1.0 1.0; Actions: A0 a1 A5 a3 A2 a0 A0 a0 A0 a5 A2 a0 A2 a5 A0 a2 A4 a4 A2 a1 A0 a5 A2 a0 A0 a2 A3 a5 A0 a0 A2 a4 A0 a2 A4 a5 A5 a2 A0 a5 A0 a1 A5 a4 A2 a0 A5 a2 A3 a5 A0 a1 A1 a2 A2 a5 A3 a0 A0 a1 A1 a2 A2 a4 A4 a3 A3 a5 A0 a4 A1 a5 A5 a0 A2 a1 A0 a2 A1 a3 A2 a4 A5 a0 A4 a5 A0 a1 A5 a1 A1 a3 A0 a2 A1 a5 A0 a3 A1 a4 A3 a5 A2 a0 A5 a1 A0 a2 A3 a0 A1 a1 A4 a3 A2 a2 A3 a4 A5 a5 A4 a0 A5 a1 A0 a2 A1 a5 A0 a0 A2 a1 A3 a2 A1 a4 A4 a3 A2 a5 A0 a4 A1 a5 A5 a0 A0 a1 A1 a2 A3 a3 A5 a0 A4 a0 A5
+[2026-10-01 13:36:13.646] Game 13: Returns: -1.0 1.0; Actions: A3 a4 A5 a2 A2 a4 A1 a1 A4 a0 A4 a1
+[2026-10-01 13:37:26.509] Game 14: Returns: -1.0 1.0; Actions: A0 a1 A5 a4 A0 a0 A5 a0 A4 a1 A3 a3 A4 a5 A5 a0 A1 a1 A5 a1 A4 a3 A2 a5 A0 a4 A1 a5 A5 a0 A0 a1 A1 a2 A4 a3 A5 a0 A3 a1 A5 a2 A4 a0 A5
+[2026-10-01 13:37:44.935] Game 15: Returns: -1.0 1.0; Actions: A5 a3 A5 a3 A1 a5 A4 a2 A1 a5
+[2026-10-01 13:39:48.972] Game 16: Returns: 0.0 0.0; Actions: A1 a0 A2 a1 A0 a0 A2 a2 A3 a2 A2 a2 A3 a3 A2 a1 A3 a1 A4 a3 A5 a5 A3 a2 A2 a5 A2 a0 A0 a3 A5 a4 A2 a0 A0 a3 A5 a5 A0 a0 A1 a2 A3 a1 A4 a2 A5 a5 A0 a0 A1 a4 A0 a1 A2 a5 A3 a2 A1 a3 A0 a4 A2 a5
+[2026-10-01 13:41:36.244] Game 17: Returns: -1.0 1.0; Actions: A2 a1 A0 a0 A5 a3 A1 a2 A0 a3 A1 a1 A3 a4 A1 a1 A5 a5 A4 a0 A5 a2 A2 a4 A0 a0 A2 a0 A0 a1 A0 a5 A0 a3 A5 a0 A2 a1 A3 a4 A5 a5 A0 a2 A1 a3 A4 a0 A5 a4 A2 a1 A3
+[2026-10-01 13:42:07.584] Game 18: Returns: -1.0 1.0; Actions: A2 a5 A0 a2 A5 a1 A4 a2 A3 a1 A4 a0 A4 a4
+[2026-10-01 13:43:54.226] Game 19: Returns: 0.0 0.0; Actions: A4 a2 A2 a0 A4 a5 A4 a3 A4 a0 A0 a5 A4 a0 A1 a1 A4 a0 A2 a3 A5 a2 A0 a0 A1 a4 A2 a1 A4 a1 A3 a5 A2 a2 A1 a5 A3 a0 A0 a1 A2 a2 A1 a4 A0 a5 A2 a3 A1 a4 A0 a5
+[2026-10-01 13:46:10.326] Game 20: Returns: -1.0 1.0; Actions: A2 a5 A4 a0 A3 a4 A4 a3 A2 a2 A0 a0 A4 a2 A2 a3 A1 a5 A5 a1 A0 a0 A3 a4 A4 a0 A0 a1 A4 a4 A1 a3 A0 a0 A3 a2 A1 a1 A3 a5 A0 a4 A0 a0 A5 a2 A2 a0 A5 a5 A0 a0 A0 a2 A2 a5 A0 a4 A1 a5
+[2026-10-01 13:47:05.310] Game 21: Returns: -1.0 1.0; Actions: A5 a3 A5 a3 A0 a0 A3 a5 A4 a0 A3 a2 A0 a5 A0 a2 A5 a2 A4 a0 A2 a5 A5 a0 A0 a2
+[2026-10-01 13:47:59.563] Game 22: Returns: -1.0 1.0; Actions: A4 a2 A4 a5 A2 a2 A3 a5 A3 a3 A4 a2 A4 a5 A2 a4 A1 a1 A2 a1 A4 a2 A0 a5 A5 a1
+[2026-10-01 13:48:09.167] Game 23: Returns: -1.0 1.0; Actions: A1 a0 A0 a0 A2 a1
+[2026-10-01 13:50:33.819] Game 24: Returns: 1.0 -1.0; Actions: A0 a1 A5 a5 A2 a0 A0 a1 A5 a3 A3 a4 A1 a5 A2 a1 A4 a4 A1 a3 A5 a5 A0 a2 A2 a5 A1 a3 A3 a5 A2 a0 A0 a3 A4 a0 A0 a2 A3 a0 A5 a0 A1 a2 A2 a3 A4 a1 A5 a5 A0 a2 A1 a0 A3 a1 A2 a3 A4 a2 A5 a0 A3 a4 A4 a1 A5 a5 A0 a0 A1 a1 A2 a3 A3 a5 A0 a4 A0 a5
+[2026-10-01 13:52:07.138] Game 25: Returns: -1.0 1.0; Actions: A0 a1 A5 a1 A0 a1 A5 a0 A4 a2 A3 a3 A3 a5 A4 a1 A0 a3 A2 a0 A4 a4 A1 a3 A2 a4 A0 a5 A5 a0 A1 a1 A0 a2 A2 a3 A5 a0 A1 a1 A4 a2 A5 a0 A2 a4 A3 a1 A4 a3 A5 a5 A0 a2 A1
+[2026-10-01 13:54:51.834] Game 26: Returns: -1.0 1.0; Actions: A3 a4 A5 a3 A0 a1 A2 a2 A3 a1 A1 a4 A3 a5 A1 a1 A0 a1 A0 a5 A4 a2 A4 a5 A1 a3 A1 a5 A0 a2 A4 a3 A2 a2 A1 a1 A5 a5 A4 a4 A5 a4 A2 a1 A4 a2 A0 a5 A0 a0 A0 a5 A4 a3 A0 a1 A5 a2 A3 a0 A0 a4 A0 a1 A1 a5 A0 a2 A1 a3 A3 a0 A5 a1 A2 a2 A3 a0 A4 a1 A5
+[2026-10-01 13:56:05.122] Game 27: Returns: -1.0 1.0; Actions: A0 a1 A5 a5 A4 a0 A0 a0 A1 a1 A0 a0 A3 a2 A4 a0 A5 a1 A0 a0 A2 a3 A4 a1 A5 a3 A0 a4 A1 a0 A3 a1 A2 a2 A5 a3 A4 a0 A5 a1 A3 a2 A4 a0 A5
+[2026-10-01 13:56:24.652] Game 28: Returns: -1.0 1.0; Actions: A2 a0 A2 a3 A4 a5 A2 a1
+[2026-10-01 13:57:07.861] Game 29: Returns: -1.0 1.0; Actions: A3 a4 A5 a3 A0 a3 A5 a4 A1 a5 A0 a0 A5 a4 A0 a3 A1 a4 A2 a5 A0 a0
+[2026-10-01 13:57:33.113] Game 30: Returns: -1.0 1.0; Actions: A3 a4 A5 a2 A4 a0 A4 a1 A2 a0 A2 a2 A1 a1
+[2026-10-01 14:00:29.901] Game 31: Returns: 1.0 -1.0; Actions: A0 a1 A5 a4 A3 a2 A0 a3 A2 a4 A3 a5 A1 a2 A2 a0 A5 a5 A1 a1 A0 a4 A5 a0 A2 a2 A5 a5 A4 a0 A1 a4 A5 a5 A3 a3 A1 a5 A0 a4 A2 a0 A5 a3 A1 a0 A2 a1 A0 a3 A5 a0 A4 a0 A1 a2 A4 a0 A0 a2 A2 a1 A4 a2 A3 a1 A4 a2 A1 a0 A5 a0 A0 a2 A1 a5 A0 a4 A1 a5
+[2026-10-01 14:00:29.902] Inference cache: CacheInfo(hits=93075, misses=34707, size=34707, max_size=65536)
+[2026-10-01 14:00:29.904] Loading checkpoint -1
+[2026-10-01 14:01:53.316] Game 32: Returns: -1.0 1.0; Actions: A0 a1 A5 a0 A3 a2 A2 a5 A2 a3 A1 a2 A3 a2 A1 a1 A0 a2 A4 a3 A0 a0 A2 a2 A3 a2 A3 a1 A5 a5 A3 a1 A1 a3
+[2026-10-01 14:02:30.168] Game 33: Returns: 0.0 0.0; Actions: A0 a1 A5 a1 A0 a1 A4 a0 A3 a0 A2 a0 A4 a3 A5 a1 A0 a2 A3 a4 A2 a5
+[2026-10-01 14:03:01.385] Game 34: Returns: 1.0 -1.0; Actions: A3 a4 A2 a1 A0 a3 A3 a0 A3 a2 A4 a0 A0
+[2026-10-01 14:05:15.884] Game 35: Returns: -1.0 1.0; Actions: A0 a3 A3 a1 A2 a0 A0 a4 A1 a0 A0 a0 A2 a1 A3 a5 A3 a1 A0 a2 A1 a4 A4 a2 A1 a3 A5 a3 A0 a4 A0 a4 A2 a1 A5 a5 A0 a0 A2 a1 A3 a4 A5 a5 A0 a3 A1 a5 A0 a0 A2 a1 A1 a4 A2 a2 A5 a0 A4 a5 A0 a1 A1 a3 A2 a4 A5 a2 A3
+[2026-10-01 14:05:52.522] Game 36: Returns: 0.0 0.0; Actions: A0 a1 A5 a0 A0 a1 A0 a1 A4 a1 A4 a3 A3 a2 A2 a3 A1 a4 A0 a5
+[2026-10-01 14:07:14.574] Game 37: Returns: 1.0 -1.0; Actions: A0 a1 A5 a0 A3 a2 A4 a4 A0 a2 A3 a1 A0 a3 A3 a1 A5 a4 A4 a2 A0 a3 A5 a2 A2 a5 A0 a1 A1 a2 A3 a5 A2 a4 A1 a5 A2 a0 A3 a2 A1 a5 A0 a4 A2 a5
+[2026-10-01 14:08:15.665] Game 38: Returns: -1.0 1.0; Actions: A4 a5 A2 a1 A3 a3 A0 a1 A5 a3 A4 a4 A0 a0 A5 a0 A1 a3 A2 a4 A5 a0 A3 a1
+[2026-10-01 14:09:16.740] Game 39: Returns: 0.0 0.0; Actions: A0 a1 A5 a1 A0 a1 A4 a0 A4 a2 A0 a1 A2 a2 A1 a5 A0 a4 A3 a5 A2 a3 A1 a4 A5 a0 A2 a2 A1 a5 A1 a1 A3 a0 A5
+[2026-10-01 14:10:18.319] Game 40: Returns: -1.0 1.0; Actions: A0 a1 A3 a0 A3 a4 A2 a1 A5 a5 A2 a1 A0 a0 A5 a4 A0 a0 A1 a2 A3 a5 A5 a5 A2 a2 A3 a1
+[2026-10-01 14:12:08.603] Game 41: Returns: -1.0 1.0; Actions: A0 a1 A3 a0 A1 a3 A4 a3 A0 a0 A1 a1 A4 a2 A0 a3 A3 a4 A5 a5 A1 a0 A2 a1 A0 a2 A1 a3 A2 a4 A5 a0 A4 a1 A5 a5 A0 a1 A1 a4 A2 a3 A3 a5 A0 a2 A1 a4 A2 a5 A0 a3 A1 a4 A2 a5 A5 a0 A0 a1 A1 a2 A2 a3 A4 a0 A3 a1 A5 a0 A4 a2 A5
+[2026-10-01 14:12:28.738] Game 42: Returns: -1.0 1.0; Actions: A3 a4 A5 a2 A0 a1 A1 a1 A5 a3
+[2026-10-01 14:13:26.366] Game 43: Returns: -1.0 1.0; Actions: A2 a1 A1 a1 A3 a4 A2 a2 A4 a3 A1 a0 A3 a4 A5 a1 A1 a3 A4 a5 A5 a1 A4 a2 A5 a1
+[2026-10-01 14:14:15.867] Game 44: Returns: 1.0 -1.0; Actions: A0 a5 A3 a4 A0 a1 A0 a2 A1 a3 A4 a1 A3 a4 A4 a2 A0 a4 A5 a5 A0 a0 A3 a1 A2 a2 A4 a3 A1
+[2026-10-01 14:17:03.190] Game 45: Returns: -1.0 1.0; Actions: A1 a0 A4 a0 A1 a1 A2 a3 A0 a5 A4 a4 A1 a5 A4 a0 A5 a3 A3 a4 A4 a2 A0 a0 A2 a3 A4 a0 A1 a4 A0 a1 A5 a0 A2 a3 A0 a5 A3 a3 A0 a5 A1 a2 A3 a1 A2 a0 A3 a2 A5 a5 A2 a3 A2 a5 A2 a0 A1 a1 A4 a4 A3 a0 A2 a1 A0 a0 A2 a5 A3 a1
+[2026-10-01 14:18:08.630] Game 46: Returns: -1.0 1.0; Actions: A0 a1 A5 a3 A4 a0 A1 a3 A3 a0 A0 a3 A4 a0 A1 a3 A2 a2 A3 a5 A4 a3 A2 a4 A1 a5 A5 a0 A0 a1 A1 a2 A4 a3 A5 a0 A3 a1 A5 a0 A4 a2 A5
+[2026-10-01 14:20:53.310] Game 47: Returns: -1.0 1.0; Actions: A0 a1 A5 a0 A3 a0 A4 a0 A0 a5 A0 a4 A4 a1 A2 a4 A5 a1 A3 a5 A0 a0 A4 a5 A3 a4 A1 a5 A5 a1 A1 a0 A5 a4 A3 a0 A0 a2 A4 a2 A1 a0 A2 a3 A1 a5 A5 a2 A4 a3 A5 a1 A0 a3 A3 a5 A0 a2 A0 a5 A0 a3 A1 a4 A2 a5 A5 a0 A0 a1 A1 a2 A2 a3 A4 a0 A3 a1 A5 a0 A4 a2 A5
+[2026-10-01 14:21:39.718] Game 48: Returns: 0.0 0.0; Actions: A0 a3 A1 a0 A0 a1 A0 a0 A3 a5 A2 a3 A0 a2 A3 a3 A1 a1 A5 a1 A2 a2 A1 a4
+[2026-10-01 14:22:30.846] Game 49: Returns: -1.0 1.0; Actions: A1 a0 A2 a3 A5 a0 A1 a4 A4 a1 A4 a0 A2 a2 A4 a4 A3 a3 A5 a0 A4 a5 A0 a1 A5 a2 A1 a4 A2 a3 A3
+[2026-10-01 14:23:18.939] Game 50: Returns: 1.0 -1.0; Actions: A0 a1 A5 a2 A1 a0 A4 a3 A2 a1 A3 a5 A0 a1 A1 a2 A2 a1 A4 a5 A2 a3 A1 a5 A3 a4 A2 a5
+[2026-10-01 14:24:08.030] Game 51: Returns: -1.0 1.0; Actions: A0 a1 A2 a0 A3 a4 A4 a4 A3 a5 A0 a2 A5 a1 A3 a4 A5 a5 A0 a2 A4 a0 A1 a1 A2 a3 A5 a4 A3
+[2026-10-01 14:24:30.301] Game 52: Returns: 0.0 0.0; Actions: A0 a1 A5 a0 A3 a3 A4 a1 A3 a1 A2 a3
+[2026-10-01 14:26:30.492] Game 53: Returns: -1.0 1.0; Actions: A0 a1 A5 a0 A3 a0 A2 a0 A3 a1 A0 a2 A1 a4 A2 a0 A1 a3 A2 a2 A0 a1 A4 a3 A0 a1 A3 a2 A2 a5 A2 a1 A4 a3 A0 a2 A4 a0 A2 a1 A1 a2 A2 a5 A0 a0 A1 a2 A4 a3 A2 a0 A3 a1 A5 a0 A4 a2 A5 a5 A0 a3 A1 a1 A2 a4 A3
+[2026-10-01 14:27:38.852] Game 54: Returns: -1.0 1.0; Actions: A0 a1 A3 a0 A3 a2 A1 a2 A2 a1 A1 a2 A2 a3 A5 a4 A3 a0 A0 a1 A2 a2 A3 a3 A1 a4 A2 a5 A5 a0 A0 a1 A1 a2 A4 a0 A5 a3 A2 a1 A3 a0 A4 a2 A5
+[2026-10-01 14:28:10.561] Game 55: Returns: 1.0 -1.0; Actions: A0 a1 A5 a0 A3 a0 A2 a0 A5 a5 A2 a4 A1 a1 A2 a2 A3 a3 A4 a0 A5 a5 A0
+[2026-10-01 14:28:19.155] Game 56: Returns: -1.0 1.0; Actions: A2 a1 A1 a1 A5 a3
+[2026-10-01 14:29:25.911] Game 57: Returns: -1.0 1.0; Actions: A0 a1 A5 a0 A3 a0 A2 a0 A5 a1 A3 a3 A1 a1 A3 a0 A5 a0 A4 a3 A0 a1 A1 a3 A2 a5 A5 a0 A2 a1 A5 a2 A1 a3 A4 a0 A2 a1 A5 a2 A3 a0 A4 a1 A5
+[2026-10-01 14:31:24.529] Game 58: Returns: 0.0 0.0; Actions: A0 a1 A5 a5 A0 a0 A5 a0 A3 a0 A5 a4 A2 a0 A0 a1 A3 a5 A0 a4 A2 a2 A0 a2 A0 a0 A3 a4 A5 a1 A0 a5 A0 a4 A0 a2 A4 a5 A0 a1 A1 a0 A2 a1 A3 a4 A4 a5 A0 a3 A1 a5 A2 a4 A5 a0 A3 a1 A0 a5 A1 a2 A2 a3 A0 a4 A1 a5
+[2026-10-01 14:31:47.323] Game 59: Returns: -1.0 1.0; Actions: A3 a4 A5 a2 A1 a1 A2 a0 A1 a4 A3 a1
+[2026-10-01 14:32:28.374] Game 60: Returns: 0.0 0.0; Actions: A4 a2 A3 a0 A4 a5 A2 a1 A1 a2 A4 a0 A5 a0 A2 a3 A0 a2 A1 a4 A3 a5 A0 a3 A2 a4 A1 a5
+[2026-10-01 14:32:49.439] Game 61: Returns: 0.0 0.0; Actions: A0 a1 A3 a0 A3 a4 A3 a1 A0 a2 A1 a5 A0 a4 A1 a5
+[2026-10-01 14:34:28.862] Game 62: Returns: 1.0 -1.0; Actions: A3 a4 A5 a3 A1 a1 A5 a0 A4 a2 A2 a5 A4 a4 A5 a5 A1 a3 A0 a1 A2 a2 A3 a4 A1 a5 A4 a3 A2 a4 A3 a5 A3 a2 A2 a1 A1 a3 A4 a2 A5 a0 A2 a3 A0 a1 A1 a2 A3 a5 A0 a3 A2 a4 A1 a5
+[2026-10-01 14:36:37.838] Game 63: Returns: -1.0 1.0; Actions: A0 a1 A5 a1 A3 a4 A4 a2 A1 a0 A1 a1 A3 a0 A0 a3 A1 a4 A1 a2 A4 a1 A5 a2 A3 a5 A1 a0 A5 a4 A3 a3 A5 a5 A4 a3 A1 a2 A3 a5 A1 a2 A0 a1 A3 a5 A0 a2 A3 a4 A4 a3 A2 a0 A3 a1 A4 a2 A5 a5 A0 a4 A1
+[2026-10-01 14:37:40.219] Game 64: Returns: -1.0 1.0; Actions: A2 a1 A0 a3 A1 a0 A3 a1 A1 a2 A2 a4 A2 a0 A0 a3 A3 a2 A5 a1 A5 a3 A4 a2 A3 a5 A4 a3
+[2026-10-01 14:38:08.229] Game 65: Returns: -1.0 1.0; Actions: A0 a3 A4 a4 A4 a0 A2 a3 A4 a5 A4 a3 A5 a4
+[2026-10-01 14:38:25.923] Game 66: Returns: 0.0 0.0; Actions: A0 a1 A5 a0 A3 a0 A2 a5 A1 a0 A5 a1 A4 a2 A5
+[2026-10-01 14:39:42.691] Game 67: Returns: 0.0 0.0; Actions: A0 a1 A5 a0 A3 a0 A2 a0 A3 a5 A2 a0 A3 a4 A1 a2 A2 a0 A0 a4 A4 a1 A2 a2 A3 a5 A5 a0 A0 a1 A1 a3 A2 a2 A4 a3 A5 a5 A2 a0 A5 a1 A1 a0 A4 a2 A2 a1 A5 a0 A3 a3 A4 a2 A5
+[2026-10-01 14:42:15.803] Game 68: Returns: -1.0 1.0; Actions: A5 a1 A1 a2 A4 a2 A0 a0 A0 a2 A5 a0 A4 a1 A2 a5 A4 a3 A1 a4 A5 a1 A2 a2 A5 a1 A1 a3 A4 a0 A2 a1 A5 a2 A4 a3 A0 a0 A1 a1 A5 a0 A2 a1 A4 a5 A0 a0 A2 a2 A3 a1 A5 a0 A4 a0 A1 a2 A2 a3 A0 a4 A1 a5 A5 a0 A0 a1 A2 a2 A4 a1 A1 a0 A2 a3 A3 a2 A4 a4 A5 a5 A0
+[2026-10-01 14:42:15.804] Inference cache: CacheInfo(hits=94935, misses=28660, size=28660, max_size=65536)
+[2026-10-01 14:42:15.806] Loading checkpoint -1
+[2026-10-01 14:43:15.583] Game 69: Returns: -1.0 1.0; Actions: A0 a1 A3 a0 A3 a2 A1 a0 A0 a3 A2 a0 A0 a2 A1 a4 A2 a0 A4 a3 A5 a5 A0 a4 A1 a2 A2 a3 A3 a0 A4 a1
+[2026-10-01 14:44:03.932] Game 70: Returns: 0.0 0.0; Actions: A4 a2 A2 a4 A2 a0 A0 a2 A5 a1 A1 a2 A3 a3 A5 a4 A0 a0 A1 a1 A2 a2 A3 a5 A1 a3 A2 a4 A0 a5
+[2026-10-01 14:45:27.165] Game 71: Returns: 1.0 -1.0; Actions: A0 a1 A5 a0 A3 a0 A2 a0 A5 a1 A3 a3 A2 a1 A1 a2 A3 a5 A1 a3 A1 a2 A3 a1 A4 a3 A5 a5 A0 a2 A1 a0 A2 a1 A3 a2 A4 a4 A5 a0 A0 a1 A1 a5 A2 a2 A1 a3 A0 a4 A1 a5
+[2026-10-01 14:47:11.992] Game 72: Returns: -1.0 1.0; Actions: A0 a1 A5 a5 A4 a4 A0 a1 A3 a1 A4 a1 A1 a0 A3 a3 A0 a0 A2 a2 A4 a0 A5 a4 A0 a5 A1 a1 A2 a2 A0 a3 A1 a0 A3 a1 A2 a2 A4 a4 A3 a5 A0 a3 A1 a4 A2 a5 A5 a0 A0 a1 A1 a2 A3 a0 A2 a3 A3 a1 A5 a2 A4 a0 A5
+[2026-10-01 14:47:58.522] Game 73: Returns: -1.0 1.0; Actions: A5 a3 A5 a3 A5 a3 A0 a2 A1 a4 A4 a3 A3 a1 A4 a0 A0 a4 A5 a5 A1 a0
+[2026-10-01 14:49:06.228] Game 74: Returns: 0.0 0.0; Actions: A1 a0 A2 a1 A2 a4 A2 a0 A2 a0 A1 a5 A1 a2 A2 a0 A0 a1 A5 a2 A1 a0 A2 a5 A3 a4 A2 a5 A1 a1 A0 a2 A3 a3 A2 a4 A1 a5
+[2026-10-01 14:50:38.969] Game 75: Returns: 1.0 -1.0; Actions: A0 a1 A5 a0 A3 a0 A2 a0 A3 a5 A2 a1 A3 a3 A0 a1 A2 a2 A4 a5 A5 a0 A0 a1 A1 a3 A2 a5 A3 a2 A2 a3 A3 a0 A5 a1 A1 a0 A2 a2 A3 a1 A4 a4 A5 a5 A0 a0 A1 a1 A2 a4 A3 a5 A0 a3 A1 a5 A2 a4 A0 a5
+[2026-10-01 14:51:12.749] Game 76: Returns: 1.0 -1.0; Actions: A3 a4 A5 a0 A4 a4 A3 a3 A5 a3 A1 a2 A0 a4 A2

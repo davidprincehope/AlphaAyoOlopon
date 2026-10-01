@@ -1,0 +1,42 @@
+{
+  "session_id": "20261001T131501223570Z",
+  "source_snapshot": "/teamspace/studios/this_studio/AlphaAyoOlopon/runs/alpha_zero/l4-full-64/training-checkpoints/step-000014",
+  "start_step": 15,
+  "target_step": 100,
+  "settings": {
+    "max_moves": 1000,
+    "cutoff": "collect",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "decouple_weight_decay": false,
+    "train_batch_size": 128,
+    "replay_buffer_size": 16384,
+    "replay_buffer_reuse": 4,
+    "max_steps": 100,
+    "checkpoint_freq": 10,
+    "resume_checkpoint_freq": 10,
+    "actors": 3,
+    "evaluators": 0,
+    "evaluation_games": 0,
+    "evaluation_opponent": {
+      "name": "RAND",
+      "params": {}
+    },
+    "evaluation_seed": 0,
+    "evaluation_window": 50,
+    "eval_levels": 3,
+    "uct_c": 1.5,
+    "max_simulations": 64,
+    "policy_alpha": 1.0,
+    "policy_epsilon": 0.25,
+    "temperature": 1.0,
+    "temperature_drop": 20,
+    "nn_model": "ayo_mlp",
+    "nn_width": 256,
+    "nn_depth": 3,
+    "nn_api_version": "linen",
+    "verbose": false,
+    "quiet": true
+  },
+  "worker_policy": "restart_fresh_games"
+}
