@@ -25,3 +25,6 @@
 {"checkpoint_id": 25, "training_step": 25, "opponent": {"name": "RAND", "params": {}}, "games": 0, "status": "skipped", "reason": "evaluation_games=0", "session_id": "20261001T131501223570Z"}
 {"checkpoint_id": 26, "training_step": 26, "opponent": {"name": "RAND", "params": {}}, "games": 0, "status": "skipped", "reason": "evaluation_games=0", "session_id": "20261001T211224527601Z"}
 {"checkpoint_id": 27, "training_step": 27, "opponent": {"name": "RAND", "params": {}}, "games": 0, "status": "skipped", "reason": "evaluation_games=0", "session_id": "20261001T211224527601Z"}
+{"checkpoint_id": 28, "training_step": 28, "opponent": {"name": "RAND", "params": {}}, "games": 0, "status": "skipped", "reason": "evaluation_games=0", "session_id": "20261001T211224527601Z"}
+{"checkpoint_id": 29, "training_step": 29, "opponent": {"name": "RAND", "params": {}}, "games": 0, "status": "skipped", "reason": "evaluation_games=0", "session_id": "20261001T211224527601Z"}
+{"checkpoint_id": 30, "training_step": 30, "opponent": {"name": "RAND", "params": {}}, "games": 0, "status": "skipped", "reason": "evaluation_games=0", "session_id": "20261001T211224527601Z"}
