@@ -7,7 +7,7 @@ import pyspiel
 _NUM_PLAYERS = 2
 _DEFAULT_HOUSES_PER_PLAYER = 6
 _DEFAULT_SEEDS_PER_HOUSE = 4
-_MAX_GAME_LENGTH = 1000
+_DEFAULT_MAX_GAME_LENGTH = 1000
 _MAX_RELAY_LAPS = 10_000
 
 
@@ -30,19 +30,9 @@ _GAME_TYPE = pyspiel.GameType(
     parameter_specification={
         "num_houses_per_player": _DEFAULT_HOUSES_PER_PLAYER,
         "num_seeds_per_house": _DEFAULT_SEEDS_PER_HOUSE,
+        "max_game_length": _DEFAULT_MAX_GAME_LENGTH,
         "enable_cycle_reporting": False,
     },
-)
-
-
-_GAME_INFO = pyspiel.GameInfo(
-    num_distinct_actions=_DEFAULT_HOUSES_PER_PLAYER,
-    max_chance_outcomes=0,
-    num_players=_NUM_PLAYERS,
-    min_utility=-1.0,
-    max_utility=1.0,
-    utility_sum=0.0,
-    max_game_length=_MAX_GAME_LENGTH,
 )
 
 
@@ -54,9 +44,25 @@ class AyoGame(pyspiel.Game):
 
         Returns: None.
         """
-        # Example input: {"num_houses_per_player": 6, "num_seeds_per_house": 4}
+        # Example input: {"num_houses_per_player": 6, "num_seeds_per_house": 4,
+        #                 "max_game_length": 1000}
         params = params or {}
-        super().__init__(_GAME_TYPE, _GAME_INFO, params)
+        max_game_length = int(
+            params.get("max_game_length", _DEFAULT_MAX_GAME_LENGTH)
+        )
+        if max_game_length < 1:
+            raise ValueError("max_game_length must be a positive integer")
+        game_info = pyspiel.GameInfo(
+            num_distinct_actions=_DEFAULT_HOUSES_PER_PLAYER,
+            max_chance_outcomes=0,
+            num_players=_NUM_PLAYERS,
+            min_utility=-1.0,
+            max_utility=1.0,
+            utility_sum=0.0,
+            max_game_length=max_game_length,
+        )
+        super().__init__(_GAME_TYPE, game_info, params)
+        self._max_game_length = max_game_length
         self.num_houses_per_player = int(
             params.get("num_houses_per_player", _DEFAULT_HOUSES_PER_PLAYER)
         )
@@ -117,6 +123,7 @@ class AyoState(pyspiel.State):
         self._current_player = 0
         self._game_over = False
         self._returns = [0.0, 0.0]
+        self.truncated = False
         self._positions_since_capture = {self._position_key()}
         self._last_relay_report = None
         self._enable_cycle_reporting = game.enable_cycle_reporting
@@ -444,6 +451,16 @@ class AyoState(pyspiel.State):
         self._positions_since_capture.add(self._position_key())
 
         if not self._legal_actions(self._current_player):
+            self._collect_and_terminate()
+            return
+
+        max_game_length = getattr(self.get_game(), "max_game_length", None)
+        if callable(max_game_length):
+            max_game_length = max_game_length()
+        if max_game_length is None:
+            max_game_length = getattr(self.get_game(), "max_moves", None)
+        if max_game_length is not None and self.move_number() + 1 >= max_game_length:
+            self.truncated = True
             self._collect_and_terminate()
 
     def is_terminal(self):

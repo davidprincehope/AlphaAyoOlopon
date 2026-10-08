@@ -1,0 +1,8 @@
+condition,agent,implementation,historical_minimax,budget_per_move,games,wins,draws,losses,score_percent,cap_adjudicated_games,cap_percent,cap_adjudicated_wins,source_summary
+greedy_hstar,Greedy H*,Python,False,1-ply successor evaluation,10000,7566,881,1553,80.065,0,0.0,0,experiments/agent_benchmark/results/random_vs_greedy_hstar_10000.json
+minimax_depth_1,Minimax + H*,Python,True,Depth 1,10000,6671,1033,2296,71.875,437,4.37,437,experiments/minimax_depth_vs_random/results/depth_1_summary.json
+minimax_depth_2,Minimax + H*,Python,True,Depth 2,10000,8382,1189,429,89.765,3983,39.83,3983,experiments/minimax_depth_vs_random/results/depth_2_summary.json
+minimax_depth_3,Minimax + H*,Python,True,Depth 3,10000,9307,657,36,96.355,5104,51.04,5104,experiments/minimax_depth_vs_random/results/depth_3_summary.json
+minimax_depth_4,Minimax + H*,C++,True,Depth 4,10000,9291,664,45,96.23,6502,65.02,6502,experiments/minimax_depth_vs_random/results/depth_4_games_10000_cpp_summary.json
+minimax_depth_5,Minimax + H*,C++,True,Depth 5,10000,9002,819,179,94.115,6962,69.62,6962,experiments/minimax_depth_vs_random/results/depth_5_games_10000_cpp_summary.json
+mcts_1000,UCT MCTS,C++,False,"1,000 UCT simulations; one random rollout per leaf",10000,9920,72,8,99.56,0,0.0,0,experiments/mcts_vs_random/results/mcts_uct_1000sims_games_10000_cpp_summary.json

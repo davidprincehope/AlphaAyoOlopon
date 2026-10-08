@@ -1,42 +1,61 @@
-.github
-Model\ayo_olopon\__pycache__
-Model/ayo_olopon/__pycache__/
-tests/ayo_olopon/__pycache__/
-tests/oware/__pycache__/__init__.cpython-314.pyc
-tests/oware/__pycache__/test_oware.cpython-314-pytest-9.1.1.pyc
-Model/Jekinje/
-tests/ayo_olopon/completed_episodes.json
-tests/ayo_olopon/episode_2700.json
-tests/ayo_olopon/episode_2701_cycle.json
-tests/ayo_olopon/relay_cycle_episodes.json
-tests/ayo_olopon/relay_cycle_reports.json
+# Local environments, Python caches, and build products
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+/build/
+*.egg-info/
+.vscode/
+.DS_Store
+Thumbs.db
 
-Model/oware/__pycache__
-Model/ayo_olopon/__pycache__/ayo_olopon.cpython-314.pyc
-Model/ayo_olopon/__pycache__/ayo_olopon.cpython-314.pyc
-episode_debug.json
-tests/ayo_olopon/completed_game_episodes/completed_game_episodes_0.json
-tests/ayo_olopon/completed_game_episodes/completed_game_episodes_2.json
-tests/ayo_olopon/__pycache__/test_ayo_olopon.cpython-314.pyc
-Model/ayo_olopon/__pycache__/ayo_olopon.cpython-314.pyc
-tests/ayo_olopon/completed_game_episodes/completed_game_episodes_1.json
-tests/ayo_olopon/completed_game_episodes/completed_game_episodes_3.json
-Model/ayo_olopon/__pycache__/ayo_olopon.cpython-314.pyc
-tests/ayo_olopon/episode_cycle_game_5.json
+# Local credentials and machine configuration
+.env
+.env.*
+!.env.example
+.aws/
+.codex/
+.modal.toml
+*.pem
+*.key
 
-build/
+# Training/evaluation artifacts stay local; curated summaries live in docs/results.
+/runs/
+/outputs/
+/docs/maintenance/
+*.log
+*.npz
+*.ocdbt
+/experiments/EOH/vendor/
+/Model/Jekinje/
 
-experiments/heuristic/transfer_features
-experiments/heuristic/raw_results
-experiments/heuristic/openings
-experiments/heuristic/__pycache__
-experiments/heuristic/configs
-experiments/heuristic/raw_results_corrected
+# Large per-game traces; retain configurations, frozen openings, and summaries.
+/experiments/EOH/matches.jsonl
+/experiments/EOH/selection_matches.jsonl
+/experiments/handcrafted_vs_eoh/initial_matches.jsonl
+/experiments/handcrafted_vs_eoh/matches.jsonl
+/experiments/handcrafted_vs_eoh_400/**/matches_400.jsonl
+/experiments/agent_benchmark/**/results/*.jsonl
+/experiments/agent_benchmark/smoke_results/*.jsonl
+/experiments/mcts_vs_random/results/*.jsonl
+/experiments/minimax_depth_vs_random/results/*.jsonl
+/experiments/minimax_depth_vs_random/results/speed_smoke*/
+/experiments/heuristic/transfer_features/
+/experiments/heuristic/raw_results/*
+!/experiments/heuristic/raw_results/experiment_manifest.json
+/experiments/heuristic/raw_results_corrected/*
+!/experiments/heuristic/raw_results_corrected/corrected_experiment_manifest.json
+!/experiments/heuristic/raw_results_corrected/selected_verification.json
 
-Algorithms/__pycache__
-
-tests/ayo_olopon/test_ayo_transfer_features.py
-experiments/handcrafted_vs_eoh/__pycache__/
-experiments/EOH/__pycache__/
-experiments/minimax_depth_vs_random/results
-experiments/agent_benchmark/__pycache__/
+# Generated episode/replay diagnostics
+/episode_debug.json
+/tests/ayo_olopon/completed_episodes.json
+/tests/ayo_olopon/completed_game_episodes/
+/tests/ayo_olopon/episode_*.json
+/tests/ayo_olopon/relay_cycle_*.json

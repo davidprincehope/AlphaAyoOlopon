@@ -1,0 +1,4 @@
+generated/
+.matplotlib/
+.pytest-tmp/
+__pycache__/

@@ -2,6 +2,10 @@
 import random
 import unittest
 
+import pytest
+
+pytest.importorskip("eoh", reason="Optional pinned EoH package; see docs/eoh/README.md")
+
 from eoh.config import EoHConfig
 from eoh.eoh.eoh import population_management
 from eoh.eoh.evolution import Evolution, parent_selection

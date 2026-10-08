@@ -12,7 +12,7 @@ class AyoMinimaxBot:
   """A small depth-limited minimax bot for Ayo."""
 
   def __init__(self, game, maximum_depth=4, value_function=evaluate_state):
-    if game.get_type().short_name != "ayo_olopon":
+    if game.get_type().short_name not in ("ayo_olopon", "ayo_olopon_alpha_zero"):
       raise ValueError(
           "AyoMinimaxBot expects the ayo_olopon game, got "
           f"{game.get_type().short_name!r}"

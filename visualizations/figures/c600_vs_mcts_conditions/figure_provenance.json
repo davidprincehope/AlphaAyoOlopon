@@ -1,0 +1,355 @@
+{
+  "design": "Four individual figures with common 0\u2013100% axes: outcome shares and agent scores with 95% intervals.",
+  "conditions": [
+    {
+      "condition": "c600_64_mcts_64",
+      "source_directory": "runs/checkpoint_strength/checkpoint-c600-vs-mcts-64-20261005",
+      "neural_mode": "puct",
+      "c600_simulations": 64,
+      "mcts_simulations": 64,
+      "games": 400,
+      "opening_pairs": 200,
+      "policies": {
+        "C600": {
+          "games": 400,
+          "wins": 230,
+          "draws": 98,
+          "losses": 72,
+          "score_sum": 279.0,
+          "natural_draws": 98,
+          "repetitions": 0,
+          "action_limits": 0,
+          "seats": {
+            "0": 200,
+            "1": 200
+          },
+          "score_rate": 0.6975,
+          "win_rate": 0.575,
+          "average_game_length": 35.435
+        },
+        "MCTS": {
+          "games": 400,
+          "wins": 72,
+          "draws": 98,
+          "losses": 230,
+          "score_sum": 121.0,
+          "natural_draws": 98,
+          "repetitions": 0,
+          "action_limits": 0,
+          "seats": {
+            "0": 200,
+            "1": 200
+          },
+          "score_rate": 0.3025,
+          "win_rate": 0.18,
+          "average_game_length": 35.435
+        }
+      },
+      "score_intervals": {
+        "C600": {
+          "method": "opening-pair percentile bootstrap",
+          "confidence_level": 0.95,
+          "opening_pairs": 200,
+          "resamples": 10000,
+          "seed": 20261003,
+          "score_rate": 0.6975,
+          "lower": 0.6725,
+          "upper": 0.72375,
+          "scope": "Sampled continuation positions; excludes training-seed and search-seed uncertainty"
+        },
+        "MCTS": {
+          "method": "opening-pair percentile bootstrap",
+          "confidence_level": 0.95,
+          "opening_pairs": 200,
+          "resamples": 10000,
+          "seed": 20261003,
+          "score_rate": 0.3025,
+          "lower": 0.27625,
+          "upper": 0.3275,
+          "scope": "Sampled continuation positions; excludes training-seed and search-seed uncertainty"
+        }
+      },
+      "checkpoint_sha256": "543d4842c6b41cdbd3eb8e8221c8ca85c4e113a8096f610f1300fa0d4758cea0",
+      "opening_dataset_sha256": "7b0e43e3621027927f14fdeb7d6016d171af27067136f32f85f3631e08182014",
+      "source_sha256": {
+        "results.json": "9425b57f161511f0d7e3667ac81fce3b45e92fdf9fe6f075cca38c4b785cbabd",
+        "results.games.jsonl": "9fb302e0c9b9585ff103fa661a0f6ce16d661d2a825ba7faf0991bb2bf6b66c0",
+        "results.manifest.json": "a8497ca04d037e7b69af307fdfc5f524999c7fb13ed58af7ba5ea447de88ccc5"
+      },
+      "verification": {
+        "outcomes_recomputed": true,
+        "scores_recomputed": true,
+        "source_hashes_match": true,
+        "opening_pairs_valid": true,
+        "bootstrap_intervals_reproduced": true,
+        "all_games_natural": true
+      }
+    },
+    {
+      "condition": "c600_128_mcts_128",
+      "source_directory": "runs/checkpoint_strength/checkpoint-c600-vs-mcts-128-20261005",
+      "neural_mode": "puct",
+      "c600_simulations": 128,
+      "mcts_simulations": 128,
+      "games": 400,
+      "opening_pairs": 200,
+      "policies": {
+        "C600": {
+          "games": 400,
+          "wins": 228,
+          "draws": 92,
+          "losses": 80,
+          "score_sum": 274.0,
+          "natural_draws": 92,
+          "repetitions": 0,
+          "action_limits": 0,
+          "seats": {
+            "0": 200,
+            "1": 200
+          },
+          "score_rate": 0.685,
+          "win_rate": 0.57,
+          "average_game_length": 35.52
+        },
+        "MCTS": {
+          "games": 400,
+          "wins": 80,
+          "draws": 92,
+          "losses": 228,
+          "score_sum": 126.0,
+          "natural_draws": 92,
+          "repetitions": 0,
+          "action_limits": 0,
+          "seats": {
+            "0": 200,
+            "1": 200
+          },
+          "score_rate": 0.315,
+          "win_rate": 0.2,
+          "average_game_length": 35.52
+        }
+      },
+      "score_intervals": {
+        "C600": {
+          "method": "opening-pair percentile bootstrap",
+          "confidence_level": 0.95,
+          "opening_pairs": 200,
+          "resamples": 10000,
+          "seed": 20261003,
+          "score_rate": 0.685,
+          "lower": 0.66,
+          "upper": 0.71,
+          "scope": "Sampled continuation positions; excludes training-seed and search-seed uncertainty"
+        },
+        "MCTS": {
+          "method": "opening-pair percentile bootstrap",
+          "confidence_level": 0.95,
+          "opening_pairs": 200,
+          "resamples": 10000,
+          "seed": 20261003,
+          "score_rate": 0.315,
+          "lower": 0.29,
+          "upper": 0.34,
+          "scope": "Sampled continuation positions; excludes training-seed and search-seed uncertainty"
+        }
+      },
+      "checkpoint_sha256": "543d4842c6b41cdbd3eb8e8221c8ca85c4e113a8096f610f1300fa0d4758cea0",
+      "opening_dataset_sha256": "7b0e43e3621027927f14fdeb7d6016d171af27067136f32f85f3631e08182014",
+      "source_sha256": {
+        "results.json": "6d49193ae70f66ff021b86cf806d11f2392e177ebf918b981063ef4f7728e8d3",
+        "results.games.jsonl": "2505819870de3b6ba9aa9a6aa3ada67eae3b1b82213e430c8629d76f018f881b",
+        "results.manifest.json": "9baab4385c0162142aa78504e94cc351f9d716157d514f4b3ab60211ba08d582"
+      },
+      "verification": {
+        "outcomes_recomputed": true,
+        "scores_recomputed": true,
+        "source_hashes_match": true,
+        "opening_pairs_valid": true,
+        "bootstrap_intervals_reproduced": true,
+        "all_games_natural": true
+      }
+    },
+    {
+      "condition": "c600_64_mcts_128",
+      "source_directory": "runs/checkpoint_strength/checkpoint-c600-64-vs-mcts-128-20261005",
+      "neural_mode": "puct",
+      "c600_simulations": 64,
+      "mcts_simulations": 128,
+      "games": 400,
+      "opening_pairs": 200,
+      "policies": {
+        "C600": {
+          "games": 400,
+          "wins": 219,
+          "draws": 94,
+          "losses": 87,
+          "score_sum": 266.0,
+          "natural_draws": 94,
+          "repetitions": 0,
+          "action_limits": 0,
+          "seats": {
+            "0": 200,
+            "1": 200
+          },
+          "score_rate": 0.665,
+          "win_rate": 0.5475,
+          "average_game_length": 37.1325
+        },
+        "MCTS": {
+          "games": 400,
+          "wins": 87,
+          "draws": 94,
+          "losses": 219,
+          "score_sum": 134.0,
+          "natural_draws": 94,
+          "repetitions": 0,
+          "action_limits": 0,
+          "seats": {
+            "0": 200,
+            "1": 200
+          },
+          "score_rate": 0.335,
+          "win_rate": 0.2175,
+          "average_game_length": 37.1325
+        }
+      },
+      "score_intervals": {
+        "C600": {
+          "method": "opening-pair percentile bootstrap",
+          "confidence_level": 0.95,
+          "opening_pairs": 200,
+          "resamples": 10000,
+          "seed": 20261003,
+          "score_rate": 0.665,
+          "lower": 0.6412187500000001,
+          "upper": 0.69,
+          "scope": "Sampled continuation positions; excludes training-seed and search-seed uncertainty"
+        },
+        "MCTS": {
+          "method": "opening-pair percentile bootstrap",
+          "confidence_level": 0.95,
+          "opening_pairs": 200,
+          "resamples": 10000,
+          "seed": 20261003,
+          "score_rate": 0.335,
+          "lower": 0.31,
+          "upper": 0.35878124999999955,
+          "scope": "Sampled continuation positions; excludes training-seed and search-seed uncertainty"
+        }
+      },
+      "checkpoint_sha256": "543d4842c6b41cdbd3eb8e8221c8ca85c4e113a8096f610f1300fa0d4758cea0",
+      "opening_dataset_sha256": "7b0e43e3621027927f14fdeb7d6016d171af27067136f32f85f3631e08182014",
+      "source_sha256": {
+        "results.json": "d66ba3a53e45b0b83c8d9fa180fee688ff06fa831a9bdc5321ba110354cd9bd6",
+        "results.games.jsonl": "f008fec52a4966c3cfa0fd221181de1bf02b82d8abaf04836f4da8cf68873f43",
+        "results.manifest.json": "1039563b7a726d499710c395291a1fbe96080938e2fc3f0b50a2e1d31d7f9450"
+      },
+      "verification": {
+        "outcomes_recomputed": true,
+        "scores_recomputed": true,
+        "source_hashes_match": true,
+        "opening_pairs_valid": true,
+        "bootstrap_intervals_reproduced": true,
+        "all_games_natural": true
+      }
+    },
+    {
+      "condition": "c600_policy_mcts_64",
+      "source_directory": "runs/checkpoint_strength/checkpoint-c600-policy-vs-mcts-64-20261005",
+      "neural_mode": "policy",
+      "c600_simulations": 0,
+      "mcts_simulations": 64,
+      "games": 400,
+      "opening_pairs": 200,
+      "policies": {
+        "C600": {
+          "games": 400,
+          "wins": 141,
+          "draws": 106,
+          "losses": 153,
+          "score_sum": 194.0,
+          "natural_draws": 106,
+          "repetitions": 0,
+          "action_limits": 0,
+          "seats": {
+            "0": 200,
+            "1": 200
+          },
+          "score_rate": 0.485,
+          "win_rate": 0.3525,
+          "average_game_length": 32.875
+        },
+        "MCTS": {
+          "games": 400,
+          "wins": 153,
+          "draws": 106,
+          "losses": 141,
+          "score_sum": 206.0,
+          "natural_draws": 106,
+          "repetitions": 0,
+          "action_limits": 0,
+          "seats": {
+            "0": 200,
+            "1": 200
+          },
+          "score_rate": 0.515,
+          "win_rate": 0.3825,
+          "average_game_length": 32.875
+        }
+      },
+      "score_intervals": {
+        "C600": {
+          "method": "opening-pair percentile bootstrap",
+          "confidence_level": 0.95,
+          "opening_pairs": 200,
+          "resamples": 10000,
+          "seed": 20261003,
+          "score_rate": 0.485,
+          "lower": 0.44875,
+          "upper": 0.5225,
+          "scope": "Sampled continuation positions; excludes training-seed and search-seed uncertainty"
+        },
+        "MCTS": {
+          "method": "opening-pair percentile bootstrap",
+          "confidence_level": 0.95,
+          "opening_pairs": 200,
+          "resamples": 10000,
+          "seed": 20261003,
+          "score_rate": 0.515,
+          "lower": 0.4775,
+          "upper": 0.55125,
+          "scope": "Sampled continuation positions; excludes training-seed and search-seed uncertainty"
+        }
+      },
+      "checkpoint_sha256": "543d4842c6b41cdbd3eb8e8221c8ca85c4e113a8096f610f1300fa0d4758cea0",
+      "opening_dataset_sha256": "7b0e43e3621027927f14fdeb7d6016d171af27067136f32f85f3631e08182014",
+      "source_sha256": {
+        "results.json": "929c5feaa62a68931d831d540393ed31c27ce592e3e1417b6f8462648afe4b53",
+        "results.games.jsonl": "b1e66804e2d4596f8a71f3ddbd98b026dda1e762840032db073a2d452b6e3274",
+        "results.manifest.json": "baa58e3a313ad9bcf762c58fcdd4bc8c151b217fb81bb8817c3018713739ca4c"
+      },
+      "verification": {
+        "outcomes_recomputed": true,
+        "scores_recomputed": true,
+        "source_hashes_match": true,
+        "opening_pairs_valid": true,
+        "bootstrap_intervals_reproduced": true,
+        "all_games_natural": true
+      }
+    }
+  ],
+  "same_checkpoint_openings_seats_and_seeds": true,
+  "script_sha256": "706b0e95dfc6a2a26a0049cae7982f1d1955e755b01b0c0856ff394513b984b4",
+  "matplotlib": "3.11.2",
+  "numpy": "2.5.3",
+  "figure_sha256": {
+    "c600_64_mcts_64.png": "065b0f650437423c0ad4180c90c05ed702f7af5237a00f793506b4ab18ed2ddd",
+    "c600_64_mcts_64.svg": "1588e5e603e43661954059dcf0caed139025ab57fcab4942175c860ab89d160f",
+    "c600_128_mcts_128.png": "90acb9b9615f84df3ecb2d27b6c7bd2a7b5298cb0090f67c7058981e3f3cbfee",
+    "c600_128_mcts_128.svg": "8c7387af3573ee58e6f53350876d45192d2a2aac8255241b9d7fc0af853e2310",
+    "c600_64_mcts_128.png": "e7acc00f3e80eb90e410535fb1699d5a175e6fe35cdc0da936b10fab124894d3",
+    "c600_64_mcts_128.svg": "bacbb0a61e22fb0b642e7d5e75b4ee7fc64ecfb9a6829cd3ae89a64e7fa0c98b",
+    "c600_policy_mcts_64.png": "a4966c47ebb838a78244ab1abebd2f6d6581bff4b9db3e9191bab394249abd56",
+    "c600_policy_mcts_64.svg": "96890e188504af226950b448b2776cade636e68707b68e94c41f294780e8f4ed"
+  }
+}

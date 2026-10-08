@@ -1,0 +1,261 @@
+{
+  "large_benchmarks": {
+    "greedy_hstar": {
+      "log": "experiments/agent_benchmark/results/random_vs_greedy_hstar_10000.jsonl",
+      "summary": "experiments/agent_benchmark/results/random_vs_greedy_hstar_10000.json",
+      "log_sha256": "d5bdfbe0055dc2d3a704288d74321a5ce9907d70e3c6bcb1fb21dcb33c543e05",
+      "lf_normalized_sha256": "6a1f9d050808a6930ae7afddb0731bf80340dbd8949843f3eeb17b65076e8adb",
+      "stored_hash_match_mode": "LF-normalized bytes; checked-out log uses CRLF",
+      "stored_summary_matches_recount": true,
+      "games": 10000,
+      "wins": 7566,
+      "draws": 881,
+      "losses": 1553,
+      "score_rate": 0.80065,
+      "win_rate": 0.7566,
+      "seats": {
+        "0": 5000,
+        "1": 5000
+      },
+      "termination_reasons": {
+        "terminal_win": 9119,
+        "terminal_draw": 881
+      },
+      "outcomes_by_termination": {
+        "terminal_win": {
+          "loss": 1553,
+          "win": 7566
+        },
+        "terminal_draw": {
+          "draw": 881
+        }
+      }
+    },
+    "minimax_depth_1": {
+      "log": "experiments/minimax_depth_vs_random/results/depth_1_games_10000.jsonl",
+      "summary": "experiments/minimax_depth_vs_random/results/depth_1_summary.json",
+      "log_sha256": "ece40a72444e455428c6c84148222070074599b0b0e7ff9baff6a966617725db",
+      "lf_normalized_sha256": "ece40a72444e455428c6c84148222070074599b0b0e7ff9baff6a966617725db",
+      "stored_hash_match_mode": "exact bytes",
+      "stored_summary_matches_recount": true,
+      "games": 10000,
+      "wins": 6671,
+      "draws": 1033,
+      "losses": 2296,
+      "score_rate": 0.71875,
+      "win_rate": 0.6671,
+      "seats": {
+        "0": 5000,
+        "1": 5000
+      },
+      "termination_reasons": {
+        "terminal_win": 8530,
+        "action_limit": 437,
+        "terminal_draw": 1033
+      },
+      "outcomes_by_termination": {
+        "terminal_win": {
+          "win": 6234,
+          "loss": 2296
+        },
+        "action_limit": {
+          "win": 437
+        },
+        "terminal_draw": {
+          "draw": 1033
+        }
+      },
+      "total_agent_decision_seconds": 1714.1714514890919,
+      "agent_decision_seconds_per_game": 0.17141714514890918
+    },
+    "minimax_depth_2": {
+      "log": "experiments/minimax_depth_vs_random/results/depth_2_games_10000.jsonl",
+      "summary": "experiments/minimax_depth_vs_random/results/depth_2_summary.json",
+      "log_sha256": "4a668c884459089a6d9e5598cdedb236e4a373c0db4aeeb2608bef65522c6501",
+      "lf_normalized_sha256": "4a668c884459089a6d9e5598cdedb236e4a373c0db4aeeb2608bef65522c6501",
+      "stored_hash_match_mode": "exact bytes",
+      "stored_summary_matches_recount": true,
+      "games": 10000,
+      "wins": 8382,
+      "draws": 1189,
+      "losses": 429,
+      "score_rate": 0.89765,
+      "win_rate": 0.8382,
+      "seats": {
+        "0": 5000,
+        "1": 5000
+      },
+      "termination_reasons": {
+        "terminal_win": 4827,
+        "action_limit": 3983,
+        "terminal_draw": 1189,
+        "repetition": 1
+      },
+      "outcomes_by_termination": {
+        "terminal_win": {
+          "win": 4398,
+          "loss": 429
+        },
+        "action_limit": {
+          "win": 3983
+        },
+        "terminal_draw": {
+          "draw": 1189
+        },
+        "repetition": {
+          "win": 1
+        }
+      },
+      "total_agent_decision_seconds": 12501.798492086178,
+      "agent_decision_seconds_per_game": 1.2501798492086178
+    },
+    "minimax_depth_3": {
+      "log": "experiments/minimax_depth_vs_random/results/depth_3_games_10000.jsonl",
+      "summary": "experiments/minimax_depth_vs_random/results/depth_3_summary.json",
+      "log_sha256": "34c595e7662b6a13cdf055bf67c62a6ae7c3a2474e94de3d715fc5a382aa7091",
+      "lf_normalized_sha256": "34c595e7662b6a13cdf055bf67c62a6ae7c3a2474e94de3d715fc5a382aa7091",
+      "stored_hash_match_mode": "exact bytes",
+      "stored_summary_matches_recount": true,
+      "games": 10000,
+      "wins": 9307,
+      "draws": 657,
+      "losses": 36,
+      "score_rate": 0.96355,
+      "win_rate": 0.9307,
+      "seats": {
+        "0": 5000,
+        "1": 5000
+      },
+      "termination_reasons": {
+        "terminal_win": 4239,
+        "action_limit": 5104,
+        "terminal_draw": 657
+      },
+      "outcomes_by_termination": {
+        "terminal_win": {
+          "win": 4203,
+          "loss": 36
+        },
+        "action_limit": {
+          "win": 5104
+        },
+        "terminal_draw": {
+          "draw": 657
+        }
+      },
+      "total_agent_decision_seconds": 42377.308732046804,
+      "agent_decision_seconds_per_game": 4.23773087320468
+    },
+    "minimax_depth_4": {
+      "log": "experiments/minimax_depth_vs_random/results/depth_4_games_10000_cpp.jsonl",
+      "summary": "experiments/minimax_depth_vs_random/results/depth_4_games_10000_cpp_summary.json",
+      "log_sha256": "cc88d2e6ae65b88c46418ae3603d1310df3c2c4f217dae3f7003fe957b7af527",
+      "lf_normalized_sha256": "b3ce0e3b8e2658fd10012180f406c301694050f3cdf1546c34c2ceb1e141f249",
+      "stored_hash_match_mode": null,
+      "stored_summary_matches_recount": true,
+      "games": 10000,
+      "wins": 9291,
+      "draws": 664,
+      "losses": 45,
+      "score_rate": 0.9623,
+      "win_rate": 0.9291,
+      "seats": {
+        "0": 5000,
+        "1": 5000
+      },
+      "termination_reasons": {
+        "action_limit": 6502,
+        "terminal_win": 2834,
+        "terminal_draw": 664
+      },
+      "outcomes_by_termination": {
+        "action_limit": {
+          "win": 6502
+        },
+        "terminal_win": {
+          "win": 2789,
+          "loss": 45
+        },
+        "terminal_draw": {
+          "draw": 664
+        }
+      },
+      "total_agent_decision_seconds": 1990.4752181000001,
+      "agent_decision_seconds_per_game": 0.19904752181000002
+    },
+    "minimax_depth_5": {
+      "log": "experiments/minimax_depth_vs_random/results/depth_5_games_10000_cpp.jsonl",
+      "summary": "experiments/minimax_depth_vs_random/results/depth_5_games_10000_cpp_summary.json",
+      "log_sha256": "7968884ec014dd2e04fbdeac278025128afea1a28330ecb9c9fb2e28e72ddb2f",
+      "lf_normalized_sha256": "f282a60a8861fdf14c38719afd8e7371ed8e0f3cecf3e8b7771f84bbc5a7cec8",
+      "stored_hash_match_mode": null,
+      "stored_summary_matches_recount": true,
+      "games": 10000,
+      "wins": 9002,
+      "draws": 819,
+      "losses": 179,
+      "score_rate": 0.94115,
+      "win_rate": 0.9002,
+      "seats": {
+        "0": 5000,
+        "1": 5000
+      },
+      "termination_reasons": {
+        "action_limit": 6962,
+        "terminal_win": 2219,
+        "terminal_draw": 819
+      },
+      "outcomes_by_termination": {
+        "action_limit": {
+          "win": 6962
+        },
+        "terminal_win": {
+          "win": 2040,
+          "loss": 179
+        },
+        "terminal_draw": {
+          "draw": 819
+        }
+      },
+      "total_agent_decision_seconds": 3349.7002759,
+      "agent_decision_seconds_per_game": 0.33497002759
+    },
+    "mcts_1000": {
+      "log": "experiments/mcts_vs_random/results/mcts_uct_1000sims_games_10000_cpp.jsonl",
+      "summary": "experiments/mcts_vs_random/results/mcts_uct_1000sims_games_10000_cpp_summary.json",
+      "log_sha256": "a1bfc8e5de82616b4ec839500793aa3f1b71d13e2caec0cc135c8b1ee15ddd90",
+      "lf_normalized_sha256": "bab2646624eb890db1e2d5127118c2a6c64fd3c466a464c174f8b4ca5316eeb5",
+      "stored_hash_match_mode": null,
+      "stored_summary_matches_recount": true,
+      "games": 10000,
+      "wins": 9920,
+      "draws": 72,
+      "losses": 8,
+      "score_rate": 0.9956,
+      "win_rate": 0.992,
+      "seats": {
+        "0": 5000,
+        "1": 5000
+      },
+      "termination_reasons": {
+        "terminal_win": 9927,
+        "terminal_draw": 72,
+        "repetition": 1
+      },
+      "outcomes_by_termination": {
+        "terminal_win": {
+          "win": 9919,
+          "loss": 8
+        },
+        "terminal_draw": {
+          "draw": 72
+        },
+        "repetition": {
+          "win": 1
+        }
+      },
+      "total_agent_decision_seconds": 66071.870306,
+      "agent_decision_seconds_per_game": 6.6071870306
+    }
+  }
+}

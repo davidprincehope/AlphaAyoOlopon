@@ -1,0 +1,25 @@
+{
+  "experiment": "runs/checkpoint_strength/checkpoint-mcts-progression-13x400-20261006-v1",
+  "games": 20800,
+  "conditions": 4,
+  "checkpoints_per_condition": 13,
+  "games_per_checkpoint": 400,
+  "design": "Four separate unsmoothed learner-round/score curves, common 0\u2013100% scale, pointwise paired intervals",
+  "source_sha256": {
+    "progression.results.json": "7dcf466a0ed037f9a9c95bc67a2b6d40b5b685c2085dc2c31037e2cc263a668e",
+    "progression.manifest.json": "ecff9420454ac6de659fb39e88518c13fc4b510bec4f80c10bb75b6ba78015f7",
+    "verification.json": "9cee538b3ecf70ef4f95b25bc1988dc776822a07d0121d6e89b5e8a643de50b5",
+    "experiment.plan.json": "02b66d01659d8c0fd183bfee812a6e20e1070351eef5c14a034983a60786e783"
+  },
+  "script_sha256": "04b109667a4229cf3125971ace3f4678138cb8bb64f28a3f850dbaf15791e34d",
+  "figure_sha256": {
+    "puct64-mcts64.png": "a788d236997d2d1590dabeac55575f71d685c3dd267d6373013027a8e3d7a03c",
+    "puct64-mcts64.svg": "8b39a8e36185141432f8bb3e8d82f2bf470e4b6e71d1256d7ccd4e37afdbce7c",
+    "puct128-mcts128.png": "eec8a17126d9fbb6eb8ee9de35186c6dc3b38c96671fbe3d17e1550e59b35485",
+    "puct128-mcts128.svg": "af55658665dc4e5a54923760656bf812162bc407c7e2ac1adff4c104ce1a08d5",
+    "puct64-mcts128.png": "757c4f73a72e7b538cfb33fa6753c947e5ccd18efdba04829e813f010f1fbce9",
+    "puct64-mcts128.svg": "39ddd984e3cb39e5e8316a47bc6c3c68461940c965a4eae9a6daca0b8064f818",
+    "policy-mcts64.png": "b70a4d1a92082f1832dd49bde0ee17e607513c747dc2ee656e38e3ccac36fb2b",
+    "policy-mcts64.svg": "d322b5dca0ff21f445622892dd6898f78d75c6f1bf3908a0a85fa2963e24d5d2"
+  }
+}

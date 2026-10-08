@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="756pt" height="417.6pt" viewBox="0 0 756 417.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-06T15:25:49.588560</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 417.6 
+L 756 417.6 
+L 756 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 98.28 288.144 
+L 446.04 288.144 
+L 446.04 129.456 
+L 98.28 129.456 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <defs>
+       <path id="mc56b2a4823" d="M 0 0 
+L 0 3.5 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#mc56b2a4823" x="98.28" y="288.144" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle" x="98.28" y="302.424273" transform="rotate(-0 98.28 302.424273)">0%</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2">
+      <g>
+       <use xlink:href="#mc56b2a4823" x="185.22" y="288.144" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle" x="185.22" y="302.424273" transform="rotate(-0 185.22 302.424273)">25%</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3">
+      <g>
+       <use xlink:href="#mc56b2a4823" x="272.16" y="288.144" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle" x="272.16" y="302.424273" transform="rotate(-0 272.16 302.424273)">50%</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#mc56b2a4823" x="359.1" y="288.144" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle" x="359.1" y="302.424273" transform="rotate(-0 359.1 302.424273)">75%</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_5">
+      <g>
+       <use xlink:href="#mc56b2a4823" x="446.04" y="288.144" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle" x="446.04" y="302.424273" transform="rotate(-0 446.04 302.424273)">100%</text>
+     </g>
+    </g>
+    <g id="text_6">
+     <text style="font-size: 11px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle" x="272.16" y="316.537066" transform="rotate(-0 272.16 316.537066)">Share of games</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_6"/>
+     <g id="text_7">
+      <text style="font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: end" x="90.28" y="181.392485" transform="rotate(-0 90.28 181.392485)">64 sims</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_7"/>
+     <g id="text_8">
+      <text style="font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: end" x="90.28" y="250.387267" transform="rotate(-0 90.28 250.387267)">128 sims</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 98.28 288.144 
+L 446.04 288.144 
+" style="fill: none; stroke: #555555; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 98.28 194.65607 
+L 260.8578 194.65607 
+L 260.8578 160.848626 
+L 98.28 160.848626 
+z
+" clip-path="url(#pfda0d92ded)" style="fill: #0072b2"/>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; fill: #ffffff" transform="translate(162.611869 174.898246)">46.75%</text>
+    <text style="font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; fill: #ffffff" transform="translate(154.832181 185.782035)">187 games</text>
+   </g>
+   <g id="patch_5">
+    <path d="M 260.8578 194.65607 
+L 332.1486 194.65607 
+L 332.1486 160.848626 
+L 260.8578 160.848626 
+z
+" clip-path="url(#pfda0d92ded)" style="fill: #8a8a8a"/>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; fill: #ffffff" transform="translate(279.546169 174.898246)">20.50%</text>
+    <text style="font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; fill: #ffffff" transform="translate(274.54695 185.782035)">82 games</text>
+   </g>
+   <g id="patch_6">
+    <path d="M 332.1486 194.65607 
+L 446.04 194.65607 
+L 446.04 160.848626 
+L 332.1486 160.848626 
+z
+" clip-path="url(#pfda0d92ded)" style="fill: #d55e00"/>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; fill: #ffffff" transform="translate(372.137269 174.898246)">32.75%</text>
+    <text style="font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; fill: #ffffff" transform="translate(364.357581 185.782035)">131 games</text>
+   </g>
+   <g id="patch_7">
+    <path d="M 98.28 263.650852 
+L 277.3764 263.650852 
+L 277.3764 229.843409 
+L 98.28 229.843409 
+z
+" clip-path="url(#pfda0d92ded)" style="fill: #0072b2"/>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; fill: #ffffff" transform="translate(170.871169 243.893029)">51.50%</text>
+    <text style="font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; fill: #ffffff" transform="translate(163.091481 254.776818)">206 games</text>
+   </g>
+   <g id="patch_8">
+    <path d="M 277.3764 263.650852 
+L 349.5366 263.650852 
+L 349.5366 229.843409 
+L 277.3764 229.843409 
+z
+" clip-path="url(#pfda0d92ded)" style="fill: #8a8a8a"/>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; fill: #ffffff" transform="translate(296.499469 243.893029)">20.75%</text>
+    <text style="font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; fill: #ffffff" transform="translate(291.50025 254.776818)">83 games</text>
+   </g>
+   <g id="patch_9">
+    <path d="M 349.5366 263.650852 
+L 446.04 263.650852 
+L 446.04 229.843409 
+L 349.5366 229.843409 
+z
+" clip-path="url(#pfda0d92ded)" style="fill: #d55e00"/>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; fill: #ffffff" transform="translate(380.831269 243.893029)">27.75%</text>
+    <text style="font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; fill: #ffffff" transform="translate(373.793769 254.776818)">111 games</text>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="98.28" y="112.456" transform="rotate(-0 98.28 112.456)">Game outcomes</text>
+   </g>
+   <g id="legend_1">
+    <g id="patch_10">
+     <path d="M 102.08 338.53226 
+L 113.48 338.53226 
+L 113.48 331.88226 
+L 102.08 331.88226 
+z
+" style="fill: #0072b2; stroke: #0072b2; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_16">
+     <text style="font-size: 9.5px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="121.08" y="338.53226" transform="rotate(-0 121.08 338.53226)">MCTS wins</text>
+    </g>
+    <g id="patch_11">
+     <path d="M 180.086875 338.53226 
+L 191.486875 338.53226 
+L 191.486875 331.88226 
+L 180.086875 331.88226 
+z
+" style="fill: #8a8a8a; stroke: #8a8a8a; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_17">
+     <text style="font-size: 9.5px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="199.086875" y="338.53226" transform="rotate(-0 199.086875 338.53226)">Draws</text>
+    </g>
+    <g id="patch_12">
+     <path d="M 236.454531 338.53226 
+L 247.854531 338.53226 
+L 247.854531 331.88226 
+L 236.454531 331.88226 
+z
+" style="fill: #d55e00; stroke: #d55e00; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_18">
+     <text style="font-size: 9.5px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="255.454531" y="338.53226" transform="rotate(-0 255.454531 338.53226)">Greedy H* wins</text>
+    </g>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_13">
+    <path d="M 578.34 288.144 
+L 721.98 288.144 
+L 721.98 129.456 
+L 578.34 129.456 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_3">
+    <g id="xtick_6">
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#mc56b2a4823" x="578.34" y="288.144" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_19">
+      <text style="font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle" x="578.34" y="302.424273" transform="rotate(-0 578.34 302.424273)">0%</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_9">
+      <g>
+       <use xlink:href="#mc56b2a4823" x="650.16" y="288.144" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_20">
+      <text style="font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle" x="650.16" y="302.424273" transform="rotate(-0 650.16 302.424273)">50%</text>
+     </g>
+    </g>
+    <g id="xtick_8">
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#mc56b2a4823" x="721.98" y="288.144" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_21">
+      <text style="font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle" x="721.98" y="302.424273" transform="rotate(-0 721.98 302.424273)">100%</text>
+     </g>
+    </g>
+    <g id="text_22">
+     <text style="font-size: 11px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle" x="650.16" y="316.537066" transform="rotate(-0 650.16 316.537066)">Score</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_4">
+    <g id="ytick_3">
+     <g id="line2d_11"/>
+     <g id="text_23">
+      <text style="font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: end" x="570.34" y="181.392485" transform="rotate(-0 570.34 181.392485)">64 sims</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_12"/>
+     <g id="text_24">
+      <text style="font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: end" x="570.34" y="250.387267" transform="rotate(-0 570.34 250.387267)">128 sims</text>
+     </g>
+    </g>
+   </g>
+   <g id="line2d_13">
+    <path d="M 650.16 288.144 
+L 650.16 129.456 
+" clip-path="url(#pb3cf306c8e)" style="fill: none; stroke-dasharray: 4,4; stroke-dashoffset: 0; stroke: #999999"/>
+   </g>
+   <g id="line2d_14">
+    <defs>
+     <path id="m88f5cd2f12" d="M 0 4 
+C 1.060812 4 2.078319 3.578535 2.828427 2.828427 
+C 3.578535 2.078319 4 1.060812 4 0 
+C 4 -1.060812 3.578535 -2.078319 2.828427 -2.828427 
+C 2.078319 -3.578535 1.060812 -4 0 -4 
+C -1.060812 -4 -2.078319 -3.578535 -2.828427 -2.828427 
+C -3.578535 -2.078319 -4 -1.060812 -4 0 
+C -4 1.060812 -3.578535 2.078319 -2.828427 2.828427 
+C -2.078319 3.578535 -1.060812 4 0 4 
+z
+" style="stroke: #0072b2"/>
+    </defs>
+    <g clip-path="url(#pb3cf306c8e)">
+     <use xlink:href="#m88f5cd2f12" x="660.2148" y="177.752348" style="fill: #0072b2; stroke: #0072b2"/>
+    </g>
+   </g>
+   <g id="line2d_15">
+    <g clip-path="url(#pb3cf306c8e)">
+     <use xlink:href="#m88f5cd2f12" x="667.21725" y="246.74713" style="fill: #0072b2; stroke: #0072b2"/>
+    </g>
+   </g>
+   <g id="patch_14">
+    <path d="M 578.34 288.144 
+L 721.98 288.144 
+" style="fill: none; stroke: #555555; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_25">
+    <g id="patch_15">
+     <path d="M 638.906362 164.223443 
+L 681.523237 164.223443 
+L 681.523237 151.041725 
+L 638.906362 151.041725 
+z
+" style="fill: #ffffff"/>
+    </g>
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #0072b2" x="660.2148" y="160.738053" transform="rotate(-0 660.2148 160.738053)">57.00%</text>
+   </g>
+   <g id="text_26">
+    <g id="patch_16">
+     <path d="M 645.908812 233.218226 
+L 688.525688 233.218226 
+L 688.525688 220.036507 
+L 645.908812 220.036507 
+z
+" style="fill: #ffffff"/>
+    </g>
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #0072b2" x="667.21725" y="229.732835" transform="rotate(-0 667.21725 229.732835)">61.88%</text>
+   </g>
+   <g id="text_27">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="578.34" y="112.456" transform="rotate(-0 578.34 112.456)">MCTS score</text>
+   </g>
+  </g>
+  <g id="text_28">
+   <text style="font-weight: 700; font-size: 18px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start" x="60.48" y="38.160492" transform="rotate(-0 60.48 38.160492)">Plain MCTS versus greedy H*</text>
+  </g>
+  <g id="text_29">
+   <text style="font-size: 11px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #444444" x="60.48" y="60.208301" transform="rotate(-0 60.48 60.208301)">UCT with random rollouts  |  64 versus 128 simulations per move</text>
+  </g>
+  <g id="text_30">
+   <text style="font-size: 10px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #666666" x="60.48" y="80.360273" transform="rotate(-0 60.48 80.360273)">400 games per budget  |  The same 200 mixed-depth openings, each played in both seats</text>
+  </g>
+  <g id="text_31">
+   <text style="font-size: 9.5px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #555555" x="60.48" y="373.752" transform="rotate(-0 60.48 373.752)">Score = (wins + 0.5 × draws) / games. Dashed line marks an equal score of 50%.</text>
+  </g>
+  <g id="text_32">
+   <text style="font-size: 9.5px; font-family: 'Arial', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #555555" x="60.48" y="392.544" transform="rotate(-0 60.48 392.544)">Observed results; the supplied summary contains no opening-pair records or confidence intervals.</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pfda0d92ded">
+   <rect x="98.28" y="129.456" width="347.76" height="158.688"/>
+  </clipPath>
+  <clipPath id="pb3cf306c8e">
+   <rect x="578.34" y="129.456" width="143.64" height="158.688"/>
+  </clipPath>
+ </defs>
+</svg>

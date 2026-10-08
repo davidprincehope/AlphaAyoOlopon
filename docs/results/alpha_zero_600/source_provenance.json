@@ -1,0 +1,70 @@
+{
+  "normalization": "Local absolute checkout prefixes are replaced with repository-relative paths. Training summary retains the final round's aggregate counts.",
+  "sources": {
+    "training_manifest.json": {
+      "source": "runs/alpha_zero/modal-a100-600-20261003/manifest.json",
+      "source_sha256": "acc9688bd2cd2633482645ee51973313850a320b9111c041f9a5e005466ee0eb",
+      "export_sha256": "52c3bd6c82472aededf8c69075b32785a01c1057eac7902e834b05b321f5225f"
+    },
+    "training_summary.json": {
+      "source": "runs/alpha_zero/modal-a100-600-20261003/learner.jsonl",
+      "source_sha256": "f7fa3b9728fbf4c962796d3fe9d103c6fea2f40408ee748d0b22c6219a38e4aa",
+      "export_sha256": "7864fa6fc5b72da9cd5eaac618cdf18fe35cd8285f15e2e2bf6085454b1fbc47"
+    },
+    "checkpoint-head-to-head-c50-c350-64-20261005/results.json": {
+      "source": "runs/checkpoint_strength/checkpoint-head-to-head-c50-c350-64-20261005/results.json",
+      "source_sha256": "28399cba52518cc75fb8966dc320934075e59c1e05481cbab633dd53c128bc1b",
+      "export_sha256": "6ea92182a2ac2f302eca462f0517ff93cc9b4925e6c039ab13ec24dc2dceb932"
+    },
+    "checkpoint-head-to-head-c350-c600-64-20261005/results.json": {
+      "source": "runs/checkpoint_strength/checkpoint-head-to-head-c350-c600-64-20261005/results.json",
+      "source_sha256": "34084d835c75926a1ce2a4253930bf2b99400a76112de1274a0c0f96550e0cde",
+      "export_sha256": "ae47601368bee9aabccb505742ba1103633c9d5d9f3b8c4a3c946819fea0d4ec"
+    },
+    "checkpoint-c600-policy-vs-mcts-64-20261005/results.json": {
+      "source": "runs/checkpoint_strength/checkpoint-c600-policy-vs-mcts-64-20261005/results.json",
+      "source_sha256": "929c5feaa62a68931d831d540393ed31c27ce592e3e1417b6f8462648afe4b53",
+      "export_sha256": "82052aba8d76535e22e56d150252a53613eed3e54c33d19e75972fd4bd040e3f"
+    },
+    "checkpoint-c600-vs-mcts-64-20261005/results.json": {
+      "source": "runs/checkpoint_strength/checkpoint-c600-vs-mcts-64-20261005/results.json",
+      "source_sha256": "9425b57f161511f0d7e3667ac81fce3b45e92fdf9fe6f075cca38c4b785cbabd",
+      "export_sha256": "16d1273b2539bdddc8513862637674d4278830e00096ac50cf9e9ceabe0f5bfa"
+    },
+    "checkpoint-c600-vs-mcts-64-20261005/results.manifest.json": {
+      "source": "runs/checkpoint_strength/checkpoint-c600-vs-mcts-64-20261005/results.manifest.json",
+      "source_sha256": "a8497ca04d037e7b69af307fdfc5f524999c7fb13ed58af7ba5ea447de88ccc5",
+      "export_sha256": "24daac9ffad4df7b3db124d3877cdac15209ebf017df005f3d2a6b6fc3781433"
+    },
+    "checkpoint-c600-64-vs-mcts-128-20261005/results.json": {
+      "source": "runs/checkpoint_strength/checkpoint-c600-64-vs-mcts-128-20261005/results.json",
+      "source_sha256": "d66ba3a53e45b0b83c8d9fa180fee688ff06fa831a9bdc5321ba110354cd9bd6",
+      "export_sha256": "66eedef67168f1df14140726ca1f55dc6344362fc0519583625f854ea659f15b"
+    },
+    "checkpoint-c600-vs-mcts-128-20261005/results.json": {
+      "source": "runs/checkpoint_strength/checkpoint-c600-vs-mcts-128-20261005/results.json",
+      "source_sha256": "6d49193ae70f66ff021b86cf806d11f2392e177ebf918b981063ef4f7728e8d3",
+      "export_sha256": "cae24fed670b3b35682dfd80bfb052cb35a36f2ec8ecbdd651399d7edfa3e802"
+    },
+    "progression.results.json": {
+      "source": "runs/checkpoint_strength/checkpoint-mcts-progression-13x400-20261006-v1/progression.results.json",
+      "source_sha256": "7dcf466a0ed037f9a9c95bc67a2b6d40b5b685c2085dc2c31037e2cc263a668e",
+      "export_sha256": "e1de445911a11ffe584ba597d85f4957e61ec02e42a7a33283dfaf38e0825120"
+    },
+    "progression.manifest.json": {
+      "source": "runs/checkpoint_strength/checkpoint-mcts-progression-13x400-20261006-v1/progression.manifest.json",
+      "source_sha256": "ecff9420454ac6de659fb39e88518c13fc4b510bec4f80c10bb75b6ba78015f7",
+      "export_sha256": "51b650ae883f2385cd81f4b4871b4968738c17b62547b4376b7e18965ab2e9d3"
+    },
+    "verification.json": {
+      "source": "runs/checkpoint_strength/checkpoint-mcts-progression-13x400-20261006-v1/verification.json",
+      "source_sha256": "9cee538b3ecf70ef4f95b25bc1988dc776822a07d0121d6e89b5e8a643de50b5",
+      "export_sha256": "9cee538b3ecf70ef4f95b25bc1988dc776822a07d0121d6e89b5e8a643de50b5"
+    },
+    "experiment.plan.json": {
+      "source": "runs/checkpoint_strength/checkpoint-mcts-progression-13x400-20261006-v1/experiment.plan.json",
+      "source_sha256": "02b66d01659d8c0fd183bfee812a6e20e1070351eef5c14a034983a60786e783",
+      "export_sha256": "02b66d01659d8c0fd183bfee812a6e20e1070351eef5c14a034983a60786e783"
+    }
+  }
+}

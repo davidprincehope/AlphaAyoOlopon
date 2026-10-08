@@ -49,19 +49,23 @@ def _policy_action(state, policy: str, rng: random.Random) -> int:
 
 
 def play_game(game_id: int, assignment: tuple[str, str], seed: int,
-              max_actions: int = DEFAULT_MAX_ACTIONS) -> dict:
+              max_actions: int = DEFAULT_MAX_ACTIONS, *, game=None,
+              agent_factories=None, opening=None) -> dict:
   """Play one game and return a compact, auditable record."""
-  game = pyspiel.load_game("ayo_olopon")
-  state = game.new_initial_state()
+  game = game if game is not None else pyspiel.load_game("ayo_olopon")
+  state = game.new_initial_state() if opening is None else opening.new_state(game)
+  opening_plies = state.move_number()
   rng = random.Random(seed)
   actions = []
   policy_decisions = Counter()
   started = time.perf_counter()
+  agents = ({name: factory(game, seed) for name, factory in agent_factories.items()}
+            if agent_factories is not None else None)
 
-  while not state.is_terminal() and len(actions) < max_actions:
+  while not state.is_terminal() and opening_plies + len(actions) < max_actions:
     player = int(state.current_player())
     policy = assignment[player]
-    action = _policy_action(state, policy, rng)
+    action = agents[policy].step(state) if agents is not None else _policy_action(state, policy, rng)
     if action not in state.legal_actions():
       raise RuntimeError(f"policy {policy} selected illegal action {action}")
     state.apply_action(action)
@@ -71,7 +75,9 @@ def play_game(game_id: int, assignment: tuple[str, str], seed: int,
   if state.is_terminal():
     returns = [float(value) for value in state.returns()]
     report = state.last_relay_report
-    if report and report.get("reason") in {
+    if getattr(state, "truncated", False):
+      termination = "action_limit"
+    elif report and report.get("reason") in {
         "repeated_relay_state", "relay_lap_limit_exceeded"
     }:
       termination = "repetition"
@@ -79,7 +85,7 @@ def play_game(game_id: int, assignment: tuple[str, str], seed: int,
       termination = "terminal_draw"
     else:
       termination = "terminal_win"
-    truncated = False
+    truncated = bool(getattr(state, "truncated", False))
   else:
     # The cap is a safety valve, not a natural draw.  Score the position so
     # the benchmark remains total, while reporting this outcome separately.
@@ -92,7 +98,7 @@ def play_game(game_id: int, assignment: tuple[str, str], seed: int,
   policy_returns = {
       policy: returns[seat] for seat, policy in enumerate(assignment)
   }
-  return {
+  record = {
       "game_id": game_id,
       "seed": seed,
       "player_0_policy": assignment[0],
@@ -105,23 +111,31 @@ def play_game(game_id: int, assignment: tuple[str, str], seed: int,
       "returns_by_player": returns,
       "termination_reason": termination,
       "truncated": truncated,
-      "game_length": len(actions),
+      "game_length": opening_plies + len(actions),
       "final_captured": [int(value) for value in state.captured],
       "policy_decisions": dict(policy_decisions),
       "elapsed_seconds": time.perf_counter() - started,
   }
+  if opening is not None:
+    record.update(opening_id=opening.opening_id, opening_actions=list(opening.actions),
+                  opening_plies=opening_plies, opening_position_sha256=opening.position_sha256,
+                  opening_state_sha256=opening.state_sha256,
+                  continuation_length=len(actions), continuation_actions=actions)
+  return record
 
 
-def _empty_policy_stats() -> dict:
+def _empty_policy_stats(policies=POLICIES) -> dict:
   return {policy: {
       "games": 0, "wins": 0, "draws": 0, "losses": 0,
       "score_sum": 0.0, "natural_draws": 0, "repetitions": 0,
       "action_limits": 0, "game_lengths": [], "seats": {"0": 0, "1": 0},
-  } for policy in POLICIES}
+  } for policy in policies}
 
 
 def summarize(records: list[dict]) -> dict:
-  stats = _empty_policy_stats()
+  policies = sorted({record[key] for record in records
+                     for key in ("player_0_policy", "player_1_policy")})
+  stats = _empty_policy_stats(policies or POLICIES)
   terminations = Counter(record["termination_reason"] for record in records)
   for record in records:
     for seat, policy in enumerate(
@@ -145,6 +159,39 @@ def summarize(records: list[dict]) -> dict:
     del item["game_lengths"]
   return {"games": len(records), "termination_reasons": dict(terminations),
           "policies": stats}
+
+
+def run_matches(game, agent_factories, games=100, seed=0, *, on_game=None, openings=None):
+  """Seat-balanced matches using the existing benchmark record/statistics format."""
+  if type(games) is not int or games < 2 or games % 2:
+    raise ValueError("games must be positive and even")
+  names = tuple(agent_factories)
+  if len(names) != 2:
+    raise ValueError("Exactly two distinct policy names are required")
+  selected = None
+  if openings is not None:
+    from experiments.checkpoint_strength.opening_dataset import rules_contract
+    if openings.contract != rules_contract(game):
+      raise ValueError("Opening dataset rules/horizon do not match the game")
+    if games > 2 * len(openings.openings):
+      raise ValueError("Requested games exceed twice the opening count; repeats are forbidden")
+    selected = openings.openings[:games // 2]
+  records = []
+  for i in range(games):
+    record = play_game(i, names if i % 2 == 0 else names[::-1], seed + i // 2,
+                       game.max_game_length(), game=game,
+                       agent_factories=agent_factories,
+                       opening=None if selected is None else selected[i // 2])
+    if openings is not None:
+      record.update(opening_pair_id=i // 2, opening_dataset_sha256=openings.content_sha256)
+    records.append(record)
+    if on_game is not None:
+      on_game(record)
+  summary = summarize(records)
+  summary["by_seat"] = {
+      str(seat): summarize([r for r in records if r[f"player_{seat}_policy"] == names[0]])
+      for seat in (0, 1)}
+  return summary, records
 
 
 def run(games: int = DEFAULT_GAMES, seed: int = DEFAULT_SEED,

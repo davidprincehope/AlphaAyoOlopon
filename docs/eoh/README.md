@@ -40,3 +40,20 @@ Run from repository root:
 ```
 
 The test suite and fixture pilot passed after the final candidate adapter changes; final verification details are recorded in `implementation_log.md`.
+
+## Optional upstream checkout
+
+The upstream source is kept as a local dependency rather than copied into this
+repository. To install the exact version used by the contract tests:
+
+```sh
+git clone https://github.com/FeiLiu36/EoH.git experiments/EOH/vendor/EoH
+git -C experiments/EOH/vendor/EoH checkout 472545785c936dcfc863d2bc0d6109cf23c7ce62
+python -m pip install -e experiments/EOH/vendor/EoH/eoh
+```
+
+This checkout is ignored by Git. The upstream contract tests skip when the
+`eoh` package is absent. Candidate source, fitness aggregates and selection
+summaries remain versioned. Large development and selection match traces are
+retained locally and excluded from new commits; artifact paths in the
+historical audit trail refer to that local evidence.

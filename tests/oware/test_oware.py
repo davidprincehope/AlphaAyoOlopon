@@ -41,13 +41,17 @@ def test_sowing_skips_source_house_and_switches_player():
 
 def test_capture_collects_consecutive_two_and_three_seed_houses():
     state = _state_with_position(
-        [0, 0, 8, 0, 0, 1, 1, 1, 1, 1, 2, 3]
+        [0, 0, 8, 0, 0, 1, 1, 1, 1, 1, 2, 3], captured=[15, 15]
     )
 
     state.apply_action(2)
 
-    assert state.captured == [15, 3]
+    # The backwards capture adds 11 seeds. A majority ends play immediately;
+    # the remaining seven seeds are not collected by this termination rule.
+    assert state.captured == [26, 15]
     assert state.is_terminal()
+    assert state.returns() == [1.0, -1.0]
+    assert sum(state.board) + sum(state.captured) == 48
 
 
 def test_grand_slam_sows_but_does_not_capture():

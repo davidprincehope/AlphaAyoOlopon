@@ -1,0 +1,34 @@
+{
+  "run": "runs/alpha_zero/modal-a100-600-20261003",
+  "rounds": 600,
+  "design": "One plot, three recorded curves; no smoothing; linear axes.",
+  "curves": [
+    "policy_loss",
+    "value_loss",
+    "total_loss"
+  ],
+  "total_definition": "policy_loss + value_loss + l2_loss",
+  "loss_definition": "Mean minibatch training loss over all optimizer updates in each learner round, sampled from replay. Not per-game or per-position losses.",
+  "verification": {
+    "console_loss_matches": 600,
+    "finite_nonnegative_losses": true,
+    "total_loss_components_match": true,
+    "gradient_update_counts_match_settings": true,
+    "missing_rounds": [],
+    "duplicate_rounds": []
+  },
+  "source_sha256": {
+    "runs/alpha_zero/modal-a100-600-20261003/learner.jsonl": "f7fa3b9728fbf4c962796d3fe9d103c6fea2f40408ee748d0b22c6219a38e4aa",
+    "runs/alpha_zero/modal-a100-600-20261003/sessions/20261003T101056281161Z/log-learner.txt": "4215234c6ec3ff2812cc276e477c4b27e925a7666ecf09d131ad6251d02ce3e5",
+    "runs/alpha_zero/modal-a100-600-20261003/sessions/20261003T103944860832Z/log-learner.txt": "b11d0b23e4c8c98a44948bf1834642817946683b8e520a37bbecd033daf04a2e",
+    "runs/alpha_zero/modal-a100-600-20261003/sessions/20261003T105645564628Z/log-learner.txt": "46a7bf6ad4d083d50755c3c3ef99df24c150e30ecce1be4516d8d2e9f87b95ea",
+    "runs/alpha_zero/modal-a100-600-20261003/sessions/20261003T114247660601Z/log-learner.txt": "25ea38c7c45e033b7b855e7f41b37f4eb27cdbd5c8d911626ce7e30f7b193aa8",
+    "runs/alpha_zero/modal-a100-600-20261003/sessions/20261003T131030718409Z/log-learner.txt": "25d0f75cefac541eee40756da1650e54b3858f7e9d10134fc7be68b372d382dd"
+  },
+  "script_sha256": "11986925b42008ceb0cfaf5d02fcfeebe3c3544b14fcc8931e81165525e6b591",
+  "figure_sha256": {
+    "training_losses.png": "c336d7153bb91d2f1fad702529a98c5eb88da07489cff3b810167d4dcc43909a",
+    "training_losses.svg": "406baf2a97868805bfd134a647a1f51bd9be3b2ae30b4e86ce7fb88cafb61111"
+  },
+  "matplotlib": "3.11.2"
+}

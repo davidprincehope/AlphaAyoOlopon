@@ -1,0 +1,44 @@
+{
+  "experiment": "ayo_minimax_depth_vs_random",
+  "status": "completed",
+  "created_at_utc": "2026-09-24T12:00:52.678991+00:00",
+  "games_per_depth": 10000,
+  "depths": [
+    3
+  ],
+  "evaluator": "Algorithms/H_star_ayo.py:evaluate_state",
+  "master_seed": 20260924,
+  "max_actions": 300,
+  "existing_depth_1_greedy_baseline": {
+    "source": "experiments/agent_benchmark/results/random_vs_greedy_hstar_10000.json",
+    "games": 10000,
+    "master_seed": 20260923,
+    "score_rate": 0.80065,
+    "win_rate": 0.7566
+  },
+  "results": [
+    {
+      "depth": 3,
+      "games": 10000,
+      "wins": 9307,
+      "draws": 657,
+      "losses": 36,
+      "win_rate": 0.9307,
+      "score_rate": 0.96355,
+      "seat_counts": {
+        "0": 5000,
+        "1": 5000
+      },
+      "termination_reasons": {
+        "terminal_win": 4239,
+        "action_limit": 5104,
+        "terminal_draw": 657
+      },
+      "average_game_length": 192.7481,
+      "total_minimax_decision_seconds": 42377.308732046804,
+      "average_minimax_decision_seconds_per_game": 4.23773087320468,
+      "total_elapsed_seconds": 42459.60377360199,
+      "score_rate_change_vs_depth_1": 0.16290000000000004
+    }
+  ]
+}

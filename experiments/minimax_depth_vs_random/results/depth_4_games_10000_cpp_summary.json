@@ -1,0 +1,19 @@
+{
+  "average_minimax_decision_seconds_per_game": 0.19904752180999988,
+  "depth": 4,
+  "draws": 664,
+  "engine": "OpenSpiel C++ AlphaBetaSearch with in-place state undo",
+  "experiment": "ayo_minimax_depth_vs_random_native",
+  "games": 10000,
+  "log_file": "depth_4_games_10000_cpp.jsonl",
+  "losses": 45,
+  "master_seed": 20260924,
+  "max_actions": 300,
+  "score_rate": 0.9623,
+  "status": "completed",
+  "total_elapsed_seconds": 2052.6538560000067,
+  "total_minimax_decision_seconds": 1990.4752180999988,
+  "truncated_games": 6502,
+  "win_rate": 0.9291,
+  "wins": 9291
+}

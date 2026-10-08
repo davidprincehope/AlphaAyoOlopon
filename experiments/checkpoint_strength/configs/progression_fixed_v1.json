@@ -1,0 +1,10 @@
+{
+  "checkpoints": [1, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600],
+  "games": 200,
+  "simulations": 64,
+  "opponent": {"name": "GREEDY_HSTAR", "params": {}},
+  "seed": 20261003,
+  "fallback_first": true,
+  "heartbeat_seconds": 30,
+  "openings": "experiments/checkpoint_strength/dataset/ayo_fixed_v1.json"
+}

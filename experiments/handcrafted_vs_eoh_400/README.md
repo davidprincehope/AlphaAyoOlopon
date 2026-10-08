@@ -27,3 +27,10 @@ The opening file is kept separate from prior suites. Use `--regenerate-openings`
 - `results_400.json`: configuration, opening checksum, per-depth/policy WDL, score rate, seat split, runtime, and termination counts.
 - `pilot/` and `pilot_depth3/`: isolated smoke-run outputs; not full results.
 - `run_log.md`: execution checkpoints, tests, failures, and completion status.
+
+## Published summaries and local traces
+
+The frozen opening set, runner, configurations and aggregate result summaries
+are versioned. The large `matches_400.jsonl` traces remain local and are
+excluded from new commits. Reproduction commands generate fresh traces;
+reading the published summary does not require the original per-game logs.

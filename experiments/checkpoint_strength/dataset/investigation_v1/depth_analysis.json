@@ -1,0 +1,371 @@
+{
+  "schema_version": 1,
+  "generation_seed": 20261004,
+  "trials_per_depth": 5000,
+  "depths": [
+    2,
+    4,
+    6,
+    8,
+    10
+  ],
+  "rules_contract": {
+    "rules": "python_ayo_olopon",
+    "rules_sha256": "ffbb6c5fc7d6c94cc46e1d9a59be8a3f88a12288178778c8ca43a5b751e9342d",
+    "houses_per_player": 6,
+    "seeds_per_house": 4,
+    "max_actions": 1000,
+    "cutoff": "collect"
+  },
+  "sampling": "independent paths from initial state; uniform legal actions; random.Random(seed + depth)",
+  "ply_definition": "one apply_action decision; relay sowing is internal to an action",
+  "candidates_file": "candidates.jsonl.gz",
+  "candidates_sha256": "fcc70440c51ff0e2c9137df763ca93e51f47d6b378990c7cc7bb92311db27d96",
+  "candidates_content_sha256": "008185f7ad750d2d7c6faa2eb3d546da61db6698efea180f5c2be55f9daff684",
+  "statistics_population": "all trials; position distributions use all eligible nonterminal trials before deduplication",
+  "by_depth": {
+    "2": {
+      "trials": 5000,
+      "eligible_nonterminal": 5000,
+      "terminal_trials": 0,
+      "terminal_rate": 0.0,
+      "terminal_by_ply": {},
+      "unique_visible_positions": 32,
+      "unique_full_states": 32,
+      "unique_action_sequences": 32,
+      "duplicate_position_rate": 0.9936,
+      "legal_actions_histogram": {
+        "3": 762,
+        "4": 2339,
+        "5": 1139,
+        "6": 760
+      },
+      "forced_move_rate": 0.0,
+      "captured_total": {
+        "min": 0.0,
+        "p10": 4.0,
+        "median": 12.0,
+        "p90": 12.0,
+        "max": 12.0,
+        "mean": 8.4176
+      },
+      "capture_difference_p0": {
+        "min": -4.0,
+        "p10": -4.0,
+        "median": -4.0,
+        "p90": 4.0,
+        "max": 4.0,
+        "mean": -0.6944
+      },
+      "absolute_capture_difference": {
+        "min": 0.0,
+        "p10": 0.0,
+        "median": 4.0,
+        "p90": 4.0,
+        "max": 4.0,
+        "mean": 3.5344
+      },
+      "capture_leader_counts": {
+        "tied": 582,
+        "P1": 2643,
+        "P0": 1775
+      },
+      "remaining_seeds": {
+        "min": 36.0,
+        "p10": 36.0,
+        "median": 36.0,
+        "p90": 44.0,
+        "max": 48.0,
+        "mean": 39.5824
+      },
+      "hstar_p0": {
+        "min": -4.132,
+        "p10": -3.8240000000000003,
+        "median": -1.863783783783784,
+        "p90": 3.2486486486486488,
+        "max": 3.8681081081081086,
+        "mean": -0.5293070516728774
+      }
+    },
+    "4": {
+      "trials": 5000,
+      "eligible_nonterminal": 4982,
+      "terminal_trials": 18,
+      "terminal_rate": 0.0036,
+      "terminal_by_ply": {
+        "3": 18
+      },
+      "unique_visible_positions": 623,
+      "unique_full_states": 625,
+      "unique_action_sequences": 634,
+      "duplicate_position_rate": 0.8749498193496588,
+      "legal_actions_histogram": {
+        "1": 61,
+        "2": 121,
+        "3": 546,
+        "4": 1321,
+        "5": 1714,
+        "6": 1219
+      },
+      "forced_move_rate": 0.012244078683259736,
+      "captured_total": {
+        "min": 4.0,
+        "p10": 8.0,
+        "median": 16.0,
+        "p90": 28.0,
+        "max": 40.0,
+        "mean": 17.495784825371338
+      },
+      "capture_difference_p0": {
+        "min": -16.0,
+        "p10": -8.0,
+        "median": -4.0,
+        "p90": 4.0,
+        "max": 12.0,
+        "mean": -2.0706543556804498
+      },
+      "absolute_capture_difference": {
+        "min": 0.0,
+        "p10": 0.0,
+        "median": 4.0,
+        "p90": 12.0,
+        "max": 16.0,
+        "mean": 5.0172621437173825
+      },
+      "capture_leader_counts": {
+        "P1": 2517,
+        "tied": 1154,
+        "P0": 1311
+      },
+      "remaining_seeds": {
+        "min": 8.0,
+        "p10": 20.0,
+        "median": 32.0,
+        "p90": 40.0,
+        "max": 44.0,
+        "mean": 30.504215174628662
+      },
+      "hstar_p0": {
+        "min": -10.0,
+        "p10": -7.087272727272727,
+        "median": -2.1817733990147787,
+        "p90": 3.854486486486508,
+        "max": 9.962068965517243,
+        "mean": -1.4271482163458413
+      }
+    },
+    "6": {
+      "trials": 5000,
+      "eligible_nonterminal": 4887,
+      "terminal_trials": 113,
+      "terminal_rate": 0.0226,
+      "terminal_by_ply": {
+        "3": 25,
+        "5": 35,
+        "6": 53
+      },
+      "unique_visible_positions": 3873,
+      "unique_full_states": 3883,
+      "unique_action_sequences": 3932,
+      "duplicate_position_rate": 0.20748925721301414,
+      "legal_actions_histogram": {
+        "1": 63,
+        "2": 364,
+        "3": 1110,
+        "4": 1571,
+        "5": 1224,
+        "6": 555
+      },
+      "forced_move_rate": 0.01289134438305709,
+      "captured_total": {
+        "min": 8.0,
+        "p10": 16.0,
+        "median": 24.0,
+        "p90": 36.0,
+        "max": 44.0,
+        "mean": 25.54205033763045
+      },
+      "capture_difference_p0": {
+        "min": -24.0,
+        "p10": -12.0,
+        "median": 0.0,
+        "p90": 8.0,
+        "max": 20.0,
+        "mean": -1.6550030693677102
+      },
+      "absolute_capture_difference": {
+        "min": 0.0,
+        "p10": 0.0,
+        "median": 4.0,
+        "p90": 12.0,
+        "max": 24.0,
+        "mean": 5.541231839574381
+      },
+      "capture_leader_counts": {
+        "P1": 2293,
+        "P0": 1481,
+        "tied": 1113
+      },
+      "remaining_seeds": {
+        "min": 4.0,
+        "p10": 12.0,
+        "median": 24.0,
+        "p90": 32.0,
+        "max": 40.0,
+        "mean": 22.45794966236955
+      },
+      "hstar_p0": {
+        "min": -10.0,
+        "p10": -8.990270270270273,
+        "median": -0.38639999999999997,
+        "p90": 6.290909090909091,
+        "max": 10.0,
+        "mean": -1.1211673277983496
+      }
+    },
+    "8": {
+      "trials": 5000,
+      "eligible_nonterminal": 4694,
+      "terminal_trials": 306,
+      "terminal_rate": 0.0612,
+      "terminal_by_ply": {
+        "3": 24,
+        "5": 42,
+        "6": 57,
+        "7": 58,
+        "8": 125
+      },
+      "unique_visible_positions": 4577,
+      "unique_full_states": 4594,
+      "unique_action_sequences": 4595,
+      "duplicate_position_rate": 0.024925436727737504,
+      "legal_actions_histogram": {
+        "1": 118,
+        "2": 500,
+        "3": 1320,
+        "4": 1591,
+        "5": 862,
+        "6": 303
+      },
+      "forced_move_rate": 0.02513847464848743,
+      "captured_total": {
+        "min": 8.0,
+        "p10": 20.0,
+        "median": 32.0,
+        "p90": 40.0,
+        "max": 44.0,
+        "mean": 31.515125692373243
+      },
+      "capture_difference_p0": {
+        "min": -24.0,
+        "p10": -12.0,
+        "median": 0.0,
+        "p90": 8.0,
+        "max": 20.0,
+        "mean": -1.3949723050703025
+      },
+      "absolute_capture_difference": {
+        "min": 0.0,
+        "p10": 0.0,
+        "median": 4.0,
+        "p90": 12.0,
+        "max": 24.0,
+        "mean": 5.628461866212186
+      },
+      "capture_leader_counts": {
+        "P1": 2154,
+        "P0": 1507,
+        "tied": 1033
+      },
+      "remaining_seeds": {
+        "min": 4.0,
+        "p10": 8.0,
+        "median": 16.0,
+        "p90": 28.0,
+        "max": 40.0,
+        "mean": 16.484874307626757
+      },
+      "hstar_p0": {
+        "min": -10.0,
+        "p10": -8.897142857142859,
+        "median": -0.33999999999999997,
+        "p90": 6.44,
+        "max": 10.0,
+        "mean": -0.896192298996245
+      }
+    },
+    "10": {
+      "trials": 5000,
+      "eligible_nonterminal": 4403,
+      "terminal_trials": 597,
+      "terminal_rate": 0.1194,
+      "terminal_by_ply": {
+        "10": 151,
+        "3": 21,
+        "5": 41,
+        "6": 43,
+        "7": 95,
+        "8": 135,
+        "9": 111
+      },
+      "unique_visible_positions": 4368,
+      "unique_full_states": 4387,
+      "unique_action_sequences": 4392,
+      "duplicate_position_rate": 0.007949125596184436,
+      "legal_actions_histogram": {
+        "1": 123,
+        "2": 639,
+        "3": 1391,
+        "4": 1480,
+        "5": 635,
+        "6": 135
+      },
+      "forced_move_rate": 0.027935498523733816,
+      "captured_total": {
+        "min": 8.0,
+        "p10": 24.0,
+        "median": 36.0,
+        "p90": 40.0,
+        "max": 44.0,
+        "mean": 35.045196456961165
+      },
+      "capture_difference_p0": {
+        "min": -24.0,
+        "p10": -8.0,
+        "median": 0.0,
+        "p90": 8.0,
+        "max": 20.0,
+        "mean": -1.202816261639791
+      },
+      "absolute_capture_difference": {
+        "min": 0.0,
+        "p10": 0.0,
+        "median": 4.0,
+        "p90": 12.0,
+        "max": 24.0,
+        "mean": 5.639791051555758
+      },
+      "capture_leader_counts": {
+        "P1": 1983,
+        "P0": 1433,
+        "tied": 987
+      },
+      "remaining_seeds": {
+        "min": 4.0,
+        "p10": 8.0,
+        "median": 12.0,
+        "p90": 24.0,
+        "max": 40.0,
+        "mean": 12.954803543038837
+      },
+      "hstar_p0": {
+        "min": -10.0,
+        "p10": -7.08,
+        "median": -0.3,
+        "p90": 6.7,
+        "max": 10.0,
+        "mean": -0.7499281749300342
+      }
+    }
+  }
+}
