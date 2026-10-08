@@ -1,4 +1,4 @@
-﻿# Ayo Olopon AlphaZero scaffold
+# Ayo Olopon AlphaZero scaffold
 
 This connects the existing Python Ayo rules to the checked-out OpenSpiel
 **JAX/Flax AlphaZero** trainer: neural policy/value MCTS, self-play actors,
@@ -7,6 +7,9 @@ The original `ayo_olopon` rules are preserved. The local OpenSpiel trainer inclu
 the canonical Ayo model and complete learner snapshot/resume support.
 
 ## Run it
+
+For a single-node A100 with 28 self-play actors on Modal, see
+[the Modal launcher and timing guide](MODAL.md).
 
 Run these commands from the repository root, with Python 3.12+ and the local
 `open_spiel/` checkout present. The verified environment is the existing
@@ -250,6 +253,10 @@ References: [upstream Python AlphaZero](https://github.com/google-deepmind/open_
 
 ## Per-round and retrospective evaluation
 
+For the completed 600-round run's checkpoint comparisons, use the
+[varied-opening evaluation guide](../checkpoint_strength/README.md) and
+[plain-MCTS progression protocol](../checkpoint_strength/MCTS_PROGRESSION.md).
+
 With a positive `evaluation_games`, every completed learner round evaluates its resulting parameters through
 `experiments.agent_benchmark.random_vs_greedy_hstar.run_matches`. The same runner
 is used by the offline command. The default is 100 matches against RAND, with
@@ -306,10 +313,12 @@ buffer, or optimizer.
 
 `--checkpoints` accepts individual rounds, comma-separated lists, and inclusive
 `START:END[:STRIDE]` ranges. Explicitly requested missing checkpoints cause an
-error; `--all-checkpoints` selects available retained rounds. Historical runs only
+error, except C1 when `--fallback-first` is enabled. `--all-checkpoints` selects
+available retained trained rounds (excluding C0). Historical runs only
 have rounds they actually retained. Mutable rolling checkpoint `-1` is excluded
 from curves because it does not reliably identify a learner round. Reports are
-flushed after each checkpoint into a new JSONL file; existing output files are
+flushed after each checkpoint into a new JSONL file; per-game/events JSONL files
+and an experiment manifest are also saved. Existing output files are
 not overwritten. Use `--opponent-config` for parameterized agents on PowerShell
 to avoid native-command JSON quoting issues. `experiments.alpha_zero.evaluate`
 is a compatibility entry point for this same command.

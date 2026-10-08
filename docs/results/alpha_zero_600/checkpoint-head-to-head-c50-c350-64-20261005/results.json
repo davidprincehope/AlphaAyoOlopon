@@ -1,0 +1,481 @@
+{
+  "status": "completed",
+  "config": {
+    "checkpoints": [
+      50,
+      350
+    ],
+    "games": 400,
+    "simulations": 64,
+    "seed": 20261003,
+    "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json"
+  },
+  "opening_dataset": {
+    "benchmark_id": "ayo_mixed_v2_200",
+    "path": "/opt/alpha-ayo/experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+    "file_sha256": "17ca948ebfff6ec9a5d8eb60693ca9467e6033353dd9658e9f804696eb0e0eb8",
+    "content_sha256": "7b0e43e3621027927f14fdeb7d6016d171af27067136f32f85f3631e08182014",
+    "opening_count": 200,
+    "available_openings": 200,
+    "games_per_opening": 2,
+    "selection": "entire_dataset",
+    "selected_openings_sha256": "a9693d386be76fbb2fabb3741c7f5a93b7e0ac8862ea9352dac4dcecd44b1210"
+  },
+  "policies": {
+    "C350": {
+      "games": 400,
+      "wins": 170,
+      "draws": 112,
+      "losses": 118,
+      "score_sum": 226.0,
+      "natural_draws": 112,
+      "repetitions": 0,
+      "action_limits": 0,
+      "seats": {
+        "0": 200,
+        "1": 200
+      },
+      "score_rate": 0.565,
+      "win_rate": 0.425,
+      "average_game_length": 49.08
+    },
+    "C50": {
+      "games": 400,
+      "wins": 118,
+      "draws": 112,
+      "losses": 170,
+      "score_sum": 174.0,
+      "natural_draws": 112,
+      "repetitions": 0,
+      "action_limits": 0,
+      "seats": {
+        "0": 200,
+        "1": 200
+      },
+      "score_rate": 0.435,
+      "win_rate": 0.295,
+      "average_game_length": 49.08
+    }
+  },
+  "games": 400,
+  "termination_reasons": {
+    "terminal_draw": 112,
+    "terminal_win": 288
+  },
+  "by_seat": {
+    "C50": {
+      "P0": {
+        "games": 200,
+        "wins": 64,
+        "draws": 53,
+        "losses": 83,
+        "score_sum": 90.5,
+        "natural_draws": 53,
+        "repetitions": 0,
+        "action_limits": 0,
+        "seats": {
+          "0": 200,
+          "1": 0
+        },
+        "score_rate": 0.4525,
+        "win_rate": 0.32,
+        "average_game_length": 49.14
+      },
+      "P1": {
+        "games": 200,
+        "wins": 54,
+        "draws": 59,
+        "losses": 87,
+        "score_sum": 83.5,
+        "natural_draws": 59,
+        "repetitions": 0,
+        "action_limits": 0,
+        "seats": {
+          "0": 0,
+          "1": 200
+        },
+        "score_rate": 0.4175,
+        "win_rate": 0.27,
+        "average_game_length": 49.02
+      }
+    },
+    "C350": {
+      "P0": {
+        "games": 200,
+        "wins": 87,
+        "draws": 59,
+        "losses": 54,
+        "score_sum": 116.5,
+        "natural_draws": 59,
+        "repetitions": 0,
+        "action_limits": 0,
+        "seats": {
+          "0": 200,
+          "1": 0
+        },
+        "score_rate": 0.5825,
+        "win_rate": 0.435,
+        "average_game_length": 49.02
+      },
+      "P1": {
+        "games": 200,
+        "wins": 83,
+        "draws": 53,
+        "losses": 64,
+        "score_sum": 109.5,
+        "natural_draws": 53,
+        "repetitions": 0,
+        "action_limits": 0,
+        "seats": {
+          "0": 0,
+          "1": 200
+        },
+        "score_rate": 0.5475,
+        "win_rate": 0.415,
+        "average_game_length": 49.14
+      }
+    }
+  },
+  "by_opening_depth": {
+    "2": {
+      "C350": {
+        "games": 64,
+        "wins": 31,
+        "draws": 17,
+        "losses": 16,
+        "score_sum": 39.5,
+        "natural_draws": 17,
+        "repetitions": 0,
+        "action_limits": 0,
+        "seats": {
+          "0": 32,
+          "1": 32
+        },
+        "score_rate": 0.6171875,
+        "win_rate": 0.484375,
+        "average_game_length": 53.90625
+      },
+      "C50": {
+        "games": 64,
+        "wins": 16,
+        "draws": 17,
+        "losses": 31,
+        "score_sum": 24.5,
+        "natural_draws": 17,
+        "repetitions": 0,
+        "action_limits": 0,
+        "seats": {
+          "0": 32,
+          "1": 32
+        },
+        "score_rate": 0.3828125,
+        "win_rate": 0.25,
+        "average_game_length": 53.90625
+      }
+    },
+    "4": {
+      "C350": {
+        "games": 84,
+        "wins": 33,
+        "draws": 21,
+        "losses": 30,
+        "score_sum": 43.5,
+        "natural_draws": 21,
+        "repetitions": 0,
+        "action_limits": 0,
+        "seats": {
+          "0": 42,
+          "1": 42
+        },
+        "score_rate": 0.5178571428571429,
+        "win_rate": 0.39285714285714285,
+        "average_game_length": 49.45238095238095
+      },
+      "C50": {
+        "games": 84,
+        "wins": 30,
+        "draws": 21,
+        "losses": 33,
+        "score_sum": 40.5,
+        "natural_draws": 21,
+        "repetitions": 0,
+        "action_limits": 0,
+        "seats": {
+          "0": 42,
+          "1": 42
+        },
+        "score_rate": 0.48214285714285715,
+        "win_rate": 0.35714285714285715,
+        "average_game_length": 49.45238095238095
+      }
+    },
+    "6": {
+      "C350": {
+        "games": 84,
+        "wins": 36,
+        "draws": 21,
+        "losses": 27,
+        "score_sum": 46.5,
+        "natural_draws": 21,
+        "repetitions": 0,
+        "action_limits": 0,
+        "seats": {
+          "0": 42,
+          "1": 42
+        },
+        "score_rate": 0.5535714285714286,
+        "win_rate": 0.42857142857142855,
+        "average_game_length": 45.583333333333336
+      },
+      "C50": {
+        "games": 84,
+        "wins": 27,
+        "draws": 21,
+        "losses": 36,
+        "score_sum": 37.5,
+        "natural_draws": 21,
+        "repetitions": 0,
+        "action_limits": 0,
+        "seats": {
+          "0": 42,
+          "1": 42
+        },
+        "score_rate": 0.44642857142857145,
+        "win_rate": 0.32142857142857145,
+        "average_game_length": 45.583333333333336
+      }
+    },
+    "8": {
+      "C350": {
+        "games": 84,
+        "wins": 41,
+        "draws": 14,
+        "losses": 29,
+        "score_sum": 48.0,
+        "natural_draws": 14,
+        "repetitions": 0,
+        "action_limits": 0,
+        "seats": {
+          "0": 42,
+          "1": 42
+        },
+        "score_rate": 0.5714285714285714,
+        "win_rate": 0.4880952380952381,
+        "average_game_length": 47.01190476190476
+      },
+      "C50": {
+        "games": 84,
+        "wins": 29,
+        "draws": 14,
+        "losses": 41,
+        "score_sum": 36.0,
+        "natural_draws": 14,
+        "repetitions": 0,
+        "action_limits": 0,
+        "seats": {
+          "0": 42,
+          "1": 42
+        },
+        "score_rate": 0.42857142857142855,
+        "win_rate": 0.34523809523809523,
+        "average_game_length": 47.01190476190476
+      }
+    },
+    "10": {
+      "C350": {
+        "games": 84,
+        "wins": 29,
+        "draws": 39,
+        "losses": 16,
+        "score_sum": 48.5,
+        "natural_draws": 39,
+        "repetitions": 0,
+        "action_limits": 0,
+        "seats": {
+          "0": 42,
+          "1": 42
+        },
+        "score_rate": 0.5773809523809523,
+        "win_rate": 0.34523809523809523,
+        "average_game_length": 50.595238095238095
+      },
+      "C50": {
+        "games": 84,
+        "wins": 16,
+        "draws": 39,
+        "losses": 29,
+        "score_sum": 35.5,
+        "natural_draws": 39,
+        "repetitions": 0,
+        "action_limits": 0,
+        "seats": {
+          "0": 42,
+          "1": 42
+        },
+        "score_rate": 0.4226190476190476,
+        "win_rate": 0.19047619047619047,
+        "average_game_length": 50.595238095238095
+      }
+    }
+  },
+  "first_player_advantage": {
+    "definition": "P0 moves first from the saved opening; both agent assignments are included",
+    "P0": {
+      "games": 400,
+      "wins": 151,
+      "draws": 112,
+      "losses": 137,
+      "win_rate": 0.3775,
+      "draw_rate": 0.28,
+      "loss_rate": 0.3425,
+      "score_rate": 0.5175
+    },
+    "P1": {
+      "games": 400,
+      "wins": 137,
+      "draws": 112,
+      "losses": 151,
+      "win_rate": 0.3425,
+      "draw_rate": 0.28,
+      "loss_rate": 0.3775,
+      "score_rate": 0.4825
+    },
+    "p0_score_excess_over_half": 0.01749999999999996,
+    "by_opening_depth": {
+      "2": {
+        "P0": {
+          "games": 64,
+          "wins": 19,
+          "draws": 17,
+          "losses": 28,
+          "win_rate": 0.296875,
+          "draw_rate": 0.265625,
+          "loss_rate": 0.4375,
+          "score_rate": 0.4296875
+        },
+        "P1": {
+          "games": 64,
+          "wins": 28,
+          "draws": 17,
+          "losses": 19,
+          "win_rate": 0.4375,
+          "draw_rate": 0.265625,
+          "loss_rate": 0.296875,
+          "score_rate": 0.5703125
+        }
+      },
+      "4": {
+        "P0": {
+          "games": 84,
+          "wins": 30,
+          "draws": 21,
+          "losses": 33,
+          "win_rate": 0.35714285714285715,
+          "draw_rate": 0.25,
+          "loss_rate": 0.39285714285714285,
+          "score_rate": 0.48214285714285715
+        },
+        "P1": {
+          "games": 84,
+          "wins": 33,
+          "draws": 21,
+          "losses": 30,
+          "win_rate": 0.39285714285714285,
+          "draw_rate": 0.25,
+          "loss_rate": 0.35714285714285715,
+          "score_rate": 0.5178571428571429
+        }
+      },
+      "6": {
+        "P0": {
+          "games": 84,
+          "wins": 39,
+          "draws": 21,
+          "losses": 24,
+          "win_rate": 0.4642857142857143,
+          "draw_rate": 0.25,
+          "loss_rate": 0.2857142857142857,
+          "score_rate": 0.5892857142857143
+        },
+        "P1": {
+          "games": 84,
+          "wins": 24,
+          "draws": 21,
+          "losses": 39,
+          "win_rate": 0.2857142857142857,
+          "draw_rate": 0.25,
+          "loss_rate": 0.4642857142857143,
+          "score_rate": 0.4107142857142857
+        }
+      },
+      "8": {
+        "P0": {
+          "games": 84,
+          "wins": 37,
+          "draws": 14,
+          "losses": 33,
+          "win_rate": 0.44047619047619047,
+          "draw_rate": 0.16666666666666666,
+          "loss_rate": 0.39285714285714285,
+          "score_rate": 0.5238095238095238
+        },
+        "P1": {
+          "games": 84,
+          "wins": 33,
+          "draws": 14,
+          "losses": 37,
+          "win_rate": 0.39285714285714285,
+          "draw_rate": 0.16666666666666666,
+          "loss_rate": 0.44047619047619047,
+          "score_rate": 0.47619047619047616
+        }
+      },
+      "10": {
+        "P0": {
+          "games": 84,
+          "wins": 26,
+          "draws": 39,
+          "losses": 19,
+          "win_rate": 0.30952380952380953,
+          "draw_rate": 0.4642857142857143,
+          "loss_rate": 0.2261904761904762,
+          "score_rate": 0.5416666666666666
+        },
+        "P1": {
+          "games": 84,
+          "wins": 19,
+          "draws": 39,
+          "losses": 26,
+          "win_rate": 0.2261904761904762,
+          "draw_rate": 0.4642857142857143,
+          "loss_rate": 0.30952380952380953,
+          "score_rate": 0.4583333333333333
+        }
+      }
+    }
+  },
+  "score_intervals": {
+    "C50": {
+      "method": "opening-pair percentile bootstrap",
+      "confidence_level": 0.95,
+      "opening_pairs": 200,
+      "resamples": 10000,
+      "seed": 20261003,
+      "score_rate": 0.435,
+      "lower": 0.40875,
+      "upper": 0.46125,
+      "scope": "Sampled continuation positions; excludes training-seed and search-seed uncertainty"
+    },
+    "C350": {
+      "method": "opening-pair percentile bootstrap",
+      "confidence_level": 0.95,
+      "opening_pairs": 200,
+      "resamples": 10000,
+      "seed": 20261003,
+      "score_rate": 0.565,
+      "lower": 0.53875,
+      "upper": 0.59125,
+      "scope": "Sampled continuation positions; excludes training-seed and search-seed uncertainty"
+    }
+  }
+}

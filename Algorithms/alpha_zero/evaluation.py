@@ -21,7 +21,7 @@ def make_neural_agent(game, model, simulations, uct_c, seed):
 
 
 def evaluate_model(game, model, settings, step, *, opponent=None, games=None,
-                   simulations=None, seed=None):
+                   simulations=None, seed=None, on_game=None, openings=None):
     from experiments.agent_benchmark.agents import make_agent
     from experiments.agent_benchmark.random_vs_greedy_hstar import run_matches
     opponent = settings.evaluation_opponent if opponent is None else opponent
@@ -38,17 +38,19 @@ def evaluate_model(game, model, settings, step, *, opponent=None, games=None,
         factories = {
             "ALPHAZERO": lambda game, seed: make_neural_agent(game, model, simulations, settings.uct_c, seed),
             "OPPONENT": lambda game, seed: make_agent(game, seed, opponent)}
-        summary, records = run_matches(game, factories, games, seed)
+        summary, records = run_matches(game, factories, games, seed, on_game=on_game, openings=openings)
     finally:
         random.setstate(python_rng)
         np.random.set_state(numpy_rng)
     stats = summary["policies"]["ALPHAZERO"]
-    return {"checkpoint_id": step, "training_step": step, "opponent": opponent,
+    return {"checkpoint_id": step, "training_step": step, "learner_round": step, "opponent": opponent,
             "mcts_simulations": simulations, "evaluation_seed": seed,
             **{key: stats[key] for key in ("games", "wins", "draws", "losses", "win_rate",
                                             "score_rate", "average_game_length")},
             "player0_score_rate": summary["by_seat"]["0"]["policies"]["ALPHAZERO"]["score_rate"],
             "player1_score_rate": summary["by_seat"]["1"]["policies"]["ALPHAZERO"]["score_rate"],
+            "by_seat": {f"P{seat}": summary["by_seat"][str(seat)]["policies"]["ALPHAZERO"]
+                        for seat in (0, 1)},
             "termination_reasons": summary["termination_reasons"],
             "summary": summary, "matches": records, "status": "completed"}
 

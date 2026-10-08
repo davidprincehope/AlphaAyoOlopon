@@ -1,0 +1,8 @@
+{
+  "checkpoint": 600,
+  "games": 400,
+  "simulations": 128,
+  "seed": 20261003,
+  "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+  "workers": 8
+}

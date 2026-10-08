@@ -1,0 +1,86 @@
+{
+  "opening_seed": 20260921,
+  "game_seed": 20260922,
+  "game_length_limit": 300,
+  "development_openings": 70,
+  "verification_openings": 30,
+  "candidates": [
+    "RAND",
+    "H_C",
+    "H_CT",
+    "H_CTM",
+    "H_CTMS"
+  ],
+  "selected_candidate": "H_CTM",
+  "weight_vectors": [
+    [
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      2,
+      1,
+      1,
+      1
+    ],
+    [
+      4,
+      2,
+      1,
+      1
+    ],
+    [
+      4,
+      2,
+      0.5,
+      0.5
+    ],
+    [
+      6,
+      3,
+      1,
+      0.5
+    ],
+    [
+      8,
+      4,
+      1,
+      1
+    ]
+  ],
+  "selected_weights": [
+    4,
+    2,
+    0.5
+  ],
+  "verification_aggregate": {
+    "H_CTM_vs_RAND:H_CTM": {
+      "matchup": "H_CTM_vs_RAND",
+      "policy": "H_CTM",
+      "games": 60,
+      "wins": 33,
+      "draws": 16,
+      "losses": 11,
+      "score_rate": 0.6833333333333333,
+      "average_final_seed_differential": 4.0,
+      "average_game_length": 31.4,
+      "average_tied_action_selections": 6.45,
+      "average_evaluation_time_ms": 56.93645165883936
+    },
+    "H_CTM_vs_RAND:RAND": {
+      "matchup": "H_CTM_vs_RAND",
+      "policy": "RAND",
+      "games": 60,
+      "wins": 11,
+      "draws": 16,
+      "losses": 33,
+      "score_rate": 0.31666666666666665,
+      "average_final_seed_differential": -4.0,
+      "average_game_length": 31.4,
+      "average_tied_action_selections": 0.0,
+      "average_evaluation_time_ms": 0.0
+    }
+  }
+}

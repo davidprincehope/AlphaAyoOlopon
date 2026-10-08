@@ -1,0 +1,41 @@
+{
+  "experiment": "ayo_minimax_depth_vs_random",
+  "status": "completed",
+  "created_at_utc": "2026-09-23T20:14:54.794324+00:00",
+  "depth": 1,
+  "evaluator": "Algorithms/H_star_ayo.py:evaluate_state",
+  "games": 10000,
+  "master_seed": 20260924,
+  "max_actions": 300,
+  "starting_position": "standard_initial_state",
+  "seat_balance": {
+    "MINIMAX_HSTAR": 5000,
+    "RAND": 5000
+  },
+  "random_seed_protocol": "same seed for paired seat assignments; pair seeds increment from master seed",
+  "tie_break": "first action in OpenSpiel legal-action order",
+  "action_limit_score": "captured-seed differential; reported as action_limit, not natural_draw",
+  "log_file": "depth_1_games_10000.jsonl",
+  "log_sha256": "ece40a72444e455428c6c84148222070074599b0b0e7ff9baff6a966617725db",
+  "summary": {
+    "games": 10000,
+    "wins": 6671,
+    "draws": 1033,
+    "losses": 2296,
+    "win_rate": 0.6671,
+    "score_rate": 0.71875,
+    "seat_counts": {
+      "0": 5000,
+      "1": 5000
+    },
+    "termination_reasons": {
+      "terminal_win": 8530,
+      "action_limit": 437,
+      "terminal_draw": 1033
+    },
+    "average_game_length": 85.2024,
+    "total_minimax_decision_seconds": 1714.1714514890919,
+    "average_minimax_decision_seconds_per_game": 0.17141714514890918,
+    "total_elapsed_seconds": 1749.073047900747
+  }
+}

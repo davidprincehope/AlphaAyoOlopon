@@ -1,0 +1,128 @@
+{
+  "experiment": "neural_checkpoint_vs_vanilla_mcts",
+  "schema_version": 1,
+  "status": "completed",
+  "run": "/__modal/volumes/vo-Omx8Krx9T5TWHXq8YV8M0e/a100-fresh-64-200-20261003",
+  "config": {
+    "checkpoint": 600,
+    "games": 400,
+    "simulations": 64,
+    "seed": 20261003,
+    "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+    "workers": 8
+  },
+  "started_at_utc": "2026-10-05T16:15:29.090530+00:00",
+  "game": "ayo_olopon_alpha_zero(max_moves=1000,cutoff=collect)",
+  "uct_c": 1.5,
+  "run_manifest_sha256": "acc9688bd2cd2633482645ee51973313850a320b9111c041f9a5e005466ee0eb",
+  "model_contract": {
+    "architecture_version": "ayo_mlp_185863_v1",
+    "observation_version": "canonical_player_relative_horizon_v1",
+    "value_perspective": "player_to_move"
+  },
+  "checkpoints": [
+    {
+      "learner_round": 600,
+      "requested_rounds": [
+        600
+      ],
+      "checkpoint_source": "/__modal/volumes/vo-Omx8Krx9T5TWHXq8YV8M0e/a100-fresh-64-200-20261003/inference-checkpoints/step-000600.npz",
+      "checkpoint_sha256": "543d4842c6b41cdbd3eb8e8221c8ca85c4e113a8096f610f1300fa0d4758cea0"
+    }
+  ],
+  "opening_dataset": {
+    "benchmark_id": "ayo_mixed_v2_200",
+    "path": "/opt/alpha-ayo/experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+    "file_sha256": "17ca948ebfff6ec9a5d8eb60693ca9467e6033353dd9658e9f804696eb0e0eb8",
+    "content_sha256": "7b0e43e3621027927f14fdeb7d6016d171af27067136f32f85f3631e08182014",
+    "opening_count": 200,
+    "available_openings": 200,
+    "games_per_opening": 2,
+    "selection": "entire_dataset",
+    "selected_openings_sha256": "a9693d386be76fbb2fabb3741c7f5a93b7e0ac8862ea9352dac4dcecd44b1210"
+  },
+  "seed_schedule": "seed + global opening index; same seed for each swapped-seat pair",
+  "evaluation_policy": {
+    "C600": {
+      "search": "PUCT",
+      "simulations": 64,
+      "leaf_value": "frozen neural value",
+      "prior": "frozen neural policy",
+      "solve": false,
+      "dirichlet_noise": null,
+      "temperature_sampling": false,
+      "action_selection": "maximum visit count, lowest action ID breaks ties"
+    },
+    "MCTS": {
+      "search": "UCT",
+      "simulations": 64,
+      "rollouts_per_leaf": 1,
+      "leaf_value": "uniform random rollout to terminal",
+      "prior": "uniform legal actions",
+      "neural_policy": false,
+      "neural_value": false,
+      "solve": false,
+      "action_selection": "OpenSpiel MCTSBot.step (best_child sort_key)"
+    }
+  },
+  "comparison_note": "Equal simulation counts; not equal time/compute or a policy-only ablation",
+  "execution": {
+    "workers": 8,
+    "unit": "complete swapped-seat opening pair",
+    "start_method": "spawn",
+    "final_record_order": "global game_id",
+    "hardware": {
+      "gpu_request": "A100-40GB",
+      "physical_cpu_request": 10.0,
+      "memory_mib_request": 32768,
+      "cuda_mps": true,
+      "jax_devices": [
+        {
+          "id": "cuda:0",
+          "kind": "NVIDIA A100-SXM4-40GB"
+        }
+      ],
+      "visible_logical_cpus": 26,
+      "cpu_cgroup_quota": null
+    }
+  },
+  "score_definition": "win=1, draw=0.5, loss=0",
+  "code_sha256": {
+    "experiments/checkpoint_strength/neural_vs_mcts.py": "958e39bf051297b1d28003da0d505f1e1b8b352046c7b36e14dc9caa2692d025",
+    "experiments/checkpoint_strength/modal_neural_vs_mcts.py": "4cc45d76d10737ba0fd54cefc71eaaed92d7cb33e5bc0c15a38b54374a6cc5c3",
+    "experiments/checkpoint_strength/head_to_head.py": "86d969b6cc438e085ba89bf575c74e1b2261657591ede6089df69703c81b4b0a",
+    "experiments/checkpoint_strength/opening_dataset.py": "ddb4edee43e53c267d0d3279be688b20bf804fa83f76402355ee31807a665d59",
+    "experiments/checkpoint_strength/metrics.py": "078491973bfd961ab257ebc067ca9db02bbf862597fbb0a3ee25a4ca51d8a6c9",
+    "experiments/alpha_zero/offline_evaluate.py": "fde2952465cea315fc9ee58dedb02d2cf093c16c65ee0115ce8e9b83fd1c0c42",
+    "experiments/alpha_zero/modal_common.py": "b71a9255d23dff46cb5556fc4168afbbf08267d89f8f32b0f28b9dfbe6ba75d5",
+    "experiments/alpha_zero/modal_evaluate.py": "50cb1eb4d25e94dd141a823c24418a29957e1b2db0481a1cc5414b61857dce28",
+    "experiments/agent_benchmark/random_vs_greedy_hstar.py": "8c6cf2965641daaeefd9ee2a1c7739ed492a35d8d9309b8fda335fdf5fb878db",
+    "Algorithms/ayo_mcts.py": "1ca202ee969127d4c1cf8021357bdb878f750e930e32c0e9e865ec30c75a404f",
+    "Algorithms/alpha_zero/evaluation.py": "4f786bb664e610e21f1a4e613c41e08b29f319af89df2955a3a094da673bbe15",
+    "Algorithms/alpha_zero/inference.py": "942947b048bdde81fedab22d88cddf5c751ab0204751a69489fdf4d831b388ad",
+    "Algorithms/alpha_zero/config.py": "67158167fb07a5d2d56a76beaaa1b61c8df5474b72693de30658b3e81021aa0f",
+    "Algorithms/alpha_zero/game.py": "82ae89ecd78186b579093b64a5e79cc18048ada9e90a4f61350b4b47c4bdd4c5",
+    "Algorithms/alpha_zero/runtime.py": "ad32061b65a76bb01be1826cd9183209a002ebd46a3253f55688923a6c2b8e22",
+    "Model/ayo_olopon/ayo_olopon.py": "ffbb6c5fc7d6c94cc46e1d9a59be8a3f88a12288178778c8ca43a5b751e9342d",
+    "open_spiel/open_spiel/python/algorithms/mcts.py": "f38c7f6d2e58f4eb0ce8c70a6c8b84e339539182fa642ca3109555850a9eb582",
+    "open_spiel/open_spiel/python/algorithms/alpha_zero/evaluator.py": "d33449b91ad802c8018a2ed5507f6c5ffd16b98c853816d840ba2063d2df531c",
+    "open_spiel/open_spiel/python/algorithms/alpha_zero/model_linen.py": "6727a4f951f076cee13388e9341927f027f53db7e4c27dd23e2a25f15e45ef05"
+  },
+  "packages": {
+    "open_spiel": "2.0.2",
+    "numpy": "2.5.3",
+    "jax": "0.11.2",
+    "flax": "0.12.10"
+  },
+  "completed_games": 400,
+  "total_games": 400,
+  "artifacts": {
+    "manifest": "results.manifest.json",
+    "games": "results.games.jsonl",
+    "summary": "results.json"
+  },
+  "finished_at_utc": "2026-10-05T16:17:47.608905+00:00",
+  "elapsed_seconds": 140.62100521000002,
+  "games_sha256": "9fb302e0c9b9585ff103fa661a0f6ce16d661d2a825ba7faf0991bb2bf6b66c0",
+  "summary_sha256": "9425b57f161511f0d7e3667ac81fce3b45e92fdf9fe6f075cca38c4b785cbabd"
+}

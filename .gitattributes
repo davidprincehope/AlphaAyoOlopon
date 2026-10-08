@@ -1,0 +1,22 @@
+* text=auto
+*.py text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Byte-hashed research exports: preserve data bytes and allow CRLF in diff checks.
+docs/results/** -text whitespace=trailing-space,space-before-tab,cr-at-eol
+experiments/**/results/*.json -text whitespace=trailing-space,space-before-tab,cr-at-eol
+experiments/ayo_state_space_results.json -text whitespace=trailing-space,space-before-tab,cr-at-eol
+visualizations/figures/** -text whitespace=trailing-space,space-before-tab,cr-at-eol
+# Matplotlib emits trailing spaces inside SVG paths; keep the hashed exports intact.
+visualizations/figures/**/*.svg -whitespace
+experiments/checkpoint_strength/dataset/** -text whitespace=trailing-space,space-before-tab,cr-at-eol
+experiments/heuristic/openings/*.json -text whitespace=trailing-space,space-before-tab,cr-at-eol
+experiments/heuristic/raw_results*/**/*.json -text whitespace=trailing-space,space-before-tab,cr-at-eol
+*.png binary
+*.pdf binary
+*.gz binary
+*.zip binary
+*.npz binary

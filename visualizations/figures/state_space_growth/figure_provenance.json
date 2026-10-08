@@ -1,0 +1,53 @@
+{
+  "source": "experiments/ayo_state_space_results.json",
+  "source_sha256": "cd348c4289d7a092fdc5333b3dcc892a25ed00adb42210eba2aa8d59e4c60136",
+  "enumerator_sha256": "c6b3783aabbe858adc9f3db546a1eb9cd8424c14775623470ef27caf76d11668",
+  "script_sha256": "248921d15152adf943a5c3583b7fca266bf80bb16cea2e3c8d572779b8cee35c",
+  "position_key": "12 pit counts + 2 captured scores + player to move / terminal marker",
+  "excluded_key_fields": [
+    "repetition history",
+    "elapsed move count"
+  ],
+  "depth_definition": "First-discovery breadth-first-search level; one edge is one complete player action",
+  "complete": true,
+  "discovery_depths": 104,
+  "max_depth": 103,
+  "total_unique_position_keys": 282850985,
+  "terminal_position_keys": 6531992,
+  "peak_new_position_keys": {
+    "depth": 20,
+    "count": 15003812
+  },
+  "panels": [
+    {
+      "measure": "new_position_keys",
+      "x_scale": "linear",
+      "y_scale": "log10"
+    },
+    {
+      "measure": "cumulative_position_keys",
+      "x_scale": "linear",
+      "y_scale": "linear",
+      "display_units": "millions"
+    }
+  ],
+  "design": "Two panels; all recorded depths; no smoothing, fitting, or uncertainty estimates",
+  "verification": {
+    "ordered_contiguous_depths": true,
+    "positive_integer_counts": true,
+    "per_depth_sum_matches_total": true,
+    "peak_matches_frontier": true,
+    "transition_accounting_matches": true,
+    "png_dimensions": [
+      3720,
+      2100
+    ],
+    "svg_editable_text": true
+  },
+  "chart_data_sha256": "12d1619e7fe90230c58cb7eedcfaf66757d4895e9ae04e93030bc77283bc7543",
+  "figure_sha256": {
+    "state_space_growth.png": "c377ac53b6faa85514bdc6bc605bb06053f97e9198371d993d5d8d5cc2c63da2",
+    "state_space_growth.svg": "1e79677b4b0b099be95c70e99d608b45261785e32b03ee68bc25e93a0a0fe974"
+  },
+  "matplotlib": "3.11.2"
+}

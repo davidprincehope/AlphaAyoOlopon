@@ -22,9 +22,12 @@ class InferenceModel:
         self._predict = predict
 
     def inference(self, observation, legals_mask):
+        import jax
         import jax.numpy as jnp
-        return self._predict(self.params, jnp.asarray(observation, dtype=jnp.float32),
-                             jnp.asarray(legals_mask, dtype=jnp.bool_))
+        # OpenSpiel search runs on the host. Transfer once per prediction rather
+        # than indexing GPU policy scalars inside Python's search loop.
+        return jax.device_get(self._predict(self.params, jnp.asarray(observation, dtype=jnp.float32),
+                                           jnp.asarray(legals_mask, dtype=jnp.bool_)))
 
 
 def export_round(run, step, params, manifest):

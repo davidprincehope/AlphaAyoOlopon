@@ -1,0 +1,110 @@
+{
+  "conditions": 7,
+  "games_per_condition": 10000,
+  "total_recorded_games": 70000,
+  "source_sha256": {
+    "docs/results/classical_search/source_audit.json": "521f8af307ba3b836ef3bd7c94f51d227d086ff6d7a942ae00113410a4d7ae84",
+    "docs/results/classical_search/README.md": "1de8b7dc81fb9d140b5bcb231e0e83c6c0cfd7e3ff8f374e86e33d81450c8154",
+    "experiments/agent_benchmark/results/random_vs_greedy_hstar_10000.json": "209f4060115ec800838cd635849bdb6457bfc31469e8952e7b2803ad92d9c5ed",
+    "experiments/minimax_depth_vs_random/results/depth_1_summary.json": "91b745401ea33a1eb051536571157830c0374271f552564c3308bf3744ff8c90",
+    "experiments/minimax_depth_vs_random/results/depth_2_summary.json": "79613c2d79215eff4c8e14e8a44ba58f3a037211e55b5b2d68d656cb1e473afd",
+    "experiments/minimax_depth_vs_random/results/depth_3_summary.json": "432a1180f423c4bbf6dd497882c8e93ab5943c4e211256943d19bc4f1fc54455",
+    "experiments/minimax_depth_vs_random/results/depth_4_games_10000_cpp_summary.json": "0fcaefe8dc47b1ed5e5c871902a373f3cb519a47f1fd01c8b4a2076699d4804f",
+    "experiments/minimax_depth_vs_random/results/depth_5_games_10000_cpp_summary.json": "4a21d39595232e24cd46bf3a7bb206d5718366c34b4346f18ca0d2fed0004fa5",
+    "experiments/mcts_vs_random/results/mcts_uct_1000sims_games_10000_cpp_summary.json": "935e1ab4cf261a13c943bbaba4db75913b3b1d11fe39022cb60cd85b3e9f4f27"
+  },
+  "script_sha256": "e42b5c2f4163d859e04f6f078ceb3187203fbca3086f8892f96e6ed5f57480cb",
+  "score_definition": "(wins + 0.5 * draws) / games; includes cap-adjudicated outcomes",
+  "cap_definition": "action_limit games / all 10,000 games in the condition; 300 player actions",
+  "cap_adjudication": "Captured-seed differential; every capped minimax game was credited as a win",
+  "historical_minimax_depths": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "python_minimax_depths": [
+    1,
+    2,
+    3
+  ],
+  "cpp_minimax_depths": [
+    4,
+    5
+  ],
+  "limitations": [
+    "Historical minimax terminal/leaf scale mismatch; corrected rerun needed",
+    "Native historical executable build provenance was not reconstructed",
+    "Different implementations and budgets; not an equal-runtime comparison",
+    "Scores are not natural-game win rates; no uncertainty estimates are plotted"
+  ],
+  "design": "Two aligned horizontal-bar panels on common 0\u2013100% scales; historical rows shaded",
+  "verification": {
+    "individual_summaries_match_audit": true,
+    "wdl_and_rates_recomputed": true,
+    "cap_counts_match_audit": true,
+    "all_capped_minimax_outcomes_are_wins": true,
+    "audited_seat_balance": {
+      "0": 5000,
+      "1": 5000
+    },
+    "raw_logs_recounted": true,
+    "raw_games_recounted": 70000,
+    "png_dimensions": [
+      3720,
+      2460
+    ],
+    "svg_editable_text": true
+  },
+  "raw_log_verification": {
+    "greedy_hstar": {
+      "log": "experiments/agent_benchmark/results/random_vs_greedy_hstar_10000.jsonl",
+      "log_sha256": "d5bdfbe0055dc2d3a704288d74321a5ce9907d70e3c6bcb1fb21dcb33c543e05",
+      "games_recounted": 10000,
+      "stored_hash_match_mode": "LF-normalized bytes"
+    },
+    "minimax_depth_1": {
+      "log": "experiments/minimax_depth_vs_random/results/depth_1_games_10000.jsonl",
+      "log_sha256": "ece40a72444e455428c6c84148222070074599b0b0e7ff9baff6a966617725db",
+      "games_recounted": 10000,
+      "stored_hash_match_mode": "exact bytes"
+    },
+    "minimax_depth_2": {
+      "log": "experiments/minimax_depth_vs_random/results/depth_2_games_10000.jsonl",
+      "log_sha256": "4a668c884459089a6d9e5598cdedb236e4a373c0db4aeeb2608bef65522c6501",
+      "games_recounted": 10000,
+      "stored_hash_match_mode": "exact bytes"
+    },
+    "minimax_depth_3": {
+      "log": "experiments/minimax_depth_vs_random/results/depth_3_games_10000.jsonl",
+      "log_sha256": "34c595e7662b6a13cdf055bf67c62a6ae7c3a2474e94de3d715fc5a382aa7091",
+      "games_recounted": 10000,
+      "stored_hash_match_mode": "exact bytes"
+    },
+    "minimax_depth_4": {
+      "log": "experiments/minimax_depth_vs_random/results/depth_4_games_10000_cpp.jsonl",
+      "log_sha256": "cc88d2e6ae65b88c46418ae3603d1310df3c2c4f217dae3f7003fe957b7af527",
+      "games_recounted": 10000,
+      "stored_hash_match_mode": null
+    },
+    "minimax_depth_5": {
+      "log": "experiments/minimax_depth_vs_random/results/depth_5_games_10000_cpp.jsonl",
+      "log_sha256": "7968884ec014dd2e04fbdeac278025128afea1a28330ecb9c9fb2e28e72ddb2f",
+      "games_recounted": 10000,
+      "stored_hash_match_mode": null
+    },
+    "mcts_1000": {
+      "log": "experiments/mcts_vs_random/results/mcts_uct_1000sims_games_10000_cpp.jsonl",
+      "log_sha256": "a1bfc8e5de82616b4ec839500793aa3f1b71d13e2caec0cc135c8b1ee15ddd90",
+      "games_recounted": 10000,
+      "stored_hash_match_mode": null
+    }
+  },
+  "chart_data_sha256": "1c26b2e5216d2a772709d562c7d86b695279fd5f24ef9bbc85443e3d79212399",
+  "figure_sha256": {
+    "classical_search_vs_random.png": "30504c7725f645a637edc8b80f346ba45e51bd3f2da4248e5b235ce4c0332b72",
+    "classical_search_vs_random.svg": "bd684e7d8e2bec9de67a50800795fb396d98a98d3d9f6ceb748e5cbedaa03ef0"
+  },
+  "matplotlib": "3.11.2"
+}

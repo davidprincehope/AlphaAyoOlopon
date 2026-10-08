@@ -1,0 +1,577 @@
+{
+  "experiment": "neural_mcts_learning_progression",
+  "evaluation_name": "checkpoint-mcts-progression-13x400-20261006-v1",
+  "remote_run": "a100-checkpoints-c600-20261006",
+  "checkpoints": [
+    1,
+    50,
+    100,
+    150,
+    200,
+    250,
+    300,
+    350,
+    400,
+    450,
+    500,
+    550,
+    600
+  ],
+  "source_run": "runs/alpha_zero/modal-a100-600-20261003",
+  "training_manifest_sha256": "acc9688bd2cd2633482645ee51973313850a320b9111c041f9a5e005466ee0eb",
+  "checkpoint_sha256": {
+    "1": "e8c30f566ce0412ccd734b79c860cc6ba3ff417db6dd686fd595a44553c68c26",
+    "50": "7d56fbe0713986e0024050f805d43f95e3db23dacfe839466ceb2f226d470209",
+    "100": "b0b4af5d9b8f547fd8d10fa0bf5ca72f4efe2cbe0093cf30c84e0e873aadf5f4",
+    "150": "5ec336ae82bb0326ecf8c5df74dfcbecfcbf767f78816b8bcd7af129933f7c39",
+    "200": "6d1aecf5931846dc76173ed4e22782874c8a1a22286199153862035fb1da76bf",
+    "250": "92a3d25a88712077d4da2d581f2efe48ab78ba0bb6a0b032ff7538af2abdfde7",
+    "300": "a274b9a2579cc4815af00053191348b7a146ce349af1142f3fc4fe2fa3ed7c5f",
+    "350": "a21b147ecb95e6e9d8685d5943ad4a86ec2f1f218b72e85f13f722518ebf7583",
+    "400": "76aa6ecdacb6fb2a903c9801385e6a2f5ab0b9055fa897f3d8b53debd35d06a5",
+    "450": "7b02433391fff24487da111b7c183ce6a58e9f68d8228d0e0dc1f9bcb2c722f3",
+    "500": "02810cad36e5d1312d1fb1f69d8e92fc1fe5ef2798454b9a353c1a091c806eb0",
+    "550": "665f26cda28adcb9f2065d65ce3dc8c0a3cd5185baab3bc225cec519a5d11313",
+    "600": "543d4842c6b41cdbd3eb8e8221c8ca85c4e113a8096f610f1300fa0d4758cea0"
+  },
+  "opening_dataset_sha256": "7b0e43e3621027927f14fdeb7d6016d171af27067136f32f85f3631e08182014",
+  "games_per_checkpoint": 400,
+  "games_per_condition": 5200,
+  "total_games": 20800,
+  "opening_pairs": 200,
+  "seed": 20261003,
+  "cases": {
+    "puct64-mcts64": {
+      "1": {
+        "checkpoint": 1,
+        "games": 400,
+        "simulations": 64,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": null,
+        "neural_mode": "puct"
+      },
+      "50": {
+        "checkpoint": 50,
+        "games": 400,
+        "simulations": 64,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": null,
+        "neural_mode": "puct"
+      },
+      "100": {
+        "checkpoint": 100,
+        "games": 400,
+        "simulations": 64,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": null,
+        "neural_mode": "puct"
+      },
+      "150": {
+        "checkpoint": 150,
+        "games": 400,
+        "simulations": 64,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": null,
+        "neural_mode": "puct"
+      },
+      "200": {
+        "checkpoint": 200,
+        "games": 400,
+        "simulations": 64,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": null,
+        "neural_mode": "puct"
+      },
+      "250": {
+        "checkpoint": 250,
+        "games": 400,
+        "simulations": 64,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": null,
+        "neural_mode": "puct"
+      },
+      "300": {
+        "checkpoint": 300,
+        "games": 400,
+        "simulations": 64,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": null,
+        "neural_mode": "puct"
+      },
+      "350": {
+        "checkpoint": 350,
+        "games": 400,
+        "simulations": 64,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": null,
+        "neural_mode": "puct"
+      },
+      "400": {
+        "checkpoint": 400,
+        "games": 400,
+        "simulations": 64,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": null,
+        "neural_mode": "puct"
+      },
+      "450": {
+        "checkpoint": 450,
+        "games": 400,
+        "simulations": 64,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": null,
+        "neural_mode": "puct"
+      },
+      "500": {
+        "checkpoint": 500,
+        "games": 400,
+        "simulations": 64,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": null,
+        "neural_mode": "puct"
+      },
+      "550": {
+        "checkpoint": 550,
+        "games": 400,
+        "simulations": 64,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": null,
+        "neural_mode": "puct"
+      },
+      "600": {
+        "checkpoint": 600,
+        "games": 400,
+        "simulations": 64,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": null,
+        "neural_mode": "puct"
+      }
+    },
+    "puct128-mcts128": {
+      "1": {
+        "checkpoint": 1,
+        "games": 400,
+        "simulations": 128,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": null,
+        "neural_mode": "puct"
+      },
+      "50": {
+        "checkpoint": 50,
+        "games": 400,
+        "simulations": 128,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": null,
+        "neural_mode": "puct"
+      },
+      "100": {
+        "checkpoint": 100,
+        "games": 400,
+        "simulations": 128,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": null,
+        "neural_mode": "puct"
+      },
+      "150": {
+        "checkpoint": 150,
+        "games": 400,
+        "simulations": 128,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": null,
+        "neural_mode": "puct"
+      },
+      "200": {
+        "checkpoint": 200,
+        "games": 400,
+        "simulations": 128,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": null,
+        "neural_mode": "puct"
+      },
+      "250": {
+        "checkpoint": 250,
+        "games": 400,
+        "simulations": 128,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": null,
+        "neural_mode": "puct"
+      },
+      "300": {
+        "checkpoint": 300,
+        "games": 400,
+        "simulations": 128,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": null,
+        "neural_mode": "puct"
+      },
+      "350": {
+        "checkpoint": 350,
+        "games": 400,
+        "simulations": 128,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": null,
+        "neural_mode": "puct"
+      },
+      "400": {
+        "checkpoint": 400,
+        "games": 400,
+        "simulations": 128,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": null,
+        "neural_mode": "puct"
+      },
+      "450": {
+        "checkpoint": 450,
+        "games": 400,
+        "simulations": 128,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": null,
+        "neural_mode": "puct"
+      },
+      "500": {
+        "checkpoint": 500,
+        "games": 400,
+        "simulations": 128,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": null,
+        "neural_mode": "puct"
+      },
+      "550": {
+        "checkpoint": 550,
+        "games": 400,
+        "simulations": 128,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": null,
+        "neural_mode": "puct"
+      },
+      "600": {
+        "checkpoint": 600,
+        "games": 400,
+        "simulations": 128,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": null,
+        "neural_mode": "puct"
+      }
+    },
+    "puct64-mcts128": {
+      "1": {
+        "checkpoint": 1,
+        "games": 400,
+        "simulations": 64,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": 128,
+        "neural_mode": "puct"
+      },
+      "50": {
+        "checkpoint": 50,
+        "games": 400,
+        "simulations": 64,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": 128,
+        "neural_mode": "puct"
+      },
+      "100": {
+        "checkpoint": 100,
+        "games": 400,
+        "simulations": 64,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": 128,
+        "neural_mode": "puct"
+      },
+      "150": {
+        "checkpoint": 150,
+        "games": 400,
+        "simulations": 64,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": 128,
+        "neural_mode": "puct"
+      },
+      "200": {
+        "checkpoint": 200,
+        "games": 400,
+        "simulations": 64,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": 128,
+        "neural_mode": "puct"
+      },
+      "250": {
+        "checkpoint": 250,
+        "games": 400,
+        "simulations": 64,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": 128,
+        "neural_mode": "puct"
+      },
+      "300": {
+        "checkpoint": 300,
+        "games": 400,
+        "simulations": 64,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": 128,
+        "neural_mode": "puct"
+      },
+      "350": {
+        "checkpoint": 350,
+        "games": 400,
+        "simulations": 64,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": 128,
+        "neural_mode": "puct"
+      },
+      "400": {
+        "checkpoint": 400,
+        "games": 400,
+        "simulations": 64,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": 128,
+        "neural_mode": "puct"
+      },
+      "450": {
+        "checkpoint": 450,
+        "games": 400,
+        "simulations": 64,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": 128,
+        "neural_mode": "puct"
+      },
+      "500": {
+        "checkpoint": 500,
+        "games": 400,
+        "simulations": 64,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": 128,
+        "neural_mode": "puct"
+      },
+      "550": {
+        "checkpoint": 550,
+        "games": 400,
+        "simulations": 64,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": 128,
+        "neural_mode": "puct"
+      },
+      "600": {
+        "checkpoint": 600,
+        "games": 400,
+        "simulations": 64,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": 128,
+        "neural_mode": "puct"
+      }
+    },
+    "policy-mcts64": {
+      "1": {
+        "checkpoint": 1,
+        "games": 400,
+        "simulations": 0,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": 64,
+        "neural_mode": "policy"
+      },
+      "50": {
+        "checkpoint": 50,
+        "games": 400,
+        "simulations": 0,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": 64,
+        "neural_mode": "policy"
+      },
+      "100": {
+        "checkpoint": 100,
+        "games": 400,
+        "simulations": 0,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": 64,
+        "neural_mode": "policy"
+      },
+      "150": {
+        "checkpoint": 150,
+        "games": 400,
+        "simulations": 0,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": 64,
+        "neural_mode": "policy"
+      },
+      "200": {
+        "checkpoint": 200,
+        "games": 400,
+        "simulations": 0,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": 64,
+        "neural_mode": "policy"
+      },
+      "250": {
+        "checkpoint": 250,
+        "games": 400,
+        "simulations": 0,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": 64,
+        "neural_mode": "policy"
+      },
+      "300": {
+        "checkpoint": 300,
+        "games": 400,
+        "simulations": 0,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": 64,
+        "neural_mode": "policy"
+      },
+      "350": {
+        "checkpoint": 350,
+        "games": 400,
+        "simulations": 0,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": 64,
+        "neural_mode": "policy"
+      },
+      "400": {
+        "checkpoint": 400,
+        "games": 400,
+        "simulations": 0,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": 64,
+        "neural_mode": "policy"
+      },
+      "450": {
+        "checkpoint": 450,
+        "games": 400,
+        "simulations": 0,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": 64,
+        "neural_mode": "policy"
+      },
+      "500": {
+        "checkpoint": 500,
+        "games": 400,
+        "simulations": 0,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": 64,
+        "neural_mode": "policy"
+      },
+      "550": {
+        "checkpoint": 550,
+        "games": 400,
+        "simulations": 0,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": 64,
+        "neural_mode": "policy"
+      },
+      "600": {
+        "checkpoint": 600,
+        "games": 400,
+        "simulations": 0,
+        "seed": 20261003,
+        "openings": "experiments/checkpoint_strength/dataset/ayo_mixed_v2_200.json",
+        "workers": 8,
+        "mcts_simulations": 64,
+        "neural_mode": "policy"
+      }
+    }
+  },
+  "score_definition": "(wins + 0.5 * draws) / games",
+  "confidence_intervals": "95% percentile bootstrap of 200 whole opening pairs, 10000 resamples",
+  "source_mount": "read_only",
+  "max_gpu_containers": 2
+}

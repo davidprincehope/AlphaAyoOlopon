@@ -50,10 +50,11 @@ def _policy_action(state, policy: str, rng: random.Random) -> int:
 
 def play_game(game_id: int, assignment: tuple[str, str], seed: int,
               max_actions: int = DEFAULT_MAX_ACTIONS, *, game=None,
-              agent_factories=None) -> dict:
+              agent_factories=None, opening=None) -> dict:
   """Play one game and return a compact, auditable record."""
   game = game if game is not None else pyspiel.load_game("ayo_olopon")
-  state = game.new_initial_state()
+  state = game.new_initial_state() if opening is None else opening.new_state(game)
+  opening_plies = state.move_number()
   rng = random.Random(seed)
   actions = []
   policy_decisions = Counter()
@@ -61,7 +62,7 @@ def play_game(game_id: int, assignment: tuple[str, str], seed: int,
   agents = ({name: factory(game, seed) for name, factory in agent_factories.items()}
             if agent_factories is not None else None)
 
-  while not state.is_terminal() and len(actions) < max_actions:
+  while not state.is_terminal() and opening_plies + len(actions) < max_actions:
     player = int(state.current_player())
     policy = assignment[player]
     action = agents[policy].step(state) if agents is not None else _policy_action(state, policy, rng)
@@ -97,7 +98,7 @@ def play_game(game_id: int, assignment: tuple[str, str], seed: int,
   policy_returns = {
       policy: returns[seat] for seat, policy in enumerate(assignment)
   }
-  return {
+  record = {
       "game_id": game_id,
       "seed": seed,
       "player_0_policy": assignment[0],
@@ -110,11 +111,17 @@ def play_game(game_id: int, assignment: tuple[str, str], seed: int,
       "returns_by_player": returns,
       "termination_reason": termination,
       "truncated": truncated,
-      "game_length": len(actions),
+      "game_length": opening_plies + len(actions),
       "final_captured": [int(value) for value in state.captured],
       "policy_decisions": dict(policy_decisions),
       "elapsed_seconds": time.perf_counter() - started,
   }
+  if opening is not None:
+    record.update(opening_id=opening.opening_id, opening_actions=list(opening.actions),
+                  opening_plies=opening_plies, opening_position_sha256=opening.position_sha256,
+                  opening_state_sha256=opening.state_sha256,
+                  continuation_length=len(actions), continuation_actions=actions)
+  return record
 
 
 def _empty_policy_stats(policies=POLICIES) -> dict:
@@ -154,16 +161,32 @@ def summarize(records: list[dict]) -> dict:
           "policies": stats}
 
 
-def run_matches(game, agent_factories, games=100, seed=0):
+def run_matches(game, agent_factories, games=100, seed=0, *, on_game=None, openings=None):
   """Seat-balanced matches using the existing benchmark record/statistics format."""
   if type(games) is not int or games < 2 or games % 2:
     raise ValueError("games must be positive and even")
   names = tuple(agent_factories)
   if len(names) != 2:
     raise ValueError("Exactly two distinct policy names are required")
-  records = [play_game(i, names if i % 2 == 0 else names[::-1], seed + i // 2,
+  selected = None
+  if openings is not None:
+    from experiments.checkpoint_strength.opening_dataset import rules_contract
+    if openings.contract != rules_contract(game):
+      raise ValueError("Opening dataset rules/horizon do not match the game")
+    if games > 2 * len(openings.openings):
+      raise ValueError("Requested games exceed twice the opening count; repeats are forbidden")
+    selected = openings.openings[:games // 2]
+  records = []
+  for i in range(games):
+    record = play_game(i, names if i % 2 == 0 else names[::-1], seed + i // 2,
                        game.max_game_length(), game=game,
-                       agent_factories=agent_factories) for i in range(games)]
+                       agent_factories=agent_factories,
+                       opening=None if selected is None else selected[i // 2])
+    if openings is not None:
+      record.update(opening_pair_id=i // 2, opening_dataset_sha256=openings.content_sha256)
+    records.append(record)
+    if on_game is not None:
+      on_game(record)
   summary = summarize(records)
   summary["by_seat"] = {
       str(seat): summarize([r for r in records if r[f"player_{seat}_policy"] == names[0]])
