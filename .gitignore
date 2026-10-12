@@ -1,31 +1,61 @@
-# Local environments, Python caches, and build products
+# Python environments, caches, and test reports
 .venv/
 venv/
 env/
 __pycache__/
 *.py[cod]
+.ipynb_checkpoints/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+.cache/
 .coverage
+.coverage.*
+coverage.xml
 htmlcov/
-/build/
+
+# Native build and package products
+build/
+dist/
+cmake-build-*/
 *.egg-info/
+*.o
+*.obj
+*.so
+*.pyd
+*.dll
+*.exe
+*.pdb
+
+# Editor settings, local agent configuration, and OS files
 .vscode/
+.idea/
+.vs/
+.history/
+.agents/
+.codex/
 .DS_Store
 Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
 
-# Local credentials and machine configuration
+# Local credentials; retain the shareable environment template
 .env
 .env.*
 !.env.example
 .aws/
-.codex/
+.ssh/
 .modal.toml
+.netrc
+.pypirc
+credentials
+credentials.json
 *.pem
 *.key
 
-# Training/evaluation artifacts stay local; curated summaries live in docs/results.
+# Training/evaluation artifacts; curated evidence lives in docs/results
 /runs/
 /outputs/
 /docs/maintenance/
@@ -35,7 +65,7 @@ Thumbs.db
 /experiments/EOH/vendor/
 /Model/Jekinje/
 
-# Large per-game traces; retain configurations, frozen openings, and summaries.
+# Per-game traces; retain configurations, frozen openings, and summaries
 /experiments/EOH/matches.jsonl
 /experiments/EOH/selection_matches.jsonl
 /experiments/handcrafted_vs_eoh/initial_matches.jsonl
