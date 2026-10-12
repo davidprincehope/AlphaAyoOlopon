@@ -1,0 +1,14 @@
+{
+  "completed_learner_rounds": 600,
+  "gradient_updates": 76608,
+  "collected_positions": 2473058,
+  "self_play_trajectories": 63563,
+  "final_loss": {
+    "policy": 0.7896140217781067,
+    "value": 0.15976686775684357,
+    "l2reg": 0.058990515768527985,
+    "sum": 1.008371353149414
+  },
+  "source": "runs/alpha_zero/modal-a100-600-20261003/learner.jsonl",
+  "source_sha256": "f7fa3b9728fbf4c962796d3fe9d103c6fea2f40408ee748d0b22c6219a38e4aa"
+}

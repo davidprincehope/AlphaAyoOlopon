@@ -1,0 +1,36 @@
+{
+  "frozen_before_selection_matches": true,
+  "frozen_at_local_time": "2026-09-22T23:45:18+0100",
+  "shortlist_rule": "Pinned EoH population_management: ascending lower-is-better fitness rounded to 5 decimals; collapse duplicate rounded objectives retaining first candidate in append order; take top 3. Selection winner: highest fixed-panel weighted score S on 30 reused selection openings, both seats; ties: fewer AST nodes, then lower median evaluation time on fixtures, then lexicographically smaller source SHA-256.",
+  "split_label": "EoH_selection (reused, not independent held-out test)",
+  "shortlist": [
+    {
+      "candidate_id": "g3-m1-01",
+      "source_sha256": "bb714428ac9a65a0645489329f256053896dd8c09afa73121ef22ecaa917e8bc",
+      "fitness": 0.39749999999999996,
+      "score_rate": 0.6025
+    },
+    {
+      "candidate_id": "g2-m2-05",
+      "source_sha256": "1be272704c60811ba53ffe28e47c90ea21d50e04e8e3371ab0e01fd291bd2880",
+      "fitness": 0.3978571428571428,
+      "score_rate": 0.6021428571428572
+    },
+    {
+      "candidate_id": "g2-m2-01",
+      "source_sha256": "f1de8d4c404bdb68d33f1344eec21642b80912b3deb844238b96b76e14509aa9",
+      "fitness": 0.401,
+      "score_rate": 0.599
+    }
+  ],
+  "selection_game_count": 1080,
+  "panel_weights": {
+    "anchor-1": 0.18,
+    "anchor-2": 0.18,
+    "anchor-3": 0.18,
+    "anchor-4": 0.18,
+    "anchor-5": 0.18,
+    "RND": 0.1
+  },
+  "opening_file_sha256": "971dba4079f260d733418fed6f008130b56778fd947584f8292669b2c92b2735"
+}

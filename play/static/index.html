@@ -1,0 +1,81 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#102a24">
+  <title>Ayo Olopon · Play AlphaZero</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main>
+    <header class="game-header">
+      <div class="brand"><img src="/favicon.svg" width="36" height="36" alt=""><div><h1>Ayo Olopon</h1><p>A game of seeds &amp; strategy</p></div></div>
+      <div class="header-actions"><span class="connection" id="connection-status"><span class="connection-dot" aria-hidden="true"></span><span id="agent-detail">Connecting…</span></span><button id="rules-link" class="quiet-button" type="button" aria-controls="rules">How to play <span aria-hidden="true">?</span></button></div>
+    </header>
+    <div class="game-layout">
+      <section class="table" aria-label="Game table">
+        <div class="scoreboard" aria-label="Captured seeds">
+          <div class="player agent-player" id="agent-player">
+            <div class="avatar" aria-hidden="true">A</div>
+            <div class="player-info"><h2>AlphaZero</h2><span>Opponent · North</span><progress id="agent-progress" max="25" value="0" aria-label="AlphaZero's captured seeds, 25 to win"></progress></div>
+            <div class="player-score"><strong id="agent-score">0</strong><span>captured</span></div>
+          </div>
+          <div class="win-target"><strong>25</strong><span>seeds to win</span></div>
+          <div class="player human-player" id="human-player">
+            <div class="avatar" aria-hidden="true">Y</div>
+            <div class="player-info"><h2>You <span class="you-label">South</span></h2><span id="seat-detail">Your side of the board</span><progress id="human-progress" max="25" value="0" aria-label="Your captured seeds, 25 to win"></progress></div>
+            <div class="player-score"><strong id="human-score">0</strong><span>captured</span></div>
+          </div>
+        </div>
+        <div class="board-stage">
+          <div class="board-caption north-caption"><span>AlphaZero’s pits</span><span aria-hidden="true">← Sowing direction</span></div>
+          <div class="board" id="board" aria-label="Ayo board" aria-busy="false">
+            <div class="pit-row north" id="opponent-pits" role="group" aria-label="AlphaZero's pits"></div>
+            <div class="board-divider" aria-hidden="true"><span>AYO OLOPON</span></div>
+            <div class="pit-row south" id="human-pits" role="group" aria-label="Your pits from left to right"></div>
+          </div>
+          <div class="board-caption south-caption"><span>Your pits</span><span aria-hidden="true">Sowing direction →</span></div>
+        </div>
+        <div class="turn-panel" id="turn-panel" data-state="ready">
+          <span class="turn-indicator" aria-hidden="true"></span>
+          <div><h2 id="turn-title" role="status" aria-live="polite">Take a seat.</h2><p id="turn-description">Choose who goes first, then start your match.</p></div>
+          <span id="move-count" class="move-number"></span>
+        </div>
+        <div class="motion-strip"><p id="frame-description">48 seeds. Twelve pits. Your next move.</p><span id="hand-count"></span><button id="frame-end" class="quiet-button" type="button" disabled>Skip animation <span aria-hidden="true">↠</span></button></div>
+        <div class="error-panel" id="error-panel" hidden><p id="error-message" role="alert"></p><button id="retry-button" type="button">Try again</button></div>
+        <div class="table-tools">
+          <p class="keyboard-hint">Choose a lit pit, or press <kbd>1</kbd>–<kbd>6</kbd></p>
+          <details class="replay-tools" id="replay-tools">
+            <summary>Move replay</summary>
+            <div class="animation-controls" aria-label="Sowing playback controls">
+              <button id="replay-play" type="button" disabled>Replay move</button>
+              <div class="frame-buttons"><button id="frame-prev" type="button" aria-label="Previous sowing frame" disabled>‹</button><button id="frame-next" type="button" aria-label="Next sowing frame" disabled>›</button></div>
+              <label class="speed-control" for="speed">Speed <input id="speed" type="range" min="50" max="500" value="465" aria-label="Playback speed, slow to fast"></label>
+              <input id="timeline" type="range" min="0" max="0" value="0" aria-label="Sowing frame" disabled>
+              <span id="frame-status">Play a move to review its sowing.</span>
+            </div>
+          </details>
+        </div>
+      </section>
+      <aside class="match-panel" aria-label="Match controls and recent moves">
+        <section class="match-controls">
+          <div class="section-heading"><h2>Your match</h2><span class="match-badge">vs AI</span></div>
+          <label for="seat" id="seat-label">Who goes first?</label>
+          <select id="seat"><option value="0">You go first</option><option value="1">AlphaZero goes first</option></select>
+          <button id="new-game" class="primary-button" type="button" disabled>Start match</button>
+          <button id="undo" class="undo-button" type="button" disabled><span aria-hidden="true">↶</span> Undo last turn</button>
+          <p class="match-note">Capture 25 of the 48 seeds to win.<br> 24 each is a draw.</p>
+        </section>
+        <section class="history"><div class="section-heading"><h2>Recent moves</h2><span id="history-count"></span></div><div id="history-empty"><span class="empty-seeds" aria-hidden="true"><i></i><i></i><i></i></span><p>The first move is yours to make.</p><span>Your moves and captures appear here.</span></div><ol id="move-list" aria-label="Last twelve moves"></ol></section>
+        <details class="how-to" id="rules"><summary>How to play</summary><div class="rules-content"><p>Choose a lit pit in your bottom row. Its seeds are sown counter-clockwise, one in each pit. If the last seed lands in an occupied pit that is not captured, pick up that pit and keep sowing.</p><h3>Capture four</h3><p>A pit reaching four while seeds remain in hand is captured by that row’s owner. Four made by the final seed belongs to the player making the move.</p><h3>Keep the game moving</h3><p>If your opponent’s row is empty, feed it when possible. When play cannot continue, a position repeats, or the move limit is reached, remaining seeds are collected by row.</p><p>Capture 25 seeds to win. 24 each is a draw.</p></div></details>
+      </aside>
+    </div>
+    <footer><span>Ayo Olopon <span class="footer-dot">·</span> Local play</span><span id="search-detail">Trained AlphaZero opponent</span></footer>
+  </main>
+  <noscript><p>Enable JavaScript to play against the local agent.</p></noscript>
+</body>
+</html>

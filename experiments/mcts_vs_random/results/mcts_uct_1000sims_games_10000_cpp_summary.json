@@ -1,0 +1,21 @@
+{
+  "average_mcts_decision_seconds_per_game": 6.607187030599994,
+  "draws": 72,
+  "engine": "OpenSpiel C++ MCTSBot (UCT) with random rollouts",
+  "experiment": "ayo_mcts_vs_random_native",
+  "games": 10000,
+  "log_file": "mcts_uct_1000sims_games_10000_cpp.jsonl",
+  "losses": 8,
+  "master_seed": 20260924,
+  "max_actions": 300,
+  "rollouts_per_leaf": 1,
+  "score_rate": 0.9956,
+  "simulations_per_move": 1000,
+  "status": "completed",
+  "total_elapsed_seconds": 66075.77139620006,
+  "total_mcts_decision_seconds": 66071.87030599994,
+  "truncated_games": 0,
+  "uct_c": 1.4142135623730951,
+  "win_rate": 0.992,
+  "wins": 9920
+}

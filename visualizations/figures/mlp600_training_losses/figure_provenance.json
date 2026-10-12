@@ -1,0 +1,54 @@
+{
+  "run": "runs/alpha_zero/modal-a100-600-20261003",
+  "rounds": 600,
+  "design": "Three separate figures and a requested three-panel comparison; vertical axes label each loss; unsmoothed recorded losses; linear axes.",
+  "curves": [
+    "policy_loss",
+    "value_loss",
+    "total_loss"
+  ],
+  "export_dpi": 600,
+  "y_axis_limits": {
+    "total_loss": [
+      0,
+      1.9
+    ],
+    "value_loss": [
+      0.1,
+      0.7
+    ],
+    "policy_loss": [
+      0.65,
+      1.1
+    ]
+  },
+  "scale_note": "Value and policy axes start above zero; every recorded value remains visible.",
+  "total_definition": "policy_loss + value_loss + l2_loss",
+  "loss_definition": "Mean minibatch training loss over all optimizer updates in each learner round, sampled from replay. Not per-game or per-position losses.",
+  "verification": {
+    "console_loss_matches": 600,
+    "finite_nonnegative_losses": true,
+    "total_loss_components_match": true,
+    "gradient_update_counts_match_settings": true,
+    "missing_rounds": [],
+    "duplicate_rounds": []
+  },
+  "source_sha256": {
+    "runs/alpha_zero/modal-a100-600-20261003/learner.jsonl": "f7fa3b9728fbf4c962796d3fe9d103c6fea2f40408ee748d0b22c6219a38e4aa",
+    "runs/alpha_zero/modal-a100-600-20261003/sessions/20261003T101056281161Z/log-learner.txt": "4215234c6ec3ff2812cc276e477c4b27e925a7666ecf09d131ad6251d02ce3e5",
+    "runs/alpha_zero/modal-a100-600-20261003/sessions/20261003T103944860832Z/log-learner.txt": "b11d0b23e4c8c98a44948bf1834642817946683b8e520a37bbecd033daf04a2e",
+    "runs/alpha_zero/modal-a100-600-20261003/sessions/20261003T105645564628Z/log-learner.txt": "46a7bf6ad4d083d50755c3c3ef99df24c150e30ecce1be4516d8d2e9f87b95ea",
+    "runs/alpha_zero/modal-a100-600-20261003/sessions/20261003T114247660601Z/log-learner.txt": "25ea38c7c45e033b7b855e7f41b37f4eb27cdbd5c8d911626ce7e30f7b193aa8",
+    "runs/alpha_zero/modal-a100-600-20261003/sessions/20261003T131030718409Z/log-learner.txt": "25d0f75cefac541eee40756da1650e54b3858f7e9d10134fc7be68b372d382dd"
+  },
+  "script": "visualizations/plot_training_losses.py",
+  "script_sha256": "e12f4618c03920e48596e1d672651978eddcaf975de282d31a93d24e2cde4ce9",
+  "style_sha256": "b51d4bf9ad11bb8efec7484b081d5ae787a5712a1603cd5b2e516b5570fedb68",
+  "figure_sha256": {
+    "total_training_loss.png": "af3c0bbfc48b336cb23cdee3585f9eddafc5d74e6e85ca82c2467784a12bfbd1",
+    "value_loss.png": "44793bf502ad2dce0cc2ff26cd7acf18709d4af624c2124605752ac06289db04",
+    "policy_loss.png": "4296b2baf2dbe315396c19257c421ac86422be5abc007858825f4a89b7674359",
+    "training_losses_combined.png": "9be6eaf21e9b927769d7242168d56409d1c8845fae54dcc9ef97db7900733402"
+  },
+  "matplotlib": "3.11.2"
+}

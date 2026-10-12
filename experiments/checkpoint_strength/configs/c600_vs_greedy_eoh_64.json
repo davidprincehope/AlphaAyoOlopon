@@ -1,0 +1,8 @@
+{
+  "checkpoint": 600,
+  "simulations": 64,
+  "games": 400,
+  "seed": 20261003,
+  "workers": 8,
+  "openings": "experiments/checkpoint_strength/dataset/dataset_le4capture_v3_200.json"
+}

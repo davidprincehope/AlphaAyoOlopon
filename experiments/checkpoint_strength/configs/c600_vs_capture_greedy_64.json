@@ -1,0 +1,8 @@
+{
+  "checkpoints": [600],
+  "games": 400,
+  "simulations": 64,
+  "opponent": {"name": "GREEDY_CAPTURE", "params": {}},
+  "seed": 20261003,
+  "openings": "experiments/checkpoint_strength/dataset/dataset_le4capture_v3_200.json"
+}

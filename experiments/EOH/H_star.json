@@ -1,0 +1,22 @@
+{
+  "candidate_id": "g2-m2-05",
+  "generation": 2,
+  "operator": "M2",
+  "parents": [
+    "g1-m1-04"
+  ],
+  "model": "gpt-6-luna",
+  "thought": "Tune g1-m1-04 by strengthening captured lead and mobility while slightly reducing normalized seed balance.",
+  "source": "def evaluate_state(state_view, player_id):\n    board = state_view.board\n    captured = state_view.captured\n    other = 1 - player_id\n    own = board[player_id * 6:player_id * 6 + 6]\n    opp = board[other * 6:other * 6 + 6]\n    seed_diff = sum(own) - sum(opp)\n    total = sum(own) + sum(opp)\n    mobility_diff = (own[0] > 0) + (own[1] > 0) + (own[2] > 0) + (own[3] > 0) + (own[4] > 0) + (own[5] > 0) - (opp[0] > 0) - (opp[1] > 0) - (opp[2] > 0) - (opp[3] > 0) - (opp[4] > 0) - (opp[5] > 0)\n    return max(-10.0, min(10.0, 0.80 * (captured[player_id] - captured[other]) + 0.18 * seed_diff / (1 + total) + 0.30 * mobility_diff))",
+  "source_sha256": "1be272704c60811ba53ffe28e47c90ea21d50e04e8e3371ab0e01fd291bd2880",
+  "fitness_development": 0.3978571428571428,
+  "score_rate_development": 0.6021428571428572,
+  "score_rate_selection": 0.5473333333333333,
+  "selection_tie_break": {
+    "ast_node_count": 269,
+    "median_fixture_call_ns": 2000.0,
+    "source_sha256": "1be272704c60811ba53ffe28e47c90ea21d50e04e8e3371ab0e01fd291bd2880"
+  },
+  "selection_protocol_frozen_before_results": true,
+  "independent_test_run": false
+}

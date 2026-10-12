@@ -1,0 +1,8 @@
+{
+  "name": "MCTS",
+  "params": {
+    "simulations": 1000,
+    "rollouts_per_leaf": 1,
+    "uct_c": 1.4142135623730951
+  }
+}

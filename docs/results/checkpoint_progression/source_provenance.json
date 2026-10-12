@@ -1,0 +1,80 @@
+{
+  "opening_dataset_sha256": "681ac741957726f17d3e29241330f76d4d0da80f7dbfd2e05605736ac68d0a9b",
+  "model": "ayo_mlp_185863_v1",
+  "sources": {
+    "experiment.plan.json": {
+      "source": "runs/checkpoint_strength/small-gap-mlp-suite-20261011/experiment.plan.json",
+      "source_sha256": "7d511326f556ea04d6c70d2931a27b8540859fa0fd246e87f272c59e1cc35793"
+    },
+    "suite.results.json": {
+      "source": "runs/checkpoint_strength/small-gap-mlp-suite-20261011/suite.results.json",
+      "source_sha256": "573886a932fbc9ce2787d56692bee6199caf81c6090a8eb4bba0c7f84d0cb691"
+    },
+    "verification.json": {
+      "source": "runs/checkpoint_strength/small-gap-mlp-suite-20261011/verification.json",
+      "source_sha256": "526bdb68620c7c21376434a68b9940954a2f3ff9cb8041b23b5ae5ba91fe1c6c"
+    },
+    "suite.manifest.json": {
+      "source": "runs/checkpoint_strength/small-gap-mlp-suite-20261011/suite.manifest.json",
+      "source_sha256": "ecc7e78df0d7639519615af4994737d527cbcc230fd1164e8aa46aea4ed9746a"
+    }
+  },
+  "dataset_file_sha256": "81e4c52a1b68926b37bee050e8aebc34c8d5da64f8ff40a4535b2a90a8ff830d",
+  "checkpoint_sha256": {
+    "1": "e8c30f566ce0412ccd734b79c860cc6ba3ff417db6dd686fd595a44553c68c26",
+    "50": "7d56fbe0713986e0024050f805d43f95e3db23dacfe839466ceb2f226d470209",
+    "100": "b0b4af5d9b8f547fd8d10fa0bf5ca72f4efe2cbe0093cf30c84e0e873aadf5f4",
+    "150": "5ec336ae82bb0326ecf8c5df74dfcbecfcbf767f78816b8bcd7af129933f7c39",
+    "200": "6d1aecf5931846dc76173ed4e22782874c8a1a22286199153862035fb1da76bf",
+    "250": "92a3d25a88712077d4da2d581f2efe48ab78ba0bb6a0b032ff7538af2abdfde7",
+    "300": "a274b9a2579cc4815af00053191348b7a146ce349af1142f3fc4fe2fa3ed7c5f",
+    "350": "a21b147ecb95e6e9d8685d5943ad4a86ec2f1f218b72e85f13f722518ebf7583",
+    "400": "76aa6ecdacb6fb2a903c9801385e6a2f5ab0b9055fa897f3d8b53debd35d06a5",
+    "450": "7b02433391fff24487da111b7c183ce6a58e9f68d8228d0e0dc1f9bcb2c722f3",
+    "500": "02810cad36e5d1312d1fb1f69d8e92fc1fe5ef2798454b9a353c1a091c806eb0",
+    "550": "665f26cda28adcb9f2065d65ce3dc8c0a3cd5185baab3bc225cec519a5d11313",
+    "600": "543d4842c6b41cdbd3eb8e8221c8ca85c4e113a8096f610f1300fa0d4758cea0"
+  },
+  "code_sha256": {
+    "Algorithms/H_star_ayo.py": "443b1aee308d5ec4a9457e7222f3d73b2d9e10173a04a3d3009e7b3addc95848",
+    "Algorithms/alpha_zero/config.py": "67158167fb07a5d2d56a76beaaa1b61c8df5474b72693de30658b3e81021aa0f",
+    "Algorithms/alpha_zero/evaluation.py": "4f786bb664e610e21f1a4e613c41e08b29f319af89df2955a3a094da673bbe15",
+    "Algorithms/alpha_zero/game.py": "82ae89ecd78186b579093b64a5e79cc18048ada9e90a4f61350b4b47c4bdd4c5",
+    "Algorithms/alpha_zero/inference.py": "942947b048bdde81fedab22d88cddf5c751ab0204751a69489fdf4d831b388ad",
+    "Algorithms/alpha_zero/runtime.py": "ad32061b65a76bb01be1826cd9183209a002ebd46a3253f55688923a6c2b8e22",
+    "Algorithms/ayo_mcts.py": "1ca202ee969127d4c1cf8021357bdb878f750e930e32c0e9e865ec30c75a404f",
+    "Algorithms/eoh_ayo.py": "df7658f773dac3cdbf37b8fe81ca3536bdb350a5750cf6a25831aa6c5233d570",
+    "Model/ayo_olopon/ayo_olopon.py": "ffbb6c5fc7d6c94cc46e1d9a59be8a3f88a12288178778c8ca43a5b751e9342d",
+    "experiments/agent_benchmark/agents.py": "884a7288aea883f11c2475d84faccab66f5983880f0613472260ded18d0fb9b2",
+    "experiments/agent_benchmark/random_vs_greedy_hstar.py": "8c6cf2965641daaeefd9ee2a1c7739ed492a35d8d9309b8fda335fdf5fb878db",
+    "experiments/alpha_zero/modal_common.py": "b71a9255d23dff46cb5556fc4168afbbf08267d89f8f32b0f28b9dfbe6ba75d5",
+    "experiments/alpha_zero/modal_evaluate.py": "50cb1eb4d25e94dd141a823c24418a29957e1b2db0481a1cc5414b61857dce28",
+    "experiments/alpha_zero/offline_evaluate.py": "fde2952465cea315fc9ee58dedb02d2cf093c16c65ee0115ce8e9b83fd1c0c42",
+    "experiments/checkpoint_strength/greedy_progression.py": "e5c4b6932582b9fe5ef1725526c9d7beb4732196475cdd4f0879196279ef1f57",
+    "experiments/checkpoint_strength/head_to_head.py": "86d969b6cc438e085ba89bf575c74e1b2261657591ede6089df69703c81b4b0a",
+    "experiments/checkpoint_strength/mcts_baseline.py": "dae8436f9c2f383198dc8f1222a5cf5d207e9b8414d274fc3760a595ac9965f1",
+    "experiments/checkpoint_strength/metrics.py": "078491973bfd961ab257ebc067ca9db02bbf862597fbb0a3ee25a4ca51d8a6c9",
+    "experiments/checkpoint_strength/modal_head_to_head.py": "cd77697f7a6e20d7abec1571d11a3d8fd00cbe3892bdcee115e0f04575b4a459",
+    "experiments/checkpoint_strength/modal_neural_vs_mcts.py": "850f827fde8370831537fbd95a7308df1bfb443d4327871fa9c9f35ecfd96c43",
+    "experiments/checkpoint_strength/neural_vs_mcts.py": "8424c599c57fdf07f2a9d12777d411125f02382db85be1ad7cc704ec149c5723",
+    "experiments/checkpoint_strength/opening_dataset.py": "ddb4edee43e53c267d0d3279be688b20bf804fa83f76402355ee31807a665d59",
+    "open_spiel/open_spiel/python/algorithms/alpha_zero/evaluator.py": "d33449b91ad802c8018a2ed5507f6c5ffd16b98c853816d840ba2063d2df531c",
+    "open_spiel/open_spiel/python/algorithms/alpha_zero/model_linen.py": "6727a4f951f076cee13388e9341927f027f53db7e4c27dd23e2a25f15e45ef05",
+    "open_spiel/open_spiel/python/algorithms/mcts.py": "f38c7f6d2e58f4eb0ce8c70a6c8b84e339539182fa642ca3109555850a9eb582"
+  },
+  "orchestration_revisions": [
+    {
+      "experiments/checkpoint_strength/modal_small_gap_suite.py": "0d5ddea6e534fcdb5fc19c8c881ac441c3f48ebaa0125d71977f8d5b941a752f",
+      "experiments/checkpoint_strength/small_gap_recovery.py": "7aca25332eaf956bb911f091c043ca54f7dbb84d6ef14969dc2bf168c6ea8a6e"
+    }
+  ],
+  "recoveries": [
+    {
+      "previous_status": "failed",
+      "previous_error": "KeyboardInterrupt()",
+      "at_utc": "2026-10-11T21:25:47.215668+00:00"
+    }
+  ],
+  "exporter_sha256": "38180a24ab1111e38bdab70f371433584da4706ae908a75f7a6f08d7f2fc36dd",
+  "exported_results_sha256": "b573572516af25e7c4aebf84bf04c17126a758962e74f9f738f214500a0511c1"
+}

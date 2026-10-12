@@ -1,0 +1,2707 @@
+{
+  "opening_seed": 20260921,
+  "development_count": 70,
+  "verification_count": 30,
+  "positions": [
+    {
+      "opening_seed": 17683233,
+      "plies_from_initial": 9,
+      "board": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "captured": [
+        16,
+        24
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 0,
+      "phase": "early",
+      "split": "development"
+    },
+    {
+      "opening_seed": 59816794,
+      "plies_from_initial": 29,
+      "board": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "captured": [
+        20,
+        24
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 1,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 75116364,
+      "plies_from_initial": 26,
+      "board": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        3,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "captured": [
+        24,
+        16
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 2,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 78938186,
+      "plies_from_initial": 19,
+      "board": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "captured": [
+        24,
+        20
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 3,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 83323437,
+      "plies_from_initial": 24,
+      "board": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        3,
+        1,
+        0,
+        0,
+        2,
+        1,
+        0
+      ],
+      "captured": [
+        20,
+        20
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 4,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 97660086,
+      "plies_from_initial": 21,
+      "board": [
+        2,
+        0,
+        0,
+        3,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "captured": [
+        16,
+        24
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 5,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 97746062,
+      "plies_from_initial": 19,
+      "board": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "captured": [
+        24,
+        20
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 6,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 120920367,
+      "plies_from_initial": 20,
+      "board": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "captured": [
+        20,
+        20
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 7,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 133636564,
+      "plies_from_initial": 30,
+      "board": [
+        1,
+        0,
+        2,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "captured": [
+        20,
+        20
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 8,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 149140518,
+      "plies_from_initial": 16,
+      "board": [
+        2,
+        3,
+        0,
+        1,
+        1,
+        2,
+        0,
+        0,
+        3,
+        1,
+        3,
+        0
+      ],
+      "captured": [
+        12,
+        20
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 9,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 167030586,
+      "plies_from_initial": 15,
+      "board": [
+        1,
+        0,
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "captured": [
+        16,
+        24
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 10,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 258942805,
+      "plies_from_initial": 4,
+      "board": [
+        2,
+        10,
+        1,
+        12,
+        2,
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "captured": [
+        4,
+        12
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 11,
+      "phase": "early",
+      "split": "development"
+    },
+    {
+      "opening_seed": 264463311,
+      "plies_from_initial": 12,
+      "board": [
+        2,
+        1,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "captured": [
+        24,
+        16
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 12,
+      "phase": "early",
+      "split": "development"
+    },
+    {
+      "opening_seed": 269387934,
+      "plies_from_initial": 25,
+      "board": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "captured": [
+        20,
+        24
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 13,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 270895862,
+      "plies_from_initial": 24,
+      "board": [
+        1,
+        1,
+        0,
+        2,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "captured": [
+        20,
+        20
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 14,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 291199179,
+      "plies_from_initial": 22,
+      "board": [
+        1,
+        0,
+        2,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "captured": [
+        16,
+        24
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 15,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 296511625,
+      "plies_from_initial": 16,
+      "board": [
+        1,
+        0,
+        0,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        3,
+        0
+      ],
+      "captured": [
+        24,
+        16
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 16,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 338923017,
+      "plies_from_initial": 11,
+      "board": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        3,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "captured": [
+        20,
+        20
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 17,
+      "phase": "early",
+      "split": "development"
+    },
+    {
+      "opening_seed": 339072199,
+      "plies_from_initial": 25,
+      "board": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "captured": [
+        24,
+        20
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 18,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 365950029,
+      "plies_from_initial": 15,
+      "board": [
+        2,
+        2,
+        2,
+        1,
+        12,
+        1,
+        0,
+        1,
+        2,
+        3,
+        1,
+        1
+      ],
+      "captured": [
+        16,
+        4
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 19,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 389677650,
+      "plies_from_initial": 13,
+      "board": [
+        0,
+        2,
+        0,
+        11,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "captured": [
+        12,
+        20
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 20,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 392320708,
+      "plies_from_initial": 9,
+      "board": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        2
+      ],
+      "captured": [
+        16,
+        24
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 21,
+      "phase": "early",
+      "split": "development"
+    },
+    {
+      "opening_seed": 396462172,
+      "plies_from_initial": 12,
+      "board": [
+        3,
+        0,
+        0,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "captured": [
+        16,
+        24
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 22,
+      "phase": "early",
+      "split": "development"
+    },
+    {
+      "opening_seed": 403861307,
+      "plies_from_initial": 16,
+      "board": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        2,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "captured": [
+        16,
+        24
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 23,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 404363422,
+      "plies_from_initial": 9,
+      "board": [
+        1,
+        0,
+        1,
+        2,
+        1,
+        0,
+        2,
+        0,
+        0,
+        14,
+        1,
+        2
+      ],
+      "captured": [
+        12,
+        12
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 24,
+      "phase": "early",
+      "split": "development"
+    },
+    {
+      "opening_seed": 408978735,
+      "plies_from_initial": 14,
+      "board": [
+        1,
+        0,
+        2,
+        11,
+        0,
+        1,
+        1,
+        0,
+        0,
+        3,
+        1,
+        0
+      ],
+      "captured": [
+        12,
+        16
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 25,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 414231326,
+      "plies_from_initial": 19,
+      "board": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        2,
+        1,
+        1,
+        2
+      ],
+      "captured": [
+        16,
+        24
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 26,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 416679084,
+      "plies_from_initial": 14,
+      "board": [
+        0,
+        2,
+        0,
+        2,
+        0,
+        1,
+        0,
+        2,
+        3,
+        0,
+        0,
+        2
+      ],
+      "captured": [
+        16,
+        20
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 27,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 426507582,
+      "plies_from_initial": 23,
+      "board": [
+        1,
+        0,
+        1,
+        2,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "captured": [
+        24,
+        16
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 28,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 438063512,
+      "plies_from_initial": 30,
+      "board": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        0,
+        2,
+        0,
+        1,
+        0
+      ],
+      "captured": [
+        16,
+        24
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 29,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 498917155,
+      "plies_from_initial": 26,
+      "board": [
+        1,
+        1,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        2,
+        1,
+        0,
+        1
+      ],
+      "captured": [
+        24,
+        16
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 30,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 570993831,
+      "plies_from_initial": 31,
+      "board": [
+        2,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        2,
+        0,
+        0
+      ],
+      "captured": [
+        24,
+        16
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 31,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 613464178,
+      "plies_from_initial": 7,
+      "board": [
+        0,
+        2,
+        1,
+        0,
+        0,
+        12,
+        1,
+        11,
+        1,
+        2,
+        0,
+        2
+      ],
+      "captured": [
+        12,
+        4
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 32,
+      "phase": "early",
+      "split": "development"
+    },
+    {
+      "opening_seed": 614871885,
+      "plies_from_initial": 20,
+      "board": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "captured": [
+        24,
+        20
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 33,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 615895534,
+      "plies_from_initial": 31,
+      "board": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "captured": [
+        20,
+        24
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 34,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 701648814,
+      "plies_from_initial": 6,
+      "board": [
+        3,
+        1,
+        0,
+        2,
+        3,
+        0,
+        0,
+        0,
+        0,
+        14,
+        0,
+        1
+      ],
+      "captured": [
+        4,
+        20
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 35,
+      "phase": "early",
+      "split": "development"
+    },
+    {
+      "opening_seed": 702359627,
+      "plies_from_initial": 18,
+      "board": [
+        1,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        1,
+        1,
+        0,
+        2,
+        1
+      ],
+      "captured": [
+        16,
+        24
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 36,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 710115796,
+      "plies_from_initial": 11,
+      "board": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        2,
+        1,
+        0,
+        1,
+        2,
+        1
+      ],
+      "captured": [
+        20,
+        20
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 37,
+      "phase": "early",
+      "split": "development"
+    },
+    {
+      "opening_seed": 741464907,
+      "plies_from_initial": 20,
+      "board": [
+        0,
+        1,
+        0,
+        3,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "captured": [
+        20,
+        20
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 38,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 768319655,
+      "plies_from_initial": 11,
+      "board": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "captured": [
+        20,
+        24
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 39,
+      "phase": "early",
+      "split": "development"
+    },
+    {
+      "opening_seed": 814110965,
+      "plies_from_initial": 15,
+      "board": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        2,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "captured": [
+        20,
+        20
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 40,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 820664295,
+      "plies_from_initial": 19,
+      "board": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        2,
+        0,
+        1,
+        1,
+        0,
+        2
+      ],
+      "captured": [
+        24,
+        16
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 41,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 821856831,
+      "plies_from_initial": 20,
+      "board": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "captured": [
+        20,
+        20
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 42,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 830716188,
+      "plies_from_initial": 5,
+      "board": [
+        0,
+        1,
+        2,
+        0,
+        2,
+        1,
+        3,
+        1,
+        1,
+        2,
+        3,
+        12
+      ],
+      "captured": [
+        12,
+        8
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 43,
+      "phase": "early",
+      "split": "development"
+    },
+    {
+      "opening_seed": 850897092,
+      "plies_from_initial": 27,
+      "board": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "captured": [
+        16,
+        24
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 44,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 882856461,
+      "plies_from_initial": 32,
+      "board": [
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        2,
+        0,
+        0,
+        1,
+        0,
+        2
+      ],
+      "captured": [
+        16,
+        24
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 45,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 910956837,
+      "plies_from_initial": 5,
+      "board": [
+        0,
+        2,
+        0,
+        0,
+        1,
+        0,
+        10,
+        2,
+        1,
+        2,
+        10,
+        0
+      ],
+      "captured": [
+        8,
+        12
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 46,
+      "phase": "early",
+      "split": "development"
+    },
+    {
+      "opening_seed": 931684914,
+      "plies_from_initial": 29,
+      "board": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        3,
+        1,
+        1,
+        0,
+        1
+      ],
+      "captured": [
+        16,
+        24
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 47,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 953193097,
+      "plies_from_initial": 10,
+      "board": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        3,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "captured": [
+        24,
+        16
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 48,
+      "phase": "early",
+      "split": "development"
+    },
+    {
+      "opening_seed": 973831551,
+      "plies_from_initial": 5,
+      "board": [
+        2,
+        1,
+        0,
+        3,
+        2,
+        3,
+        1,
+        2,
+        3,
+        1,
+        0,
+        2
+      ],
+      "captured": [
+        16,
+        12
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 49,
+      "phase": "early",
+      "split": "development"
+    },
+    {
+      "opening_seed": 997931880,
+      "plies_from_initial": 15,
+      "board": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        3,
+        1,
+        3
+      ],
+      "captured": [
+        20,
+        20
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 50,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 1014188800,
+      "plies_from_initial": 4,
+      "board": [
+        2,
+        1,
+        12,
+        2,
+        3,
+        2,
+        1,
+        0,
+        3,
+        1,
+        0,
+        1
+      ],
+      "captured": [
+        12,
+        8
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 51,
+      "phase": "early",
+      "split": "development"
+    },
+    {
+      "opening_seed": 1047460420,
+      "plies_from_initial": 29,
+      "board": [
+        1,
+        1,
+        2,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "captured": [
+        16,
+        24
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 52,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 1060387823,
+      "plies_from_initial": 32,
+      "board": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        2,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "captured": [
+        16,
+        24
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 53,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 1078814374,
+      "plies_from_initial": 6,
+      "board": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        3,
+        0,
+        1
+      ],
+      "captured": [
+        16,
+        24
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 54,
+      "phase": "early",
+      "split": "development"
+    },
+    {
+      "opening_seed": 1093889429,
+      "plies_from_initial": 25,
+      "board": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "captured": [
+        20,
+        24
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 55,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 1139041867,
+      "plies_from_initial": 20,
+      "board": [
+        1,
+        0,
+        0,
+        1,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "captured": [
+        20,
+        20
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 56,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 1151778332,
+      "plies_from_initial": 13,
+      "board": [
+        0,
+        3,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      "captured": [
+        20,
+        20
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 57,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 1178014466,
+      "plies_from_initial": 6,
+      "board": [
+        1,
+        1,
+        1,
+        3,
+        2,
+        10,
+        1,
+        2,
+        9,
+        0,
+        1,
+        1
+      ],
+      "captured": [
+        4,
+        12
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 58,
+      "phase": "early",
+      "split": "development"
+    },
+    {
+      "opening_seed": 1201641095,
+      "plies_from_initial": 12,
+      "board": [
+        0,
+        2,
+        1,
+        0,
+        1,
+        0,
+        2,
+        0,
+        3,
+        1,
+        0,
+        2
+      ],
+      "captured": [
+        12,
+        24
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 59,
+      "phase": "early",
+      "split": "development"
+    },
+    {
+      "opening_seed": 1213850847,
+      "plies_from_initial": 20,
+      "board": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "captured": [
+        24,
+        20
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 60,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 1241102622,
+      "plies_from_initial": 7,
+      "board": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        3,
+        2,
+        0,
+        2
+      ],
+      "captured": [
+        20,
+        20
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 61,
+      "phase": "early",
+      "split": "development"
+    },
+    {
+      "opening_seed": 1253083782,
+      "plies_from_initial": 14,
+      "board": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        2,
+        0,
+        1,
+        1
+      ],
+      "captured": [
+        20,
+        20
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 62,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 1321772525,
+      "plies_from_initial": 30,
+      "board": [
+        0,
+        0,
+        1,
+        0,
+        3,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "captured": [
+        20,
+        20
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 63,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 1337736194,
+      "plies_from_initial": 6,
+      "board": [
+        1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        0,
+        0,
+        2,
+        3,
+        1,
+        2
+      ],
+      "captured": [
+        20,
+        16
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 64,
+      "phase": "early",
+      "split": "development"
+    },
+    {
+      "opening_seed": 1356693351,
+      "plies_from_initial": 16,
+      "board": [
+        0,
+        2,
+        0,
+        1,
+        2,
+        0,
+        2,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "captured": [
+        16,
+        24
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 65,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 1376502150,
+      "plies_from_initial": 11,
+      "board": [
+        0,
+        0,
+        0,
+        1,
+        3,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "captured": [
+        20,
+        20
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 66,
+      "phase": "early",
+      "split": "development"
+    },
+    {
+      "opening_seed": 1400294650,
+      "plies_from_initial": 26,
+      "board": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "captured": [
+        20,
+        24
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 67,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 1402648198,
+      "plies_from_initial": 16,
+      "board": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        3,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "captured": [
+        20,
+        20
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 68,
+      "phase": "middle",
+      "split": "development"
+    },
+    {
+      "opening_seed": 1441236193,
+      "plies_from_initial": 4,
+      "board": [
+        1,
+        12,
+        1,
+        3,
+        1,
+        0,
+        1,
+        10,
+        2,
+        1,
+        1,
+        3
+      ],
+      "captured": [
+        4,
+        8
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 69,
+      "phase": "early",
+      "split": "development"
+    },
+    {
+      "opening_seed": 1443920203,
+      "plies_from_initial": 29,
+      "board": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "captured": [
+        24,
+        20
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 70,
+      "phase": "middle",
+      "split": "verification"
+    },
+    {
+      "opening_seed": 1487558606,
+      "plies_from_initial": 23,
+      "board": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "captured": [
+        16,
+        24
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 71,
+      "phase": "middle",
+      "split": "verification"
+    },
+    {
+      "opening_seed": 1507055144,
+      "plies_from_initial": 22,
+      "board": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        3,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "captured": [
+        16,
+        24
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 72,
+      "phase": "middle",
+      "split": "verification"
+    },
+    {
+      "opening_seed": 1536493798,
+      "plies_from_initial": 28,
+      "board": [
+        0,
+        2,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0
+      ],
+      "captured": [
+        20,
+        20
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 73,
+      "phase": "middle",
+      "split": "verification"
+    },
+    {
+      "opening_seed": 1537859059,
+      "plies_from_initial": 7,
+      "board": [
+        2,
+        0,
+        2,
+        0,
+        1,
+        0,
+        3,
+        2,
+        0,
+        3,
+        1,
+        2
+      ],
+      "captured": [
+        16,
+        16
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 74,
+      "phase": "early",
+      "split": "verification"
+    },
+    {
+      "opening_seed": 1541020738,
+      "plies_from_initial": 21,
+      "board": [
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "captured": [
+        16,
+        24
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 75,
+      "phase": "middle",
+      "split": "verification"
+    },
+    {
+      "opening_seed": 1580476708,
+      "plies_from_initial": 27,
+      "board": [
+        2,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        2,
+        0
+      ],
+      "captured": [
+        20,
+        20
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 76,
+      "phase": "middle",
+      "split": "verification"
+    },
+    {
+      "opening_seed": 1595376602,
+      "plies_from_initial": 27,
+      "board": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        2
+      ],
+      "captured": [
+        20,
+        20
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 77,
+      "phase": "middle",
+      "split": "verification"
+    },
+    {
+      "opening_seed": 1620110114,
+      "plies_from_initial": 30,
+      "board": [
+        0,
+        2,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        2
+      ],
+      "captured": [
+        20,
+        20
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 78,
+      "phase": "middle",
+      "split": "verification"
+    },
+    {
+      "opening_seed": 1629438294,
+      "plies_from_initial": 6,
+      "board": [
+        0,
+        0,
+        1,
+        1,
+        2,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "captured": [
+        16,
+        24
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 79,
+      "phase": "early",
+      "split": "verification"
+    },
+    {
+      "opening_seed": 1680566026,
+      "plies_from_initial": 9,
+      "board": [
+        0,
+        3,
+        1,
+        1,
+        0,
+        1,
+        0,
+        3,
+        0,
+        2,
+        1,
+        0
+      ],
+      "captured": [
+        24,
+        12
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 80,
+      "phase": "early",
+      "split": "verification"
+    },
+    {
+      "opening_seed": 1733982428,
+      "plies_from_initial": 29,
+      "board": [
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "captured": [
+        20,
+        24
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 81,
+      "phase": "middle",
+      "split": "verification"
+    },
+    {
+      "opening_seed": 1754153251,
+      "plies_from_initial": 12,
+      "board": [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "captured": [
+        24,
+        20
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 82,
+      "phase": "early",
+      "split": "verification"
+    },
+    {
+      "opening_seed": 1777076055,
+      "plies_from_initial": 14,
+      "board": [
+        0,
+        3,
+        1,
+        3,
+        0,
+        0,
+        0,
+        3,
+        0,
+        0,
+        1,
+        1
+      ],
+      "captured": [
+        16,
+        20
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 83,
+      "phase": "middle",
+      "split": "verification"
+    },
+    {
+      "opening_seed": 1811960173,
+      "plies_from_initial": 20,
+      "board": [
+        1,
+        3,
+        0,
+        1,
+        0,
+        3,
+        3,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "captured": [
+        24,
+        12
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 84,
+      "phase": "middle",
+      "split": "verification"
+    },
+    {
+      "opening_seed": 1815105841,
+      "plies_from_initial": 23,
+      "board": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        14,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "captured": [
+        16,
+        12
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 85,
+      "phase": "middle",
+      "split": "verification"
+    },
+    {
+      "opening_seed": 1848697179,
+      "plies_from_initial": 5,
+      "board": [
+        2,
+        0,
+        0,
+        8,
+        3,
+        1,
+        9,
+        3,
+        0,
+        0,
+        0,
+        10
+      ],
+      "captured": [
+        4,
+        8
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 86,
+      "phase": "early",
+      "split": "verification"
+    },
+    {
+      "opening_seed": 1863580261,
+      "plies_from_initial": 26,
+      "board": [
+        0,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "captured": [
+        16,
+        24
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 87,
+      "phase": "middle",
+      "split": "verification"
+    },
+    {
+      "opening_seed": 1864566304,
+      "plies_from_initial": 8,
+      "board": [
+        1,
+        1,
+        13,
+        2,
+        1,
+        3,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "captured": [
+        4,
+        20
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 88,
+      "phase": "early",
+      "split": "verification"
+    },
+    {
+      "opening_seed": 1866768262,
+      "plies_from_initial": 4,
+      "board": [
+        2,
+        2,
+        0,
+        2,
+        1,
+        10,
+        10,
+        1,
+        1,
+        1,
+        2,
+        0
+      ],
+      "captured": [
+        8,
+        8
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 89,
+      "phase": "early",
+      "split": "verification"
+    },
+    {
+      "opening_seed": 1939766645,
+      "plies_from_initial": 19,
+      "board": [
+        0,
+        1,
+        0,
+        1,
+        1,
+        2,
+        2,
+        3,
+        2,
+        0,
+        0,
+        0
+      ],
+      "captured": [
+        16,
+        20
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 90,
+      "phase": "middle",
+      "split": "verification"
+    },
+    {
+      "opening_seed": 1942537932,
+      "plies_from_initial": 10,
+      "board": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        10,
+        1,
+        9,
+        0,
+        0,
+        1
+      ],
+      "captured": [
+        8,
+        16
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 91,
+      "phase": "early",
+      "split": "verification"
+    },
+    {
+      "opening_seed": 1971962064,
+      "plies_from_initial": 30,
+      "board": [
+        1,
+        1,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        1,
+        2,
+        0,
+        1
+      ],
+      "captured": [
+        20,
+        20
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 92,
+      "phase": "middle",
+      "split": "verification"
+    },
+    {
+      "opening_seed": 1993561553,
+      "plies_from_initial": 29,
+      "board": [
+        2,
+        1,
+        0,
+        1,
+        0,
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "captured": [
+        20,
+        20
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 93,
+      "phase": "middle",
+      "split": "verification"
+    },
+    {
+      "opening_seed": 2044442058,
+      "plies_from_initial": 30,
+      "board": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        2,
+        2,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "captured": [
+        20,
+        20
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 94,
+      "phase": "middle",
+      "split": "verification"
+    },
+    {
+      "opening_seed": 2060053906,
+      "plies_from_initial": 7,
+      "board": [
+        0,
+        2,
+        1,
+        1,
+        3,
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        1
+      ],
+      "captured": [
+        16,
+        20
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 95,
+      "phase": "early",
+      "split": "verification"
+    },
+    {
+      "opening_seed": 2084606877,
+      "plies_from_initial": 24,
+      "board": [
+        0,
+        2,
+        1,
+        0,
+        0,
+        1,
+        2,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "captured": [
+        16,
+        24
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 96,
+      "phase": "middle",
+      "split": "verification"
+    },
+    {
+      "opening_seed": 2119754549,
+      "plies_from_initial": 8,
+      "board": [
+        1,
+        3,
+        0,
+        3,
+        0,
+        2,
+        0,
+        2,
+        0,
+        0,
+        1,
+        0
+      ],
+      "captured": [
+        20,
+        16
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 97,
+      "phase": "early",
+      "split": "verification"
+    },
+    {
+      "opening_seed": 2125702791,
+      "plies_from_initial": 27,
+      "board": [
+        0,
+        2,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        2,
+        0,
+        0
+      ],
+      "captured": [
+        20,
+        20
+      ],
+      "current_player": 1,
+      "is_terminal": false,
+      "opening_id": 98,
+      "phase": "middle",
+      "split": "verification"
+    },
+    {
+      "opening_seed": 2145800350,
+      "plies_from_initial": 30,
+      "board": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "captured": [
+        24,
+        20
+      ],
+      "current_player": 0,
+      "is_terminal": false,
+      "opening_id": 99,
+      "phase": "middle",
+      "split": "verification"
+    }
+  ]
+}

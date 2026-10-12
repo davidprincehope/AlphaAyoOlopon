@@ -1,0 +1,30 @@
+{
+  "opening_dataset_sha256": "681ac741957726f17d3e29241330f76d4d0da80f7dbfd2e05605736ac68d0a9b",
+  "source_run": "a100-fresh-64-200-20261003",
+  "games_verified": 22400,
+  "case_count": 56,
+  "plotted_case_count": 39,
+  "plotted_games": 15600,
+  "figure_count": 3,
+  "excluded_curves": [
+    "puct128-mcts128",
+    "greedy128",
+    "puct64-mcts128"
+  ],
+  "source_kind": "published_verified_summaries",
+  "source_sha256": {
+    "docs/results/checkpoint_progression/experiment.plan.json": "7d511326f556ea04d6c70d2931a27b8540859fa0fd246e87f272c59e1cc35793",
+    "docs/results/checkpoint_progression/results.json": "b573572516af25e7c4aebf84bf04c17126a758962e74f9f738f214500a0511c1",
+    "docs/results/checkpoint_progression/verification.json": "526bdb68620c7c21376434a68b9940954a2f3ff9cb8041b23b5ae5ba91fe1c6c",
+    "docs/results/checkpoint_progression/source_provenance.json": "2403899bc77c1bb3bcda40ed7f8cd5a36c685c4fefd3ffa561b4b1ffb75dd690"
+  },
+  "chart_data_sha256": "b8e22b3109c2913eb98629e20989f5497ea2aeae888b06329e060c38076aae84",
+  "script": "visualizations/plot_checkpoint_progression.py",
+  "script_sha256": "aeff080dcc1ef15bb31db594c7488a57abec7292b3c38eb67d41236fad2fdbcf",
+  "style_sha256": "b51d4bf9ad11bb8efec7484b081d5ae787a5712a1603cd5b2e516b5570fedb68",
+  "figure_sha256": {
+    "puct64_vs_mcts64.png": "80a62a38ad87107527c17814076ea2c48a97328525f11b04615aeb1624087d4f",
+    "policy_only_vs_mcts64.png": "95059d139f6048799255d0a571d066ba5a4d45a4d6e93661750f29f86c1cced1",
+    "puct64_vs_greedy_eoh_hstar.png": "d22ffb4a48818c80af49c9a6454a49b41cea3be292c449076e627c5742c9bbb0"
+  }
+}

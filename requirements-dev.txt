@@ -1,0 +1,4 @@
+# Local test suite and scientific figure tools; no Modal credentials are needed.
+-r requirements-alpha-zero.txt
+-r visualizations/requirements.txt
+modal==1.5.5

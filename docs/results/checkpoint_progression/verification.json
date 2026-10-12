@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "games_replayed": 22400,
+  "cases_verified": 56,
+  "opening_dataset_sha256": "681ac741957726f17d3e29241330f76d4d0da80f7dbfd2e05605736ac68d0a9b",
+  "files": {
+    "experiment.plan.json": "7d511326f556ea04d6c70d2931a27b8540859fa0fd246e87f272c59e1cc35793",
+    "suite.results.json": "573886a932fbc9ce2787d56692bee6199caf81c6090a8eb4bba0c7f84d0cb691",
+    "suite.manifest.json": "ecc7e78df0d7639519615af4994737d527cbcc230fd1164e8aa46aea4ed9746a"
+  },
+  "verified_at_utc": "2026-10-11T22:24:21.581900+00:00"
+}

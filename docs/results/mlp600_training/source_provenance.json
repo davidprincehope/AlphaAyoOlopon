@@ -1,0 +1,15 @@
+{
+  "normalization": "Local absolute checkout prefixes are replaced with repository-relative paths. Training summary retains the final round's aggregate counts.",
+  "sources": {
+    "training_manifest.json": {
+      "source": "runs/alpha_zero/modal-a100-600-20261003/manifest.json",
+      "source_sha256": "acc9688bd2cd2633482645ee51973313850a320b9111c041f9a5e005466ee0eb",
+      "export_sha256": "52c3bd6c82472aededf8c69075b32785a01c1057eac7902e834b05b321f5225f"
+    },
+    "training_summary.json": {
+      "source": "runs/alpha_zero/modal-a100-600-20261003/learner.jsonl",
+      "source_sha256": "f7fa3b9728fbf4c962796d3fe9d103c6fea2f40408ee748d0b22c6219a38e4aa",
+      "export_sha256": "7864fa6fc5b72da9cd5eaac618cdf18fe35cd8285f15e2e2bf6085454b1fbc47"
+    }
+  }
+}

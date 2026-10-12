@@ -1,0 +1,72 @@
+{
+  "experiment": "c600_puct64_vs_minimax_depth6",
+  "contract": {
+    "config": {
+      "checkpoints": [
+        600
+      ],
+      "games": 400,
+      "simulations": 64,
+      "opponent": {
+        "name": "MINIMAX",
+        "params": {
+          "maximum_depth": 6
+        }
+      },
+      "seed": 20261003,
+      "fallback_first": false,
+      "heartbeat_seconds": 30,
+      "openings": "experiments/checkpoint_strength/dataset/dataset_le4capture_v3_200.json"
+    },
+    "game": "ayo_olopon_alpha_zero(max_moves=1000,cutoff=collect)",
+    "uct_c": 1.5,
+    "checkpoint_sha256": "543d4842c6b41cdbd3eb8e8221c8ca85c4e113a8096f610f1300fa0d4758cea0",
+    "run_manifest_sha256": "acc9688bd2cd2633482645ee51973313850a320b9111c041f9a5e005466ee0eb",
+    "opening_dataset_sha256": "681ac741957726f17d3e29241330f76d4d0da80f7dbfd2e05605736ac68d0a9b",
+    "opening_dataset_file_sha256": "81e4c52a1b68926b37bee050e8aebc34c8d5da64f8ff40a4535b2a90a8ff830d",
+    "code_sha256": {
+      "Algorithms/H_star_ayo.py": "898f5fa183f49878156a0842e367121977387e035ce4e376ae2d54c1013334ea",
+      "Algorithms/ayo_minimax.py": "c3129f4856e51725dd92ad99edbd6bdfd461b2402ab1b9901286e3ff9fd3a9f7",
+      "Algorithms/alpha_zero/evaluation.py": "4f786bb664e610e21f1a4e613c41e08b29f319af89df2955a3a094da673bbe15",
+      "Algorithms/alpha_zero/game.py": "c30849bc55b9558d4ebd85b929c0662d428ef22d41ac07858b847a9e2893554c",
+      "Algorithms/alpha_zero/inference.py": "942947b048bdde81fedab22d88cddf5c751ab0204751a69489fdf4d831b388ad",
+      "Algorithms/alpha_zero/config.py": "67158167fb07a5d2d56a76beaaa1b61c8df5474b72693de30658b3e81021aa0f",
+      "Algorithms/alpha_zero/runtime.py": "80ec0e8237f447524e70427b757fff0582ca254566c7bae6838d6fc4ee0d9869",
+      "Model/ayo_olopon/ayo_olopon.py": "ffbb6c5fc7d6c94cc46e1d9a59be8a3f88a12288178778c8ca43a5b751e9342d",
+      "experiments/alpha_zero/offline_evaluate.py": "bb94ad48d1637807fdc0b16e19307f3626b7b7f29be9f038ed1f958592aa3d4c",
+      "experiments/agent_benchmark/random_vs_greedy_hstar.py": "9fabcb135a42f546361aeda4810476462e951716544f3798ac9ec3cb6d4c1f0a",
+      "experiments/checkpoint_strength/neural_vs_minimax.py": "324cf974f87e49f3e50e36cae183a83ec71960725841c7eb7db03aad67d96847",
+      "experiments/checkpoint_strength/opening_dataset.py": "85284403148ece3ab9813821296985dbf837f290e026ca2e3eb364e539afa54b",
+      "experiments/checkpoint_strength/head_to_head.py": "7c7691fee4afd66d08c888b38c2783359552054c65fdc559fb062f14c88e68db",
+      "open_spiel/open_spiel/python/algorithms/minimax.py": "817456f2f4c106650d0418b94d08cac5cb4e6928c5baa6f8cd22d4e83bf4a3df",
+      "open_spiel/open_spiel/python/algorithms/mcts.py": "f38c7f6d2e58f4eb0ce8c70a6c8b84e339539182fa642ca3109555850a9eb582",
+      "open_spiel/open_spiel/python/algorithms/alpha_zero/evaluator.py": "d33449b91ad802c8018a2ed5507f6c5ffd16b98c853816d840ba2063d2df531c",
+      "open_spiel/open_spiel/python/algorithms/alpha_zero/model_linen.py": "6727a4f951f076cee13388e9341927f027f53db7e4c27dd23e2a25f15e45ef05"
+    }
+  },
+  "started_at_utc": "2026-10-12T12:05:29.811269+00:00",
+  "minimax": {
+    "search": "alpha-beta",
+    "depth_unit": "complete player actions",
+    "leaf_evaluator": "clipped H* formula divided by 11",
+    "terminal_utilities": [
+      -1,
+      0,
+      1
+    ],
+    "tie_break": "first legal action"
+  },
+  "neural": {
+    "search": "PUCT",
+    "dirichlet_noise": null,
+    "temperature_sampling": false,
+    "action_selection": "maximum visits, lowest action ID ties"
+  },
+  "seed_schedule": "20261003 + opening index; both seats share the seed",
+  "workers": 8,
+  "completed_games": 400,
+  "status": "completed",
+  "finished_at_utc": "2026-10-12T12:13:46.741723+00:00",
+  "games_sha256": "2262164dd8865f8f078cb93ddf7a49f44a757b19378525b129db64057c80739b",
+  "results_sha256": "1aa967f905e850da33e6d5919a2cb822513c4680b257c382fe89daeaa361d5d8"
+}

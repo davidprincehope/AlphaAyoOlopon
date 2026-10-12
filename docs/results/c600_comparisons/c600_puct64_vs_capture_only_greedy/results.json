@@ -1,0 +1,138 @@
+{
+  "status": "completed",
+  "checkpoint": 600,
+  "neural_simulations": 64,
+  "opponent": {
+    "name": "GREEDY_CAPTURE",
+    "params": {}
+  },
+  "games": 400,
+  "opening_pairs": 200,
+  "opening_dataset": {
+    "protocol": "fixed_openings_v1",
+    "benchmark_id": "ayo_small_gap_v3_200",
+    "path": "experiments/checkpoint_strength/dataset/ayo_small_gap_v3_200.json",
+    "file_sha256": "81e4c52a1b68926b37bee050e8aebc34c8d5da64f8ff40a4535b2a90a8ff830d",
+    "content_sha256": "681ac741957726f17d3e29241330f76d4d0da80f7dbfd2e05605736ac68d0a9b",
+    "opening_count": 200,
+    "available_openings": 200,
+    "games_per_opening": 2,
+    "selection": "entire_dataset",
+    "selected_openings_sha256": "87644c74b288776e7e0cba11695828bd8c84e440a01c0d720cc7ad208367e1f4"
+  },
+  "seed": 20261003,
+  "policies": {
+    "ALPHAZERO": {
+      "games": 400,
+      "wins": 281,
+      "draws": 100,
+      "losses": 19,
+      "score_sum": 331.0,
+      "natural_draws": 100,
+      "repetitions": 0,
+      "action_limits": 0,
+      "seats": {
+        "0": 200,
+        "1": 200
+      },
+      "score_rate": 0.8275,
+      "win_rate": 0.7025,
+      "average_game_length": 29.0075
+    },
+    "OPPONENT": {
+      "games": 400,
+      "wins": 19,
+      "draws": 100,
+      "losses": 281,
+      "score_sum": 69.0,
+      "natural_draws": 100,
+      "repetitions": 0,
+      "action_limits": 0,
+      "seats": {
+        "0": 200,
+        "1": 200
+      },
+      "score_rate": 0.1725,
+      "win_rate": 0.0475,
+      "average_game_length": 29.0075
+    }
+  },
+  "score_intervals": {
+    "ALPHAZERO": {
+      "method": "opening-pair percentile bootstrap",
+      "confidence_level": 0.95,
+      "opening_pairs": 200,
+      "resamples": 10000,
+      "seed": 20261003,
+      "score_rate": 0.8275,
+      "lower": 0.805,
+      "upper": 0.85,
+      "scope": "Sampled continuation positions; excludes training-seed and search-seed uncertainty"
+    },
+    "OPPONENT": {
+      "method": "opening-pair percentile bootstrap",
+      "confidence_level": 0.95,
+      "opening_pairs": 200,
+      "resamples": 10000,
+      "seed": 20261003,
+      "score_rate": 0.1725,
+      "lower": 0.15,
+      "upper": 0.195,
+      "scope": "Sampled continuation positions; excludes training-seed and search-seed uncertainty"
+    }
+  },
+  "by_seat": {
+    "P0": {
+      "games": 200,
+      "wins": 157,
+      "draws": 37,
+      "losses": 6,
+      "score_sum": 175.5,
+      "natural_draws": 37,
+      "repetitions": 0,
+      "action_limits": 0,
+      "seats": {
+        "0": 200,
+        "1": 0
+      },
+      "score_rate": 0.8775,
+      "win_rate": 0.785,
+      "average_game_length": 30.67
+    },
+    "P1": {
+      "games": 200,
+      "wins": 124,
+      "draws": 63,
+      "losses": 13,
+      "score_sum": 155.5,
+      "natural_draws": 63,
+      "repetitions": 0,
+      "action_limits": 0,
+      "seats": {
+        "0": 0,
+        "1": 200
+      },
+      "score_rate": 0.7775,
+      "win_rate": 0.62,
+      "average_game_length": 27.345
+    }
+  },
+  "termination_reasons": {
+    "terminal_draw": 100,
+    "terminal_win": 300
+  },
+  "checkpoint_sha256": "543d4842c6b41cdbd3eb8e8221c8ca85c4e113a8096f610f1300fa0d4758cea0",
+  "elapsed_seconds": 283.65938620000003,
+  "verification": {
+    "status": "passed",
+    "games_replayed": 400,
+    "actions_replayed": 9123,
+    "greedy_decisions_checked": 4630,
+    "source_hashes_checked": 17,
+    "artifacts_sha256": {
+      "results.jsonl": "14fc8065fc308fcc4bb547db95452d275bd03f16fdb19a09e4c85ae172cccdfd",
+      "results.games.jsonl": "95b35339770fdeb15e83582f697e4be98f4bc3e1249e924f209dccac5db411e7",
+      "results.manifest.json": "987584fb3ae776df53e9a3ac7b5227dd2c98033bb208e9963253ad8d6eee7a3f"
+    }
+  }
+}

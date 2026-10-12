@@ -1,0 +1,86 @@
+{
+  "candidate_id": "g2-m2-05",
+  "opening_id": 0,
+  "opening_hash": "4d5c3ad63b769ad5f4adfc7fbc6a778094cac0a19b21f39dfc8a0f0bb531efa3",
+  "actor": 1,
+  "legal_actions": [
+    2,
+    3,
+    5
+  ],
+  "action_scores": [
+    {
+      "action": 2,
+      "score": 4.78,
+      "terminal": false,
+      "board": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "captured": [
+        16,
+        24
+      ],
+      "successor_current_player": 0
+    },
+    {
+      "action": 3,
+      "score": 6.0600000000000005,
+      "terminal": false,
+      "board": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "captured": [
+        16,
+        24
+      ],
+      "successor_current_player": 0
+    },
+    {
+      "action": 5,
+      "score": 5.42,
+      "terminal": false,
+      "board": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        2,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "captured": [
+        16,
+        24
+      ],
+      "successor_current_player": 0
+    }
+  ],
+  "chosen_action": 3
+}
