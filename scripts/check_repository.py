@@ -65,6 +65,86 @@ def read_blobs(blobs):
         process.wait()
 
 
+def validate_minimax_publication(content):
+    """Check the published scores against both seats of all 5,000 seed pairs."""
+    prefix = "docs/results/classical_search/corrected_minimax_depths_1_to_5_vs_random/"
+    result_name, csv_name = prefix + "results.json", prefix + "paired_scores.csv"
+    def require(condition, reason):
+        if not condition:
+            raise ValueError(reason)
+    try:
+        require(result_name in content and csv_name in content, "missing-minimax-publication")
+        report = json.loads(content[result_name])
+        contract, verification = report["contract"], report["publication_verification"]
+        require(report["status"] == "completed" and contract["schema_version"] == 2
+                and contract["depths"] == [1, 2, 3, 4, 5] and contract["games_per_depth"] == 10000
+                and contract["master_seed"] == 20261019 and contract["max_actions"] == 1000
+                and contract["terminal_utilities"] == [-1, 0, 1]
+                and -1 < contract["nonterminal_value_bounds"][0] < contract["nonterminal_value_bounds"][1] < 1
+                and verification["games_replayed_and_recounted"] == 50000
+                and verification["intervals_recomputed"], "minimax-protocol-mismatch")
+        sources = {"Algorithms/H_star_ayo.py", "Algorithms/ayo_minimax.py",
+                   "Algorithms/alpha_zero/runtime.py", "Model/ayo_olopon/ayo_olopon.py",
+                   "open_spiel/open_spiel/python/algorithms/minimax.py",
+                   "experiments/minimax_depth_vs_random/rerun_experiment.py"}
+        require(set(contract["code_sha256"]) == sources, "minimax-source-contract-mismatch")
+        for name, expected in contract["code_sha256"].items():
+            data = content.get(name)
+            if data is None and name.startswith("open_spiel/") and (ROOT / name).is_file():
+                data = (ROOT / name).read_bytes()
+            require(data is not None and hashlib.sha256(data).hexdigest() == expected,
+                    "minimax-evaluated-source-mismatch")
+        require(hashlib.sha256(content[csv_name]).hexdigest() == verification["paired_scores_sha256"],
+                "minimax-paired-scores-hash")
+        reader = csv.DictReader(io.StringIO(content[csv_name].decode("utf-8")))
+        require(reader.fieldnames == ["pair_id", "seed"] +
+                [f"depth_{d}_seat_{s}" for d in range(1, 6) for s in (0, 1)], "minimax-score-columns")
+        rows = list(reader)
+        require(len(rows) == 5000 and all(int(row["pair_id"]) == i and int(row["seed"]) == 20261019 + i
+                                        for i, row in enumerate(rows)), "minimax-seed-pair-protocol")
+        require([r["depth"] for r in report["results"]] == [1, 2, 3, 4, 5], "minimax-depth-coverage")
+        pair_means = {}
+        def check_interval(interval, estimate):
+            require(interval["pairs"] == 5000 and interval["resamples"] == 10000
+                    and interval["confidence"] == 0.95 and interval["seed"] == 20261019
+                    and interval["lower"] <= estimate <= interval["upper"], "minimax-interval-contract")
+        for result in report["results"]:
+            depth = result["depth"]
+            seats = [[float(row[f"depth_{depth}_seat_{s}"]) for row in rows] for s in (0, 1)]
+            values = seats[0] + seats[1]
+            require(all(v in (0.0, 0.5, 1.0) for v in values), "minimax-invalid-game-score")
+            require(result["games"] == result["completed_games"] == 10000
+                    and result["unresolved_games"] == 0 and result["seat_counts"] == {"0": 5000, "1": 5000}
+                    and [result[k] for k in ("wins", "draws", "losses")] == [values.count(v) for v in (1, 0.5, 0)]
+                    and result["score_rate"] == sum(values) / 10000
+                    and result["win_rate"] == values.count(1) / 10000
+                    and result["score_rate_bounds"] == [result["score_rate"]] * 2,
+                    "minimax-outcomes-differ-from-paired-scores")
+            check_interval(result["score_interval_95"], result["score_rate"])
+            require(0 <= result["score_interval_95"]["lower"] <= result["score_interval_95"]["upper"] <= 1,
+                    "minimax-score-interval-range")
+            for seat, scores in enumerate(seats):
+                stats = result["by_seat"][str(seat)]
+                require(stats["games"] == 5000 and stats["score_rate"] == sum(scores) / 5000
+                        and [stats[k] for k in ("wins", "draws", "losses")] == [scores.count(v) for v in (1, 0.5, 0)],
+                        "minimax-seat-outcome-mismatch")
+            pair_means[depth] = [(a + b) / 2 for a, b in zip(*seats)]
+        require([(c["reference_depth"], c["comparison_depth"]) for c in report["depth_comparisons"]] ==
+                [(1, 2), (2, 3), (3, 4), (4, 5), (1, 3), (1, 4), (1, 5)], "minimax-depth-comparisons")
+        for comparison in report["depth_comparisons"]:
+            lo, hi = comparison["reference_depth"], comparison["comparison_depth"]
+            difference = sum(b - a for a, b in zip(pair_means[lo], pair_means[hi])) / 5000
+            require(abs(difference - comparison["score_rate_difference"]) < 1e-12, "minimax-paired-difference")
+            check_interval(comparison["paired_interval_95"], difference)
+        require(not any(name.startswith("experiments/minimax_depth_vs_random/results/")
+                        or name.startswith("docs/results/classical_search/classical_minimax_depth_")
+                        or name == "experiments/minimax_depth_vs_random/run_native.cpp" for name in content),
+                "superseded-minimax-artifact")
+    except (ValueError, KeyError, TypeError, IndexError, UnicodeError) as error:
+        return [{"path": result_name, "rule": str(error)}]
+    return []
+
+
 def current(staged):
     entries = {}
     submodules = []
@@ -163,14 +243,11 @@ def current(staged):
     if audit_name in content:
         classical_folders = {
             "greedy_hstar": "classical_greedy_eoh_hstar_vs_random",
-            "minimax_depth_1": "classical_minimax_depth_1_python_vs_random",
-            "minimax_depth_2": "classical_minimax_depth_2_python_vs_random",
-            "minimax_depth_3": "classical_minimax_depth_3_python_vs_random",
-            "minimax_depth_4": "classical_minimax_depth_4_cpp_vs_random",
-            "minimax_depth_5": "classical_minimax_depth_5_cpp_vs_random",
             "mcts_1000": "classical_uct_mcts_1000_simulations_cpp_vs_random",
         }
         audit = json.loads(content[audit_name])["large_benchmarks"]
+        if set(audit) != set(classical_folders):
+            problems.append({"path": audit_name, "rule": "classical-audit-condition-mismatch"})
         for case_id, folder in classical_folders.items():
             result_name = "docs/results/classical_search/" + folder + "/results.json"
             if result_name not in content:
@@ -190,6 +267,8 @@ def current(staged):
                     or stats["score_rate"] != (stats["wins"] + 0.5 * stats["draws"]) / 10000
                     or any(stats[key] != record[key] for key in ("wins", "draws", "losses", "win_rate", "score_rate"))):
                 problems.append({"path": result_name, "rule": "classical-outcome-mismatch"})
+
+    problems.extend(validate_minimax_publication(content))
 
     prefix = "docs/results/checkpoint_progression/"
     if prefix + "results.json" in content:

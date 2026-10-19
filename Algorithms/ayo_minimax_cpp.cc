@@ -35,7 +35,8 @@ double HStarValue(const State& state, Player player) {
       0.80 * (board.score[player] - board.score[other]) +
       0.18 * seed_difference / (1 + total) +
       0.30 * mobility_difference;
-  return std::max(-10.0, std::min(10.0, score));
+  // Match Python H*: nonterminal estimates stay inside terminal +/-1.
+  return std::max(-10.0, std::min(10.0, score)) / 11.0;
 }
 
 }  // namespace

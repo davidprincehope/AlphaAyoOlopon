@@ -66,6 +66,46 @@ class AyoMinimaxTest(absltest.TestCase):
     self.assertGreater(len(result["actions"]), 0)
     self.assertTrue(np.all(np.isfinite(result["returns"])))
 
+  def test_nonterminal_h_star_is_zero_sum_and_inside_terminal_utilities(self):
+    from types import SimpleNamespace
+    for board, captured in (([0] * 6 + [4] * 6, [24, 0]),
+                            ([4] * 6 + [0] * 6, [0, 24]),
+                            ([4] * 12, [0, 0])):
+      state = SimpleNamespace(board=board, captured=captured)
+      value = H_star_ayo.evaluate_state(state, 0)
+      self.assertGreater(value, -1.0)
+      self.assertLess(value, 1.0)
+      self.assertAlmostEqual(value, -H_star_ayo.evaluate_state(state, 1))
+
+  def test_unproven_position_beats_a_proven_loss(self):
+    class Position:
+      board = [2] * 12
+      captured = [0, 24]
+      branch = None
+
+      def clone(self):
+        return copy.copy(self)
+
+      def is_terminal(self):
+        return self.branch == 0
+
+      def player_return(self, player):
+        return -1.0 if player == 0 else 1.0
+
+      def current_player(self):
+        return 0 if self.branch is None else 1
+
+      def legal_actions(self):
+        return [0, 1]
+
+      def apply_action(self, action):
+        self.branch = action
+
+    bot = ayo_minimax.make_bot(pyspiel.load_game("ayo_olopon"), maximum_depth=1)
+    value, action = bot.search(Position())
+    self.assertEqual(action, 1)
+    self.assertGreater(value, -1.0)
+
 
 if __name__ == "__main__":
   absltest.main()

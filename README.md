@@ -74,6 +74,8 @@ Further improvements could be explored by **increasing the model's parameter cou
 
 For context, AlphaZero's Go training in the final 2018 study used **140 million self-play games**, compared with **63,563** in this Ayo run ([Silver et al., Table S3](https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/alphazero-shedding-new-light-on-chess-shogi-and-go/alphazero_preprint.pdf#page=27)). This much larger training scale provides a reason to explore longer self-play training here, while differences between the games and training setups limit direct comparisons of learning efficiency.
 
+The [corrected minimax experiment against random play](docs/results/classical_search/corrected_minimax_depths_1_to_5_vs_random/README.md) uses 10,000 games at each depth, with aligned evaluation scales and zero action-limit outcomes. Score rates at depths 1-5 are **80.14%, 95.30%, 99.34%, 99.14% and 98.94%**. Depth 3 has the highest observed score; increasing depth does not produce monotonic improvement in this benchmark. The report includes paired confidence intervals and verified game scores.
+
 [Experiment reports and provenance](docs/results/README.md) | [Checkpoint progression figures](visualizations/figures/checkpoint_progression/README.md) | [Training loss figures](visualizations/figures/mlp600_training_losses/README.md) | [Classical search results](docs/results/classical_search/README.md)
 
 ## Install

@@ -1,0 +1,795 @@
+{
+  "experiment": "corrected_ayo_minimax_depth_vs_random",
+  "status": "completed",
+  "contract": {
+    "schema_version": 2,
+    "games_per_depth": 10000,
+    "depths": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "master_seed": 20261019,
+    "max_actions": 1000,
+    "game": "ayo_olopon(max_game_length=1000)",
+    "starting_position": "standard_initial_state",
+    "implementation": "Python/OpenSpiel alpha-beta",
+    "depth_unit": "complete player actions (plies)",
+    "evaluator": "Algorithms/H_star_ayo.py:evaluate_state; clip(raw H*, -10, 10) / 11",
+    "nonterminal_value_bounds": [
+      -0.9090909090909091,
+      0.9090909090909091
+    ],
+    "terminal_utilities": [
+      -1,
+      0,
+      1
+    ],
+    "tie_break": "first action in OpenSpiel legal-action order",
+    "seed_protocol": "master_seed + pair_id; same seed for both seats and every depth; Python random.Random.choice",
+    "limit_protocol": "search-visible horizon; internal/external limits unresolved and excluded from W/D/L; full-sample score bounds reported",
+    "code_sha256": {
+      "Algorithms/H_star_ayo.py": "898f5fa183f49878156a0842e367121977387e035ce4e376ae2d54c1013334ea",
+      "Algorithms/ayo_minimax.py": "c3129f4856e51725dd92ad99edbd6bdfd461b2402ab1b9901286e3ff9fd3a9f7",
+      "Algorithms/alpha_zero/runtime.py": "80ec0e8237f447524e70427b757fff0582ca254566c7bae6838d6fc4ee0d9869",
+      "Model/ayo_olopon/ayo_olopon.py": "ffbb6c5fc7d6c94cc46e1d9a59be8a3f88a12288178778c8ca43a5b751e9342d",
+      "open_spiel/open_spiel/python/algorithms/minimax.py": "817456f2f4c106650d0418b94d08cac5cb4e6928c5baa6f8cd22d4e83bf4a3df",
+      "experiments/minimax_depth_vs_random/rerun_experiment.py": "cc21df7dbe7bad74bc526cda92e3cb5ce74e6399cc286ba014b3fd394e9bfce0"
+    },
+    "runtime": {
+      "python": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+      "numpy": "2.5.3",
+      "open_spiel": "2.0.2",
+      "pyspiel_sha256": "deede5e66b94812312c187c22d717c43b11f1fc0c0f243e32bbeaeb12a91a948"
+    }
+  },
+  "results": [
+    {
+      "depth": 1,
+      "games": 10000,
+      "completed_games": 10000,
+      "wins": 7571,
+      "draws": 886,
+      "losses": 1543,
+      "unresolved_games": 0,
+      "win_rate": 0.7571,
+      "score_rate": 0.8014,
+      "completed_only_score_rate": 0.8014,
+      "score_rate_bounds": [
+        0.8014,
+        0.8014
+      ],
+      "seat_counts": {
+        "0": 5000,
+        "1": 5000
+      },
+      "termination_reasons": {
+        "terminal_draw": 886,
+        "terminal_win": 9114
+      },
+      "outcomes_by_termination": {
+        "terminal_draw": {
+          "draw": 886
+        },
+        "terminal_win": {
+          "win": 7571,
+          "loss": 1543
+        }
+      },
+      "average_game_length": 32.3216,
+      "maximum_game_length": 230,
+      "total_minimax_decision_seconds": 340.9355995860533,
+      "total_elapsed_seconds": 366.8560862013255,
+      "by_seat": {
+        "0": {
+          "games": 5000,
+          "completed_games": 5000,
+          "wins": 2816,
+          "draws": 728,
+          "losses": 1456,
+          "unresolved_games": 0,
+          "win_rate": 0.5632,
+          "score_rate": 0.636,
+          "completed_only_score_rate": 0.636,
+          "score_rate_bounds": [
+            0.636,
+            0.636
+          ],
+          "seat_counts": {
+            "0": 5000,
+            "1": 0
+          },
+          "termination_reasons": {
+            "terminal_draw": 728,
+            "terminal_win": 4272
+          },
+          "outcomes_by_termination": {
+            "terminal_draw": {
+              "draw": 728
+            },
+            "terminal_win": {
+              "win": 2816,
+              "loss": 1456
+            }
+          },
+          "average_game_length": 43.891,
+          "maximum_game_length": 230,
+          "total_minimax_decision_seconds": 248.89213568804553,
+          "total_elapsed_seconds": 266.27297859970713
+        },
+        "1": {
+          "games": 5000,
+          "completed_games": 5000,
+          "wins": 4755,
+          "draws": 158,
+          "losses": 87,
+          "unresolved_games": 0,
+          "win_rate": 0.951,
+          "score_rate": 0.9668,
+          "completed_only_score_rate": 0.9668,
+          "score_rate_bounds": [
+            0.9668,
+            0.9668
+          ],
+          "seat_counts": {
+            "0": 0,
+            "1": 5000
+          },
+          "termination_reasons": {
+            "terminal_win": 4842,
+            "terminal_draw": 158
+          },
+          "outcomes_by_termination": {
+            "terminal_draw": {
+              "draw": 158
+            },
+            "terminal_win": {
+              "win": 4755,
+              "loss": 87
+            }
+          },
+          "average_game_length": 20.7522,
+          "maximum_game_length": 163,
+          "total_minimax_decision_seconds": 92.04346389800776,
+          "total_elapsed_seconds": 100.5831076016184
+        }
+      },
+      "verification": {
+        "games_replayed": 10000,
+        "random_seed_actions_checked": true,
+        "complete_swapped_seat_pairs": true
+      },
+      "log_file": "depth_1.games.jsonl",
+      "log_sha256": "16111622f828d9b5dc66838935a06279481469585362c831476a057ca17c37ef",
+      "score_interval_95": {
+        "method": "percentile bootstrap of whole seed/seat pairs",
+        "confidence": 0.95,
+        "resamples": 10000,
+        "pairs": 5000,
+        "seed": 20261019,
+        "lower": 0.79464875,
+        "upper": 0.8081
+      }
+    },
+    {
+      "depth": 2,
+      "games": 10000,
+      "completed_games": 10000,
+      "wins": 9376,
+      "draws": 308,
+      "losses": 316,
+      "unresolved_games": 0,
+      "win_rate": 0.9376,
+      "score_rate": 0.953,
+      "completed_only_score_rate": 0.953,
+      "score_rate_bounds": [
+        0.953,
+        0.953
+      ],
+      "seat_counts": {
+        "0": 5000,
+        "1": 5000
+      },
+      "termination_reasons": {
+        "terminal_win": 9692,
+        "terminal_draw": 308
+      },
+      "outcomes_by_termination": {
+        "terminal_draw": {
+          "draw": 308
+        },
+        "terminal_win": {
+          "win": 9376,
+          "loss": 316
+        }
+      },
+      "average_game_length": 17.6975,
+      "maximum_game_length": 206,
+      "total_minimax_decision_seconds": 361.40133219066774,
+      "total_elapsed_seconds": 373.6682638984057,
+      "by_seat": {
+        "0": {
+          "games": 5000,
+          "completed_games": 5000,
+          "wins": 4386,
+          "draws": 300,
+          "losses": 314,
+          "unresolved_games": 0,
+          "win_rate": 0.8772,
+          "score_rate": 0.9072,
+          "completed_only_score_rate": 0.9072,
+          "score_rate_bounds": [
+            0.9072,
+            0.9072
+          ],
+          "seat_counts": {
+            "0": 5000,
+            "1": 0
+          },
+          "termination_reasons": {
+            "terminal_win": 4700,
+            "terminal_draw": 300
+          },
+          "outcomes_by_termination": {
+            "terminal_draw": {
+              "draw": 300
+            },
+            "terminal_win": {
+              "win": 4386,
+              "loss": 314
+            }
+          },
+          "average_game_length": 23.1206,
+          "maximum_game_length": 206,
+          "total_minimax_decision_seconds": 251.14507239236264,
+          "total_elapsed_seconds": 258.7217197983409
+        },
+        "1": {
+          "games": 5000,
+          "completed_games": 5000,
+          "wins": 4990,
+          "draws": 8,
+          "losses": 2,
+          "unresolved_games": 0,
+          "win_rate": 0.998,
+          "score_rate": 0.9988,
+          "completed_only_score_rate": 0.9988,
+          "score_rate_bounds": [
+            0.9988,
+            0.9988
+          ],
+          "seat_counts": {
+            "0": 0,
+            "1": 5000
+          },
+          "termination_reasons": {
+            "terminal_win": 4992,
+            "terminal_draw": 8
+          },
+          "outcomes_by_termination": {
+            "terminal_draw": {
+              "draw": 8
+            },
+            "terminal_win": {
+              "win": 4990,
+              "loss": 2
+            }
+          },
+          "average_game_length": 12.2744,
+          "maximum_game_length": 132,
+          "total_minimax_decision_seconds": 110.25625979830511,
+          "total_elapsed_seconds": 114.94654410006478
+        }
+      },
+      "verification": {
+        "games_replayed": 10000,
+        "random_seed_actions_checked": true,
+        "complete_swapped_seat_pairs": true
+      },
+      "log_file": "depth_2.games.jsonl",
+      "log_sha256": "a3e213010a3e22c6ef299921682c1752cbb71a326e9b94d3dc3bf1491c214c1d",
+      "score_interval_95": {
+        "method": "percentile bootstrap of whole seed/seat pairs",
+        "confidence": 0.95,
+        "resamples": 10000,
+        "pairs": 5000,
+        "seed": 20261019,
+        "lower": 0.94925,
+        "upper": 0.9566
+      }
+    },
+    {
+      "depth": 3,
+      "games": 10000,
+      "completed_games": 10000,
+      "wins": 9889,
+      "draws": 90,
+      "losses": 21,
+      "unresolved_games": 0,
+      "win_rate": 0.9889,
+      "score_rate": 0.9934,
+      "completed_only_score_rate": 0.9934,
+      "score_rate_bounds": [
+        0.9934,
+        0.9934
+      ],
+      "seat_counts": {
+        "0": 5000,
+        "1": 5000
+      },
+      "termination_reasons": {
+        "terminal_win": 9910,
+        "terminal_draw": 90
+      },
+      "outcomes_by_termination": {
+        "terminal_draw": {
+          "draw": 90
+        },
+        "terminal_win": {
+          "win": 9889,
+          "loss": 21
+        }
+      },
+      "average_game_length": 17.4504,
+      "maximum_game_length": 185,
+      "total_minimax_decision_seconds": 1079.4787237009732,
+      "total_elapsed_seconds": 1093.2204931986635,
+      "by_seat": {
+        "0": {
+          "games": 5000,
+          "completed_games": 5000,
+          "wins": 4891,
+          "draws": 89,
+          "losses": 20,
+          "unresolved_games": 0,
+          "win_rate": 0.9782,
+          "score_rate": 0.9871,
+          "completed_only_score_rate": 0.9871,
+          "score_rate_bounds": [
+            0.9871,
+            0.9871
+          ],
+          "seat_counts": {
+            "0": 5000,
+            "1": 0
+          },
+          "termination_reasons": {
+            "terminal_win": 4911,
+            "terminal_draw": 89
+          },
+          "outcomes_by_termination": {
+            "terminal_draw": {
+              "draw": 89
+            },
+            "terminal_win": {
+              "win": 4891,
+              "loss": 20
+            }
+          },
+          "average_game_length": 23.2532,
+          "maximum_game_length": 185,
+          "total_minimax_decision_seconds": 749.4124928016681,
+          "total_elapsed_seconds": 758.0553825987736
+        },
+        "1": {
+          "games": 5000,
+          "completed_games": 5000,
+          "wins": 4998,
+          "draws": 1,
+          "losses": 1,
+          "unresolved_games": 0,
+          "win_rate": 0.9996,
+          "score_rate": 0.9997,
+          "completed_only_score_rate": 0.9997,
+          "score_rate_bounds": [
+            0.9997,
+            0.9997
+          ],
+          "seat_counts": {
+            "0": 0,
+            "1": 5000
+          },
+          "termination_reasons": {
+            "terminal_win": 4999,
+            "terminal_draw": 1
+          },
+          "outcomes_by_termination": {
+            "terminal_draw": {
+              "draw": 1
+            },
+            "terminal_win": {
+              "win": 4998,
+              "loss": 1
+            }
+          },
+          "average_game_length": 11.6476,
+          "maximum_game_length": 172,
+          "total_minimax_decision_seconds": 330.0662308993051,
+          "total_elapsed_seconds": 335.1651105998899
+        }
+      },
+      "verification": {
+        "games_replayed": 10000,
+        "random_seed_actions_checked": true,
+        "complete_swapped_seat_pairs": true
+      },
+      "log_file": "depth_3.games.jsonl",
+      "log_sha256": "d13fd94e6c9f5413ef68f71b2479d98be72c0d8802d804758cd4a91459414abf",
+      "score_interval_95": {
+        "method": "percentile bootstrap of whole seed/seat pairs",
+        "confidence": 0.95,
+        "resamples": 10000,
+        "pairs": 5000,
+        "seed": 20261019,
+        "lower": 0.9921,
+        "upper": 0.99465
+      }
+    },
+    {
+      "depth": 4,
+      "games": 10000,
+      "completed_games": 10000,
+      "wins": 9841,
+      "draws": 146,
+      "losses": 13,
+      "unresolved_games": 0,
+      "win_rate": 0.9841,
+      "score_rate": 0.9914,
+      "completed_only_score_rate": 0.9914,
+      "score_rate_bounds": [
+        0.9914,
+        0.9914
+      ],
+      "seat_counts": {
+        "0": 5000,
+        "1": 5000
+      },
+      "termination_reasons": {
+        "terminal_win": 9854,
+        "terminal_draw": 146
+      },
+      "outcomes_by_termination": {
+        "terminal_draw": {
+          "draw": 146
+        },
+        "terminal_win": {
+          "win": 9841,
+          "loss": 13
+        }
+      },
+      "average_game_length": 17.3205,
+      "maximum_game_length": 159,
+      "total_minimax_decision_seconds": 1820.5606649915571,
+      "total_elapsed_seconds": 1831.5570754981018,
+      "by_seat": {
+        "0": {
+          "games": 5000,
+          "completed_games": 5000,
+          "wins": 4845,
+          "draws": 142,
+          "losses": 13,
+          "unresolved_games": 0,
+          "win_rate": 0.969,
+          "score_rate": 0.9832,
+          "completed_only_score_rate": 0.9832,
+          "score_rate_bounds": [
+            0.9832,
+            0.9832
+          ],
+          "seat_counts": {
+            "0": 5000,
+            "1": 0
+          },
+          "termination_reasons": {
+            "terminal_win": 4858,
+            "terminal_draw": 142
+          },
+          "outcomes_by_termination": {
+            "terminal_draw": {
+              "draw": 142
+            },
+            "terminal_win": {
+              "win": 4845,
+              "loss": 13
+            }
+          },
+          "average_game_length": 23.4984,
+          "maximum_game_length": 159,
+          "total_minimax_decision_seconds": 1305.160549097287,
+          "total_elapsed_seconds": 1312.3976628016098
+        },
+        "1": {
+          "games": 5000,
+          "completed_games": 5000,
+          "wins": 4996,
+          "draws": 4,
+          "losses": 0,
+          "unresolved_games": 0,
+          "win_rate": 0.9992,
+          "score_rate": 0.9996,
+          "completed_only_score_rate": 0.9996,
+          "score_rate_bounds": [
+            0.9996,
+            0.9996
+          ],
+          "seat_counts": {
+            "0": 0,
+            "1": 5000
+          },
+          "termination_reasons": {
+            "terminal_win": 4996,
+            "terminal_draw": 4
+          },
+          "outcomes_by_termination": {
+            "terminal_draw": {
+              "draw": 4
+            },
+            "terminal_win": {
+              "win": 4996
+            }
+          },
+          "average_game_length": 11.1426,
+          "maximum_game_length": 102,
+          "total_minimax_decision_seconds": 515.4001158942701,
+          "total_elapsed_seconds": 519.1594126964919
+        }
+      },
+      "verification": {
+        "games_replayed": 10000,
+        "random_seed_actions_checked": true,
+        "complete_swapped_seat_pairs": true
+      },
+      "log_file": "depth_4.games.jsonl",
+      "log_sha256": "395031eac6734fb4fc20d00f75b377d096c86f0043fb6ad8ae419fed4b15395e",
+      "score_interval_95": {
+        "method": "percentile bootstrap of whole seed/seat pairs",
+        "confidence": 0.95,
+        "resamples": 10000,
+        "pairs": 5000,
+        "seed": 20261019,
+        "lower": 0.99,
+        "upper": 0.99275
+      }
+    },
+    {
+      "depth": 5,
+      "games": 10000,
+      "completed_games": 10000,
+      "wins": 9838,
+      "draws": 112,
+      "losses": 50,
+      "unresolved_games": 0,
+      "win_rate": 0.9838,
+      "score_rate": 0.9894,
+      "completed_only_score_rate": 0.9894,
+      "score_rate_bounds": [
+        0.9894,
+        0.9894
+      ],
+      "seat_counts": {
+        "0": 5000,
+        "1": 5000
+      },
+      "termination_reasons": {
+        "terminal_draw": 112,
+        "terminal_win": 9888
+      },
+      "outcomes_by_termination": {
+        "terminal_draw": {
+          "draw": 112
+        },
+        "terminal_win": {
+          "win": 9838,
+          "loss": 50
+        }
+      },
+      "average_game_length": 14.0194,
+      "maximum_game_length": 146,
+      "total_minimax_decision_seconds": 3604.064939899661,
+      "total_elapsed_seconds": 3614.502811699873,
+      "by_seat": {
+        "0": {
+          "games": 5000,
+          "completed_games": 5000,
+          "wins": 4854,
+          "draws": 96,
+          "losses": 50,
+          "unresolved_games": 0,
+          "win_rate": 0.9708,
+          "score_rate": 0.9804,
+          "completed_only_score_rate": 0.9804,
+          "score_rate_bounds": [
+            0.9804,
+            0.9804
+          ],
+          "seat_counts": {
+            "0": 5000,
+            "1": 0
+          },
+          "termination_reasons": {
+            "terminal_draw": 96,
+            "terminal_win": 4904
+          },
+          "outcomes_by_termination": {
+            "terminal_draw": {
+              "draw": 96
+            },
+            "terminal_win": {
+              "win": 4854,
+              "loss": 50
+            }
+          },
+          "average_game_length": 16.5278,
+          "maximum_game_length": 146,
+          "total_minimax_decision_seconds": 2203.6633760009427,
+          "total_elapsed_seconds": 2209.6954064997262
+        },
+        "1": {
+          "games": 5000,
+          "completed_games": 5000,
+          "wins": 4984,
+          "draws": 16,
+          "losses": 0,
+          "unresolved_games": 0,
+          "win_rate": 0.9968,
+          "score_rate": 0.9984,
+          "completed_only_score_rate": 0.9984,
+          "score_rate_bounds": [
+            0.9984,
+            0.9984
+          ],
+          "seat_counts": {
+            "0": 0,
+            "1": 5000
+          },
+          "termination_reasons": {
+            "terminal_win": 4984,
+            "terminal_draw": 16
+          },
+          "outcomes_by_termination": {
+            "terminal_draw": {
+              "draw": 16
+            },
+            "terminal_win": {
+              "win": 4984
+            }
+          },
+          "average_game_length": 11.511,
+          "maximum_game_length": 76,
+          "total_minimax_decision_seconds": 1400.4015638987185,
+          "total_elapsed_seconds": 1404.8074052001466
+        }
+      },
+      "verification": {
+        "games_replayed": 10000,
+        "random_seed_actions_checked": true,
+        "complete_swapped_seat_pairs": true
+      },
+      "log_file": "depth_5.games.jsonl",
+      "log_sha256": "bcc3b6afa2d582fdc98e8c826dce291e22677a67d4ce713b6797993900008012",
+      "score_interval_95": {
+        "method": "percentile bootstrap of whole seed/seat pairs",
+        "confidence": 0.95,
+        "resamples": 10000,
+        "pairs": 5000,
+        "seed": 20261019,
+        "lower": 0.98765,
+        "upper": 0.99105
+      }
+    }
+  ],
+  "depth_comparisons": [
+    {
+      "reference_depth": 1,
+      "comparison_depth": 2,
+      "score_rate_difference": 0.1516,
+      "paired_interval_95": {
+        "method": "percentile bootstrap of whole seed/seat pairs",
+        "confidence": 0.95,
+        "resamples": 10000,
+        "pairs": 5000,
+        "seed": 20261019,
+        "lower": 0.14384875,
+        "upper": 0.15925124999999998
+      }
+    },
+    {
+      "reference_depth": 2,
+      "comparison_depth": 3,
+      "score_rate_difference": 0.0404,
+      "paired_interval_95": {
+        "method": "percentile bootstrap of whole seed/seat pairs",
+        "confidence": 0.95,
+        "resamples": 10000,
+        "pairs": 5000,
+        "seed": 20261019,
+        "lower": 0.0365,
+        "upper": 0.04435
+      }
+    },
+    {
+      "reference_depth": 3,
+      "comparison_depth": 4,
+      "score_rate_difference": -0.002,
+      "paired_interval_95": {
+        "method": "percentile bootstrap of whole seed/seat pairs",
+        "confidence": 0.95,
+        "resamples": 10000,
+        "pairs": 5000,
+        "seed": 20261019,
+        "lower": -0.0039,
+        "upper": -0.0001
+      }
+    },
+    {
+      "reference_depth": 4,
+      "comparison_depth": 5,
+      "score_rate_difference": -0.002,
+      "paired_interval_95": {
+        "method": "percentile bootstrap of whole seed/seat pairs",
+        "confidence": 0.95,
+        "resamples": 10000,
+        "pairs": 5000,
+        "seed": 20261019,
+        "lower": -0.0042,
+        "upper": 0.00015
+      }
+    },
+    {
+      "reference_depth": 1,
+      "comparison_depth": 3,
+      "score_rate_difference": 0.192,
+      "paired_interval_95": {
+        "method": "percentile bootstrap of whole seed/seat pairs",
+        "confidence": 0.95,
+        "resamples": 10000,
+        "pairs": 5000,
+        "seed": 20261019,
+        "lower": 0.1854,
+        "upper": 0.1987
+      }
+    },
+    {
+      "reference_depth": 1,
+      "comparison_depth": 4,
+      "score_rate_difference": 0.19,
+      "paired_interval_95": {
+        "method": "percentile bootstrap of whole seed/seat pairs",
+        "confidence": 0.95,
+        "resamples": 10000,
+        "pairs": 5000,
+        "seed": 20261019,
+        "lower": 0.1832,
+        "upper": 0.1968
+      }
+    },
+    {
+      "reference_depth": 1,
+      "comparison_depth": 5,
+      "score_rate_difference": 0.188,
+      "paired_interval_95": {
+        "method": "percentile bootstrap of whole seed/seat pairs",
+        "confidence": 0.95,
+        "resamples": 10000,
+        "pairs": 5000,
+        "seed": 20261019,
+        "lower": 0.18095,
+        "upper": 0.195
+      }
+    }
+  ],
+  "inference_scope": "standard start against uniform random; depth is not a runtime budget; intervals are individual, not multiplicity-adjusted",
+  "publication_verification": {
+    "source_run": "runs/minimax_depth_vs_random/corrected-20261019",
+    "started_at_utc": "2026-10-19T12:36:07.839433+00:00",
+    "finished_at_utc": "2026-10-19T13:16:55.888924+00:00",
+    "source_results_sha256": "a3a44926c9bcb1158801d2066de6f227dffe8980f7c77ef28c952f4c7ee56f09",
+    "source_manifest_sha256": "f9ab11d6fcc914d5a7a981ec566eae1f46837fdd5af7d43b050beba6e33754ba",
+    "exporter_sha256": "10840200278b74b1fe207adec34402d6e5c60db93f188de193eee5613cba63ad",
+    "games_replayed_and_recounted": 50000,
+    "intervals_recomputed": true,
+    "paired_scores_sha256": "ae1d6a4cb8768f18c3920f3fee0feae4b1afd71bd3a4272eb544ea425860188e"
+  }
+}

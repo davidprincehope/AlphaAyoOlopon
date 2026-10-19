@@ -23,7 +23,7 @@
     "implementation": "C++",
     "sources": {
       "experiments/mcts_vs_random/results/mcts_uct_1000sims_games_10000_cpp_summary.json": "935e1ab4cf261a13c943bbaba4db75913b3b1d11fe39022cb60cd85b3e9f4f27",
-      "docs/results/classical_search/source_audit/source_audit.json": "521f8af307ba3b836ef3bd7c94f51d227d086ff6d7a942ae00113410a4d7ae84"
+      "docs/results/classical_search/source_audit/source_audit.json": "2c7109e17dc3c8641c54cb1bf27277ad3ea6c0743e4bca5be15e8f1cde7c9c65"
     },
     "saved_recount": {
       "log": "experiments/mcts_vs_random/results/mcts_uct_1000sims_games_10000_cpp.jsonl",
